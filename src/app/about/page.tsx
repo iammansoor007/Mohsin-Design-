@@ -1,12 +1,13 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import {
   ArrowRight,
   Play,
   Check,
+  Plus,
   Compass,
   Eye,
   Target,
@@ -42,6 +43,7 @@ import {
   Lightbulb,
   Briefcase,
   Handshake,
+  Video,
   Headphones,
   Award,
   ChevronLeft,
@@ -126,10 +128,35 @@ const DigitTicker = ({ value }: { value: number }) => {
 
 export default function AboutPage() {
   const { aboutOwner } = content;
+  const [cardTilt, setCardTilt] = useState({ idx: null as number | null, x: 0, y: 0 });
+  const [spotlightPos, setSpotlightPos] = useState({ x: 0, y: 0, cardIdx: null as number | null });
+  const [activeService, setActiveService] = useState(0);
+  const [activeAccordion, setActiveAccordion] = useState<number | null>(0);
+  const [hoveredService, setHoveredService] = useState<number | null>(0);
+  const [serviceMousePos, setServiceMousePos] = useState({ x: 0, y: 0 });
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        const scrolled = -rect.top;
+        const totalHeight = rect.height - window.innerHeight;
+        if (totalHeight > 0) {
+          const progress = Math.max(0, Math.min(1, scrolled / totalHeight));
+          setScrollProgress(progress);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
-      <main className="flex-1 w-full bg-white dark:bg-[#080710] text-brand-dark dark:text-white transition-colors duration-300 relative overflow-hidden">
+      <main className="flex-1 w-full bg-white dark:bg-[#080710] text-brand-dark dark:text-white transition-colors duration-300 relative overflow-x-clip">
 
         {/* Awwwards-Level Floating Blurred Mesh Blobs */}
         <div className="absolute top-[3%] left-[-15%] w-[50vw] h-[50vw] rounded-full bg-[#0306AC]/[0.03] dark:bg-[#0306AC]/[0.06] blur-[120px] pointer-events-none select-none -z-10 animate-float-blob" />
@@ -560,255 +587,592 @@ export default function AboutPage() {
 
                 </motion.div>
               </div>
-
             </div>
           </div>
         </section>
 
-        {/* ── 4. MISSION & VISION SECTION (Horizontal metrics layouts) ──────── */}
-        <section className="relative overflow-hidden py-16 md:py-20 border-b border-brand-zinc-200 dark:border-white/10 bg-zinc-50/50 dark:bg-white/[0.005]">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
+        {/* ── 4. MISSION & VISION SECTION (Ultra-Advanced Alternating Editorial Split) ──────── */}
+        <section 
+          ref={sectionRef} 
+          className="relative overflow-hidden py-28 sm:py-36 border-b border-brand-zinc-200 dark:border-white/10 bg-white dark:bg-[#080710] transition-colors duration-300"
+        >
+          {/* Architectural grid background overlay */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808007_1px,transparent_1px),linear-gradient(to_bottom,#80808007_1px,transparent_1px)] bg-[size:48px_48px] pointer-events-none -z-10" />
 
-            {/* Main wrapper container */}
-            <div className="w-full bg-[#F8FAFC]/80 dark:bg-[#12121e]/40 rounded-[32px] border border-brand-zinc-200 dark:border-white/10 p-6 md:p-8 relative flex flex-col lg:flex-row gap-8 lg:gap-12 items-stretch justify-between shadow-sm">
+          {/* Drifting ambient background color orbs */}
+          <div className="absolute top-[15%] left-[-10%] w-[45vw] h-[45vw] rounded-full bg-[#0306AC]/[0.03] dark:bg-[#0306AC]/0.05 blur-[140px] pointer-events-none -z-10 animate-float-blob" />
+          <div className="absolute bottom-[15%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-[#E9BD36]/[0.02] dark:bg-[#E9BD36]/0.04 blur-[150px] pointer-events-none -z-10 animate-float-blob-delayed" />
 
-              {/* Corner Grid decorations */}
-              <div className="absolute left-0 bottom-0 w-[60px] h-[60px] pointer-events-none opacity-25 bg-grid-blue-8 [background-size:10px_10px] z-0" />
-              <div className="absolute right-0 top-0 w-[60px] h-[60px] pointer-events-none opacity-25 bg-grid-yellow-8 [background-size:10px_10px] z-0" />
-
-              {/* Floating arrow connector */}
-              <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-9 w-9 rounded-full bg-[#0306AC] text-white items-center justify-center z-20 shadow-md border border-white/10">
-                <ArrowRight className="h-4.5 w-4.5" />
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10 space-y-28 sm:space-y-40">
+            
+            {/* Header Block */}
+            <div className="text-left max-w-2xl">
+              <div className="inline-flex items-center gap-2 rounded-full bg-[#0306AC]/5 dark:bg-white/5 border border-[#0306AC]/10 dark:border-white/10 px-4 py-1.5 text-[9px] font-mono tracking-widest text-[#0306AC] dark:text-[#E9BD36] font-black uppercase mb-4">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0306AC] dark:bg-[#E9BD36] opacity-75" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#0306AC] dark:bg-[#E9BD36]" />
+                </span>
+                PHILOSOPHY // CONVICTIONS
               </div>
-
-              {/* Card Left: Our Mission */}
-              <div className="flex-1 w-full bg-white dark:bg-[#12121e] rounded-2xl border-l-4 border-l-[#0306AC] border border-brand-zinc-200 dark:border-white/5 p-6 shadow-sm flex flex-col justify-between min-h-[220px] z-10 hover:border-brand-blue/30 transition-colors">
-                <div className="flex gap-4 items-start">
-                  <div className="h-12 w-12 rounded-xl bg-brand-blue/5 flex items-center justify-center text-brand-blue shrink-0 border border-brand-blue/10">
-                    <Target className="h-6 w-6" />
-                  </div>
-                  <div className="space-y-1.5 flex-1">
-                    <span className="text-[10px] font-sans font-black tracking-widest text-[#0306AC] uppercase block">OUR MISSION</span>
-                    <p className="text-[11.5px] font-normal text-brand-zinc-500 leading-relaxed">
-                      To empower businesses with smart digital strategies and innovative solutions that drive measurable growth and long-term success.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Horizontal divider */}
-                <div className="w-full h-px bg-brand-zinc-150 dark:bg-white/5 my-4.5" />
-
-                {/* 3 Stats */}
-                <div className="flex items-center justify-between gap-2 px-1">
-                  <div className="flex items-center gap-2">
-                    <div className="h-7 w-7 rounded-full bg-[#0306AC]/5 flex items-center justify-center text-[#0306AC] shrink-0 border border-[#0306AC]/10">
-                      <Users className="h-3.5 w-3.5" />
-                    </div>
-                    <div>
-                      <span className="block font-heading font-black text-xs text-brand-dark dark:text-white leading-none">300+</span>
-                      <span className="block text-[7px] font-bold text-[#6B7280] uppercase tracking-wide mt-0.5">Happy Clients</span>
-                    </div>
-                  </div>
-                  <div className="w-px h-6 bg-brand-zinc-200 dark:bg-white/5" />
-                  <div className="flex items-center gap-2">
-                    <div className="h-7 w-7 rounded-full bg-[#0306AC]/5 flex items-center justify-center text-[#0306AC] shrink-0 border border-[#0306AC]/10">
-                      <FolderClosed className="h-3.5 w-3.5" />
-                    </div>
-                    <div>
-                      <span className="block font-heading font-black text-xs text-brand-dark dark:text-white leading-none">250+</span>
-                      <span className="block text-[7px] font-bold text-[#6B7280] uppercase tracking-wide mt-0.5">Projects Completed</span>
-                    </div>
-                  </div>
-                  <div className="w-px h-6 bg-brand-zinc-200 dark:bg-white/5" />
-                  <div className="flex items-center gap-2">
-                    <div className="h-7 w-7 rounded-full bg-[#0306AC]/5 flex items-center justify-center text-[#0306AC] shrink-0 border border-[#0306AC]/10">
-                      <Globe className="h-3.5 w-3.5" />
-                    </div>
-                    <div>
-                      <span className="block font-heading font-black text-xs text-brand-dark dark:text-white leading-none">20+</span>
-                      <span className="block text-[7px] font-bold text-[#6B7280] uppercase tracking-wide mt-0.5">Countries Served</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Card Right: Our Vision */}
-              <div className="flex-1 w-full bg-white dark:bg-[#12121e] rounded-2xl border-r-4 border-r-[#E9BD36] border border-brand-zinc-200 dark:border-white/5 p-6 shadow-sm flex flex-col justify-between min-h-[220px] z-10 hover:border-brand-blue/30 transition-colors">
-                <div className="flex gap-4 items-start">
-                  <div className="space-y-1.5 flex-1">
-                    <span className="text-[10px] font-sans font-black tracking-widest text-[#0306AC] dark:text-[#E9BD36] uppercase block">OUR VISION</span>
-                    <p className="text-[11.5px] font-normal text-brand-zinc-500 leading-relaxed">
-                      To be a global leader in digital innovation, transforming ideas into impactful digital experiences that shape the future.
-                    </p>
-                  </div>
-                  <div className="h-12 w-12 rounded-xl bg-amber-50/50 dark:bg-white/5 flex items-center justify-center text-brand-yellow shrink-0 border border-brand-yellow/10">
-                    <Eye className="h-6 w-6" />
-                  </div>
-                </div>
-
-                {/* Horizontal divider */}
-                <div className="w-full h-px bg-brand-zinc-150 dark:bg-white/5 my-4.5" />
-
-                {/* 3 Stats */}
-                <div className="flex items-center justify-between gap-2 px-1">
-                  <div className="flex items-center gap-2">
-                    <div className="h-7 w-7 rounded-full bg-[#E9BD36]/10 flex items-center justify-center text-[#E9BD36] shrink-0 border border-[#E9BD36]/20">
-                      <Star className="h-3.5 w-3.5" fill="currentColor" />
-                    </div>
-                    <div>
-                      <span className="block font-heading font-black text-xs text-brand-dark dark:text-white leading-none">98%</span>
-                      <span className="block text-[7px] font-bold text-[#6B7280] uppercase tracking-wide mt-0.5">Client Satisfaction</span>
-                    </div>
-                  </div>
-                  <div className="w-px h-6 bg-brand-zinc-200 dark:bg-white/5" />
-                  <div className="flex items-center gap-2">
-                    <div className="h-7 w-7 rounded-full bg-[#E9BD36]/10 flex items-center justify-center text-[#E9BD36] shrink-0 border border-[#E9BD36]/20">
-                      <TrendingUp className="h-3.5 w-3.5" />
-                    </div>
-                    <div>
-                      <span className="block font-heading font-black text-xs text-brand-dark dark:text-white leading-none">2.4M+</span>
-                      <span className="block text-[7px] font-bold text-[#6B7280] uppercase tracking-wide mt-0.5">Revenue Impact</span>
-                    </div>
-                  </div>
-                  <div className="w-px h-6 bg-brand-zinc-200 dark:bg-white/5" />
-                  <div className="flex items-center gap-2">
-                    <div className="h-7 w-7 rounded-full bg-[#E9BD36]/10 flex items-center justify-center text-[#E9BD36] shrink-0 border border-[#E9BD36]/20">
-                      <Rocket className="h-3.5 w-3.5" />
-                    </div>
-                    <div>
-                      <span className="block font-heading font-black text-xs text-brand-dark dark:text-white leading-none">100%</span>
-                      <span className="block text-[7px] font-bold text-[#6B7280] uppercase tracking-wide mt-0.5">Commitment</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </section>
-
-        {/* ── 5. OUR SERVICES SECTION ─────────────────────────────────── */}
-        <section className="relative overflow-hidden py-16 md:py-20 border-b border-brand-zinc-200 dark:border-white/10 bg-white dark:bg-[#080710]">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
-
-            <div className="text-center mb-12 flex flex-col items-center">
-              <span className="text-[10px] font-sans font-black tracking-widest text-[#0306AC] uppercase block mb-1">
-                OUR SERVICES
-              </span>
-              <div className="h-0.5 w-6 bg-[#E9BD36] mb-3" />
-              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-brand-dark dark:text-white tracking-tight pt-1">
-                Solutions That Drive <span className="text-[#0306AC] dark:text-[#E9BD36]">Real Growth</span>
+              <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.05]">
+                Our Strategic <br />
+                <span className="text-[#0306AC] dark:text-[#E9BD36] italic font-serif font-light">Foundation.</span>
               </h2>
-              <p className="text-xs text-brand-zinc-500 font-normal font-sans leading-relaxed max-w-lg mt-3">
-                We offer end-to-end digital solutions designed to help your brand stand out, attract the right audience, and achieve measurable success.
-              </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-5">
-
-              {/* Service Card 1 */}
-              <div className="p-5 rounded-2xl glass-card-premium relative overflow-hidden group hover:border-[#0306AC] dark:hover:border-[#E9BD36] flex flex-col h-[230px]">
-                <div className="h-10 w-10 rounded-xl bg-[#0306AC]/5 dark:bg-white/5 flex items-center justify-center text-[#0306AC] dark:text-[#E9BD36] shrink-0 border border-[#0306AC]/10">
-                  <Palette className="h-5 w-5" />
-                </div>
-                <div className="h-[2px] w-4 bg-[#0306AC] mt-3.5 mb-2" />
-                <div className="space-y-1">
-                  <h3 className="font-heading font-bold text-xs sm:text-[13px] text-brand-dark dark:text-white leading-snug tracking-tight">Brand Identity Design</h3>
-                  <p className="text-[10px] font-normal text-brand-zinc-500 leading-relaxed">Crafting memorable brand identities that reflect your values and leave a lasting impact.</p>
-                </div>
-                <div className="flex justify-end pt-4.5 mt-auto">
-                  <div className="h-6 w-6 rounded-full bg-zinc-100 dark:bg-white/5 flex items-center justify-center text-zinc-400 group-hover:bg-[#0306AC] group-hover:text-white transition-all duration-300">
-                    <ArrowRight className="h-3.5 w-3.5" />
+            {/* Alternating Grid Rows */}
+            <div className="space-y-32 sm:space-y-44">
+              
+              {/* Row 1: Mission */}
+              <motion.div 
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center group"
+              >
+                <div className="lg:col-span-5 flex flex-col justify-center space-y-6 text-left order-2 lg:order-1">
+                  <div className="flex items-center gap-4">
+                    <span className="font-serif italic text-5xl sm:text-6xl font-black text-brand-zinc-200 dark:text-white/10 group-hover:text-[#0306AC] dark:group-hover:text-[#E9BD36] transition-colors duration-500 leading-none select-none">
+                      01
+                    </span>
+                    <div className="h-[1px] w-8 bg-[#0306AC]/20 dark:bg-white/10" />
+                    <span className="text-[8.5px] font-mono tracking-widest text-[#0306AC] dark:text-[#E9BD36] font-black uppercase">
+                      // OUR MISSION
+                    </span>
                   </div>
+
+                  <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-black text-brand-dark dark:text-white leading-[1.15] tracking-tight">
+                    We engineer digital architectures that multiply commercial <span className="font-serif italic text-[#0306AC] dark:text-[#E9BD36] font-light">authority.</span>
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-brand-zinc-550 dark:text-zinc-400 font-sans leading-relaxed">
+                    To empower organizations with strategy-led Next.js configurations and conversion-focused design systems that scale organic visibility and brand value.
+                  </p>
+
+                  {/* Editorial Quote Callout */}
+                  <div className="pl-4 border-l-2 border-[#0306AC] dark:border-[#E9BD36] italic text-xs font-serif text-brand-dark dark:text-zinc-200 py-0.5">
+                    "We build software meant to dominate digital markets, not just exist online."
+                  </div>
+
+                  <div className="pt-2 flex flex-wrap gap-2">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-zinc-50 dark:bg-white/5 border border-brand-zinc-200/60 dark:border-white/10 px-3.5 py-1 text-[8.5px] font-mono font-bold text-brand-zinc-600 dark:text-zinc-400 uppercase tracking-wider">
+                      <Code className="h-3 w-3 text-[#0306AC] dark:text-[#E9BD36]" />
+                      Custom Next.js
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-zinc-50 dark:bg-white/5 border border-brand-zinc-200/60 dark:border-white/10 px-3.5 py-1 text-[8.5px] font-mono font-bold text-brand-zinc-600 dark:text-zinc-400 uppercase tracking-wider">
+                      <Rocket className="h-3 w-3 text-[#0306AC] dark:text-[#E9BD36]" />
+                      High-Velocity Load
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-zinc-50 dark:bg-white/5 border border-brand-zinc-200/60 dark:border-white/10 px-3.5 py-1 text-[8.5px] font-mono font-bold text-brand-zinc-600 dark:text-zinc-400 uppercase tracking-wider">
+                      <Globe className="h-3 w-3 text-[#0306AC] dark:text-[#E9BD36]" />
+                      Organic SEO
+                    </span>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-7 order-1 lg:order-2">
+                  <div className="aspect-[1.45] w-full rounded-[32px] overflow-hidden border border-brand-zinc-200/80 dark:border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.03)] dark:shadow-[0_30px_90px_rgba(0,0,0,0.45)] group-hover:shadow-[0_30px_90px_rgba(3,6,172,0.2)] dark:group-hover:shadow-[0_30px_90px_rgba(233,189,54,0.15)] transition-all duration-700 group relative bg-[#090812]">
+                    <img 
+                      src="/agency_ui_detail.png" 
+                      alt="Our Mission Graphic"
+                      className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 pointer-events-none"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-tr from-[#0306AC]/15 via-transparent to-transparent mix-blend-overlay" />
+
+                    {/* Corner Crosshairs */}
+                    <span className="absolute top-3.5 left-4 text-[10px] font-mono text-white/30 pointer-events-none select-none">+</span>
+                    <span className="absolute top-3.5 right-4 text-[10px] font-mono text-white/30 pointer-events-none select-none">+</span>
+                    <span className="absolute bottom-3.5 left-4 text-[10px] font-mono text-white/30 pointer-events-none select-none">+</span>
+                    <span className="absolute bottom-3.5 right-4 text-[10px] font-mono text-white/30 pointer-events-none select-none">+</span>
+
+                    {/* Top-Right Telemetry Badge Overlay */}
+                    <div className="absolute top-5 right-5 bg-black/70 backdrop-blur-md border border-white/15 px-4 py-2 rounded-2xl flex items-center gap-3 shadow-xl select-none">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+                      </span>
+                      <span className="text-[8.5px] font-mono font-black text-white uppercase tracking-wider">
+                        LATENCY // 12ms
+                      </span>
+                    </div>
+
+                    {/* Bottom-Left Core Vital Metric Overlay */}
+                    <div className="absolute bottom-5 left-5 bg-black/70 backdrop-blur-md border border-white/15 px-4 py-2 rounded-2xl flex items-center gap-3 shadow-xl select-none">
+                      <span className="text-[8.5px] font-mono font-black text-[#E9BD36] uppercase tracking-wider">
+                        PERFORMANCE // 99.4%
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Row 2: Vision */}
+              <motion.div 
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center group"
+              >
+                <div className="lg:col-span-7">
+                  <div className="aspect-[1.45] w-full rounded-[32px] overflow-hidden border border-brand-zinc-200/80 dark:border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.03)] dark:shadow-[0_30px_90px_rgba(0,0,0,0.45)] group-hover:shadow-[0_30px_90px_rgba(3,6,172,0.2)] dark:group-hover:shadow-[0_30px_90px_rgba(233,189,54,0.15)] transition-all duration-700 group relative bg-[#090812]">
+                    <img 
+                      src="/agency_workspace.png" 
+                      alt="Our Vision Graphic"
+                      className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 pointer-events-none"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-tr from-[#0306AC]/15 via-transparent to-transparent mix-blend-overlay" />
+
+                    {/* Corner Crosshairs */}
+                    <span className="absolute top-3.5 left-4 text-[10px] font-mono text-white/30 pointer-events-none select-none">+</span>
+                    <span className="absolute top-3.5 right-4 text-[10px] font-mono text-white/30 pointer-events-none select-none">+</span>
+                    <span className="absolute bottom-3.5 left-4 text-[10px] font-mono text-white/30 pointer-events-none select-none">+</span>
+                    <span className="absolute bottom-3.5 right-4 text-[10px] font-mono text-white/30 pointer-events-none select-none">+</span>
+
+                    {/* Bottom-Left Telemetry Badge Overlay */}
+                    <div className="absolute bottom-5 left-5 bg-black/70 backdrop-blur-md border border-white/15 px-4 py-2 rounded-2xl flex items-center gap-3 shadow-xl select-none">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E9BD36] opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E9BD36]" />
+                      </span>
+                      <span className="text-[8.5px] font-mono font-black text-[#E9BD36] uppercase tracking-wider">
+                        ACCESSIBILITY // AAA
+                      </span>
+                    </div>
+
+                    {/* Top-Right Standards Overlay */}
+                    <div className="absolute top-5 right-5 bg-black/70 backdrop-blur-md border border-white/15 px-4 py-2 rounded-2xl flex items-center gap-3 shadow-xl select-none">
+                      <span className="text-[8.5px] font-mono font-black text-white uppercase tracking-wider">
+                        LIGHTHOUSE // 100/100
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-5 flex flex-col justify-center space-y-6 text-left">
+                  <div className="flex items-center gap-4">
+                    <span className="font-serif italic text-5xl sm:text-6xl font-black text-brand-zinc-200 dark:text-white/10 group-hover:text-[#0306AC] dark:group-hover:text-[#E9BD36] transition-colors duration-500 leading-none select-none">
+                      02
+                    </span>
+                    <div className="h-[1px] w-8 bg-[#0306AC]/20 dark:bg-white/10" />
+                    <span className="text-[8.5px] font-mono tracking-widest text-[#0306AC] dark:text-[#E9BD36] font-black uppercase">
+                      // OUR VISION
+                    </span>
+                  </div>
+
+                  <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-black text-brand-dark dark:text-white leading-[1.15] tracking-tight">
+                    We establish the digital standards that others <span className="font-serif italic text-[#0306AC] dark:text-[#E9BD36] font-light">replicate.</span>
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-brand-zinc-550 dark:text-zinc-400 font-sans leading-relaxed">
+                    To pioneer an era where web engineering matches the tier of luxury brand design, proving that accessibility, speed, and clean typography are commercially absolute.
+                  </p>
+
+                  {/* Editorial Quote Callout */}
+                  <div className="pl-4 border-l-2 border-[#0306AC] dark:border-[#E9BD36] italic text-xs font-serif text-brand-dark dark:text-zinc-200 py-0.5">
+                    "Design without technical rigor is just decorative artwork."
+                  </div>
+
+                  <div className="pt-2 flex flex-wrap gap-2">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-zinc-50 dark:bg-white/5 border border-brand-zinc-200/60 dark:border-white/10 px-3.5 py-1 text-[8.5px] font-mono font-bold text-brand-zinc-600 dark:text-zinc-400 uppercase tracking-wider">
+                      <Palette className="h-3 w-3 text-[#0306AC] dark:text-[#E9BD36]" />
+                      Design Systems
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-zinc-50 dark:bg-white/5 border border-brand-zinc-200/60 dark:border-white/10 px-3.5 py-1 text-[8.5px] font-mono font-bold text-brand-zinc-600 dark:text-zinc-400 uppercase tracking-wider">
+                      <ShieldCheck className="h-3 w-3 text-[#0306AC] dark:text-[#E9BD36]" />
+                      Universal WCAG
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-zinc-50 dark:bg-white/5 border border-brand-zinc-200/60 dark:border-white/10 px-3.5 py-1 text-[8.5px] font-mono font-bold text-brand-zinc-600 dark:text-zinc-400 uppercase tracking-wider">
+                      <TrendingUp className="h-3 w-3 text-[#0306AC] dark:text-[#E9BD36]" />
+                      Brand Architecture
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Row 3: Values */}
+              <motion.div 
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center group"
+              >
+                <div className="lg:col-span-5 flex flex-col justify-center space-y-6 text-left order-2 lg:order-1">
+                  <div className="flex items-center gap-4">
+                    <span className="font-serif italic text-5xl sm:text-6xl font-black text-brand-zinc-200 dark:text-white/10 group-hover:text-[#0306AC] dark:group-hover:text-[#E9BD36] transition-colors duration-500 leading-none select-none">
+                      03
+                    </span>
+                    <div className="h-[1px] w-8 bg-[#0306AC]/20 dark:bg-white/10" />
+                    <span className="text-[8.5px] font-mono tracking-widest text-[#0306AC] dark:text-[#E9BD36] font-black uppercase">
+                      // SHARED VALUES
+                    </span>
+                  </div>
+
+                  <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-black text-brand-dark dark:text-white leading-[1.15] tracking-tight">
+                    Absolute precision, transparent pipelines, zero <span className="font-serif italic text-[#0306AC] dark:text-[#E9BD36] font-light">clutter.</span>
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-brand-zinc-550 dark:text-zinc-400 font-sans leading-relaxed">
+                    We view our partnerships as collaborative sprints, aligning through direct synchronization and zero-downtime engineering cycles.
+                  </p>
+
+                  {/* Editorial Quote Callout */}
+                  <div className="pl-4 border-l-2 border-[#0306AC] dark:border-[#E9BD36] italic text-xs font-serif text-brand-dark dark:text-zinc-200 py-0.5">
+                    "Direct technical alignment eliminates management noise."
+                  </div>
+
+                  <div className="pt-2 flex flex-wrap gap-2">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-zinc-50 dark:bg-white/5 border border-brand-zinc-200/60 dark:border-white/10 px-3.5 py-1 text-[8.5px] font-mono font-bold text-brand-zinc-600 dark:text-zinc-400 uppercase tracking-wider">
+                      <Target className="h-3 w-3 text-[#0306AC] dark:text-[#E9BD36]" />
+                      Modular Sprints
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-zinc-50 dark:bg-white/5 border border-brand-zinc-200/60 dark:border-white/10 px-3.5 py-1 text-[8.5px] font-mono font-bold text-brand-zinc-600 dark:text-zinc-400 uppercase tracking-wider">
+                      <BarChart2 className="h-3 w-3 text-[#0306AC] dark:text-[#E9BD36]" />
+                      Direct Discord Sync
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-zinc-50 dark:bg-white/5 border border-brand-zinc-200/60 dark:border-white/10 px-3.5 py-1 text-[8.5px] font-mono font-bold text-brand-zinc-600 dark:text-zinc-400 uppercase tracking-wider">
+                      <Trophy className="h-3 w-3 text-[#0306AC] dark:text-[#E9BD36]" />
+                      Zero Downtime
+                    </span>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-7 order-1 lg:order-2">
+                  <div className="aspect-[1.45] w-full rounded-[32px] overflow-hidden border border-brand-zinc-200/80 dark:border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.03)] dark:shadow-[0_30px_90px_rgba(0,0,0,0.45)] group-hover:shadow-[0_30px_90px_rgba(3,6,172,0.2)] dark:group-hover:shadow-[0_30px_90px_rgba(233,189,54,0.15)] transition-all duration-700 group relative bg-[#090812]">
+                    <img 
+                      src="/agency_abstract_graphics.png" 
+                      alt="Our Values Graphic"
+                      className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 pointer-events-none"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-tr from-[#0306AC]/15 via-transparent to-transparent mix-blend-overlay" />
+
+                    {/* Corner Crosshairs */}
+                    <span className="absolute top-3.5 left-4 text-[10px] font-mono text-white/30 pointer-events-none select-none">+</span>
+                    <span className="absolute top-3.5 right-4 text-[10px] font-mono text-white/30 pointer-events-none select-none">+</span>
+                    <span className="absolute bottom-3.5 left-4 text-[10px] font-mono text-white/30 pointer-events-none select-none">+</span>
+                    <span className="absolute bottom-3.5 right-4 text-[10px] font-mono text-white/30 pointer-events-none select-none">+</span>
+
+                    {/* Top-Left Telemetry Badge Overlay */}
+                    <div className="absolute top-5 left-5 bg-black/70 backdrop-blur-md border border-white/15 px-4 py-2 rounded-2xl flex items-center gap-3 shadow-xl select-none">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+                      </span>
+                      <span className="text-[8.5px] font-mono font-black text-white uppercase tracking-wider">
+                        SYNC STATUS // CONNECTED
+                      </span>
+                    </div>
+
+                    {/* Bottom-Right Department Badge Overlay */}
+                    <div className="absolute bottom-5 right-5 bg-black/70 backdrop-blur-md border border-white/15 px-4 py-2 rounded-2xl flex items-center gap-3 shadow-xl select-none">
+                      <span className="text-[8.5px] font-mono font-black text-[#E9BD36] uppercase tracking-wider">
+                        AGENCY SPRINT // ACTIVE
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+            </div>
+
+          </div>
+        </section>
+
+        {/* ── 5. OUR SERVICES SECTION (Sticky Split-Screen Visual Canvas - Locomotive/Awwwards Style) ──────── */}
+        <section className="relative overflow-x-clip py-16 sm:py-24 lg:py-36 border-b border-brand-zinc-200 dark:border-white/10 bg-white dark:bg-[#080710] transition-colors duration-300">
+          
+          {/* Drifting Ambient Lighting Orbs */}
+          <div className="absolute top-[10%] left-[10%] w-[45vw] h-[45vw] rounded-full bg-[#0306AC]/[0.035] dark:bg-[#0306AC]/0.06 blur-[150px] pointer-events-none -z-10 animate-float-blob" />
+          <div className="absolute bottom-[10%] right-[10%] w-[40vw] h-[40vw] rounded-full bg-[#E9BD36]/[0.025] dark:bg-[#E9BD36]/0.05 blur-[150px] pointer-events-none -z-10 animate-float-blob-delayed" />
+
+          {/* Mobile Sticky Horizontal Capability Bar (Visible on Mobile & Tablet) */}
+          <div className="sticky top-14 sm:top-16 z-30 flex lg:hidden overflow-x-auto no-scrollbar py-3 px-4 gap-2 bg-white/95 dark:bg-[#080710]/95 backdrop-blur-xl border-b border-brand-zinc-200 dark:border-white/10 shadow-sm mb-8 select-none">
+            {[
+              { id: "01", name: "Brand Identity" },
+              { id: "02", name: "Next.js Web" },
+              { id: "03", name: "Technical SEO" },
+              { id: "04", name: "Paid Ads" },
+              { id: "05", name: "Social Growth" },
+              { id: "06", name: "4K Studio" },
+            ].map((item, idx) => {
+              const isActive = activeService === idx;
+
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => {
+                    setActiveService(idx);
+                    const el = document.getElementById(`service-stage-${item.id}`);
+                    if (el) {
+                      const y = el.getBoundingClientRect().top + window.pageYOffset - 110;
+                      window.scrollTo({ top: y, behavior: "smooth" });
+                    }
+                  }}
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-bold shrink-0 flex items-center gap-2 transition-all duration-300 ${
+                    isActive
+                      ? "bg-[#0306AC] text-white dark:bg-[#E9BD36] dark:text-brand-dark shadow-md"
+                      : "bg-zinc-100 text-brand-zinc-600 dark:bg-white/5 dark:text-zinc-400"
+                  }`}
+                >
+                  <span>{item.id}</span>
+                  <span>{item.name}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+              
+              {/* Left Pinned Sticky Navigation Panel (Hidden on mobile, Sticky on LG desktop) */}
+              <div className="hidden lg:block lg:col-span-5 lg:sticky lg:top-24 self-start z-20">
+                <div className="p-6 sm:p-7 rounded-[32px] bg-zinc-50/90 dark:bg-[#0c0b18]/90 border border-brand-zinc-200/80 dark:border-white/10 shadow-2xl backdrop-blur-xl space-y-5 text-left relative overflow-hidden">
+                  
+                  {/* Header */}
+                  <div className="space-y-2.5">
+                    <div className="inline-flex items-center gap-2 rounded-full bg-[#0306AC]/10 dark:bg-white/10 border border-[#0306AC]/15 dark:border-white/15 px-3 py-1 text-[10px] font-mono tracking-wider text-[#0306AC] dark:text-[#E9BD36] font-bold">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0306AC] dark:bg-[#E9BD36] opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0306AC] dark:bg-[#E9BD36]" />
+                      </span>
+                      SERVICES DIRECTORY
+                    </div>
+
+                    <h2 className="font-heading text-2xl sm:text-3xl font-black text-brand-dark dark:text-white tracking-tight leading-tight">
+                      Capabilities built to <br />
+                      <span className="text-[#0306AC] dark:text-[#E9BD36] italic font-serif font-light">elevate your brand.</span>
+                    </h2>
+                  </div>
+
+                  {/* Dynamic Vertical Navigation Menu (Live Scroll Highlight) */}
+                  <div className="space-y-1.5 pt-3 border-t border-brand-zinc-200/80 dark:border-white/10 select-none relative">
+                    {[
+                      { id: "01", name: "Brand Identity & Systems", tag: "Design" },
+                      { id: "02", name: "Next.js Web Engineering", tag: "Development" },
+                      { id: "03", name: "Search Engine Optimization", tag: "SEO" },
+                      { id: "04", name: "Paid Advertising & Funnels", tag: "Marketing" },
+                      { id: "05", name: "Social Media Strategy", tag: "Growth" },
+                      { id: "06", name: "Creative Video & Copy", tag: "Studio" },
+                    ].map((item, idx) => {
+                      const isActive = activeService === idx;
+
+                      return (
+                        <a
+                          key={item.id}
+                          href={`#service-stage-${item.id}`}
+                          className={`py-2.5 px-3.5 rounded-2xl flex items-center justify-between transition-all duration-300 group relative ${
+                            isActive
+                              ? "bg-brand-dark text-white dark:bg-white dark:text-brand-dark shadow-xl scale-[1.02] font-bold"
+                              : "hover:bg-zinc-200/60 dark:hover:bg-white/5 text-brand-zinc-600 dark:text-zinc-400"
+                          }`}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setActiveService(idx);
+                            const el = document.getElementById(`service-stage-${item.id}`);
+                            if (el) {
+                              const y = el.getBoundingClientRect().top + window.pageYOffset - 120;
+                              window.scrollTo({ top: y, behavior: "smooth" });
+                            }
+                          }}
+                        >
+                          <div className="flex items-center gap-3">
+                            <span className={`font-serif italic text-xs font-black transition-colors ${
+                              isActive ? "text-[#E9BD36] dark:text-[#0306AC]" : "text-brand-zinc-400 dark:text-zinc-500"
+                            }`}>
+                              {item.id}
+                            </span>
+                            <span className="font-heading text-xs tracking-tight">
+                              {item.name}
+                            </span>
+                          </div>
+
+                          <div className="flex items-center gap-2">
+                            <span className={`text-[8.5px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full transition-colors ${
+                              isActive
+                                ? "bg-white/20 text-white dark:bg-black/10 dark:text-brand-dark"
+                                : "bg-black/5 dark:bg-white/5 text-brand-zinc-500 dark:text-zinc-500"
+                            }`}>
+                              {item.tag}
+                            </span>
+                            <ArrowRight className={`h-3.5 w-3.5 transition-transform ${
+                              isActive ? "translate-x-1 opacity-100 text-[#E9BD36] dark:text-[#0306AC]" : "opacity-30 group-hover:opacity-100"
+                            }`} />
+                          </div>
+                        </a>
+                      );
+                    })}
+                  </div>
+
+                  {/* Glass Card Footer CTA */}
+                  <div className="pt-2 border-t border-brand-zinc-200/80 dark:border-white/10">
+                    <a
+                      href="/contact"
+                      className="w-full py-3.5 rounded-2xl bg-[#0306AC] text-white dark:bg-[#E9BD36] dark:text-brand-dark font-mono text-[11px] font-black uppercase tracking-wider flex items-center justify-center gap-2 hover:scale-[1.02] transition-all duration-300 shadow-lg"
+                    >
+                      <span>SCHEDULE FREE CONSULTATION</span>
+                      <ArrowRight className="h-4 w-4" />
+                    </a>
+                  </div>
+
                 </div>
               </div>
 
-              {/* Service Card 2 */}
-              <div className="p-5 rounded-2xl glass-card-premium relative overflow-hidden group hover:border-[#0306AC] dark:hover:border-[#E9BD36] flex flex-col h-[230px]">
-                <div className="h-10 w-10 rounded-xl bg-[#0306AC]/5 dark:bg-white/5 flex items-center justify-center text-[#0306AC] dark:text-[#E9BD36] shrink-0 border border-[#0306AC]/10">
-                  <Code className="h-5 w-5" />
-                </div>
-                <div className="h-[2px] w-4 bg-[#0306AC] mt-3.5 mb-2" />
-                <div className="space-y-1">
-                  <h3 className="font-heading font-bold text-xs sm:text-[13px] text-brand-dark dark:text-white leading-snug tracking-tight">Website Design & Development</h3>
-                  <p className="text-[10px] font-normal text-brand-zinc-500 leading-relaxed">Building modern, fast, and responsive websites that engage visitors and convert.</p>
-                </div>
-                <div className="flex justify-end pt-4.5 mt-auto">
-                  <div className="h-6 w-6 rounded-full bg-zinc-100 dark:bg-white/5 flex items-center justify-center text-zinc-400 group-hover:bg-[#0306AC] group-hover:text-white transition-all duration-300">
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </div>
-                </div>
-              </div>
+              {/* Right Scrolling Visual Stages (7 Columns) */}
+              <div className="lg:col-span-7 space-y-10 sm:space-y-14 lg:space-y-16 text-left">
+                {[
+                  {
+                    id: "01",
+                    icon: Palette,
+                    category: "BRANDING & VISUAL IDENTITY",
+                    title: "Brand Identity Systems & Design Tokens",
+                    desc: "We create distinctive logos, custom color schemes, typography guidelines, and design tokens that make your brand stand out and build instant customer trust.",
+                    image: "/agency_ui_detail.png",
+                    badge: "100% BESPOKE DESIGN",
+                    deliverables: ["Logo Architecture", "Color Tokens", "Brand Style Guide", "Design Systems"],
+                  },
+                  {
+                    id: "02",
+                    icon: Code,
+                    category: "WEB & PLATFORM ENGINEERING",
+                    title: "Next.js 15 Web Design & App Development",
+                    desc: "Building ultra-fast, mobile-responsive Next.js websites powered by Tailwind CSS and Framer Motion graphics engineered to maximize visitor conversions.",
+                    image: "/agency_workspace.png",
+                    badge: "VELOCITY // 99.8% LIGHTHOUSE",
+                    deliverables: ["Next.js 15 Engine", "Tailwind CSS", "Framer Motion", "Edge API Routes"],
+                  },
+                  {
+                    id: "03",
+                    icon: Search,
+                    category: "SEARCH ENGINE OPTIMIZATION",
+                    title: "Technical SEO & Search Authority",
+                    desc: "Boost your Google rankings and attract high-intent organic traffic through technical SEO audits, JSON-LD schema markup, and strategic keyword silos.",
+                    image: "/agency_abstract_graphics.png",
+                    badge: "RANK #1 GOOGLE TARGET",
+                    deliverables: ["Technical SEO Audits", "JSON-LD Schemas", "Keyword Silos", "Search Authority"],
+                  },
+                  {
+                    id: "04",
+                    icon: Megaphone,
+                    category: "PAID MEDIA & FUNNELS",
+                    title: "Paid Advertising & High-ROAS Funnels",
+                    desc: "Executing ROI-focused Google and Meta ad campaigns targeted at ready-to-buy customers to deliver measurable commercial returns on ad spend.",
+                    image: "/agency_ui_detail.png",
+                    badge: "4.8X AVERAGE ROAS",
+                    deliverables: ["Google PPC Ads", "Meta Campaigns", "Pixel Analytics", "Retargeting Funnels"],
+                  },
+                  {
+                    id: "05",
+                    icon: Users,
+                    category: "COMMUNITY & SOCIAL MEDIA",
+                    title: "Social Media Strategy & Audience Growth",
+                    desc: "Cultivating dedicated brand communities across Instagram, LinkedIn, and YouTube using custom motion graphics, video reels, and data-backed posting.",
+                    image: "/agency_workspace.png",
+                    badge: "+340% ENGAGEMENT LIFT",
+                    deliverables: ["Omnichannel Strategy", "Motion Reels", "Community Growth", "Channel Management"],
+                  },
+                  {
+                    id: "06",
+                    icon: Video,
+                    category: "CREATIVE STUDIO & PRODUCTION",
+                    title: "High-End 4K Video Production & Copywriting",
+                    desc: "Producing cinematic media assets, persuasive copywriting, and brand editorial content designed to engage audiences and convert leads.",
+                    image: "/agency_abstract_graphics.png",
+                    badge: "4K CINEMA PRODUCTION",
+                    deliverables: ["Brand Copywriting", "4K Video Media", "Social Reels", "Editorial Layouts"],
+                  },
+                ].map((stage, idx) => {
+                  const StageIcon = stage.icon;
 
-              {/* Service Card 3 */}
-              <div className="p-5 rounded-2xl glass-card-premium relative overflow-hidden group hover:border-[#0306AC] dark:hover:border-[#E9BD36] flex flex-col h-[230px]">
-                <div className="h-10 w-10 rounded-xl bg-[#0306AC]/5 dark:bg-white/5 flex items-center justify-center text-[#0306AC] dark:text-[#E9BD36] shrink-0 border border-[#0306AC]/10">
-                  <Search className="h-5 w-5" />
-                </div>
-                <div className="h-[2px] w-4 bg-[#0306AC] mt-3.5 mb-2" />
-                <div className="space-y-1">
-                  <h3 className="font-heading font-bold text-xs sm:text-[13px] text-brand-dark dark:text-white leading-snug tracking-tight">SEO & Content Strategy</h3>
-                  <p className="text-[10px] font-normal text-brand-zinc-500 leading-relaxed">Improving your visibility on search engines and driving organic growth with smart SEO.</p>
-                </div>
-                <div className="flex justify-end pt-4.5 mt-auto">
-                  <div className="h-6 w-6 rounded-full bg-zinc-100 dark:bg-white/5 flex items-center justify-center text-zinc-400 group-hover:bg-[#0306AC] group-hover:text-white transition-all duration-300">
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </div>
-                </div>
-              </div>
+                  return (
+                    <motion.div
+                      id={`service-stage-${stage.id}`}
+                      key={stage.id}
+                      initial={{ opacity: 0, y: 25 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      onViewportEnter={() => setActiveService(idx)}
+                      viewport={{ margin: "-20% 0px -25% 0px" }}
+                      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                      className="rounded-[28px] sm:rounded-[36px] bg-zinc-50/80 dark:bg-[#0c0b18] border border-brand-zinc-200/80 dark:border-white/10 p-5 sm:p-8 lg:p-10 space-y-6 sm:space-y-8 group hover:border-[#0306AC]/60 dark:hover:border-[#E9BD36]/60 transition-all duration-500 shadow-sm hover:shadow-2xl relative overflow-hidden will-change-transform transform-gpu"
+                    >
+                      {/* Top Bar: Index & Badge */}
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <span className="font-serif italic text-2xl font-black text-[#0306AC] dark:text-[#E9BD36]">
+                            {stage.id}
+                          </span>
+                          <div className="h-[1px] w-6 bg-brand-zinc-300 dark:bg-white/20" />
+                          <span className="text-[9px] font-mono font-bold text-brand-zinc-400 dark:text-zinc-500 uppercase tracking-widest">
+                            // {stage.category}
+                          </span>
+                        </div>
 
-              {/* Service Card 4 */}
-              <div className="p-5 rounded-2xl glass-card-premium relative overflow-hidden group hover:border-[#0306AC] dark:hover:border-[#E9BD36] flex flex-col h-[230px]">
-                <div className="h-10 w-10 rounded-xl bg-[#0306AC]/5 dark:bg-white/5 flex items-center justify-center text-[#0306AC] dark:text-[#E9BD36] shrink-0 border border-[#0306AC]/10">
-                  <MessageSquare className="h-5 w-5" />
-                </div>
-                <div className="h-[2px] w-4 bg-[#0306AC] mt-3.5 mb-2" />
-                <div className="space-y-1">
-                  <h3 className="font-heading font-bold text-xs sm:text-[13px] text-brand-dark dark:text-white leading-snug tracking-tight">Social Media Marketing</h3>
-                  <p className="text-[10px] font-normal text-brand-zinc-500 leading-relaxed">Creating engaging campaigns that build communities and boost your brand awareness.</p>
-                </div>
-                <div className="flex justify-end pt-4.5 mt-auto">
-                  <div className="h-6 w-6 rounded-full bg-zinc-100 dark:bg-white/5 flex items-center justify-center text-zinc-400 group-hover:bg-[#0306AC] group-hover:text-white transition-all duration-300">
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </div>
-                </div>
-              </div>
+                        <div className="bg-white dark:bg-white/10 border border-brand-zinc-200 dark:border-white/15 px-3 py-1.5 rounded-xl text-[8.5px] font-mono font-bold text-brand-dark dark:text-white uppercase tracking-wider shadow-sm">
+                          {stage.badge}
+                        </div>
+                      </div>
 
-              {/* Service Card 5 */}
-              <div className="p-5 rounded-2xl glass-card-premium relative overflow-hidden group hover:border-[#0306AC] dark:hover:border-[#E9BD36] flex flex-col h-[230px]">
-                <div className="h-10 w-10 rounded-xl bg-[#0306AC]/5 dark:bg-white/5 flex items-center justify-center text-[#0306AC] dark:text-[#E9BD36] shrink-0 border border-[#0306AC]/10">
-                  <Megaphone className="h-5 w-5" />
-                </div>
-                <div className="h-[2px] w-4 bg-[#0306AC] mt-3.5 mb-2" />
-                <div className="space-y-1">
-                  <h3 className="font-heading font-bold text-xs sm:text-[13px] text-brand-dark dark:text-white leading-snug tracking-tight">Paid Ads Management</h3>
-                  <p className="text-[10px] font-normal text-brand-zinc-500 leading-relaxed">Running ROI-focused ad campaigns that deliver real results and maximize your budget.</p>
-                </div>
-                <div className="flex justify-end pt-4.5 mt-auto">
-                  <div className="h-6 w-6 rounded-full bg-zinc-100 dark:bg-white/5 flex items-center justify-center text-zinc-400 group-hover:bg-[#0306AC] group-hover:text-white transition-all duration-300">
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </div>
-                </div>
-              </div>
+                      {/* Visual Graphic Stage Box */}
+                      <div className="aspect-[1.65] w-full rounded-2xl overflow-hidden border border-brand-zinc-200/80 dark:border-white/10 relative bg-[#090812]">
+                        <img 
+                          src={stage.image} 
+                          alt={stage.title} 
+                          className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700" 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
-              {/* Service Card 6 */}
-              <div className="p-5 rounded-2xl glass-card-premium relative overflow-hidden group hover:border-[#0306AC] dark:hover:border-[#E9BD36] flex flex-col h-[230px]">
-                <div className="h-10 w-10 rounded-xl bg-[#0306AC]/5 dark:bg-white/5 flex items-center justify-center text-[#0306AC] dark:text-[#E9BD36] shrink-0 border border-[#0306AC]/10">
-                  <Pencil className="h-5 w-5" />
-                </div>
-                <div className="h-[2px] w-4 bg-[#0306AC] mt-3.5 mb-2" />
-                <div className="space-y-1">
-                  <h3 className="font-heading font-bold text-xs sm:text-[13px] text-brand-dark dark:text-white leading-snug tracking-tight">Content Creation</h3>
-                  <p className="text-[10px] font-normal text-brand-zinc-500 leading-relaxed">High-quality content that tells your story, connects with your audience, and converts.</p>
-                </div>
-                <div className="flex justify-end pt-4.5 mt-auto">
-                  <div className="h-6 w-6 rounded-full bg-zinc-100 dark:bg-white/5 flex items-center justify-center text-zinc-400 group-hover:bg-[#0306AC] group-hover:text-white transition-all duration-300">
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </div>
-                </div>
+                        <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white select-none">
+                          <div className="flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/15">
+                            <StageIcon className="h-4 w-4 text-[#E9BD36]" />
+                            <span className="text-[9.5px] font-mono font-bold uppercase tracking-wider">
+                              {stage.category}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Content & Description */}
+                      <div className="space-y-3">
+                        <h3 className="font-heading text-2xl sm:text-3xl font-black text-brand-dark dark:text-white tracking-tight leading-tight group-hover:text-[#0306AC] dark:group-hover:text-[#E9BD36] transition-colors">
+                          {stage.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-brand-zinc-550 dark:text-zinc-400 font-sans leading-relaxed">
+                          {stage.desc}
+                        </p>
+                      </div>
+
+                      {/* Deliverables & Get Started Link */}
+                      <div className="pt-6 border-t border-brand-zinc-200/70 dark:border-white/10 flex flex-wrap items-center justify-between gap-4">
+                        <div className="flex flex-wrap gap-2">
+                          {stage.deliverables.map((del, dIdx) => (
+                            <span
+                              key={dIdx}
+                              className="inline-flex items-center gap-1.5 rounded-full bg-white dark:bg-white/5 border border-brand-zinc-200 dark:border-white/10 px-3 py-1 text-[8.5px] font-mono font-bold text-brand-zinc-600 dark:text-zinc-300 uppercase"
+                            >
+                              <span className="h-1.5 w-1.5 rounded-full bg-[#0306AC] dark:bg-[#E9BD36]" />
+                              {del}
+                            </span>
+                          ))}
+                        </div>
+
+                        <a
+                          href="/contact"
+                          className="inline-flex items-center gap-2 text-xs font-mono font-black text-brand-dark dark:text-white group-hover:text-[#0306AC] dark:group-hover:text-[#E9BD36] transition-colors"
+                        >
+                          <span>GET STARTED</span>
+                          <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </a>
+                      </div>
+
+                    </motion.div>
+                  );
+                })}
               </div>
 
             </div>
+
           </div>
         </section>
 
