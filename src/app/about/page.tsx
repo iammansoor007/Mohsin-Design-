@@ -1176,151 +1176,143 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ── 6. OUR PROCESS SECTION ─────────────────────────────────── */}
-        <section className="relative overflow-hidden py-16 md:py-20 border-b border-brand-zinc-200 dark:border-white/10 bg-zinc-50/50 dark:bg-white/[0.01]">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
+        {/* ── 6. OUR PROCESS SECTION (Ultra-Modern 5-Step Kinetic Sprint Workflow) ──────── */}
+        <section className="relative overflow-hidden py-24 sm:py-32 border-b border-brand-zinc-200 dark:border-white/10 bg-zinc-50/60 dark:bg-[#090814] transition-colors duration-300">
+          
+          {/* Drifting Background Glow */}
+          <div className="absolute top-[20%] right-[10%] w-[40vw] h-[40vw] rounded-full bg-[#0306AC]/[0.03] dark:bg-[#0306AC]/0.05 blur-[140px] pointer-events-none -z-10 animate-float-blob" />
+          <div className="absolute bottom-[10%] left-[10%] w-[35vw] h-[35vw] rounded-full bg-[#E9BD36]/[0.02] dark:bg-[#E9BD36]/0.04 blur-[140px] pointer-events-none -z-10 animate-float-blob-delayed" />
 
-            <div className="text-center mb-12 flex flex-col items-center">
-              <span className="text-[10px] font-sans font-black tracking-widest text-[#0306AC] uppercase mb-1">
-                // OUR PROCESS
-              </span>
-              <div className="h-0.5 w-6 bg-[#E9BD36] mb-3" />
-              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-brand-dark dark:text-white tracking-tight pt-1">
-                A Simple 5-Step Process That <span className="text-[#0306AC] dark:text-[#E9BD36]">Delivers Results</span>
-              </h2>
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10 space-y-16">
+
+            {/* Section Header */}
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 text-left border-b border-brand-zinc-200/80 dark:border-white/10 pb-12">
+              <div className="max-w-2xl space-y-4">
+                <div className="inline-flex items-center gap-2 rounded-full bg-[#0306AC]/5 dark:bg-white/5 border border-[#0306AC]/10 dark:border-white/10 px-4 py-1.5 text-xs font-mono tracking-wider text-[#0306AC] dark:text-[#E9BD36] font-bold">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0306AC] dark:bg-[#E9BD36] opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0306AC] dark:bg-[#E9BD36]" />
+                  </span>
+                  ⚡ THE METHODOLOGY
+                </div>
+
+                <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.1]">
+                  Our 5-Step Sprint Framework for <br />
+                  <span className="text-[#0306AC] dark:text-[#E9BD36] italic font-serif font-light">Predictable Results.</span>
+                </h2>
+              </div>
+
+              <div className="max-w-md space-y-3">
+                <p className="text-xs sm:text-sm text-brand-zinc-550 dark:text-zinc-400 font-sans leading-relaxed">
+                  We eliminate project delays through structured 2-week iterations, direct team communication, and transparent milestone approvals.
+                </p>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-4 max-w-5xl mx-auto items-start">
+            {/* 5-Step Kinetic Sprint Workflow Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch text-left">
+              {[
+                {
+                  step: "01",
+                  icon: Search,
+                  title: "Discovery & Market Audit",
+                  desc: "We analyze your business model, target audience personas, conversion bottlenecks, and competitor strategies to build an actionable blueprint.",
+                  deliverables: ["Market Positioning", "User Personas", "Bottleneck Audit"],
+                  badge: "PHASE 01 · AUDIT"
+                },
+                {
+                  step: "02",
+                  icon: Compass,
+                  title: "Architecture & Sprint Spec",
+                  desc: "Designing site sitemaps, interactive wireframes, component design tokens, and technical requirements before writing a single line of code.",
+                  deliverables: ["Design Tokens", "Wireframes", "Tech Stack Spec"],
+                  badge: "PHASE 02 · PLAN"
+                },
+                {
+                  step: "03",
+                  icon: Code,
+                  title: "High-Speed Engineering",
+                  desc: "Building custom Next.js 15 web components, Tailwind CSS design systems, and Framer Motion micro-animations with weekly demo builds.",
+                  deliverables: ["Next.js Engine", "Motion System", "API Integrations"],
+                  badge: "PHASE 03 · BUILD"
+                },
+                {
+                  step: "04",
+                  icon: ShieldCheck,
+                  title: "Testing & QA Audit",
+                  desc: "Rigorous cross-browser testing, mobile WCAG accessibility audits, SEO schema verification, and Lighthouse 99+ speed optimizations.",
+                  deliverables: ["WCAG 2.1 Audit", "Lighthouse 99+", "SEO Schemas"],
+                  badge: "PHASE 04 · VERIFY"
+                },
+                {
+                  step: "05",
+                  icon: Rocket,
+                  title: "Launch & Growth Scaling",
+                  desc: "Zero-downtime production deployment followed by post-launch conversion rate optimization (CRO) and ongoing performance enhancements.",
+                  deliverables: ["Zero Downtime", "CRO Analytics", "Growth Sprints"],
+                  badge: "PHASE 05 · SCALE"
+                },
+              ].map((process, idx) => {
+                const StepIcon = process.icon;
 
-              {/* Step 1 */}
-              <div className="flex flex-col items-center text-center space-y-3 relative group">
-                {/* Horizontal flowing connector path */}
-                <div className="hidden md:block absolute top-6 left-[60%] w-[80%] h-1 z-0 pointer-events-none">
-                  <svg className="w-full h-1 text-brand-zinc-200 dark:text-white/10" fill="none">
-                    <path d="M 0 2 H 160" stroke="currentColor" strokeWidth="1.5" strokeDasharray="4 4" />
-                    <motion.path
-                      d="M 0 2 H 160"
-                      stroke="#0306AC"
-                      strokeWidth="1.5"
-                      strokeDasharray="4 4"
-                      initial={{ strokeDashoffset: 0 }}
-                      animate={{ strokeDashoffset: -16 }}
-                      transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-                    />
-                  </svg>
-                  <span className="absolute top-[-3px] left-1/2 -translate-x-1/2 h-2.5 w-2.5 rounded-full bg-[#0306AC] dark:bg-[#E9BD36] shadow-sm animate-pulse" />
-                </div>
+                return (
+                  <motion.div
+                    key={process.step}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                    className="rounded-[32px] bg-white dark:bg-[#0c0b18] border border-brand-zinc-200/80 dark:border-white/10 p-7 sm:p-8 flex flex-col justify-between space-y-6 group hover:border-[#0306AC]/60 dark:hover:border-[#E9BD36]/60 transition-all duration-500 shadow-sm hover:shadow-2xl relative overflow-hidden will-change-transform transform-gpu"
+                  >
+                    {/* Top Row: Step Index & Icon */}
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <span className="font-serif italic text-3xl font-black text-[#0306AC] dark:text-[#E9BD36]">
+                          {process.step}
+                        </span>
+                        <div className="h-[1px] w-6 bg-brand-zinc-300 dark:bg-white/20" />
+                        <span className="text-[9px] font-mono font-bold text-brand-zinc-400 dark:text-zinc-500 uppercase tracking-widest">
+                          // {process.badge}
+                        </span>
+                      </div>
 
-                <div className="h-12 w-12 rounded-full border border-brand-zinc-200 dark:border-white/10 text-[#0306AC] dark:text-[#E9BD36] flex items-center justify-center bg-white dark:bg-[#12121e] shadow-md group-hover:border-[#0306AC] transition-colors duration-300 relative z-10">
-                  <Search className="h-5 w-5" />
-                </div>
-                <div className="space-y-1.5 pt-1">
-                  <span className="block text-[10px] font-sans font-black text-[#0306AC] uppercase tracking-wider">01</span>
-                  <h3 className="font-heading font-bold text-xs text-brand-dark dark:text-white">Discover</h3>
-                  <p className="font-sans text-[10px] font-normal text-brand-zinc-550 leading-relaxed max-w-[170px] mx-auto">We learn about your business, goals, and target audience.</p>
-                </div>
-              </div>
+                      <div className="h-11 w-11 rounded-2xl bg-[#0306AC]/10 dark:bg-white/10 flex items-center justify-center text-[#0306AC] dark:text-[#E9BD36] group-hover:scale-110 transition-transform duration-300">
+                        <StepIcon className="h-5 w-5" />
+                      </div>
+                    </div>
 
-              {/* Step 2 */}
-              <div className="flex flex-col items-center text-center space-y-3 relative group">
-                {/* Horizontal flowing connector path */}
-                <div className="hidden md:block absolute top-6 left-[60%] w-[80%] h-1 z-0 pointer-events-none">
-                  <svg className="w-full h-1 text-brand-zinc-200 dark:text-white/10" fill="none">
-                    <path d="M 0 2 H 160" stroke="currentColor" strokeWidth="1.5" strokeDasharray="4 4" />
-                    <motion.path
-                      d="M 0 2 H 160"
-                      stroke="#0306AC"
-                      strokeWidth="1.5"
-                      strokeDasharray="4 4"
-                      initial={{ strokeDashoffset: 0 }}
-                      animate={{ strokeDashoffset: -16 }}
-                      transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-                    />
-                  </svg>
-                  <span className="absolute top-[-3px] left-1/2 -translate-x-1/2 h-2.5 w-2.5 rounded-full bg-[#0306AC] dark:bg-[#E9BD36] shadow-sm animate-pulse" />
-                </div>
+                    {/* Step Title & Description */}
+                    <div className="space-y-2.5">
+                      <h3 className="font-heading text-xl font-black text-brand-dark dark:text-white tracking-tight group-hover:text-[#0306AC] dark:group-hover:text-[#E9BD36] transition-colors">
+                        {process.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-brand-zinc-550 dark:text-zinc-400 font-sans leading-relaxed">
+                        {process.desc}
+                      </p>
+                    </div>
 
-                <div className="h-12 w-12 rounded-full border border-brand-zinc-200 dark:border-white/10 text-[#0306AC] dark:text-[#E9BD36] flex items-center justify-center bg-white dark:bg-[#12121e] shadow-md group-hover:border-[#0306AC] transition-colors duration-300 relative z-10">
-                  <Pencil className="h-4.5 w-4.5" />
-                </div>
-                <div className="space-y-1.5 pt-1">
-                  <span className="block text-[10px] font-sans font-black text-[#0306AC] uppercase tracking-wider">02</span>
-                  <h3 className="font-heading font-bold text-xs text-brand-dark dark:text-white">Plan</h3>
-                  <p className="font-sans text-[10px] font-normal text-brand-zinc-550 leading-relaxed max-w-[170px] mx-auto">We create a customized strategy tailored to your specific needs.</p>
-                </div>
-              </div>
-
-              {/* Step 3 */}
-              <div className="flex flex-col items-center text-center space-y-3 relative group">
-                {/* Horizontal flowing connector path */}
-                <div className="hidden md:block absolute top-6 left-[60%] w-[80%] h-1 z-0 pointer-events-none">
-                  <svg className="w-full h-1 text-brand-zinc-200 dark:text-white/10" fill="none">
-                    <path d="M 0 2 H 160" stroke="currentColor" strokeWidth="1.5" strokeDasharray="4 4" />
-                    <motion.path
-                      d="M 0 2 H 160"
-                      stroke="#0306AC"
-                      strokeWidth="1.5"
-                      strokeDasharray="4 4"
-                      initial={{ strokeDashoffset: 0 }}
-                      animate={{ strokeDashoffset: -16 }}
-                      transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-                    />
-                  </svg>
-                  <span className="absolute top-[-3px] left-1/2 -translate-x-1/2 h-2.5 w-2.5 rounded-full bg-[#0306AC] dark:bg-[#E9BD36] shadow-sm animate-pulse" />
-                </div>
-
-                <div className="h-12 w-12 rounded-full border border-brand-zinc-200 dark:border-white/10 text-[#0306AC] dark:text-[#E9BD36] flex items-center justify-center bg-white dark:bg-[#12121e] shadow-md group-hover:border-[#0306AC] transition-colors duration-300 relative z-10">
-                  <Palette className="h-5 w-5" />
-                </div>
-                <div className="space-y-1.5 pt-1">
-                  <span className="block text-[10px] font-sans font-black text-[#0306AC] uppercase tracking-wider">03</span>
-                  <h3 className="font-heading font-bold text-xs text-brand-dark dark:text-white">Design</h3>
-                  <p className="font-sans text-[10px] font-normal text-brand-zinc-550 leading-relaxed max-w-[170px] mx-auto">Our creative team designs stunning visuals and user experiences.</p>
-                </div>
-              </div>
-
-              {/* Step 4 */}
-              <div className="flex flex-col items-center text-center space-y-3 relative group">
-                {/* Horizontal flowing connector path */}
-                <div className="hidden md:block absolute top-6 left-[60%] w-[80%] h-1 z-0 pointer-events-none">
-                  <svg className="w-full h-1 text-brand-zinc-200 dark:text-white/10" fill="none">
-                    <path d="M 0 2 H 160" stroke="currentColor" strokeWidth="1.5" strokeDasharray="4 4" />
-                    <motion.path
-                      d="M 0 2 H 160"
-                      stroke="#0306AC"
-                      strokeWidth="1.5"
-                      strokeDasharray="4 4"
-                      initial={{ strokeDashoffset: 0 }}
-                      animate={{ strokeDashoffset: -16 }}
-                      transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-                    />
-                  </svg>
-                  <span className="absolute top-[-3px] left-1/2 -translate-x-1/2 h-2.5 w-2.5 rounded-full bg-[#0306AC] dark:bg-[#E9BD36] shadow-sm animate-pulse" />
-                </div>
-
-                <div className="h-12 w-12 rounded-full border border-brand-zinc-200 dark:border-white/10 text-[#0306AC] dark:text-[#E9BD36] flex items-center justify-center bg-white dark:bg-[#12121e] shadow-md group-hover:border-[#0306AC] transition-colors duration-300 relative z-10">
-                  <Code className="h-5 w-5" />
-                </div>
-                <div className="space-y-1.5 pt-1">
-                  <span className="block text-[10px] font-sans font-black text-[#0306AC] uppercase tracking-wider">04</span>
-                  <h3 className="font-heading font-bold text-xs text-brand-dark dark:text-white">Develop</h3>
-                  <p className="font-sans text-[10px] font-normal text-brand-zinc-550 leading-relaxed max-w-[170px] mx-auto">We build fast, responsive, and high-performing digital solutions.</p>
-                </div>
-              </div>
-
-              {/* Step 5 */}
-              <div className="flex flex-col items-center text-center space-y-3 relative group">
-                <div className="h-12 w-12 rounded-full border border-brand-zinc-200 dark:border-white/10 text-[#0306AC] dark:text-[#E9BD36] flex items-center justify-center bg-white dark:bg-[#12121e] shadow-md group-hover:border-[#0306AC] transition-colors duration-300 relative z-10">
-                  <Rocket className="h-5 w-5" />
-                </div>
-                <div className="space-y-1.5 pt-1">
-                  <span className="block text-[10px] font-sans font-black text-[#0306AC] uppercase tracking-wider">05</span>
-                  <h3 className="font-heading font-bold text-xs text-brand-dark dark:text-white">Deliver</h3>
-                  <p className="font-sans text-[10px] font-normal text-brand-zinc-550 leading-relaxed max-w-[170px] mx-auto">We test, launch, and optimize for long-term success.</p>
-                </div>
-              </div>
-
+                    {/* Key Deliverable Tags */}
+                    <div className="pt-4 border-t border-brand-zinc-200/70 dark:border-white/10 space-y-3">
+                      <span className="text-[9px] font-mono font-bold text-brand-zinc-400 dark:text-zinc-500 uppercase tracking-wider block">
+                        MILESTONE DELIVERABLES:
+                      </span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {process.deliverables.map((del, dIdx) => (
+                          <span
+                            key={dIdx}
+                            className="inline-flex items-center gap-1.5 rounded-full bg-brand-zinc-50 dark:bg-white/5 border border-brand-zinc-200/60 dark:border-white/10 px-3 py-0.5 text-[8.5px] font-mono font-bold text-brand-zinc-600 dark:text-zinc-300 uppercase"
+                          >
+                            <span className="h-1.5 w-1.5 rounded-full bg-[#0306AC] dark:bg-[#E9BD36]" />
+                            {del}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
+
           </div>
         </section>
 
