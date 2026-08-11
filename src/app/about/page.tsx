@@ -67,9 +67,9 @@ const drawVariants = {
 const TickerDigit = ({ digit }: { digit: number }) => {
   const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   return (
-    <span 
-      className="relative inline-block overflow-hidden select-none" 
-      style={{ 
+    <span
+      className="relative inline-block overflow-hidden select-none"
+      style={{
         width: "0.58em",
         height: "1em"
       }}
@@ -88,10 +88,10 @@ const TickerDigit = ({ digit }: { digit: number }) => {
         }}
       >
         {numbers.map((num) => (
-          <span 
-            key={num} 
-            className="flex items-center justify-center leading-none bg-clip-text text-transparent bg-gradient-to-r from-[#0306AC] to-[#4b4fff] dark:from-[#E9BD36] dark:to-[#FFA800]" 
-            style={{ 
+          <span
+            key={num}
+            className="flex items-center justify-center leading-none bg-clip-text text-transparent bg-gradient-to-r from-[#0306AC] to-[#4b4fff] dark:from-[#E9BD36] dark:to-[#FFA800]"
+            style={{
               height: "1em",
               WebkitBackgroundClip: "text"
             }}
@@ -111,8 +111,8 @@ const DigitTicker = ({ value }: { value: number }) => {
       {digits.map((digit, idx) => {
         if (isNaN(Number(digit))) {
           return (
-            <span 
-              key={idx} 
+            <span
+              key={idx}
               className="leading-none bg-clip-text text-transparent bg-gradient-to-r from-[#0306AC] to-[#4b4fff] dark:from-[#E9BD36] dark:to-[#FFA800]"
               style={{ WebkitBackgroundClip: "text" }}
             >
@@ -282,16 +282,16 @@ export default function AboutPage() {
                     <span className="text-[8px] font-mono tracking-widest text-brand-zinc-400 dark:text-zinc-500 select-none">[ INFO ]</span>
                     <div className="absolute bottom-0 left-0 w-full h-[1px] bg-brand-zinc-100 dark:bg-white/5" />
                   </div>
-                  
+
                   <h2 className="font-heading text-3xl sm:text-4xl font-black tracking-tight leading-[1.1] text-brand-dark dark:text-white mt-1">
                     We shape the future of digital <span className="text-[#0306AC] dark:text-[#E9BD36] italic font-serif font-light">brands.</span>
                   </h2>
-                  
+
                   <p className="text-[9.5px] text-brand-zinc-400 dark:text-zinc-500 mt-3 font-semibold leading-normal max-w-xs">
                     Every strategic choice, line of code, and creative pixel is engineered to establish market leadership and drive commercial value.
                   </p>
                 </div>
-                
+
                 {/* Symmetrical Core Expertise List at the Bottom */}
                 <div className="pt-6 mt-8 border-t border-brand-zinc-100 dark:border-white/5 w-full select-none">
                   <span className="text-[7.5px] font-mono tracking-widest text-[#0306AC] dark:text-[#E9BD36] uppercase font-black block mb-3">
@@ -420,7 +420,7 @@ export default function AboutPage() {
 
         {/* ── 3. WHO WE ARE SECTION (Awwwards-Level Premium Collage & Editorial Rows) ──── */}
         <section className="relative overflow-hidden py-20 md:py-28 border-b border-brand-zinc-200 dark:border-white/10 bg-white dark:bg-[#080710]">
-          
+
           {/* Gigantic background watermarked agency identifier */}
           <div className="absolute right-[5%] top-[10%] text-[15vw] sm:text-[12vw] font-heading font-black tracking-tighter text-[#0306AC]/[0.015] dark:text-white/[0.01] pointer-events-none select-none z-0 leading-none">
             CREATIVE
@@ -436,12 +436,12 @@ export default function AboutPage() {
                     <span className="text-[8.5px] font-mono tracking-widest text-[#0306AC] dark:text-[#E9BD36] font-black uppercase">// WHO WE ARE</span>
                     <div className="h-[1px] w-8 bg-[#0306AC]/20 dark:bg-white/10" />
                   </div>
-                  
+
                   <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.05]">
                     Designing landmarks, <br />
                     not just <span className="text-[#0306AC] dark:text-[#E9BD36] italic font-serif font-light">interfaces.</span>
                   </h2>
-                  
+
                   <p className="text-xs sm:text-sm text-brand-zinc-550 dark:text-zinc-400 font-normal leading-relaxed max-w-xl">
                     We are an elite coalition of design purists, engineering craftspeople, and performance strategists who build high-ticket platforms that command market attention and scale digital authority.
                   </p>
@@ -449,11 +449,11 @@ export default function AboutPage() {
 
                 {/* Awwwards-Style Expandable Editorial Rows */}
                 <div className="border-t border-brand-zinc-200 dark:border-white/10 divide-y divide-brand-zinc-200 dark:divide-white/10 w-full">
-                  
+
                   {/* Row 1 */}
                   <div className="group relative py-6 flex items-start justify-between gap-6 cursor-pointer overflow-hidden transition-all duration-300">
                     <div className="absolute inset-y-0 left-0 w-0 bg-zinc-50 dark:bg-white/[0.02] group-hover:w-full transition-all duration-500 ease-out -z-10" />
-                    
+
                     <div className="flex items-start gap-4 sm:gap-6">
                       <span className="text-[10px] font-mono font-bold text-[#0306AC] dark:text-[#E9BD36] mt-1 select-none">[ 01 ]</span>
                       <div className="space-y-1">
@@ -473,7 +473,7 @@ export default function AboutPage() {
                   {/* Row 2 */}
                   <div className="group relative py-6 flex items-start justify-between gap-6 cursor-pointer overflow-hidden transition-all duration-300">
                     <div className="absolute inset-y-0 left-0 w-0 bg-zinc-50 dark:bg-white/[0.02] group-hover:w-full transition-all duration-500 ease-out -z-10" />
-                    
+
                     <div className="flex items-start gap-4 sm:gap-6">
                       <span className="text-[10px] font-mono font-bold text-[#0306AC] dark:text-[#E9BD36] mt-1 select-none">[ 02 ]</span>
                       <div className="space-y-1">
@@ -493,7 +493,7 @@ export default function AboutPage() {
                   {/* Row 3 */}
                   <div className="group relative py-6 flex items-start justify-between gap-6 cursor-pointer overflow-hidden transition-all duration-300">
                     <div className="absolute inset-y-0 left-0 w-0 bg-zinc-50 dark:bg-white/[0.02] group-hover:w-full transition-all duration-500 ease-out -z-10" />
-                    
+
                     <div className="flex items-start gap-4 sm:gap-6">
                       <span className="text-[10px] font-mono font-bold text-[#0306AC] dark:text-[#E9BD36] mt-1 select-none">[ 03 ]</span>
                       <div className="space-y-1">
@@ -515,15 +515,15 @@ export default function AboutPage() {
 
               {/* Right Column: Interactive 3D Parallax Collage */}
               <div className="lg:col-span-6 relative h-[380px] sm:h-[480px] w-full flex items-center justify-center select-none">
-                
+
                 {/* Collage Container with Hover Group Parallax */}
-                <motion.div 
-                  initial="rest" 
-                  whileHover="hover" 
+                <motion.div
+                  initial="rest"
+                  whileHover="hover"
                   animate="rest"
                   className="relative w-full h-full max-w-[480px]"
                 >
-                  
+
                   {/* Card A: Background Abstract Art (Parallax Layer 1 - Deep) */}
                   <motion.div
                     variants={{
@@ -533,9 +533,9 @@ export default function AboutPage() {
                     transition={{ type: "spring", stiffness: 120, damping: 20 }}
                     className="absolute left-4 top-4 w-[60%] aspect-[1.1] rounded-2xl overflow-hidden border border-brand-zinc-200 dark:border-white/5 shadow-md bg-brand-dark -z-10"
                   >
-                    <img 
-                      src="/agency_abstract_graphics.png" 
-                      alt="Abstract 3D Glass Render" 
+                    <img
+                      src="/agency_abstract_graphics.png"
+                      alt="Abstract 3D Glass Render"
                       className="w-full h-full object-cover opacity-60 dark:opacity-80"
                     />
                   </motion.div>
@@ -549,9 +549,9 @@ export default function AboutPage() {
                     transition={{ type: "spring", stiffness: 120, damping: 20 }}
                     className="absolute left-[15%] top-[15%] w-[70%] aspect-[1.3] rounded-2xl overflow-hidden border border-brand-zinc-200 dark:border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.06)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.3)] bg-white dark:bg-[#12121e]"
                   >
-                    <img 
-                      src="/agency_workspace.png" 
-                      alt="360 Designs Agency Workspace" 
+                    <img
+                      src="/agency_workspace.png"
+                      alt="360 Designs Agency Workspace"
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-linear-grid-blue-4 opacity-[0.02] [background-size:16px_16px]" />
@@ -566,9 +566,9 @@ export default function AboutPage() {
                     transition={{ type: "spring", stiffness: 120, damping: 20 }}
                     className="absolute right-2 bottom-6 w-[55%] aspect-[1.28] rounded-2xl overflow-hidden border border-[#E9BD36]/20 dark:border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.12)] dark:shadow-[0_30px_60px_rgba(0,0,0,0.5)] bg-white dark:bg-[#12121e]"
                   >
-                    <img 
-                      src="/agency_ui_detail.png" 
-                      alt="Minimalist High-Fidelity Dashboard Interface" 
+                    <img
+                      src="/agency_ui_detail.png"
+                      alt="Minimalist High-Fidelity Dashboard Interface"
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-tr from-[#0306AC]/10 to-transparent mix-blend-overlay pointer-events-none" />
@@ -592,8 +592,8 @@ export default function AboutPage() {
         </section>
 
         {/* ── 4. MISSION & VISION SECTION (Ultra-Advanced Alternating Editorial Split) ──────── */}
-        <section 
-          ref={sectionRef} 
+        <section
+          ref={sectionRef}
           className="relative overflow-hidden py-28 sm:py-36 border-b border-brand-zinc-200 dark:border-white/10 bg-white dark:bg-[#080710] transition-colors duration-300"
         >
           {/* Architectural grid background overlay */}
@@ -604,7 +604,7 @@ export default function AboutPage() {
           <div className="absolute bottom-[15%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-[#E9BD36]/[0.02] dark:bg-[#E9BD36]/0.04 blur-[150px] pointer-events-none -z-10 animate-float-blob-delayed" />
 
           <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10 space-y-28 sm:space-y-40">
-            
+
             {/* Header Block */}
             <div className="text-left max-w-2xl">
               <div className="inline-flex items-center gap-2 rounded-full bg-[#0306AC]/5 dark:bg-white/5 border border-[#0306AC]/10 dark:border-white/10 px-4 py-1.5 text-[9px] font-mono tracking-widest text-[#0306AC] dark:text-[#E9BD36] font-black uppercase mb-4">
@@ -622,9 +622,9 @@ export default function AboutPage() {
 
             {/* Alternating Grid Rows */}
             <div className="space-y-32 sm:space-y-44">
-              
+
               {/* Row 1: Mission */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
@@ -673,8 +673,8 @@ export default function AboutPage() {
 
                 <div className="lg:col-span-7 order-1 lg:order-2">
                   <div className="aspect-[1.45] w-full rounded-[32px] overflow-hidden border border-brand-zinc-200/80 dark:border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.03)] dark:shadow-[0_30px_90px_rgba(0,0,0,0.45)] group-hover:shadow-[0_30px_90px_rgba(3,6,172,0.2)] dark:group-hover:shadow-[0_30px_90px_rgba(233,189,54,0.15)] transition-all duration-700 group relative bg-[#090812]">
-                    <img 
-                      src="/agency_ui_detail.png" 
+                    <img
+                      src="/agency_ui_detail.png"
                       alt="Our Mission Graphic"
                       className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 pointer-events-none"
                     />
@@ -708,7 +708,7 @@ export default function AboutPage() {
               </motion.div>
 
               {/* Row 2: Vision */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
@@ -717,8 +717,8 @@ export default function AboutPage() {
               >
                 <div className="lg:col-span-7">
                   <div className="aspect-[1.45] w-full rounded-[32px] overflow-hidden border border-brand-zinc-200/80 dark:border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.03)] dark:shadow-[0_30px_90px_rgba(0,0,0,0.45)] group-hover:shadow-[0_30px_90px_rgba(3,6,172,0.2)] dark:group-hover:shadow-[0_30px_90px_rgba(233,189,54,0.15)] transition-all duration-700 group relative bg-[#090812]">
-                    <img 
-                      src="/agency_workspace.png" 
+                    <img
+                      src="/agency_workspace.png"
                       alt="Our Vision Graphic"
                       className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 pointer-events-none"
                     />
@@ -792,7 +792,7 @@ export default function AboutPage() {
               </motion.div>
 
               {/* Row 3: Values */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
@@ -841,8 +841,8 @@ export default function AboutPage() {
 
                 <div className="lg:col-span-7 order-1 lg:order-2">
                   <div className="aspect-[1.45] w-full rounded-[32px] overflow-hidden border border-brand-zinc-200/80 dark:border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.03)] dark:shadow-[0_30px_90px_rgba(0,0,0,0.45)] group-hover:shadow-[0_30px_90px_rgba(3,6,172,0.2)] dark:group-hover:shadow-[0_30px_90px_rgba(233,189,54,0.15)] transition-all duration-700 group relative bg-[#090812]">
-                    <img 
-                      src="/agency_abstract_graphics.png" 
+                    <img
+                      src="/agency_abstract_graphics.png"
                       alt="Our Values Graphic"
                       className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 pointer-events-none"
                     />
@@ -882,7 +882,7 @@ export default function AboutPage() {
 
         {/* ── 5. OUR SERVICES SECTION (Sticky Split-Screen Visual Canvas - Locomotive/Awwwards Style) ──────── */}
         <section className="relative overflow-x-clip py-16 sm:py-24 lg:py-36 border-b border-brand-zinc-200 dark:border-white/10 bg-white dark:bg-[#080710] transition-colors duration-300">
-          
+
           {/* Drifting Ambient Lighting Orbs */}
           <div className="absolute top-[10%] left-[10%] w-[45vw] h-[45vw] rounded-full bg-[#0306AC]/[0.035] dark:bg-[#0306AC]/0.06 blur-[150px] pointer-events-none -z-10 animate-float-blob" />
           <div className="absolute bottom-[10%] right-[10%] w-[40vw] h-[40vw] rounded-full bg-[#E9BD36]/[0.025] dark:bg-[#E9BD36]/0.05 blur-[150px] pointer-events-none -z-10 animate-float-blob-delayed" />
@@ -910,11 +910,10 @@ export default function AboutPage() {
                       window.scrollTo({ top: y, behavior: "smooth" });
                     }
                   }}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-bold shrink-0 flex items-center gap-2 transition-all duration-300 ${
-                    isActive
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-bold shrink-0 flex items-center gap-2 transition-all duration-300 ${isActive
                       ? "bg-[#0306AC] text-white dark:bg-[#E9BD36] dark:text-brand-dark shadow-md"
                       : "bg-zinc-100 text-brand-zinc-600 dark:bg-white/5 dark:text-zinc-400"
-                  }`}
+                    }`}
                 >
                   <span>{item.id}</span>
                   <span>{item.name}</span>
@@ -926,11 +925,11 @@ export default function AboutPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-              
+
               {/* Left Pinned Sticky Navigation Panel (Hidden on mobile, Sticky on LG desktop) */}
               <div className="hidden lg:block lg:col-span-5 lg:sticky lg:top-24 self-start z-20">
                 <div className="p-6 sm:p-7 rounded-[32px] bg-zinc-50/90 dark:bg-[#0c0b18]/90 border border-brand-zinc-200/80 dark:border-white/10 shadow-2xl backdrop-blur-xl space-y-5 text-left relative overflow-hidden">
-                  
+
                   {/* Header */}
                   <div className="space-y-2.5">
                     <div className="inline-flex items-center gap-2 rounded-full bg-[#0306AC]/10 dark:bg-white/10 border border-[#0306AC]/15 dark:border-white/15 px-3 py-1 text-[10px] font-mono tracking-wider text-[#0306AC] dark:text-[#E9BD36] font-bold">
@@ -963,11 +962,10 @@ export default function AboutPage() {
                         <a
                           key={item.id}
                           href={`#service-stage-${item.id}`}
-                          className={`py-2.5 px-3.5 rounded-2xl flex items-center justify-between transition-all duration-300 group relative ${
-                            isActive
+                          className={`py-2.5 px-3.5 rounded-2xl flex items-center justify-between transition-all duration-300 group relative ${isActive
                               ? "bg-brand-dark text-white dark:bg-white dark:text-brand-dark shadow-xl scale-[1.02] font-bold"
                               : "hover:bg-zinc-200/60 dark:hover:bg-white/5 text-brand-zinc-600 dark:text-zinc-400"
-                          }`}
+                            }`}
                           onClick={(e) => {
                             e.preventDefault();
                             setActiveService(idx);
@@ -979,9 +977,8 @@ export default function AboutPage() {
                           }}
                         >
                           <div className="flex items-center gap-3">
-                            <span className={`font-serif italic text-xs font-black transition-colors ${
-                              isActive ? "text-[#E9BD36] dark:text-[#0306AC]" : "text-brand-zinc-400 dark:text-zinc-500"
-                            }`}>
+                            <span className={`font-serif italic text-xs font-black transition-colors ${isActive ? "text-[#E9BD36] dark:text-[#0306AC]" : "text-brand-zinc-400 dark:text-zinc-500"
+                              }`}>
                               {item.id}
                             </span>
                             <span className="font-heading text-xs tracking-tight">
@@ -990,16 +987,14 @@ export default function AboutPage() {
                           </div>
 
                           <div className="flex items-center gap-2">
-                            <span className={`text-[8.5px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full transition-colors ${
-                              isActive
+                            <span className={`text-[8.5px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full transition-colors ${isActive
                                 ? "bg-white/20 text-white dark:bg-black/10 dark:text-brand-dark"
                                 : "bg-black/5 dark:bg-white/5 text-brand-zinc-500 dark:text-zinc-500"
-                            }`}>
+                              }`}>
                               {item.tag}
                             </span>
-                            <ArrowRight className={`h-3.5 w-3.5 transition-transform ${
-                              isActive ? "translate-x-1 opacity-100 text-[#E9BD36] dark:text-[#0306AC]" : "opacity-30 group-hover:opacity-100"
-                            }`} />
+                            <ArrowRight className={`h-3.5 w-3.5 transition-transform ${isActive ? "translate-x-1 opacity-100 text-[#E9BD36] dark:text-[#0306AC]" : "opacity-30 group-hover:opacity-100"
+                              }`} />
                           </div>
                         </a>
                       );
@@ -1116,10 +1111,10 @@ export default function AboutPage() {
 
                       {/* Visual Graphic Stage Box */}
                       <div className="aspect-[1.65] w-full rounded-2xl overflow-hidden border border-brand-zinc-200/80 dark:border-white/10 relative bg-[#090812]">
-                        <img 
-                          src={stage.image} 
-                          alt={stage.title} 
-                          className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700" 
+                        <img
+                          src={stage.image}
+                          alt={stage.title}
+                          className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
@@ -1176,12 +1171,12 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ── 6. OUR PROCESS SECTION (Ultra-Modern 5-Step Kinetic Sprint Workflow) ──────── */}
-        <section className="relative overflow-hidden py-24 sm:py-32 border-b border-brand-zinc-200 dark:border-white/10 bg-zinc-50/60 dark:bg-[#090814] transition-colors duration-300">
+        {/* ── 6. OUR PROCESS SECTION (Clean & Spacious 3-Column Glass Grid) ──────── */}
+        <section className="relative overflow-hidden py-24 sm:py-36 border-b border-brand-zinc-200 dark:border-white/10 bg-white dark:bg-[#080710] transition-colors duration-300">
           
-          {/* Drifting Background Glow */}
-          <div className="absolute top-[20%] right-[10%] w-[40vw] h-[40vw] rounded-full bg-[#0306AC]/[0.03] dark:bg-[#0306AC]/0.05 blur-[140px] pointer-events-none -z-10 animate-float-blob" />
-          <div className="absolute bottom-[10%] left-[10%] w-[35vw] h-[35vw] rounded-full bg-[#E9BD36]/[0.02] dark:bg-[#E9BD36]/0.04 blur-[140px] pointer-events-none -z-10 animate-float-blob-delayed" />
+          {/* Drifting Ambient Lighting Orbs */}
+          <div className="absolute top-[15%] left-[10%] w-[45vw] h-[45vw] rounded-full bg-[#0306AC]/[0.035] dark:bg-[#0306AC]/0.06 blur-[150px] pointer-events-none -z-10 animate-float-blob" />
+          <div className="absolute bottom-[15%] right-[10%] w-[40vw] h-[40vw] rounded-full bg-[#E9BD36]/[0.025] dark:bg-[#E9BD36]/0.05 blur-[150px] pointer-events-none -z-10 animate-float-blob-delayed" />
 
           <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10 space-y-16">
 
@@ -1196,21 +1191,21 @@ export default function AboutPage() {
                   ⚡ THE METHODOLOGY
                 </div>
 
-                <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.1]">
-                  Our 5-Step Sprint Framework for <br />
+                <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.08]">
+                  Our 5-Step Process for <br />
                   <span className="text-[#0306AC] dark:text-[#E9BD36] italic font-serif font-light">Predictable Results.</span>
                 </h2>
               </div>
 
               <div className="max-w-md space-y-3">
                 <p className="text-xs sm:text-sm text-brand-zinc-550 dark:text-zinc-400 font-sans leading-relaxed">
-                  We eliminate project delays through structured 2-week iterations, direct team communication, and transparent milestone approvals.
+                  A transparent, structured workflow engineered to deliver high-speed web platforms with zero friction and guaranteed deadlines.
                 </p>
               </div>
             </div>
 
-            {/* 5-Step Kinetic Sprint Workflow Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch text-left">
+            {/* 3-Column Glass Card Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch text-left">
               {[
                 {
                   step: "01",
@@ -1218,31 +1213,31 @@ export default function AboutPage() {
                   title: "Discovery & Market Audit",
                   desc: "We analyze your business model, target audience personas, conversion bottlenecks, and competitor strategies to build an actionable blueprint.",
                   deliverables: ["Market Positioning", "User Personas", "Bottleneck Audit"],
-                  badge: "PHASE 01 · AUDIT"
+                  badge: "PHASE 01 // AUDIT"
                 },
                 {
                   step: "02",
                   icon: Compass,
                   title: "Architecture & Sprint Spec",
                   desc: "Designing site sitemaps, interactive wireframes, component design tokens, and technical requirements before writing a single line of code.",
-                  deliverables: ["Design Tokens", "Wireframes", "Tech Stack Spec"],
-                  badge: "PHASE 02 · PLAN"
+                  deliverables: ["Design Tokens", "Wireframe Specs", "Tech Stack Spec"],
+                  badge: "PHASE 02 // PLAN"
                 },
                 {
                   step: "03",
                   icon: Code,
                   title: "High-Speed Engineering",
                   desc: "Building custom Next.js 15 web components, Tailwind CSS design systems, and Framer Motion micro-animations with weekly demo builds.",
-                  deliverables: ["Next.js Engine", "Motion System", "API Integrations"],
-                  badge: "PHASE 03 · BUILD"
+                  deliverables: ["Next.js Engine", "Motion System", "API Routes"],
+                  badge: "PHASE 03 // BUILD"
                 },
                 {
                   step: "04",
                   icon: ShieldCheck,
-                  title: "Testing & QA Audit",
+                  title: "Testing & Accessibility QA",
                   desc: "Rigorous cross-browser testing, mobile WCAG accessibility audits, SEO schema verification, and Lighthouse 99+ speed optimizations.",
                   deliverables: ["WCAG 2.1 Audit", "Lighthouse 99+", "SEO Schemas"],
-                  badge: "PHASE 04 · VERIFY"
+                  badge: "PHASE 04 // VERIFY"
                 },
                 {
                   step: "05",
@@ -1250,7 +1245,7 @@ export default function AboutPage() {
                   title: "Launch & Growth Scaling",
                   desc: "Zero-downtime production deployment followed by post-launch conversion rate optimization (CRO) and ongoing performance enhancements.",
                   deliverables: ["Zero Downtime", "CRO Analytics", "Growth Sprints"],
-                  badge: "PHASE 05 · SCALE"
+                  badge: "PHASE 05 // SCALE"
                 },
               ].map((process, idx) => {
                 const StepIcon = process.icon;
@@ -1262,45 +1257,59 @@ export default function AboutPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                    className="rounded-[32px] bg-white dark:bg-[#0c0b18] border border-brand-zinc-200/80 dark:border-white/10 p-7 sm:p-8 flex flex-col justify-between space-y-6 group hover:border-[#0306AC]/60 dark:hover:border-[#E9BD36]/60 transition-all duration-500 shadow-sm hover:shadow-2xl relative overflow-hidden will-change-transform transform-gpu"
+                    className="rounded-[36px] bg-zinc-50/90 dark:bg-[#0c0b18] border border-brand-zinc-200/80 dark:border-white/10 p-8 sm:p-9 text-brand-dark dark:text-white flex flex-col justify-between space-y-6 group hover:border-[#0306AC]/60 dark:hover:border-[#E9BD36]/60 transition-all duration-500 shadow-sm hover:shadow-2xl relative overflow-hidden will-change-transform transform-gpu"
                   >
-                    {/* Top Row: Step Index & Icon */}
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <span className="font-serif italic text-3xl font-black text-[#0306AC] dark:text-[#E9BD36]">
-                          {process.step}
-                        </span>
-                        <div className="h-[1px] w-6 bg-brand-zinc-300 dark:bg-white/20" />
-                        <span className="text-[9px] font-mono font-bold text-brand-zinc-400 dark:text-zinc-500 uppercase tracking-widest">
-                          // {process.badge}
-                        </span>
+                    {/* Background Lighting Orb */}
+                    <div className="absolute top-[-20%] right-[-20%] w-32 h-32 rounded-full bg-[#0306AC]/10 dark:bg-[#E9BD36]/15 blur-2xl pointer-events-none group-hover:scale-150 transition-transform duration-700" />
+                    
+                    {/* Grid Pattern Overlay */}
+                    <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
+
+                    <div className="space-y-6 relative z-10">
+                      {/* Top Bar: Step Index & Icon */}
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <span className="font-serif italic text-4xl font-black text-[#0306AC] dark:text-[#E9BD36]">
+                            {process.step}
+                          </span>
+                          <div className="h-[1px] w-6 bg-brand-zinc-300 dark:bg-white/20" />
+                          <span className="text-[9px] font-mono font-bold text-brand-zinc-400 dark:text-zinc-500 uppercase tracking-widest">
+                            {process.badge}
+                          </span>
+                        </div>
+
+                        <div className="h-12 w-12 rounded-2xl bg-[#0306AC]/10 dark:bg-white/10 border border-[#0306AC]/15 dark:border-white/15 flex items-center justify-center text-[#0306AC] dark:text-[#E9BD36] group-hover:scale-110 group-hover:bg-[#0306AC] group-hover:text-white dark:group-hover:bg-[#E9BD36] dark:group-hover:text-brand-dark transition-all duration-300 shadow-md">
+                          <StepIcon className="h-5 w-5" />
+                        </div>
                       </div>
 
-                      <div className="h-11 w-11 rounded-2xl bg-[#0306AC]/10 dark:bg-white/10 flex items-center justify-center text-[#0306AC] dark:text-[#E9BD36] group-hover:scale-110 transition-transform duration-300">
-                        <StepIcon className="h-5 w-5" />
+                      {/* Content */}
+                      <div className="space-y-3">
+                        <h3 className="font-heading text-xl font-black text-brand-dark dark:text-white tracking-tight group-hover:text-[#0306AC] dark:group-hover:text-[#E9BD36] transition-colors">
+                          {process.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-brand-zinc-550 dark:text-zinc-400 font-sans leading-relaxed">
+                          {process.desc}
+                        </p>
                       </div>
                     </div>
 
-                    {/* Step Title & Description */}
-                    <div className="space-y-2.5">
-                      <h3 className="font-heading text-xl font-black text-brand-dark dark:text-white tracking-tight group-hover:text-[#0306AC] dark:group-hover:text-[#E9BD36] transition-colors">
-                        {process.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-brand-zinc-550 dark:text-zinc-400 font-sans leading-relaxed">
-                        {process.desc}
-                      </p>
-                    </div>
+                    {/* Bottom Deliverables */}
+                    <div className="pt-5 border-t border-brand-zinc-200/70 dark:border-white/10 space-y-3 mt-4 relative z-10">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[9px] font-mono font-bold text-brand-zinc-400 dark:text-zinc-500 uppercase tracking-wider block">
+                          MILESTONE DELIVERABLES:
+                        </span>
+                        <span className="text-[9px] font-mono font-bold text-[#0306AC] dark:text-[#E9BD36] uppercase tracking-wider">
+                          STEP {idx + 1} OF 5
+                        </span>
+                      </div>
 
-                    {/* Key Deliverable Tags */}
-                    <div className="pt-4 border-t border-brand-zinc-200/70 dark:border-white/10 space-y-3">
-                      <span className="text-[9px] font-mono font-bold text-brand-zinc-400 dark:text-zinc-500 uppercase tracking-wider block">
-                        MILESTONE DELIVERABLES:
-                      </span>
                       <div className="flex flex-wrap gap-1.5">
                         {process.deliverables.map((del, dIdx) => (
                           <span
                             key={dIdx}
-                            className="inline-flex items-center gap-1.5 rounded-full bg-brand-zinc-50 dark:bg-white/5 border border-brand-zinc-200/60 dark:border-white/10 px-3 py-0.5 text-[8.5px] font-mono font-bold text-brand-zinc-600 dark:text-zinc-300 uppercase"
+                            className="inline-flex items-center gap-1.5 rounded-full bg-white dark:bg-white/5 border border-brand-zinc-200/80 dark:border-white/10 px-3 py-1 text-[8.5px] font-mono font-bold text-brand-zinc-700 dark:text-zinc-300 uppercase shadow-xs"
                           >
                             <span className="h-1.5 w-1.5 rounded-full bg-[#0306AC] dark:bg-[#E9BD36]" />
                             {del}
