@@ -144,8 +144,11 @@
       ],
       "parallaxBadge": "STUDIO PARALLAX // ACTIVE",
       "imgAbstract": "/agency_abstract_graphics.png",
+      "imgAbstractAlt": "Abstract 3D Glass Render",
       "imgWorkspace": "/agency_workspace.png",
-      "imgUiDetail": "/agency_ui_detail.png"
+      "imgWorkspaceAlt": "360 Designs Agency Workspace",
+      "imgUiDetail": "/agency_ui_detail.png",
+      "imgUiDetailAlt": "Minimalist High-Fidelity Dashboard Interface"
     },
     "philosophy": {
       "eyebrow": "PHILOSOPHY & CONVICTIONS",
@@ -160,7 +163,9 @@
         "quote": "\"We build software meant to dominate digital markets, not just exist online.\"",
         "badgeLatency": "LATENCY // 12ms",
         "badgePerformance": "PERFORMANCE // 99.4%",
-        "tags": ["Custom Next.js", "High-Velocity Load", "Organic SEO"]
+        "tags": ["Custom Next.js", "High-Velocity Load", "Organic SEO"],
+        "imgSrc": "/agency_ui_detail.png",
+        "imgAlt": "Our Mission Graphic"
       },
       "vision": {
         "num": "02",
@@ -171,7 +176,9 @@
         "quote": "\"Design without technical rigor is just decorative artwork.\"",
         "badgeAccessibility": "ACCESSIBILITY // AAA",
         "badgeLighthouse": "LIGHTHOUSE // 100/100",
-        "tags": ["Design Systems", "Universal WCAG", "Brand Architecture"]
+        "tags": ["Design Systems", "Universal WCAG", "Brand Architecture"],
+        "imgSrc": "/agency_workspace.png",
+        "imgAlt": "Our Vision Graphic"
       },
       "values": {
         "num": "03",
@@ -182,7 +189,9 @@
         "quote": "\"Direct technical alignment eliminates management noise.\"",
         "badgeSync": "SYNC STATUS // CONNECTED",
         "badgeSprint": "AGENCY SPRINT // ACTIVE",
-        "tags": ["Modular Sprints", "Direct Discord Sync", "Zero Downtime"]
+        "tags": ["Modular Sprints", "Direct Discord Sync", "Zero Downtime"],
+        "imgSrc": "/agency_abstract_graphics.png",
+        "imgAlt": "Our Values Graphic"
       }
     },
     "servicesDirectory": {
@@ -191,6 +200,16 @@
       "titleHighlight": "elevate your brand.",
       "consultationBtnText": "SCHEDULE FREE CONSULTATION",
       "consultationBtnHref": "/contact",
+      "getStartedText": "GET STARTED",
+      "getStartedHref": "/contact",
+      "mobilePills": [
+        { "id": "01", "name": "Brand Identity" },
+        { "id": "02", "name": "Next.js Web" },
+        { "id": "03", "name": "Technical SEO" },
+        { "id": "04", "name": "Paid Ads" },
+        { "id": "05", "name": "Social Growth" },
+        { "id": "06", "name": "4K Studio" }
+      ],
       "stages": [
         {
           "id": "01",
@@ -201,6 +220,7 @@
           "image": "/agency_ui_detail.png",
           "badge": "100% BESPOKE DESIGN",
           "navTag": "Design",
+          "navTitle": "Brand Identity & Systems",
           "deliverables": ["Logo Architecture", "Color Tokens", "Brand Style Guide", "Design Systems"]
         },
         {
@@ -212,6 +232,7 @@
           "image": "/agency_workspace.png",
           "badge": "VELOCITY // 99.8% LIGHTHOUSE",
           "navTag": "Development",
+          "navTitle": "Next.js Web Engineering",
           "deliverables": ["Next.js 15 Engine", "Tailwind CSS", "Framer Motion", "Edge API Routes"]
         },
         {
@@ -223,6 +244,7 @@
           "image": "/agency_abstract_graphics.png",
           "badge": "RANK #1 GOOGLE TARGET",
           "navTag": "SEO",
+          "navTitle": "Search Engine Optimization",
           "deliverables": ["Technical SEO Audits", "JSON-LD Schemas", "Keyword Silos", "Search Authority"]
         },
         {
@@ -234,6 +256,7 @@
           "image": "/agency_ui_detail.png",
           "badge": "4.8X AVERAGE ROAS",
           "navTag": "Marketing",
+          "navTitle": "Paid Advertising & Funnels",
           "deliverables": ["Google PPC Ads", "Meta Campaigns", "Pixel Analytics", "Retargeting Funnels"]
         },
         {
@@ -245,6 +268,7 @@
           "image": "/agency_workspace.png",
           "badge": "+340% ENGAGEMENT LIFT",
           "navTag": "Growth",
+          "navTitle": "Social Media Strategy",
           "deliverables": ["Omnichannel Strategy", "Motion Reels", "Community Growth", "Channel Management"]
         },
         {
@@ -256,6 +280,7 @@
           "image": "/agency_abstract_graphics.png",
           "badge": "4K CINEMA PRODUCTION",
           "navTag": "Studio",
+          "navTitle": "Creative Video & Copy",
           "deliverables": ["Brand Copywriting", "4K Video Media", "Social Reels", "Editorial Layouts"]
         }
       ]
@@ -265,6 +290,8 @@
       "titleIntro": "Our 5-Step Process for ",
       "titleHighlight": "Predictable Results.",
       "description": "A transparent, structured workflow engineered to deliver high-speed web platforms with zero friction and guaranteed deadlines.",
+      "deliverablesLabel": "MILESTONE DELIVERABLES:",
+      "stepLabelPrefix": "STEP",
       "steps": [
         {
           "step": "01",
@@ -504,7 +531,9 @@
       "description": "Have a project in mind? Let's discuss your ideas and turn them into powerful digital solutions that drive real results for your business.",
       "ctaPrimaryText": "GET STARTED TODAY",
       "ctaPrimaryHref": "/#contact",
-      "ctaSecondaryText": "WATCH OUR STORY"
+      "ctaSecondaryText": "WATCH OUR STORY",
+      "portraitSrc": "/founder_portrait.png",
+      "portraitAlt": "Founder & Chief Digital Strategist"
     }
   },
   "aboutOwner": {

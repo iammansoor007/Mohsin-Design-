@@ -1,16 +1,12 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import {
   ArrowRight,
   Play,
-  Check,
-  Plus,
   Compass,
-  Eye,
-  Target,
   Palette,
   Code,
   Rocket,
@@ -18,36 +14,22 @@ import {
   Building2,
   Heart,
   GraduationCap,
-  Landmark,
   Database,
   Utensils,
   Scale,
   Star,
-  FolderClosed,
-  Clock,
   Users,
   ShieldCheck,
-  TrendingUp,
-  FileText,
   Search,
-  MessageSquare,
   Megaphone,
   Globe,
-  Calendar,
-  MoreVertical,
-  BarChart2,
   Trophy,
-  Image as ImageIcon,
-  Pencil,
-  Coins,
+  Target,
   Lightbulb,
-  Briefcase,
-  Handshake,
-  Video,
+  MessageSquare,
+  Clock,
   Headphones,
-  Award,
-  ChevronLeft,
-  ChevronRight
+  Handshake
 } from "lucide-react";
 import content from "@/data/content.json";
 
@@ -128,12 +110,7 @@ const DigitTicker = ({ value }: { value: number }) => {
 
 export default function AboutPage() {
   const { aboutPage } = content;
-  const [cardTilt, setCardTilt] = useState({ idx: null as number | null, x: 0, y: 0 });
-  const [spotlightPos, setSpotlightPos] = useState({ x: 0, y: 0, cardIdx: null as number | null });
   const [activeService, setActiveService] = useState(0);
-  const [activeAccordion, setActiveAccordion] = useState<number | null>(0);
-  const [hoveredService, setHoveredService] = useState<number | null>(0);
-  const [serviceMousePos, setServiceMousePos] = useState({ x: 0, y: 0 });
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const iconMap: Record<string, any> = {
@@ -146,13 +123,13 @@ export default function AboutPage() {
     Search,
     Megaphone,
     Users,
-    Video,
+    Video: Code,
     Compass,
     ShieldCheck,
     ShoppingCart,
     Building2,
     GraduationCap,
-    Coins,
+    Coins: Trophy,
     Database,
     Utensils,
     Scale,
@@ -197,36 +174,30 @@ export default function AboutPage() {
     <>
       <main className="flex-1 w-full bg-white dark:bg-[#080710] text-brand-dark dark:text-white transition-colors duration-300 relative overflow-x-clip">
 
-        {/* Awwwards-Level Floating Blurred Mesh Blobs */}
+        {/* Floating Blurred Mesh Blobs */}
         <div className="absolute top-[3%] left-[-15%] w-[50vw] h-[50vw] rounded-full bg-brand-blue/[0.03] dark:bg-brand-blue/[0.06] blur-[120px] pointer-events-none select-none -z-10 animate-float-blob" />
         <div className="absolute top-[28%] right-[-10%] w-[45vw] h-[45vw] rounded-full bg-brand-yellow/[0.02] dark:bg-brand-yellow/[0.05] blur-[150px] pointer-events-none select-none -z-10 animate-float-blob-delayed" />
         <div className="absolute bottom-[30%] left-[-12%] w-[48vw] h-[48vw] rounded-full bg-brand-blue/[0.02] dark:bg-brand-blue/[0.04] blur-[140px] pointer-events-none select-none -z-10 animate-float-blob" />
         <div className="absolute bottom-[5%] right-[-12%] w-[42vw] h-[42vw] rounded-full bg-brand-yellow/[0.015] dark:bg-brand-yellow/[0.035] blur-[160px] pointer-events-none select-none -z-10 animate-float-blob-delayed" />
 
-        {/* Awwwards-Level Background Grid Pattern */}
+        {/* Background Grid Pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808007_1px,transparent_1px),linear-gradient(to_bottom,#80808007_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none -z-10" />
 
-        {/* ── 1. HERO SECTION (Badge, Title, CTAs, and Visual Image) ── */}
+        {/* ── 1. HERO SECTION ── */}
         <section className="relative overflow-hidden py-4 sm:py-6 md:py-8 border-b border-brand-zinc-200 dark:border-white/10">
           <div className="absolute inset-0 -z-10 bg-linear-grid-blue-4 [background-size:40px_40px] opacity-[0.05] dark:opacity-[0.08]" />
 
-          {/* Ambient Glows */}
-          <div className="absolute top-[10%] left-[-5%] w-[350px] h-[350px] rounded-full bg-brand-blue/[0.02] dark:bg-brand-blue/[0.05] blur-[120px] pointer-events-none -z-10" />
-
           <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-
-              {/* Left Column: Heading and CTAs */}
               <motion.div
                 initial={{ opacity: 0, y: 25 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 className="lg:col-span-6 space-y-6 text-left"
               >
-                {/* Yellow Badge */}
-                <div className="inline-flex">
-                  <span className="eyebrow-pill-yellow">
-                    <Star className="h-3.5 w-3.5 fill-brand-dark text-brand-dark shrink-0" />
+                <div className="inline-flex pointer-events-auto">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-brand-yellow px-4 py-1.5 text-[10px] font-black tracking-wider uppercase text-[#080710] select-none shadow-sm">
+                    <Star className="h-3.5 w-3.5 fill-[#080710] text-[#080710] shrink-0" />
                     {aboutPage.hero.badgeText}
                   </span>
                 </div>
@@ -252,37 +223,20 @@ export default function AboutPage() {
                   {aboutPage.hero.description}
                 </p>
 
-                {/* CTAs */}
                 <div className="flex flex-wrap items-center gap-4 pt-2">
-                  {/* Let's Work Together */}
-                  <a
-                    href={aboutPage.hero.ctaPrimaryHref}
-                    className="btn-primary-cta"
-                  >
+                  <a href={aboutPage.hero.ctaPrimaryHref} className="btn-primary-cta">
                     <span>{aboutPage.hero.ctaPrimaryText}</span>
-                    <span className="btn-icon">
-                      <ArrowRight className="h-3.5 w-3.5" />
-                    </span>
+                    <span className="btn-icon"><ArrowRight className="h-3.5 w-3.5" /></span>
                   </a>
 
-                  {/* Watch Our Story */}
-                  <button
-                    className="btn-secondary-cta"
-                  >
+                  <button className="btn-secondary-cta">
                     <span>{aboutPage.hero.ctaSecondaryText}</span>
-                    <span className="btn-icon">
-                      <Play className="h-3.5 w-3.5 fill-current ml-0.5" />
-                    </span>
+                    <span className="btn-icon"><Play className="h-3.5 w-3.5 fill-current ml-0.5" /></span>
                   </button>
                 </div>
               </motion.div>
 
-              {/* Right Column: Hero Image */}
               <div className="lg:col-span-6 relative w-full h-[320px] sm:h-[420px] md:h-[480px] lg:h-[520px] flex items-center justify-center pt-8 lg:pt-0">
-                {/* Background Blobs for depth */}
-                <div className="absolute top-[10%] right-[10%] w-[320px] h-[320px] rounded-full bg-brand-yellow/[0.05] dark:bg-brand-yellow/[0.1] blur-[80px] pointer-events-none -z-10" />
-                <div className="absolute bottom-[10%] left-[10%] w-[300px] h-[300px] rounded-full bg-brand-blue/[0.03] dark:bg-brand-blue/[0.08] blur-[80px] pointer-events-none -z-10" />
-
                 <motion.div
                   initial={{ opacity: 0, scale: 0.98, y: 15 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -296,17 +250,14 @@ export default function AboutPage() {
                   />
                 </motion.div>
               </div>
-
             </div>
           </div>
         </section>
 
-        {/* ── 2. STATS BAR SECTION (Asymmetric Typographic Spread) ────────── */}
+        {/* ── 2. STATS BAR SECTION ── */}
         <section className="relative overflow-hidden py-12 sm:py-16 md:py-20 border-b border-brand-zinc-200 dark:border-white/10 bg-zinc-50/10 dark:bg-white/[0.005]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
-
-              {/* Left Column: Symmetrical Stat-Style Intro */}
               <div className="lg:col-span-4 flex flex-col justify-between self-stretch text-left">
                 <div className="w-full space-y-4">
                   <div className="eyebrow-pill">
@@ -327,7 +278,6 @@ export default function AboutPage() {
                   </p>
                 </div>
 
-                {/* Symmetrical Core Expertise List at the Bottom */}
                 <div className="pt-6 mt-8 border-t border-brand-zinc-100 dark:border-white/5 w-full select-none">
                   <span className="text-[7.5px] font-mono tracking-widest text-brand-blue dark:text-brand-yellow uppercase font-black block mb-3">
                     {aboutPage.stats.expertiseHeader}
@@ -343,7 +293,6 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Right Column: 2x2 Clean Typographic Grid */}
               <div className="lg:col-span-8 grid grid-cols-2 gap-x-12 gap-y-12 sm:gap-x-16 border-t lg:border-t-0 lg:border-l border-brand-zinc-200/60 dark:border-white/5 pt-10 lg:pt-0 lg:pl-16">
                 {aboutPage.stats.metrics.map((metric: any, idx: number) => {
                   const MetricIcon = iconMap[metric.iconName] || Globe;
@@ -371,12 +320,11 @@ export default function AboutPage() {
                   );
                 })}
               </div>
-
             </div>
           </div>
         </section>
 
-        {/* ── 3. WHO WE ARE SECTION (Awwwards-Level Premium Collage & Editorial Rows) ──── */}
+        {/* ── 3. WHO WE ARE SECTION ── */}
         <section className="relative overflow-hidden py-12 sm:py-16 md:py-20 border-b border-brand-zinc-200 dark:border-white/10 bg-white dark:bg-[#080710]">
           <div className="absolute right-[5%] top-[10%] text-[15vw] sm:text-[12vw] font-heading font-black tracking-tighter text-[#0306AC]/[0.015] dark:text-white/[0.01] pointer-events-none select-none z-0 leading-none">
             {aboutPage.whoWeAre.watermark}
@@ -384,8 +332,6 @@ export default function AboutPage() {
 
           <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
-
-              {/* Left Column: Heading and Interactive Editorial Rows */}
               <div className="lg:col-span-6 space-y-10 text-left">
                 <div className="space-y-4">
                   <div className="eyebrow-pill">
@@ -408,7 +354,6 @@ export default function AboutPage() {
                   </p>
                 </div>
 
-                {/* Awwwards-Style Expandable Editorial Rows */}
                 <div className="border-t border-brand-zinc-200 dark:border-white/10 divide-y divide-brand-zinc-200 dark:divide-white/10 w-full">
                   {aboutPage.whoWeAre.rows.map((row: any, idx: number) => (
                     <div key={idx} className="group relative py-6 flex items-start justify-between gap-6 cursor-pointer overflow-hidden transition-all duration-300">
@@ -433,60 +378,33 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Right Column: Interactive 3D Parallax Collage */}
               <div className="lg:col-span-6 relative h-[380px] sm:h-[480px] w-full flex items-center justify-center select-none">
-                <motion.div
-                  initial="rest"
-                  whileHover="hover"
-                  animate="rest"
-                  className="relative w-full h-full max-w-[480px]"
-                >
-                  <motion.div
-                    variants={{
-                      rest: { x: 0, y: 0, rotate: -4, scale: 0.95 },
-                      hover: { x: -25, y: -15, rotate: -8, scale: 0.96 }
-                    }}
-                    transition={{ type: "spring", stiffness: 120, damping: 20 }}
-                    className="absolute left-4 top-4 w-[60%] aspect-[1.1] rounded-2xl overflow-hidden border border-brand-zinc-200 dark:border-white/5 shadow-md bg-brand-dark -z-10"
-                  >
+                <div className="relative w-full h-full max-w-[480px]">
+                  <div className="absolute left-4 top-4 w-[60%] aspect-[1.1] rounded-2xl overflow-hidden border border-brand-zinc-200 dark:border-white/5 shadow-md bg-brand-dark -z-10">
                     <img
                       src={aboutPage.whoWeAre.imgAbstract}
-                      alt="Abstract 3D Glass Render"
+                      alt={aboutPage.whoWeAre.imgAbstractAlt}
                       className="w-full h-full object-cover opacity-60 dark:opacity-80"
                     />
-                  </motion.div>
+                  </div>
 
-                  <motion.div
-                    variants={{
-                      rest: { x: 0, y: 0, scale: 1 },
-                      hover: { x: 0, y: 0, scale: 1.02 }
-                    }}
-                    transition={{ type: "spring", stiffness: 120, damping: 20 }}
-                    className="absolute left-[15%] top-[15%] w-[70%] aspect-[1.3] rounded-2xl overflow-hidden border border-brand-zinc-200 dark:border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.06)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.3)] bg-white dark:bg-[#12121e]"
-                  >
+                  <div className="absolute left-[15%] top-[15%] w-[70%] aspect-[1.3] rounded-2xl overflow-hidden border border-brand-zinc-200 dark:border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.06)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.3)] bg-white dark:bg-[#12121e]">
                     <img
                       src={aboutPage.whoWeAre.imgWorkspace}
-                      alt="360 Designs Agency Workspace"
+                      alt={aboutPage.whoWeAre.imgWorkspaceAlt}
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-linear-grid-blue-4 opacity-[0.02] [background-size:16px_16px]" />
-                  </motion.div>
+                  </div>
 
-                  <motion.div
-                    variants={{
-                      rest: { x: 0, y: 0, rotate: 6, scale: 0.98 },
-                      hover: { x: 30, y: 25, rotate: 10, scale: 1.02 }
-                    }}
-                    transition={{ type: "spring", stiffness: 120, damping: 20 }}
-                    className="absolute right-2 bottom-6 w-[55%] aspect-[1.28] rounded-2xl overflow-hidden border border-[#E9BD36]/20 dark:border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.12)] dark:shadow-[0_30px_60px_rgba(0,0,0,0.5)] bg-white dark:bg-[#12121e]"
-                  >
+                  <div className="absolute right-2 bottom-6 w-[55%] aspect-[1.28] rounded-2xl overflow-hidden border border-[#E9BD36]/20 dark:border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.12)] dark:shadow-[0_30px_60px_rgba(0,0,0,0.5)] bg-white dark:bg-[#12121e]">
                     <img
                       src={aboutPage.whoWeAre.imgUiDetail}
-                      alt="Minimalist High-Fidelity Dashboard Interface"
+                      alt={aboutPage.whoWeAre.imgUiDetailAlt}
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-tr from-[#0306AC]/10 to-transparent mix-blend-overlay pointer-events-none" />
-                  </motion.div>
+                  </div>
 
                   <div className="absolute top-[8%] right-[8%] bg-white/95 dark:bg-[#080710]/95 backdrop-blur-md border border-brand-zinc-200 dark:border-white/10 px-3.5 py-2 rounded-xl flex items-center gap-2.5 shadow-lg select-none">
                     <span className="relative flex h-1.5 w-1.5">
@@ -497,21 +415,18 @@ export default function AboutPage() {
                       {aboutPage.whoWeAre.parallaxBadge}
                     </span>
                   </div>
-                </motion.div>
+                </div>
               </div>
-
             </div>
           </div>
         </section>
 
-        {/* ── 4. MISSION & VISION SECTION (Ultra-Advanced Alternating Editorial Split) ──────── */}
+        {/* ── 4. MISSION & VISION SECTION ── */}
         <section
           ref={sectionRef}
           className="relative overflow-hidden py-12 sm:py-16 md:py-20 border-b border-brand-zinc-200 dark:border-white/10 bg-white dark:bg-[#080710] transition-colors duration-300"
         >
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808007_1px,transparent_1px),linear-gradient(to_bottom,#80808007_1px,transparent_1px)] bg-[size:48px_48px] pointer-events-none -z-10" />
-          <div className="absolute top-[15%] left-[-10%] w-[45vw] h-[45vw] rounded-full bg-[#0306AC]/[0.03] dark:bg-[#0306AC]/0.05 blur-[140px] pointer-events-none -z-10 animate-float-blob" />
-          <div className="absolute bottom-[15%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-[#E9BD36]/[0.02] dark:bg-[#E9BD36]/0.04 blur-[150px] pointer-events-none -z-10 animate-float-blob-delayed" />
 
           <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10 space-y-28 sm:space-y-40">
             <div className="text-left max-w-2xl space-y-4">
@@ -533,13 +448,7 @@ export default function AboutPage() {
 
             <div className="space-y-32 sm:space-y-44">
               {/* Mission */}
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center group"
-              >
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center group">
                 <div className="lg:col-span-5 flex flex-col justify-center space-y-6 text-left order-2 lg:order-1">
                   <div className="flex items-center gap-4">
                     <span className="font-serif italic text-5xl sm:text-6xl font-black text-brand-zinc-200 dark:text-white/10 group-hover:text-[#0306AC] dark:group-hover:text-[#E9BD36] transition-colors duration-500 leading-none select-none">
@@ -576,7 +485,7 @@ export default function AboutPage() {
 
                 <div className="lg:col-span-7 order-1 lg:order-2">
                   <div className="aspect-[1.45] w-full rounded-[32px] overflow-hidden border border-brand-zinc-200/80 dark:border-white/10 shadow-sm relative bg-[#090812]">
-                    <img src="/agency_ui_detail.png" alt="Mission" className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 pointer-events-none" />
+                    <img src={aboutPage.philosophy.mission.imgSrc} alt={aboutPage.philosophy.mission.imgAlt} className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 pointer-events-none" />
                     <div className="absolute top-5 right-5 bg-black/70 backdrop-blur-md border border-white/15 px-4 py-2 rounded-2xl flex items-center gap-3 shadow-xl select-none">
                       <span className="text-[8.5px] font-mono font-black text-white uppercase tracking-wider">{aboutPage.philosophy.mission.badgeLatency}</span>
                     </div>
@@ -585,19 +494,13 @@ export default function AboutPage() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
               {/* Vision */}
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center group"
-              >
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center group">
                 <div className="lg:col-span-7">
                   <div className="aspect-[1.45] w-full rounded-[32px] overflow-hidden border border-brand-zinc-200/80 dark:border-white/10 shadow-sm relative bg-[#090812]">
-                    <img src="/agency_workspace.png" alt="Vision" className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 pointer-events-none" />
+                    <img src={aboutPage.philosophy.vision.imgSrc} alt={aboutPage.philosophy.vision.imgAlt} className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 pointer-events-none" />
                     <div className="absolute bottom-5 left-5 bg-black/70 backdrop-blur-md border border-white/15 px-4 py-2 rounded-2xl flex items-center gap-3 shadow-xl select-none">
                       <span className="text-[8.5px] font-mono font-black text-[#E9BD36] uppercase tracking-wider">{aboutPage.philosophy.vision.badgeAccessibility}</span>
                     </div>
@@ -640,16 +543,10 @@ export default function AboutPage() {
                     ))}
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
               {/* Values */}
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center group"
-              >
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center group">
                 <div className="lg:col-span-5 flex flex-col justify-center space-y-6 text-left order-2 lg:order-1">
                   <div className="flex items-center gap-4">
                     <span className="font-serif italic text-5xl sm:text-6xl font-black text-brand-zinc-200 dark:text-white/10 group-hover:text-[#0306AC] dark:group-hover:text-[#E9BD36] transition-colors duration-500 leading-none select-none">
@@ -686,7 +583,7 @@ export default function AboutPage() {
 
                 <div className="lg:col-span-7 order-1 lg:order-2">
                   <div className="aspect-[1.45] w-full rounded-[32px] overflow-hidden border border-brand-zinc-200/80 dark:border-white/10 shadow-sm relative bg-[#090812]">
-                    <img src="/agency_abstract_graphics.png" alt="Values" className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 pointer-events-none" />
+                    <img src={aboutPage.philosophy.values.imgSrc} alt={aboutPage.philosophy.values.imgAlt} className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 pointer-events-none" />
                     <div className="absolute top-5 left-5 bg-black/70 backdrop-blur-md border border-white/15 px-4 py-2 rounded-2xl flex items-center gap-3 shadow-xl select-none">
                       <span className="text-[8.5px] font-mono font-black text-white uppercase tracking-wider">{aboutPage.philosophy.values.badgeSync}</span>
                     </div>
@@ -695,13 +592,40 @@ export default function AboutPage() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
         </section>
 
         {/* ── 5. OUR SERVICES SECTION ──────── */}
         <section className="relative overflow-x-clip py-12 sm:py-16 md:py-20 border-b border-brand-zinc-200 dark:border-white/10 bg-white dark:bg-[#080710]">
+          {/* Mobile Pills */}
+          <div className="sticky top-14 sm:top-16 z-30 flex lg:hidden overflow-x-auto no-scrollbar py-3 px-4 gap-2 bg-white/95 dark:bg-[#080710]/95 backdrop-blur-xl border-b border-brand-zinc-200 dark:border-white/10 shadow-sm mb-8 select-none">
+            {aboutPage.servicesDirectory.mobilePills.map((item: any, idx: number) => {
+              const isActive = activeService === idx;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => {
+                    setActiveService(idx);
+                    const el = document.getElementById(`service-stage-${item.id}`);
+                    if (el) {
+                      const y = el.getBoundingClientRect().top + window.pageYOffset - 110;
+                      window.scrollTo({ top: y, behavior: "smooth" });
+                    }
+                  }}
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-bold shrink-0 flex items-center gap-2 transition-all duration-300 ${isActive
+                    ? "bg-[#0306AC] text-white dark:bg-[#E9BD36] dark:text-brand-dark shadow-md"
+                    : "bg-zinc-100 text-brand-zinc-600 dark:bg-white/5 dark:text-zinc-400"
+                    }`}
+                >
+                  <span>{item.id}</span>
+                  <span>{item.name}</span>
+                </button>
+              );
+            })}
+          </div>
+
           <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
               {/* Sticky Nav */}
@@ -742,9 +666,12 @@ export default function AboutPage() {
                         >
                           <div className="flex items-center gap-3">
                             <span className={`font-serif italic text-xs font-black transition-colors ${isActive ? "text-[#E9BD36] dark:text-[#080710]" : "text-brand-zinc-400 dark:text-zinc-400"}`}>{item.id}</span>
-                            <span className="font-heading text-xs tracking-tight">{item.title}</span>
+                            <span className="font-heading text-xs tracking-tight">{item.navTitle || item.title}</span>
                           </div>
-                          <ArrowRight className={`h-3.5 w-3.5 transition-transform ${isActive ? "translate-x-1 opacity-100 text-[#E9BD36] dark:text-[#080710]" : "opacity-30 group-hover:opacity-100"}`} />
+                          <div className="flex items-center gap-2">
+                            <span className={`text-[8.5px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full transition-colors ${isActive ? "bg-white/20 text-white dark:bg-black/15 dark:text-[#080710]" : "bg-black/5 dark:bg-white/10 text-brand-zinc-550 dark:text-zinc-300"}`}>{item.navTag}</span>
+                            <ArrowRight className={`h-3.5 w-3.5 transition-transform ${isActive ? "translate-x-1 opacity-100 text-[#E9BD36] dark:text-[#080710]" : "opacity-30 group-hover:opacity-100"}`} />
+                          </div>
                         </a>
                       );
                     })}
@@ -806,8 +733,8 @@ export default function AboutPage() {
                           ))}
                         </div>
 
-                        <a href="/contact" className="inline-flex items-center gap-2 text-xs font-mono font-black text-brand-dark dark:text-white group-hover:text-[#0306AC] dark:group-hover:text-[#E9BD36] transition-colors">
-                          <span>GET STARTED</span>
+                        <a href={aboutPage.servicesDirectory.getStartedHref} className="inline-flex items-center gap-2 text-xs font-mono font-black text-brand-dark dark:text-white group-hover:text-[#0306AC] dark:group-hover:text-[#E9BD36] transition-colors">
+                          <span>{aboutPage.servicesDirectory.getStartedText}</span>
                           <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                         </a>
                       </div>
@@ -873,8 +800,8 @@ export default function AboutPage() {
 
                     <div className="pt-5 border-t border-brand-zinc-200/70 dark:border-white/10 space-y-3 mt-4 relative z-10">
                       <div className="flex items-center justify-between">
-                        <span className="text-[9px] font-mono font-bold text-brand-zinc-400 dark:text-zinc-500 uppercase tracking-wider block">MILESTONE DELIVERABLES:</span>
-                        <span className="text-[9px] font-mono font-bold text-[#0306AC] dark:text-[#E9BD36] uppercase tracking-wider">STEP {idx + 1} OF 5</span>
+                        <span className="text-[9px] font-mono font-bold text-brand-zinc-400 dark:text-zinc-500 uppercase tracking-wider block">{aboutPage.methodology.deliverablesLabel}</span>
+                        <span className="text-[9px] font-mono font-bold text-[#0306AC] dark:text-[#E9BD36] uppercase tracking-wider">{aboutPage.methodology.stepLabelPrefix} {idx + 1} OF {aboutPage.methodology.steps.length}</span>
                       </div>
                       <div className="flex flex-wrap gap-1.5">
                         {process.deliverables.map((del: string, dIdx: number) => (
@@ -1122,7 +1049,7 @@ export default function AboutPage() {
               <div className="hidden lg:flex flex-1 items-end justify-center relative pr-8">
                 <div className="absolute bottom-0 w-[320px] h-[320px] bg-gradient-to-t from-[#020485] to-[#0408d9] rounded-full opacity-90 border border-white/20 shadow-2xl" />
                 <div className="relative z-10 w-[280px] h-[370px] self-end drop-shadow-2xl overflow-hidden rounded-t-[32px] border-t border-l border-r border-white/25 shadow-2xl">
-                  <Image src={aboutPage.executiveLeadership.portraitSrc} alt={aboutPage.executiveLeadership.portraitAlt} width={320} height={420} className="w-full h-full object-cover object-top filter contrast-[1.05]" />
+                  <Image src={aboutPage.ctaBanner.portraitSrc} alt={aboutPage.ctaBanner.portraitAlt} width={320} height={420} className="w-full h-full object-cover object-top filter contrast-[1.05]" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#010356]/80 via-transparent to-transparent pointer-events-none" />
                 </div>
                 <div className="absolute top-16 right-28 h-3.5 w-3.5 rounded-full bg-[#E9BD36] shadow-[0_0_15px_#E9BD36] z-20" />
@@ -1266,7 +1193,7 @@ function ReviewsCarousel({ reviewsData }: { reviewsData: any }) {
                       "{r.quote}"
                     </p>
 
-                    <div className="inline-flex items-center gap-2 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 px-3.5 py-1.5 text-[9.5px] font-mono font-bold text-emerald-600 dark:text-emerald-400">
+                    <div className="inline-flex items-center gap-2 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 px-3.5 py-1.5 text-[9.5px] font-mono font-bold text-[#0306AC] dark:text-[#E9BD36]">
                       <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
                       <span>{r.impact}</span>
                     </div>
@@ -1288,11 +1215,8 @@ function ReviewsCarousel({ reviewsData }: { reviewsData: any }) {
               ))}
             </div>
           </div>
-
         </div>
-
       </div>
     </section>
   );
 }
-
