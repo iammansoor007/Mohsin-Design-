@@ -142,7 +142,8 @@ export default function Hero() {
               className="font-heading text-[10.5vw] sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight text-brand-dark dark:text-white select-none"
             >
               {hero.titleLine1}<br />
-              That <motion.span
+              {hero.titleConnector}{" "}
+              <motion.span
                 whileHover="hover"
                 className="text-brand-blue dark:text-brand-yellow relative inline-block pointer-events-auto cursor-pointer"
               >

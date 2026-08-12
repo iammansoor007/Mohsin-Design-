@@ -137,10 +137,10 @@ export default function ContactForm() {
             {/* Premium Unified Direct Contact Panel */}
             <div className="bg-white/70 dark:bg-[#12121e]/90 backdrop-blur-xl border border-brand-zinc-200/80 dark:border-white/10 rounded-3xl p-6 shadow-[0_10px_35px_rgba(3,6,172,0.03)] space-y-5 max-w-md">
               <div className="flex items-center justify-between pb-3 border-b border-brand-zinc-200/60 dark:border-white/10">
-                <span className="text-[10px] font-mono font-black uppercase tracking-widest text-brand-blue dark:text-brand-yellow">Direct Channels</span>
+                <span className="text-[10px] font-mono font-black uppercase tracking-widest text-brand-blue dark:text-brand-yellow">{contact.directChannelsLabel}</span>
                 <span className="inline-flex items-center gap-1.5 text-[9px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  Typical response &lt; 2 hrs
+                  {contact.responseGuarantee}
                 </span>
               </div>
 
@@ -154,7 +154,7 @@ export default function ContactForm() {
                     <Mail className="w-4 h-4" />
                   </div>
                   <div className="min-w-0">
-                    <span className="block text-[9px] font-mono font-bold text-brand-zinc-400 uppercase tracking-wider">Email Us</span>
+                    <span className="block text-[9px] font-mono font-bold text-brand-zinc-400 uppercase tracking-wider">{contact.emailLabel}</span>
                     <span className="text-xs font-black text-brand-dark dark:text-white group-hover/item:text-brand-blue dark:group-hover/item:text-brand-yellow transition-colors font-mono truncate block">
                       {contact.email}
                     </span>
@@ -167,7 +167,7 @@ export default function ContactForm() {
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div className="min-w-0">
-                    <span className="block text-[9px] font-mono font-bold text-brand-zinc-400 uppercase tracking-wider">Headquarters</span>
+                    <span className="block text-[9px] font-mono font-bold text-brand-zinc-400 uppercase tracking-wider">{contact.locationLabel}</span>
                     <span className="text-xs font-black text-brand-dark dark:text-white font-mono block">
                       {contact.location}
                     </span>
@@ -183,7 +183,7 @@ export default function ContactForm() {
                     <Phone className="w-4 h-4" />
                   </div>
                   <div className="min-w-0">
-                    <span className="block text-[9px] font-mono font-bold text-brand-zinc-400 uppercase tracking-wider">Direct Line</span>
+                    <span className="block text-[9px] font-mono font-bold text-brand-zinc-400 uppercase tracking-wider">{contact.phoneLabel}</span>
                     <span className="text-xs font-black text-brand-dark dark:text-white group-hover/item:text-brand-blue dark:group-hover/item:text-brand-yellow transition-colors font-mono block">
                       {contact.phone}
                     </span>
@@ -211,10 +211,10 @@ export default function ContactForm() {
                 >
                   <div className="space-y-1 mb-2">
                     <h3 className="font-heading text-xl sm:text-2xl font-black text-brand-dark dark:text-white tracking-tight">
-                      Send Us a Message
+                      {contact.formHeading}
                     </h3>
                     <p className="text-xs text-brand-zinc-500 dark:text-zinc-400 font-medium font-sans">
-                      Fill out the form below and we'll respond within 2 hours.
+                      {contact.formSubheading}
                     </p>
                   </div>
 
@@ -299,7 +299,7 @@ export default function ContactForm() {
                       className="inline-flex items-center justify-between gap-3 rounded-full bg-brand-blue dark:bg-brand-yellow border border-brand-blue dark:border-brand-yellow pl-7 pr-1.5 py-1.5 text-xs font-black uppercase tracking-[0.14em] text-white dark:text-[#080710] shadow-lg hover:bg-[#0408d9] dark:hover:bg-[#f5ca4a] hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed w-full sm:w-auto min-w-[200px]"
                     >
                       <span className="whitespace-nowrap">
-                        {isSubmitting ? "Sending..." : contact.btnSubmit}
+                        {isSubmitting ? contact.btnSubmitting : contact.btnSubmit}
                       </span>
                       <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-dark text-brand-yellow">
                         {isSubmitting ? (
@@ -339,7 +339,7 @@ export default function ContactForm() {
                     }}
                     className="inline-flex items-center gap-2 text-xs font-mono font-black uppercase tracking-widest text-brand-blue dark:text-brand-yellow hover:underline cursor-pointer pt-4"
                   >
-                    Send Another Message <ArrowRight className="h-3.5 w-3.5" />
+                    {contact.btnSendAnother} <ArrowRight className="h-3.5 w-3.5" />
                   </button>
                 </motion.div>
               )}

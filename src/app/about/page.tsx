@@ -198,14 +198,14 @@ export default function AboutPage() {
                 <div className="inline-flex">
                   <span className="eyebrow-pill-yellow">
                     <Star className="h-3.5 w-3.5 fill-brand-dark text-brand-dark shrink-0" />
-                    ABOUT 360 DESIGNS AGENCY
+                    {content.aboutHero.badgeText}
                   </span>
                 </div>
 
                 <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] text-brand-dark dark:text-white max-w-xl">
-                  We Build Digital Experiences That{" "}
+                  {content.aboutHero.titleIntro}
                   <span className="relative inline-block text-brand-blue dark:text-brand-yellow pb-1">
-                    Drive Real Growth.
+                    {content.aboutHero.titleHighlight}
                     <svg className="absolute -bottom-1.5 left-0 w-full h-3.5 pointer-events-none text-brand-yellow opacity-90" viewBox="0 0 100 10" preserveAspectRatio="none">
                       <motion.path
                         d="M 2 5 Q 50 1.5, 98 3.5 C 99 3.5, 99 4.5, 98 5 Q 50 7, 2 5.5 Z"
@@ -220,17 +220,17 @@ export default function AboutPage() {
                 </h1>
 
                 <p className="text-sm sm:text-base font-sans text-brand-zinc-600 dark:text-zinc-300 font-normal leading-relaxed max-w-lg">
-                  We are a digital agency with a passion for performance. We help brands grow with smart strategies, creative design, and powerful digital solutions that deliver measurable results.
+                  {content.aboutHero.description}
                 </p>
 
                 {/* CTAs */}
                 <div className="flex flex-wrap items-center gap-4 pt-2">
                   {/* Let's Work Together */}
                   <a
-                    href="/#contact"
+                    href={content.aboutHero.ctaPrimaryHref}
                     className="btn-primary-cta"
                   >
-                    <span>LET'S WORK TOGETHER</span>
+                    <span>{content.aboutHero.ctaPrimaryText}</span>
                     <span className="btn-icon">
                       <ArrowRight className="h-3.5 w-3.5" />
                     </span>
@@ -240,7 +240,7 @@ export default function AboutPage() {
                   <button
                     className="btn-secondary-cta"
                   >
-                    <span>WATCH OUR STORY</span>
+                    <span>{content.aboutHero.ctaSecondaryText}</span>
                     <span className="btn-icon">
                       <Play className="h-3.5 w-3.5 fill-current ml-0.5" />
                     </span>

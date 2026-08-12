@@ -39,7 +39,8 @@
   },
   "hero": {
     "badgeText": "World-Class Creative Agency",
-    "titleLine1": "We Build Brands ",
+    "titleLine1": "We Build Brands",
+    "titleConnector": "That",
     "titleLine2": "Grow & Scale",
     "description": "Innovative strategies. Creative design. Powerful results. We help businesses stand out, attract more customers, and drive real growth.",
     "ctaPrimaryText": "Get Started",
@@ -58,6 +59,15 @@
       "Animation",
       "Development"
     ]
+  },
+  "aboutHero": {
+    "badgeText": "ABOUT 360 DESIGNS AGENCY",
+    "titleIntro": "We Build Digital Experiences That ",
+    "titleHighlight": "Drive Real Growth.",
+    "description": "We are a digital agency with a passion for performance. We help brands grow with smart strategies, creative design, and powerful digital solutions that deliver measurable results.",
+    "ctaPrimaryText": "LET'S WORK TOGETHER",
+    "ctaPrimaryHref": "/#contact",
+    "ctaSecondaryText": "WATCH OUR STORY"
   },
   "aboutOwner": {
     "sectionNumber": "01",
@@ -142,21 +152,24 @@
         "title": "Website Development",
         "category": "DEVELOPMENT",
         "desc": "Build lightning-fast, custom websites with stunning UX design, modern architectures, and clean code.",
-        "svg100": "100",
-        "svgPerformance": "PERFORMANCE"
+        "svgReviews": "4.9 ★ REVIEWS",
+        "svgCall": "CALL",
+        "svgMaps": "MAPS"
       },
       {
         "num": "08",
         "title": "UI/UX Design",
         "category": "DESIGN",
         "desc": "Map seamless user journeys, construct wireframes, and design interactive visual interfaces that maximize conversion rates.",
-        "svgButton": "Button"
+        "svg100": "100",
+        "svgPerformance": "PERFORMANCE"
       },
       {
         "num": "09",
         "title": "Web Design",
         "category": "DESIGN",
-        "desc": "Create visually stunning, bespoke web interfaces that captivate visitors and establish immediate brand credibility."
+        "desc": "Create visually stunning, bespoke web interfaces that captivate visitors and establish immediate brand credibility.",
+        "svgButton": "Button"
       },
       {
         "num": "10",
@@ -170,6 +183,21 @@
         "category": "COPY",
         "desc": "Craft high-converting, persuasive copy for landing pages, emails, and ads that turns visitors into paying customers.",
         "svgAa": "Aa"
+      },
+      {
+        "num": "12",
+        "title": "Email Marketing",
+        "category": "EMAIL",
+        "desc": "Nurture leads and drive repeat revenue with automated email sequences and newsletter campaigns.",
+        "svgOpenRate": "OPEN RATE",
+        "svgRateValue": "48.6%"
+      },
+      {
+        "num": "13",
+        "title": "Mobile App Development",
+        "category": "MOBILE",
+        "desc": "Engineer native iOS & Android applications with slick animations and rock-solid backend infrastructure.",
+        "svgDownload": "DOWNLOAD"
       }
     ]
   },
@@ -747,10 +775,18 @@
     "placeholderMessage": "Write Your Message Here",
     "errorMessage": "Message details are required",
     "btnSubmit": "Send Message",
+    "btnSubmitting": "Sending...",
+    "btnSendAnother": "Send Another Message",
+    "directChannelsLabel": "Direct Channels",
+    "responseGuarantee": "Typical response < 2 hrs",
+    "emailLabel": "Email Us",
+    "locationLabel": "Headquarters",
+    "phoneLabel": "Direct Line",
+    "formHeading": "Send Us a Message",
+    "formSubheading": "Fill out the form below and we'll respond within 2 hours.",
     "successTitle": "Message Sent!",
     "successParagraph1": "Thank you, ",
-    "successParagraph2": ". We have received your message and will get back to you at ",
-    "successParagraph3": " as soon as possible."
+    "successParagraph2": ". We have received your message and will get back to you as soon as possible."
   },
   "footer": {
     "logoLetter": "3",
@@ -758,8 +794,8 @@
     "logoSub": "Digital Marketing Agency",
     "description": "Let’s Build Something You’re Proud Of. Real marketing, done with care.",
     "studioStatus": "STUDIO STATUS: OPEN FOR PROJECTS",
-    "coordinates": "TX 76112 // EST. 2019",
-    "labelQuickLinks": "// Quick Links",
+    "coordinates": "TX 76112 • EST. 2019",
+    "labelQuickLinks": "Quick Links",
     "quickLinks": [
       {
         "name": "Home",
@@ -790,7 +826,7 @@
         "href": "/#contact"
       }
     ],
-    "labelServices": "// Services",
+    "labelServices": "Services",
     "servicesList": [
       "SEO Optimization",
       "Social Media Management",
@@ -798,14 +834,14 @@
       "Web UI/UX Design",
       "Branding & Strategy"
     ],
-    "labelContactInfo": "// Contact Info",
-    "labelEmail": "// Email",
+    "labelContactInfo": "Contact Info",
+    "labelEmail": "Email",
     "valueEmail": "info@360designsagency.com",
-    "labelPhone": "// Phone",
+    "labelPhone": "Phone",
     "valuePhone": "+17139496767",
-    "labelAddress": "// Address",
+    "labelAddress": "Address",
     "valueAddress": "5601 Bridge St Ste 318, Fort Worth, TX 76112",
-    "labelNewsletter": "// Newsletter",
+    "labelNewsletter": "Newsletter",
     "newsletterDesc": "Subscribe to get tips, insights, and agency updates.",
     "newsletterPlaceholder": "Email address",
     "newsletterSuccess": "Thanks for subscribing! ✓",
