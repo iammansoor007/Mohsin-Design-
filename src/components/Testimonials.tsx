@@ -5,9 +5,9 @@ import { Star, Quote } from "lucide-react";
 import { useRef } from "react";
 import content from "@/data/content.json";
 
-export default function Testimonials() {
+export default function Testimonials({ data }: { data?: any }) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { testimonials: testimonialsData } = content;
+  const testimonialsData: typeof content.testimonials = data ? { ...content.testimonials, ...data } : content.testimonials;
   const testimonials = testimonialsData.list;
 
   // Scroll tracking for parallax offset

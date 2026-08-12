@@ -67,8 +67,8 @@ function RollingNumber({ value, suffix = "" }: { value: number; suffix?: string 
   );
 }
 
-export default function AboutOwner() {
-  const { aboutOwner } = content;
+export default function AboutOwner({ data }: { data?: any }) {
+  const aboutOwner: typeof content.aboutOwner = data ? { ...content.aboutOwner, ...data } : content.aboutOwner;
 
   return (
     <section id="about" className="relative overflow-hidden bg-transparent py-24 md:py-32 border-b border-brand-zinc-200 dark:border-white/10">

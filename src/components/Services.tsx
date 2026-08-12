@@ -449,7 +449,7 @@ const getServiceIllustration = (num: string, s: any) => {
   }
 };
 
-export default function Services() {
+export default function Services({ data }: { data?: any }) {
   const carouselRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -457,7 +457,7 @@ export default function Services() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
 
-  const { services } = content;
+  const services: typeof content.services = data ? { ...content.services, ...data } : content.services;
 
   // Handle Mouse Move for Interactive Background Grid/Dots
   const handleMouseMoveSection = (e: React.MouseEvent<HTMLDivElement>) => {

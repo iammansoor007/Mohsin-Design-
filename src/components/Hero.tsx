@@ -19,8 +19,8 @@ const clipVariants = {
   })
 };
 
-export default function Hero() {
-  const { hero } = content;
+export default function Hero({ data }: { data?: any }) {
+  const hero: typeof content.hero = data ? { ...content.hero, ...data } : content.hero;
   const { scrollY } = useScroll();
   const yText = useTransform(scrollY, [0, 1000], [0, 95]);
   const yGraphic = useTransform(scrollY, [0, 1000], [0, 150]);

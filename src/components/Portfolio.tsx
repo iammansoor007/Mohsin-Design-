@@ -210,11 +210,11 @@ const statItemVariants = {
   }
 } as const;
 
-export default function Portfolio() {
+export default function Portfolio({ data }: { data?: any }) {
   const [activeCategory, setActiveCategory] = useState("all");
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
 
-  const { portfolio } = content;
+  const portfolio: typeof content.portfolio = data ? { ...content.portfolio, ...data } : content.portfolio;
 
   const categories = portfolio.categories.map((c: any) => ({
     ...c,

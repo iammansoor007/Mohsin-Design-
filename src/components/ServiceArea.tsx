@@ -6,9 +6,9 @@ import { useState, useEffect } from "react";
 
 import content from "@/data/content.json";
 
-export default function ServiceArea() {
+export default function ServiceArea({ data }: { data?: any }) {
   const [activeHub, setActiveHub] = useState<string | null>(null);
-  const { serviceArea } = content;
+  const serviceArea: typeof content.serviceArea = data ? { ...content.serviceArea, ...data } : content.serviceArea;
   const hubs = serviceArea.hubs;
 
   // Let's add coords mappings locally since they represent UI pixel coordinates

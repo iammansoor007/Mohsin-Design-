@@ -5,9 +5,9 @@ import { Plus, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import content from "@/data/content.json";
 
-export default function FAQ() {
+export default function FAQ({ data }: { data?: any }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const { faq } = content;
+  const faq: typeof content.faq = data ? { ...content.faq, ...data } : content.faq;
   const faqs = faq.list as any[];
 
   const toggleFAQ = (index: number) => {

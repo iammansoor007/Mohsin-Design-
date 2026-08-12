@@ -5,8 +5,8 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import content from "@/data/content.json";
 
-export default function Blog() {
-  const { blog } = content;
+export default function Blog({ data }: { data?: any }) {
+  const blog: typeof content.blog = data ? { ...content.blog, ...data } : content.blog;
   const posts = blog.posts;
 
   return (

@@ -83,10 +83,22 @@
       "description": "Every strategic choice, line of code, and creative pixel is engineered to establish market leadership and drive commercial value.",
       "expertiseHeader": "// EXPERTISE",
       "expertiseList": [
-        { "num": "[ 01 ]", "label": "Strategy" },
-        { "num": "[ 02 ]", "label": "UI / UX" },
-        { "num": "[ 03 ]", "label": "Next.js" },
-        { "num": "[ 04 ]", "label": "Growth" }
+        {
+          "num": "[ 01 ]",
+          "label": "Strategy"
+        },
+        {
+          "num": "[ 02 ]",
+          "label": "UI / UX"
+        },
+        {
+          "num": "[ 03 ]",
+          "label": "Next.js"
+        },
+        {
+          "num": "[ 04 ]",
+          "label": "Growth"
+        }
       ],
       "metrics": [
         {
@@ -167,7 +179,11 @@
         "quote": "\"We build software meant to dominate digital markets, not just exist online.\"",
         "badgeLatency": "LATENCY // 12ms",
         "badgePerformance": "PERFORMANCE // 99.4%",
-        "tags": ["Custom Next.js", "High-Velocity Load", "Organic SEO"],
+        "tags": [
+          "Custom Next.js",
+          "High-Velocity Load",
+          "Organic SEO"
+        ],
         "imgSrc": "/agency_ui_detail.png",
         "imgAlt": "Our Mission Graphic"
       },
@@ -180,7 +196,11 @@
         "quote": "\"Design without technical rigor is just decorative artwork.\"",
         "badgeAccessibility": "ACCESSIBILITY // AAA",
         "badgeLighthouse": "LIGHTHOUSE // 100/100",
-        "tags": ["Design Systems", "Universal WCAG", "Brand Architecture"],
+        "tags": [
+          "Design Systems",
+          "Universal WCAG",
+          "Brand Architecture"
+        ],
         "imgSrc": "/agency_workspace.png",
         "imgAlt": "Our Vision Graphic"
       },
@@ -193,7 +213,11 @@
         "quote": "\"Direct technical alignment eliminates management noise.\"",
         "badgeSync": "SYNC STATUS // CONNECTED",
         "badgeSprint": "AGENCY SPRINT // ACTIVE",
-        "tags": ["Modular Sprints", "Direct Discord Sync", "Zero Downtime"],
+        "tags": [
+          "Modular Sprints",
+          "Direct Discord Sync",
+          "Zero Downtime"
+        ],
         "imgSrc": "/agency_abstract_graphics.png",
         "imgAlt": "Our Values Graphic"
       }
@@ -207,12 +231,30 @@
       "getStartedText": "GET STARTED",
       "getStartedHref": "/contact",
       "mobilePills": [
-        { "id": "01", "name": "Brand Identity" },
-        { "id": "02", "name": "Next.js Web" },
-        { "id": "03", "name": "Technical SEO" },
-        { "id": "04", "name": "Paid Ads" },
-        { "id": "05", "name": "Social Growth" },
-        { "id": "06", "name": "4K Studio" }
+        {
+          "id": "01",
+          "name": "Brand Identity"
+        },
+        {
+          "id": "02",
+          "name": "Next.js Web"
+        },
+        {
+          "id": "03",
+          "name": "Technical SEO"
+        },
+        {
+          "id": "04",
+          "name": "Paid Ads"
+        },
+        {
+          "id": "05",
+          "name": "Social Growth"
+        },
+        {
+          "id": "06",
+          "name": "4K Studio"
+        }
       ],
       "stages": [
         {
@@ -225,7 +267,12 @@
           "badge": "100% BESPOKE DESIGN",
           "navTag": "Design",
           "navTitle": "Brand Identity & Systems",
-          "deliverables": ["Logo Architecture", "Color Tokens", "Brand Style Guide", "Design Systems"]
+          "deliverables": [
+            "Logo Architecture",
+            "Color Tokens",
+            "Brand Style Guide",
+            "Design Systems"
+          ]
         },
         {
           "id": "02",
@@ -237,7 +284,12 @@
           "badge": "VELOCITY // 99.8% LIGHTHOUSE",
           "navTag": "Development",
           "navTitle": "Next.js Web Engineering",
-          "deliverables": ["Next.js 15 Engine", "Tailwind CSS", "Framer Motion", "Edge API Routes"]
+          "deliverables": [
+            "Next.js 15 Engine",
+            "Tailwind CSS",
+            "Framer Motion",
+            "Edge API Routes"
+          ]
         },
         {
           "id": "03",
@@ -249,7 +301,12 @@
           "badge": "RANK #1 GOOGLE TARGET",
           "navTag": "SEO",
           "navTitle": "Search Engine Optimization",
-          "deliverables": ["Technical SEO Audits", "JSON-LD Schemas", "Keyword Silos", "Search Authority"]
+          "deliverables": [
+            "Technical SEO Audits",
+            "JSON-LD Schemas",
+            "Keyword Silos",
+            "Search Authority"
+          ]
         },
         {
           "id": "04",
@@ -261,7 +318,12 @@
           "badge": "4.8X AVERAGE ROAS",
           "navTag": "Marketing",
           "navTitle": "Paid Advertising & Funnels",
-          "deliverables": ["Google PPC Ads", "Meta Campaigns", "Pixel Analytics", "Retargeting Funnels"]
+          "deliverables": [
+            "Google PPC Ads",
+            "Meta Campaigns",
+            "Pixel Analytics",
+            "Retargeting Funnels"
+          ]
         },
         {
           "id": "05",
@@ -273,7 +335,12 @@
           "badge": "+340% ENGAGEMENT LIFT",
           "navTag": "Growth",
           "navTitle": "Social Media Strategy",
-          "deliverables": ["Omnichannel Strategy", "Motion Reels", "Community Growth", "Channel Management"]
+          "deliverables": [
+            "Omnichannel Strategy",
+            "Motion Reels",
+            "Community Growth",
+            "Channel Management"
+          ]
         },
         {
           "id": "06",
@@ -285,7 +352,12 @@
           "badge": "4K CINEMA PRODUCTION",
           "navTag": "Studio",
           "navTitle": "Creative Video & Copy",
-          "deliverables": ["Brand Copywriting", "4K Video Media", "Social Reels", "Editorial Layouts"]
+          "deliverables": [
+            "Brand Copywriting",
+            "4K Video Media",
+            "Social Reels",
+            "Editorial Layouts"
+          ]
         }
       ]
     },
@@ -302,7 +374,11 @@
           "iconName": "Search",
           "title": "Discovery & Market Audit",
           "desc": "We analyze your business model, target audience personas, conversion bottlenecks, and competitor strategies to build an actionable blueprint.",
-          "deliverables": ["Market Positioning", "User Personas", "Bottleneck Audit"],
+          "deliverables": [
+            "Market Positioning",
+            "User Personas",
+            "Bottleneck Audit"
+          ],
           "badge": "PHASE 01 // AUDIT"
         },
         {
@@ -310,7 +386,11 @@
           "iconName": "Compass",
           "title": "Architecture & Sprint Spec",
           "desc": "Designing site sitemaps, interactive wireframes, component design tokens, and technical requirements before writing a single line of code.",
-          "deliverables": ["Design Tokens", "Wireframe Specs", "Tech Stack Spec"],
+          "deliverables": [
+            "Design Tokens",
+            "Wireframe Specs",
+            "Tech Stack Spec"
+          ],
           "badge": "PHASE 02 // PLAN"
         },
         {
@@ -318,7 +398,11 @@
           "iconName": "Code",
           "title": "High-Speed Engineering",
           "desc": "Building custom Next.js 15 web components, Tailwind CSS design systems, and Framer Motion micro-animations with weekly demo builds.",
-          "deliverables": ["Next.js Engine", "Motion System", "API Routes"],
+          "deliverables": [
+            "Next.js Engine",
+            "Motion System",
+            "API Routes"
+          ],
           "badge": "PHASE 03 // BUILD"
         },
         {
@@ -326,7 +410,11 @@
           "iconName": "ShieldCheck",
           "title": "Testing & Accessibility QA",
           "desc": "Rigorous cross-browser testing, mobile WCAG accessibility audits, SEO schema verification, and Lighthouse 99+ speed optimizations.",
-          "deliverables": ["WCAG 2.1 Audit", "Lighthouse 99+", "SEO Schemas"],
+          "deliverables": [
+            "WCAG 2.1 Audit",
+            "Lighthouse 99+",
+            "SEO Schemas"
+          ],
           "badge": "PHASE 04 // VERIFY"
         },
         {
@@ -334,7 +422,11 @@
           "iconName": "Rocket",
           "title": "Launch & Growth Scaling",
           "desc": "Zero-downtime production deployment followed by post-launch conversion rate optimization (CRO) and ongoing performance enhancements.",
-          "deliverables": ["Zero Downtime", "CRO Analytics", "Growth Sprints"],
+          "deliverables": [
+            "Zero Downtime",
+            "CRO Analytics",
+            "Growth Sprints"
+          ],
           "badge": "PHASE 05 // SCALE"
         }
       ]
@@ -350,56 +442,88 @@
           "iconName": "ShoppingCart",
           "title": "E-Commerce & DTC",
           "desc": "High-converting online store platforms with Shopify/Next.js integrations, frictionless checkout, and high-ROAS paid Meta ad campaigns.",
-          "tags": ["Custom Checkouts", "High ROAS", "Shopify Engine"]
+          "tags": [
+            "Custom Checkouts",
+            "High ROAS",
+            "Shopify Engine"
+          ]
         },
         {
           "id": "02",
           "iconName": "Building2",
           "title": "Real Estate & Property",
           "desc": "Luxury property showcases, interactive listing search platforms, and high-intent lead generation funnels for brokers and developers.",
-          "tags": ["Property Portals", "Lead Funnels", "3D Showcases"]
+          "tags": [
+            "Property Portals",
+            "Lead Funnels",
+            "3D Showcases"
+          ]
         },
         {
           "id": "03",
           "iconName": "Heart",
           "title": "Healthcare & Wellness",
           "desc": "Patient-first medical websites, HIPAA-compliant appointment booking systems, and local SEO campaigns that drive high patient inquiries.",
-          "tags": ["HIPAA Booking", "Local SEO", "Patient Trust"]
+          "tags": [
+            "HIPAA Booking",
+            "Local SEO",
+            "Patient Trust"
+          ]
         },
         {
           "id": "04",
           "iconName": "GraduationCap",
           "title": "Education & EdTech",
           "desc": "Interactive course platforms, student enrollment portals, and brand identity systems for modern academies and digital learning platforms.",
-          "tags": ["EdTech Portals", "Enrollment", "LMS Integrations"]
+          "tags": [
+            "EdTech Portals",
+            "Enrollment",
+            "LMS Integrations"
+          ]
         },
         {
           "id": "05",
           "iconName": "Coins",
           "title": "Finance & Fintech",
           "desc": "Bank-grade web platforms, investor relation portals, and trust-building visual identity systems for financial advisory firms.",
-          "tags": ["Fintech UI", "Trust Design", "Investor Portals"]
+          "tags": [
+            "Fintech UI",
+            "Trust Design",
+            "Investor Portals"
+          ]
         },
         {
           "id": "06",
           "iconName": "Database",
           "title": "SaaS & B2B Technology",
           "desc": "High-speed marketing platforms, developer documentation portals, and product demo funnels designed to increase SaaS MRR.",
-          "tags": ["SaaS Landing", "MRR Scaling", "Doc Portals"]
+          "tags": [
+            "SaaS Landing",
+            "MRR Scaling",
+            "Doc Portals"
+          ]
         },
         {
           "id": "07",
           "iconName": "Utensils",
           "title": "Hospitality & Luxury",
           "desc": "Immersive culinary websites, hotel reservation engines, and digital brand experiences for premium restaurants and hospitality groups.",
-          "tags": ["Reservation Engine", "Luxury UI", "Brand Experience"]
+          "tags": [
+            "Reservation Engine",
+            "Luxury UI",
+            "Brand Experience"
+          ]
         },
         {
           "id": "08",
           "iconName": "Scale",
           "title": "Legal & Professional",
           "desc": "Authoritative law firm platforms, client consultation scheduling, and high-intent local search optimization that attracts high-value legal cases.",
-          "tags": ["Law Firm UI", "Case Intake", "Authority SEO"]
+          "tags": [
+            "Law Firm UI",
+            "Case Intake",
+            "Authority SEO"
+          ]
         }
       ]
     },
@@ -462,9 +586,18 @@
       "founderName": "Mohsin",
       "founderTitle": "// Founder & Chief Digital Strategist",
       "metrics": [
-        { "value": "7+", "label": "Years Experience" },
-        { "value": "300+", "label": "Global Projects" },
-        { "value": "99.8%", "label": "CSAT Score" }
+        {
+          "value": "7+",
+          "label": "Years Experience"
+        },
+        {
+          "value": "300+",
+          "label": "Global Projects"
+        },
+        {
+          "value": "99.8%",
+          "label": "CSAT Score"
+        }
       ]
     },
     "reviews": {
@@ -789,7 +922,7 @@
         "value": "0",
         "label": "Outsourcing",
         "sublabel": "Every project handled\n100% in-house",
-        "percentage": 1.0
+        "percentage": 1
       },
       {
         "value": "3K+",
@@ -1379,13 +1512,34 @@
     "brandsStrip": {
       "heading": "We run ads & manage campaigns on",
       "logos": [
-        { "name": "Google Ads", "iconName": "Search" },
-        { "name": "Meta", "iconName": "Globe" },
-        { "name": "Amazon Advertising", "iconName": "ShoppingCart" },
-        { "name": "Bing Ads", "iconName": "Search" },
-        { "name": "Apple Search Ads", "iconName": "Building2" },
-        { "name": "eBay Ads", "iconName": "ShoppingCart" },
-        { "name": "Reddit Ads", "iconName": "Megaphone" }
+        {
+          "name": "Google Ads",
+          "iconName": "Search"
+        },
+        {
+          "name": "Meta",
+          "iconName": "Globe"
+        },
+        {
+          "name": "Amazon Advertising",
+          "iconName": "ShoppingCart"
+        },
+        {
+          "name": "Bing Ads",
+          "iconName": "Search"
+        },
+        {
+          "name": "Apple Search Ads",
+          "iconName": "Building2"
+        },
+        {
+          "name": "eBay Ads",
+          "iconName": "ShoppingCart"
+        },
+        {
+          "name": "Reddit Ads",
+          "iconName": "Megaphone"
+        }
       ]
     },
     "presence": {
@@ -1405,12 +1559,25 @@
           "buttonText": "View USA Page",
           "buttonHref": "#contact",
           "description": "Accelerating brand growth across North America with targeted search optimization, high-impact paid campaigns, and localized marketing tailored to state-level consumer demographics.",
-          "pillars": ["State-Level Geo Targeting", "High-Volume Lead Gen", "SEO & Paid Media Scale"],
+          "pillars": [
+            "State-Level Geo Targeting",
+            "High-Volume Lead Gen",
+            "SEO & Paid Media Scale"
+          ],
           "footerTag": "Full US Market Coverage",
           "metrics": [
-            { "label": "States Active", "value": "10" },
-            { "label": "Growth Rate", "value": "+140%" },
-            { "label": "Active Clients", "value": "45+" }
+            {
+              "label": "States Active",
+              "value": "10"
+            },
+            {
+              "label": "Growth Rate",
+              "value": "+140%"
+            },
+            {
+              "label": "Active Clients",
+              "value": "45+"
+            }
           ],
           "states": [
             "Texas",
@@ -1429,46 +1596,76 @@
           "id": "NZ",
           "name": "New Zealand",
           "tagline": "Digital Marketing Agency in New Zealand",
-          "subtitle": "Serving 4 States",
+          "subtitle": "Serving 6 States",
           "image": "/locations_nz.png",
           "buttonText": "View New Zealand Page",
           "buttonHref": "#contact",
           "description": "Empowering business growth across Auckland and Wellington with comprehensive digital strategies, high-visibility search marketing, and tailored performance campaigns.",
-          "pillars": ["Auckland & Wellington Focus", "Localized Social Strategy", "High ROI Local Search"],
+          "pillars": [
+            "Auckland & Wellington Focus",
+            "Localized Social Strategy",
+            "High ROI Local Search"
+          ],
           "footerTag": "NZ Regional Reach",
           "metrics": [
-            { "label": "Regions Active", "value": "4" },
-            { "label": "Growth Rate", "value": "+115%" },
-            { "label": "Active Clients", "value": "20+" }
+            {
+              "label": "Regions Active",
+              "value": "6"
+            },
+            {
+              "label": "Growth Rate",
+              "value": "+115%"
+            },
+            {
+              "label": "Active Clients",
+              "value": "20+"
+            }
           ],
           "states": [
             "North Island",
             "Auckland",
             "Waikato",
-            "Gisborne"
+            "Gisborne",
+            "Wellington",
+            "Canterbury"
           ]
         },
         {
           "id": "AU",
           "name": "Australia",
           "tagline": "Digital Marketing Agency in Australia",
-          "subtitle": "Serving 4 States",
+          "subtitle": "Serving 6 States",
           "image": "/locations_australia.png",
           "buttonText": "View Australia Page",
           "buttonHref": "#contact",
           "description": "Expanding market share in Australian metropolitan hubs including Sydney, Melbourne, and Brisbane through multi-channel ad campaigns and data-driven growth strategies.",
-          "pillars": ["Metro Campaign Scaling", "Dynamic Multi-Channel Ads", "Advanced Audience Mapping"],
+          "pillars": [
+            "Metro Campaign Scaling",
+            "Dynamic Multi-Channel Ads",
+            "Advanced Audience Mapping"
+          ],
           "footerTag": "Metro Hub Scaling",
           "metrics": [
-            { "label": "Metro Hubs Active", "value": "4" },
-            { "label": "Growth Rate", "value": "+130%" },
-            { "label": "Active Clients", "value": "35+" }
+            {
+              "label": "Metro Hubs Active",
+              "value": "6"
+            },
+            {
+              "label": "Growth Rate",
+              "value": "+130%"
+            },
+            {
+              "label": "Active Clients",
+              "value": "35+"
+            }
           ],
           "states": [
             "New South Wales",
             "Victoria",
             "Queensland",
-            "Tasmania"
+            "Tasmania",
+            "Western Australia",
+            "South Australia"
           ]
         }
       ]

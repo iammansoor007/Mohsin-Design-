@@ -238,8 +238,8 @@ const drawVariants = {
   },
 };
 
-export default function WhyChooseMe() {
-  const { whyChooseMe } = content;
+export default function WhyChooseMe({ data }: { data?: any }) {
+  const whyChooseMe: typeof content.whyChooseMe = data ? { ...content.whyChooseMe, ...data } : content.whyChooseMe;
 
   const reasons = whyChooseMe.reasons.map((r: any) => ({
     ...r,

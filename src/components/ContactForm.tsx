@@ -5,8 +5,8 @@ import { CheckCircle, Mail, MapPin, Phone, ArrowRight } from "lucide-react";
 import { useState, FormEvent, MouseEvent } from "react";
 import content from "@/data/content.json";
 
-export default function ContactForm() {
-  const { contact } = content;
+export default function ContactForm({ data }: { data?: any }) {
+  const contact: typeof content.contact = data ? { ...content.contact, ...data } : content.contact;
 
   const [formData, setFormData] = useState({
     name: "",
