@@ -20,6 +20,10 @@
         "href": "/about"
       },
       {
+        "label": "Location",
+        "href": "/location"
+      },
+      {
         "label": "Services",
         "href": "/#services"
       },
@@ -1273,6 +1277,10 @@
         "href": "/about"
       },
       {
+        "name": "Location",
+        "href": "/location"
+      },
+      {
         "name": "Services",
         "href": "/#services"
       },
@@ -1334,5 +1342,121 @@
         "ariaLabel": "Chat on WhatsApp"
       }
     ]
+  },
+  "locationPage": {
+    "hero": {
+      "eyebrow": "We Are Global",
+      "titleIntro": "Helping Brands Grow Across ",
+      "titleHighlight": "Borders",
+      "description": "We help your brand reach the right people, enter new markets, and grow with confidence wherever your customers are.",
+      "ctaPrimaryText": "Get a Free Consultation",
+      "ctaPrimaryHref": "#contact",
+      "ctaSecondaryText": "Watch Our Story",
+      "ctaSecondaryHref": "#",
+      "globeImage": "/locations_hero_map.png",
+      "globeImageAlt": "Digital global presence map showing client distributions and office nodes",
+      "badgeTitle": "120+",
+      "badgeSub": "Brands Served Globally"
+    },
+    "stats": {
+      "experience": {
+        "value": "10+",
+        "label": "Years Experience"
+      },
+      "countries": {
+        "value": "12+",
+        "label": "Countries Covered"
+      },
+      "clients": {
+        "value": "100+",
+        "label": "Happy Clients"
+      },
+      "satisfaction": {
+        "value": "98%",
+        "label": "Client Satisfaction"
+      }
+    },
+    "brandsStrip": {
+      "heading": "We run ads & manage campaigns on",
+      "logos": [
+        { "name": "Google Ads", "iconName": "Search" },
+        { "name": "Meta", "iconName": "Globe" },
+        { "name": "Amazon Advertising", "iconName": "ShoppingCart" },
+        { "name": "Bing Ads", "iconName": "Search" },
+        { "name": "Apple Search Ads", "iconName": "Building2" },
+        { "name": "eBay Ads", "iconName": "ShoppingCart" },
+        { "name": "Reddit Ads", "iconName": "Megaphone" }
+      ]
+    },
+    "presence": {
+      "eyebrow": "OUR PRESENCE",
+      "titleIntro": "Countries ",
+      "titleHighlight": "We Serve",
+      "description": "Choose a location to discover marketing strategies shaped around its audience, competition, and growth opportunities.",
+      "cursiveText": "Explore Our Global Presence",
+      "countries": [
+        {
+          "id": "USA",
+          "name": "United States",
+          "tagline": "Digital Marketing Agency in USA",
+          "subtitle": "Serving 10 States",
+          "image": "/locations_usa.png",
+          "buttonText": "View USA Page",
+          "buttonHref": "#contact",
+          "states": [
+            "Texas",
+            "Wyoming",
+            "North Carolina",
+            "South Carolina",
+            "Georgia",
+            "Colorado",
+            "Nevada",
+            "Florida",
+            "Ohio",
+            "Oklahoma"
+          ]
+        },
+        {
+          "id": "NZ",
+          "name": "New Zealand",
+          "tagline": "Digital Marketing Agency in New Zealand",
+          "subtitle": "Serving 4 States",
+          "image": "/locations_nz.png",
+          "buttonText": "View New Zealand Page",
+          "buttonHref": "#contact",
+          "states": [
+            "North Island",
+            "Auckland",
+            "Waikato",
+            "Gisborne"
+          ]
+        },
+        {
+          "id": "AU",
+          "name": "Australia",
+          "tagline": "Digital Marketing Agency in Australia",
+          "subtitle": "Serving 4 States",
+          "image": "/locations_australia.png",
+          "buttonText": "View Australia Page",
+          "buttonHref": "#contact",
+          "states": [
+            "New South Wales",
+            "Victoria",
+            "Queensland",
+            "Tasmania"
+          ]
+        }
+      ]
+    },
+    "cta": {
+      "eyebrow": "LET'S GROW TOGETHER",
+      "titleIntro": "Ready to Grow in Your ",
+      "titleHighlight": "Market?",
+      "description": "Let's turn local market insights into a digital strategy that helps your brand reach the right audience, stand out, and grow with confidence.",
+      "buttonText": "Start Free Consultation",
+      "buttonHref": "#contact",
+      "image": "/locations_cta_team.png",
+      "imageAlt": "Marketing team collaborating in workspace"
+    }
   }
 }
