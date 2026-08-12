@@ -135,23 +135,33 @@ export default function AboutPage() {
   const [hoveredService, setHoveredService] = useState<number | null>(0);
   const [serviceMousePos, setServiceMousePos] = useState({ x: 0, y: 0 });
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
-
   useEffect(() => {
-    const handleScroll = () => {
-      if (sectionRef.current) {
-        const rect = sectionRef.current.getBoundingClientRect();
-        const scrolled = -rect.top;
-        const totalHeight = rect.height - window.innerHeight;
-        if (totalHeight > 0) {
-          const progress = Math.max(0, Math.min(1, scrolled / totalHeight));
-          setScrollProgress(progress);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((e) => e.isIntersecting);
+        if (visible.length > 0) {
+          visible.sort((a, b) => Math.abs(a.boundingClientRect.top) - Math.abs(b.boundingClientRect.top));
+          const topEntry = visible[0];
+          const id = topEntry.target.getAttribute("id");
+          if (id) {
+            const numStr = id.replace("service-stage-", "");
+            const idx = parseInt(numStr, 10) - 1;
+            if (!isNaN(idx) && idx >= 0 && idx < 6) {
+              setActiveService(idx);
+            }
+          }
         }
+      },
+      {
+        rootMargin: "-10% 0px -30% 0px",
+        threshold: [0.1, 0.3, 0.5],
       }
-    };
+    );
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    const stages = document.querySelectorAll("[id^='service-stage-']");
+    stages.forEach((s) => observer.observe(s));
+
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -168,7 +178,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808007_1px,transparent_1px),linear-gradient(to_bottom,#80808007_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none -z-10" />
 
         {/* ── 1. HERO SECTION (Badge, Title, CTAs, and Visual Image) ── */}
-        <section className="relative overflow-hidden pt-4 pb-4 md:pt-6 md:pb-6 border-b border-brand-zinc-200 dark:border-white/10">
+        <section className="relative overflow-hidden py-4 sm:py-6 md:py-8 border-b border-brand-zinc-200 dark:border-white/10">
           <div className="absolute inset-0 -z-10 bg-linear-grid-blue-4 [background-size:40px_40px] opacity-[0.05] dark:opacity-[0.08]" />
 
           {/* Ambient Glows */}
@@ -186,16 +196,15 @@ export default function AboutPage() {
               >
                 {/* Yellow Badge */}
                 <div className="inline-flex">
-                  <span className="inline-flex items-center gap-2 rounded-full bg-[#E9BD36] px-4 py-1.5 text-[10px] font-black uppercase tracking-wider text-brand-dark shadow-sm">
-                    <Star className="h-3.5 w-3.5 fill-brand-dark text-brand-dark shrink-0" />
+                  <span className="inline-flex items-center gap-2 rounded-full bg-[#E9BD36] px-4 py-1.5 text-[10px] font-black uppercase tracking-wider text-[#080710] dark:text-[#080710] shadow-sm">
+                    <Star className="h-3.5 w-3.5 fill-[#080710] text-[#080710] dark:fill-[#080710] dark:text-[#080710] shrink-0" />
                     ABOUT 360 DESIGNS AGENCY
                   </span>
                 </div>
 
-                <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.08] text-brand-dark dark:text-white">
-                  We Build Digital <br />
-                  Experiences That <br />
-                  <span className="relative inline-block text-[#0306AC] dark:text-[#E9BD36] pb-2 whitespace-nowrap">
+                <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] text-brand-dark dark:text-white max-w-xl">
+                  We Build Digital Experiences That{" "}
+                  <span className="relative inline-block text-[#0306AC] dark:text-[#E9BD36] pb-1">
                     Drive Real Growth.
                     <svg className="absolute -bottom-1.5 left-0 w-full h-3.5 pointer-events-none text-[#E9BD36] opacity-90" viewBox="0 0 100 10" preserveAspectRatio="none">
                       <motion.path
@@ -210,7 +219,7 @@ export default function AboutPage() {
                   </span>
                 </h1>
 
-                <p className="text-xs sm:text-sm text-brand-zinc-500 font-semibold font-sans leading-relaxed max-w-lg">
+                <p className="text-sm sm:text-base font-sans text-brand-zinc-600 dark:text-zinc-300 font-normal leading-relaxed max-w-lg">
                   We are a digital agency with a passion for performance. We help brands grow with smart strategies, creative design, and powerful digital solutions that deliver measurable results.
                 </p>
 
@@ -219,13 +228,13 @@ export default function AboutPage() {
                   {/* Let's Work Together */}
                   <a
                     href="/#contact"
-                    className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#0306AC] dark:bg-[#E9BD36] shadow-[0_4px_28px_rgba(3, 6, 172,0.15)] dark:shadow-[0_4px_28px_rgba(233, 189, 54,0.15)] active:scale-[0.97] transition-all duration-350 border border-[#0306AC] dark:border-[#E9BD36] pointer-events-auto"
+                    className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#E9BD36] text-[#080710] shadow-[0_4px_28px_rgba(233,189,54,0.3)] active:scale-[0.97] transition-all duration-350 border border-[#E9BD36] pointer-events-auto"
                   >
-                    <span className="absolute inset-0 bg-[#080710] dark:bg-white translate-x-[-102%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]" />
-                    <span className="relative z-10 pl-6 pr-4 py-[11px] text-[11px] font-black uppercase tracking-wider text-white dark:text-[#080710] group-hover:text-white dark:group-hover:text-[#080710] transition-colors duration-300 delay-75 whitespace-nowrap">
+                    <span className="absolute inset-0 bg-white translate-x-[-102%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]" />
+                    <span className="relative z-10 pl-6 pr-4 py-[11px] text-[11px] font-black uppercase tracking-wider text-[#080710] group-hover:text-[#080710] transition-colors duration-300 delay-75 whitespace-nowrap">
                       LET'S WORK TOGETHER
                     </span>
-                    <span className="relative z-10 mr-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#E9BD36] dark:group-hover:bg-[#0306AC] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
+                    <span className="relative z-10 mr-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#080710] text-[#E9BD36] transition-all duration-300">
                       <ArrowRight className="h-3.5 w-3.5" />
                     </span>
                   </a>
@@ -270,24 +279,27 @@ export default function AboutPage() {
         </section>
 
         {/* ── 2. STATS BAR SECTION (Asymmetric Typographic Spread) ────────── */}
-        <section className="relative overflow-hidden py-4 md:py-8 border-b border-brand-zinc-200 dark:border-white/10 bg-zinc-50/10 dark:bg-white/[0.005]">
+        <section className="relative overflow-hidden py-12 sm:py-16 md:py-20 border-b border-brand-zinc-200 dark:border-white/10 bg-zinc-50/10 dark:bg-white/[0.005]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
 
               {/* Left Column: Symmetrical Stat-Style Intro */}
               <div className="lg:col-span-4 flex flex-col justify-between self-stretch text-left">
-                <div className="w-full">
-                  <div className="relative flex items-center justify-between w-full pb-2.5 mb-3">
-                    <span className="text-[8px] font-mono tracking-widest text-[#0306AC] dark:text-[#E9BD36] font-black uppercase">// SUMMARY</span>
-                    <span className="text-[8px] font-mono tracking-widest text-brand-zinc-400 dark:text-zinc-500 select-none">[ INFO ]</span>
-                    <div className="absolute bottom-0 left-0 w-full h-[1px] bg-brand-zinc-100 dark:bg-white/5" />
+                <div className="w-full space-y-4">
+                  <div className="inline-flex items-center gap-2 rounded-full bg-[#0306AC]/5 dark:bg-white/5 border border-[#0306AC]/15 dark:border-white/10 px-4 py-1.5 text-[11px] font-mono tracking-widest text-[#0306AC] dark:text-[#E9BD36] font-extrabold uppercase">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0306AC] dark:bg-[#E9BD36] opacity-75" />
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0306AC] dark:bg-[#E9BD36]" />
+                    </span>
+                    SUMMARY & METRICS
                   </div>
 
-                  <h2 className="font-heading text-3xl sm:text-4xl font-black tracking-tight leading-[1.1] text-brand-dark dark:text-white mt-1">
-                    We shape the future of digital <span className="text-[#0306AC] dark:text-[#E9BD36] italic font-serif font-light">brands.</span>
+                  <h2 className="font-heading text-3xl sm:text-4xl font-black tracking-tight leading-[1.12] text-brand-dark dark:text-white">
+                    We shape the future of digital{" "}
+                    <span className="text-[#0306AC] dark:text-[#E9BD36] font-serif font-normal italic">brands.</span>
                   </h2>
 
-                  <p className="text-[9.5px] text-brand-zinc-400 dark:text-zinc-500 mt-3 font-semibold leading-normal max-w-xs">
+                  <p className="text-sm font-sans text-brand-zinc-600 dark:text-zinc-300 font-normal leading-relaxed max-w-xs">
                     Every strategic choice, line of code, and creative pixel is engineered to establish market leadership and drive commercial value.
                   </p>
                 </div>
@@ -419,7 +431,7 @@ export default function AboutPage() {
         </section>
 
         {/* ── 3. WHO WE ARE SECTION (Awwwards-Level Premium Collage & Editorial Rows) ──── */}
-        <section className="relative overflow-hidden py-20 md:py-28 border-b border-brand-zinc-200 dark:border-white/10 bg-white dark:bg-[#080710]">
+        <section className="relative overflow-hidden py-12 sm:py-16 md:py-20 border-b border-brand-zinc-200 dark:border-white/10 bg-white dark:bg-[#080710]">
 
           {/* Gigantic background watermarked agency identifier */}
           <div className="absolute right-[5%] top-[10%] text-[15vw] sm:text-[12vw] font-heading font-black tracking-tighter text-[#0306AC]/[0.015] dark:text-white/[0.01] pointer-events-none select-none z-0 leading-none">
@@ -432,17 +444,22 @@ export default function AboutPage() {
               {/* Left Column: Heading and Interactive Editorial Rows */}
               <div className="lg:col-span-6 space-y-10 text-left">
                 <div className="space-y-4">
-                  <div className="flex items-center gap-2 select-none">
-                    <span className="text-[8.5px] font-mono tracking-widest text-[#0306AC] dark:text-[#E9BD36] font-black uppercase">// WHO WE ARE</span>
-                    <div className="h-[1px] w-8 bg-[#0306AC]/20 dark:bg-white/10" />
+                  <div className="inline-flex items-center gap-2 rounded-full bg-[#0306AC]/5 dark:bg-white/5 border border-[#0306AC]/15 dark:border-white/10 px-4 py-1.5 text-[11px] font-mono tracking-widest text-[#0306AC] dark:text-[#E9BD36] font-extrabold uppercase">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0306AC] dark:bg-[#E9BD36] opacity-75" />
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0306AC] dark:bg-[#E9BD36]" />
+                    </span>
+                    WHO WE ARE
                   </div>
 
-                  <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.05]">
-                    Designing landmarks, <br />
-                    not just <span className="text-[#0306AC] dark:text-[#E9BD36] italic font-serif font-light">interfaces.</span>
+                  <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.15]">
+                    Designing landmarks,{" "}
+                    <span className="text-[#0306AC] dark:text-[#E9BD36] font-serif font-normal italic">
+                      not just interfaces.
+                    </span>
                   </h2>
 
-                  <p className="text-xs sm:text-sm text-brand-zinc-550 dark:text-zinc-400 font-normal leading-relaxed max-w-xl">
+                  <p className="text-sm sm:text-base font-sans text-brand-zinc-600 dark:text-zinc-300 font-normal leading-relaxed max-w-2xl">
                     We are an elite coalition of design purists, engineering craftspeople, and performance strategists who build high-ticket platforms that command market attention and scale digital authority.
                   </p>
                 </div>
@@ -460,7 +477,7 @@ export default function AboutPage() {
                         <h3 className="text-xs sm:text-sm font-black uppercase tracking-wider text-brand-dark dark:text-white group-hover:text-[#0306AC] dark:group-hover:text-[#E9BD36] transition-colors duration-300">
                           Radical Aesthetics
                         </h3>
-                        <p className="text-[10px] sm:text-[11px] text-brand-zinc-450 dark:text-zinc-500 font-medium leading-normal max-w-md transition-colors duration-300 group-hover:text-brand-dark dark:group-hover:text-white">
+                        <p className="text-[10px] sm:text-[11px] text-brand-zinc-550 dark:text-zinc-300 font-medium leading-normal max-w-md transition-colors duration-300 group-hover:text-brand-dark dark:group-hover:text-white">
                           Avant-garde layout architectures and bespoke identity systems built to visually isolate your brand from standard templates.
                         </p>
                       </div>
@@ -480,7 +497,7 @@ export default function AboutPage() {
                         <h3 className="text-xs sm:text-sm font-black uppercase tracking-wider text-brand-dark dark:text-white group-hover:text-[#0306AC] dark:group-hover:text-[#E9BD36] transition-colors duration-300">
                           High-Fidelity Engineering
                         </h3>
-                        <p className="text-[10px] sm:text-[11px] text-brand-zinc-450 dark:text-zinc-500 font-medium leading-normal max-w-md transition-colors duration-300 group-hover:text-brand-dark dark:group-hover:text-white">
+                        <p className="text-[10px] sm:text-[11px] text-brand-zinc-550 dark:text-zinc-300 font-medium leading-normal max-w-md transition-colors duration-300 group-hover:text-brand-dark dark:group-hover:text-white">
                           Next.js production engines engineered with semantic HTML, precise performance caching, and custom Framer Motion dynamics.
                         </p>
                       </div>
@@ -500,7 +517,7 @@ export default function AboutPage() {
                         <h3 className="text-xs sm:text-sm font-black uppercase tracking-wider text-brand-dark dark:text-white group-hover:text-[#0306AC] dark:group-hover:text-[#E9BD36] transition-colors duration-300">
                           Commercial Growth Engines
                         </h3>
-                        <p className="text-[10px] sm:text-[11px] text-brand-zinc-450 dark:text-zinc-500 font-medium leading-normal max-w-md transition-colors duration-300 group-hover:text-brand-dark dark:group-hover:text-white">
+                        <p className="text-[10px] sm:text-[11px] text-brand-zinc-550 dark:text-zinc-300 font-medium leading-normal max-w-md transition-colors duration-300 group-hover:text-brand-dark dark:group-hover:text-white">
                           Strategic landing funnels and advanced SEO frameworks focused on positioning, high intent search rankings, and enterprise sales.
                         </p>
                       </div>
@@ -594,7 +611,7 @@ export default function AboutPage() {
         {/* ── 4. MISSION & VISION SECTION (Ultra-Advanced Alternating Editorial Split) ──────── */}
         <section
           ref={sectionRef}
-          className="relative overflow-hidden py-28 sm:py-36 border-b border-brand-zinc-200 dark:border-white/10 bg-white dark:bg-[#080710] transition-colors duration-300"
+          className="relative overflow-hidden py-12 sm:py-16 md:py-20 border-b border-brand-zinc-200 dark:border-white/10 bg-white dark:bg-[#080710] transition-colors duration-300"
         >
           {/* Architectural grid background overlay */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808007_1px,transparent_1px),linear-gradient(to_bottom,#80808007_1px,transparent_1px)] bg-[size:48px_48px] pointer-events-none -z-10" />
@@ -606,17 +623,20 @@ export default function AboutPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10 space-y-28 sm:space-y-40">
 
             {/* Header Block */}
-            <div className="text-left max-w-2xl">
-              <div className="inline-flex items-center gap-2 rounded-full bg-[#0306AC]/5 dark:bg-white/5 border border-[#0306AC]/10 dark:border-white/10 px-4 py-1.5 text-[9px] font-mono tracking-widest text-[#0306AC] dark:text-[#E9BD36] font-black uppercase mb-4">
-                <span className="relative flex h-1.5 w-1.5">
+            <div className="text-left max-w-2xl space-y-4">
+              <div className="inline-flex items-center gap-2 rounded-full bg-[#0306AC]/5 dark:bg-white/5 border border-[#0306AC]/15 dark:border-white/10 px-4 py-1.5 text-[11px] font-mono tracking-widest text-[#0306AC] dark:text-[#E9BD36] font-extrabold uppercase">
+                <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0306AC] dark:bg-[#E9BD36] opacity-75" />
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#0306AC] dark:bg-[#E9BD36]" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0306AC] dark:bg-[#E9BD36]" />
                 </span>
-                PHILOSOPHY // CONVICTIONS
+                PHILOSOPHY & CONVICTIONS
               </div>
-              <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.05]">
-                Our Strategic <br />
-                <span className="text-[#0306AC] dark:text-[#E9BD36] italic font-serif font-light">Foundation.</span>
+
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.15]">
+                Our Strategic{" "}
+                <span className="text-[#0306AC] dark:text-[#E9BD36] font-serif font-normal italic">
+                  Foundation.
+                </span>
               </h2>
             </div>
 
@@ -881,7 +901,7 @@ export default function AboutPage() {
         </section>
 
         {/* ── 5. OUR SERVICES SECTION (Sticky Split-Screen Visual Canvas - Locomotive/Awwwards Style) ──────── */}
-        <section className="relative overflow-x-clip py-16 sm:py-24 lg:py-36 border-b border-brand-zinc-200 dark:border-white/10 bg-white dark:bg-[#080710] transition-colors duration-300">
+        <section className="relative overflow-x-clip py-12 sm:py-16 md:py-20 border-b border-brand-zinc-200 dark:border-white/10 bg-white dark:bg-[#080710] transition-colors duration-300">
 
           {/* Drifting Ambient Lighting Orbs */}
           <div className="absolute top-[10%] left-[10%] w-[45vw] h-[45vw] rounded-full bg-[#0306AC]/[0.035] dark:bg-[#0306AC]/0.06 blur-[150px] pointer-events-none -z-10 animate-float-blob" />
@@ -911,8 +931,8 @@ export default function AboutPage() {
                     }
                   }}
                   className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-bold shrink-0 flex items-center gap-2 transition-all duration-300 ${isActive
-                      ? "bg-[#0306AC] text-white dark:bg-[#E9BD36] dark:text-brand-dark shadow-md"
-                      : "bg-zinc-100 text-brand-zinc-600 dark:bg-white/5 dark:text-zinc-400"
+                    ? "bg-[#0306AC] text-white dark:bg-[#E9BD36] dark:text-brand-dark shadow-md"
+                    : "bg-zinc-100 text-brand-zinc-600 dark:bg-white/5 dark:text-zinc-400"
                     }`}
                 >
                   <span>{item.id}</span>
@@ -931,8 +951,8 @@ export default function AboutPage() {
                 <div className="p-6 sm:p-7 rounded-[32px] bg-zinc-50/90 dark:bg-[#0c0b18]/90 border border-brand-zinc-200/80 dark:border-white/10 shadow-2xl backdrop-blur-xl space-y-5 text-left relative overflow-hidden">
 
                   {/* Header */}
-                  <div className="space-y-2.5">
-                    <div className="inline-flex items-center gap-2 rounded-full bg-[#0306AC]/10 dark:bg-white/10 border border-[#0306AC]/15 dark:border-white/15 px-3 py-1 text-[10px] font-mono tracking-wider text-[#0306AC] dark:text-[#E9BD36] font-bold">
+                  <div className="space-y-3">
+                    <div className="inline-flex items-center gap-2 rounded-full bg-[#0306AC]/5 dark:bg-white/5 border border-[#0306AC]/15 dark:border-white/10 px-4 py-1.5 text-[11px] font-mono tracking-widest text-[#0306AC] dark:text-[#E9BD36] font-extrabold uppercase">
                       <span className="relative flex h-2 w-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0306AC] dark:bg-[#E9BD36] opacity-75" />
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0306AC] dark:bg-[#E9BD36]" />
@@ -940,9 +960,9 @@ export default function AboutPage() {
                       SERVICES DIRECTORY
                     </div>
 
-                    <h2 className="font-heading text-2xl sm:text-3xl font-black text-brand-dark dark:text-white tracking-tight leading-tight">
-                      Capabilities built to <br />
-                      <span className="text-[#0306AC] dark:text-[#E9BD36] italic font-serif font-light">elevate your brand.</span>
+                    <h2 className="font-heading text-2xl sm:text-3xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.15]">
+                      Capabilities built to{" "}
+                      <span className="text-[#0306AC] dark:text-[#E9BD36] font-serif font-normal italic">elevate your brand.</span>
                     </h2>
                   </div>
 
@@ -963,21 +983,20 @@ export default function AboutPage() {
                           key={item.id}
                           href={`#service-stage-${item.id}`}
                           className={`py-2.5 px-3.5 rounded-2xl flex items-center justify-between transition-all duration-300 group relative ${isActive
-                              ? "bg-brand-dark text-white dark:bg-white dark:text-brand-dark shadow-xl scale-[1.02] font-bold"
-                              : "hover:bg-zinc-200/60 dark:hover:bg-white/5 text-brand-zinc-600 dark:text-zinc-400"
+                            ? "bg-[#0306AC] text-white dark:bg-[#E9BD36] dark:text-[#080710] shadow-xl scale-[1.02] font-bold"
+                            : "hover:bg-zinc-200/60 dark:hover:bg-white/5 text-brand-zinc-600 dark:text-zinc-400"
                             }`}
                           onClick={(e) => {
                             e.preventDefault();
                             setActiveService(idx);
                             const el = document.getElementById(`service-stage-${item.id}`);
                             if (el) {
-                              const y = el.getBoundingClientRect().top + window.pageYOffset - 120;
-                              window.scrollTo({ top: y, behavior: "smooth" });
+                              el.scrollIntoView({ behavior: "smooth", block: "center" });
                             }
                           }}
                         >
                           <div className="flex items-center gap-3">
-                            <span className={`font-serif italic text-xs font-black transition-colors ${isActive ? "text-[#E9BD36] dark:text-[#0306AC]" : "text-brand-zinc-400 dark:text-zinc-500"
+                            <span className={`font-serif italic text-xs font-black transition-colors ${isActive ? "text-[#E9BD36] dark:text-[#080710]" : "text-brand-zinc-400 dark:text-zinc-400"
                               }`}>
                               {item.id}
                             </span>
@@ -988,12 +1007,12 @@ export default function AboutPage() {
 
                           <div className="flex items-center gap-2">
                             <span className={`text-[8.5px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full transition-colors ${isActive
-                                ? "bg-white/20 text-white dark:bg-black/10 dark:text-brand-dark"
-                                : "bg-black/5 dark:bg-white/5 text-brand-zinc-500 dark:text-zinc-500"
+                              ? "bg-white/20 text-white dark:bg-black/15 dark:text-[#080710]"
+                              : "bg-black/5 dark:bg-white/10 text-brand-zinc-500 dark:text-zinc-300"
                               }`}>
                               {item.tag}
                             </span>
-                            <ArrowRight className={`h-3.5 w-3.5 transition-transform ${isActive ? "translate-x-1 opacity-100 text-[#E9BD36] dark:text-[#0306AC]" : "opacity-30 group-hover:opacity-100"
+                            <ArrowRight className={`h-3.5 w-3.5 transition-transform ${isActive ? "translate-x-1 opacity-100 text-[#E9BD36] dark:text-[#080710]" : "opacity-30 group-hover:opacity-100"
                               }`} />
                           </div>
                         </a>
@@ -1005,10 +1024,10 @@ export default function AboutPage() {
                   <div className="pt-2 border-t border-brand-zinc-200/80 dark:border-white/10">
                     <a
                       href="/contact"
-                      className="w-full py-3.5 rounded-2xl bg-[#0306AC] text-white dark:bg-[#E9BD36] dark:text-brand-dark font-mono text-[11px] font-black uppercase tracking-wider flex items-center justify-center gap-2 hover:scale-[1.02] transition-all duration-300 shadow-lg"
+                      className="w-full py-3.5 rounded-2xl bg-[#E9BD36] text-[#080710] font-mono text-[11px] font-black uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-[#ffe554] hover:scale-[1.02] transition-all duration-300 shadow-lg"
                     >
                       <span>SCHEDULE FREE CONSULTATION</span>
-                      <ArrowRight className="h-4 w-4" />
+                      <ArrowRight className="h-4 w-4 text-[#080710]" />
                     </a>
                   </div>
 
@@ -1082,15 +1101,10 @@ export default function AboutPage() {
                   const StageIcon = stage.icon;
 
                   return (
-                    <motion.div
+                    <div
                       id={`service-stage-${stage.id}`}
                       key={stage.id}
-                      initial={{ opacity: 0, y: 25 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      onViewportEnter={() => setActiveService(idx)}
-                      viewport={{ margin: "-20% 0px -25% 0px" }}
-                      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                      className="rounded-[28px] sm:rounded-[36px] bg-zinc-50/80 dark:bg-[#0c0b18] border border-brand-zinc-200/80 dark:border-white/10 p-5 sm:p-8 lg:p-10 space-y-6 sm:space-y-8 group hover:border-[#0306AC]/60 dark:hover:border-[#E9BD36]/60 transition-all duration-500 shadow-sm hover:shadow-2xl relative overflow-hidden will-change-transform transform-gpu"
+                      className="rounded-[28px] sm:rounded-[36px] bg-zinc-50/80 dark:bg-[#0c0b18] border border-brand-zinc-200/80 dark:border-white/10 p-5 sm:p-8 lg:p-10 space-y-6 sm:space-y-8 group hover:border-[#0306AC]/60 dark:hover:border-[#E9BD36]/60 transition-all duration-300 shadow-sm hover:shadow-2xl relative overflow-hidden will-change-transform"
                     >
                       {/* Top Bar: Index & Badge */}
                       <div className="flex items-center justify-between">
@@ -1099,7 +1113,7 @@ export default function AboutPage() {
                             {stage.id}
                           </span>
                           <div className="h-[1px] w-6 bg-brand-zinc-300 dark:bg-white/20" />
-                          <span className="text-[9px] font-mono font-bold text-brand-zinc-400 dark:text-zinc-500 uppercase tracking-widest">
+                          <span className="text-[9px] font-mono font-bold text-brand-zinc-500 dark:text-zinc-300 uppercase tracking-widest">
                             // {stage.category}
                           </span>
                         </div>
@@ -1133,7 +1147,7 @@ export default function AboutPage() {
                         <h3 className="font-heading text-2xl sm:text-3xl font-black text-brand-dark dark:text-white tracking-tight leading-tight group-hover:text-[#0306AC] dark:group-hover:text-[#E9BD36] transition-colors">
                           {stage.title}
                         </h3>
-                        <p className="text-xs sm:text-sm text-brand-zinc-550 dark:text-zinc-400 font-sans leading-relaxed">
+                        <p className="text-xs sm:text-sm text-brand-zinc-600 dark:text-zinc-300 font-sans leading-relaxed">
                           {stage.desc}
                         </p>
                       </div>
@@ -1161,7 +1175,7 @@ export default function AboutPage() {
                         </a>
                       </div>
 
-                    </motion.div>
+                    </div>
                   );
                 })}
               </div>
@@ -1172,8 +1186,8 @@ export default function AboutPage() {
         </section>
 
         {/* ── 6. OUR PROCESS SECTION (Clean & Spacious 3-Column Glass Grid) ──────── */}
-        <section className="relative overflow-hidden py-24 sm:py-36 border-b border-brand-zinc-200 dark:border-white/10 bg-white dark:bg-[#080710] transition-colors duration-300">
-          
+        <section className="relative overflow-hidden py-12 sm:py-16 md:py-20 border-b border-brand-zinc-200 dark:border-white/10 bg-white dark:bg-[#080710] transition-colors duration-300">
+
           {/* Drifting Ambient Lighting Orbs */}
           <div className="absolute top-[15%] left-[10%] w-[45vw] h-[45vw] rounded-full bg-[#0306AC]/[0.035] dark:bg-[#0306AC]/0.06 blur-[150px] pointer-events-none -z-10 animate-float-blob" />
           <div className="absolute bottom-[15%] right-[10%] w-[40vw] h-[40vw] rounded-full bg-[#E9BD36]/[0.025] dark:bg-[#E9BD36]/0.05 blur-[150px] pointer-events-none -z-10 animate-float-blob-delayed" />
@@ -1183,17 +1197,17 @@ export default function AboutPage() {
             {/* Section Header */}
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 text-left border-b border-brand-zinc-200/80 dark:border-white/10 pb-12">
               <div className="max-w-2xl space-y-4">
-                <div className="inline-flex items-center gap-2 rounded-full bg-[#0306AC]/5 dark:bg-white/5 border border-[#0306AC]/10 dark:border-white/10 px-4 py-1.5 text-xs font-mono tracking-wider text-[#0306AC] dark:text-[#E9BD36] font-bold">
+                <div className="inline-flex items-center gap-2 rounded-full bg-[#0306AC]/5 dark:bg-white/5 border border-[#0306AC]/15 dark:border-white/10 px-4 py-1.5 text-[11px] font-mono tracking-widest text-[#0306AC] dark:text-[#E9BD36] font-extrabold uppercase">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0306AC] dark:bg-[#E9BD36] opacity-75" />
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0306AC] dark:bg-[#E9BD36]" />
                   </span>
-                  ⚡ THE METHODOLOGY
+                  THE METHODOLOGY
                 </div>
 
-                <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.08]">
-                  Our 5-Step Process for <br />
-                  <span className="text-[#0306AC] dark:text-[#E9BD36] italic font-serif font-light">Predictable Results.</span>
+                <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.15]">
+                  Our 5-Step Process for{" "}
+                  <span className="text-[#0306AC] dark:text-[#E9BD36] font-serif font-normal italic">Predictable Results.</span>
                 </h2>
               </div>
 
@@ -1261,7 +1275,7 @@ export default function AboutPage() {
                   >
                     {/* Background Lighting Orb */}
                     <div className="absolute top-[-20%] right-[-20%] w-32 h-32 rounded-full bg-[#0306AC]/10 dark:bg-[#E9BD36]/15 blur-2xl pointer-events-none group-hover:scale-150 transition-transform duration-700" />
-                    
+
                     {/* Grid Pattern Overlay */}
                     <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
 
@@ -1325,176 +1339,343 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ── 7. INDUSTRIES WE SERVE SECTION ───────────────────────────── */}
-        <section className="relative overflow-hidden py-16 md:py-20 border-b border-brand-zinc-200 dark:border-white/10 bg-white dark:bg-[#080710]">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
+        {/* ── 7. INDUSTRIES WE SERVE SECTION (Ultra-Modern 8-Domain Interactive Spotlight Grid) ──────── */}
+        <section className="relative overflow-hidden py-12 sm:py-16 md:py-20 border-b border-brand-zinc-200 dark:border-white/10 bg-white dark:bg-[#080710] transition-colors duration-300">
 
-            <div className="text-center mb-12 flex flex-col items-center">
-              <span className="text-[10px] font-sans font-black tracking-widest text-[#0306AC] uppercase block mb-1">
-                // INDUSTRIES WE SERVE
-              </span>
-              <div className="h-0.5 w-6 bg-[#E9BD36] mb-3" />
-              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-brand-dark tracking-tight">
-                Empowering Businesses Across <span className="text-[#0306AC] dark:text-[#E9BD36]">Every Industry</span>
-              </h2>
+          {/* Drifting Ambient Background Glow */}
+          <div className="absolute top-[10%] right-[5%] w-[45vw] h-[45vw] rounded-full bg-[#0306AC]/[0.03] dark:bg-[#0306AC]/0.05 blur-[150px] pointer-events-none -z-10 animate-float-blob" />
+          <div className="absolute bottom-[10%] left-[5%] w-[40vw] h-[40vw] rounded-full bg-[#E9BD36]/[0.02] dark:bg-[#E9BD36]/0.04 blur-[150px] pointer-events-none -z-10 animate-float-blob-delayed" />
+
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10 space-y-16">
+
+            {/* Section Header */}
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 text-left border-b border-brand-zinc-200/80 dark:border-white/10 pb-12">
+              <div className="max-w-2xl space-y-4">
+                <div className="inline-flex items-center gap-2 rounded-full bg-[#0306AC]/5 dark:bg-white/5 border border-[#0306AC]/15 dark:border-white/10 px-4 py-1.5 text-[11px] font-mono tracking-widest text-[#0306AC] dark:text-[#E9BD36] font-extrabold uppercase">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0306AC] dark:bg-[#E9BD36] opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0306AC] dark:bg-[#E9BD36]" />
+                  </span>
+                  DOMAIN EXPERTISE
+                </div>
+
+                <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.15]">
+                  Empowering Ambitious Brands Across{" "}
+                  <span className="text-[#0306AC] dark:text-[#E9BD36] font-serif font-normal italic">Key Industries.</span>
+                </h2>
+              </div>
+
+              <div className="max-w-md space-y-3">
+                <p className="text-xs sm:text-sm text-brand-zinc-550 dark:text-zinc-400 font-sans leading-relaxed">
+                  Tailored Next.js web platforms, technical SEO strategies, and high-ROAS marketing funnels engineered specifically for domain customer journeys.
+                </p>
+              </div>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 max-w-6xl mx-auto">
+            {/* 8-Domain Interactive Spotlight Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-stretch text-left">
+              {[
+                {
+                  id: "01",
+                  icon: ShoppingCart,
+                  title: "E-Commerce & DTC",
+                  desc: "High-converting online store platforms with Shopify/Next.js integrations, frictionless checkout, and high-ROAS paid Meta ad campaigns.",
+                  tags: ["Custom Checkouts", "High ROAS", "Shopify Engine"]
+                },
+                {
+                  id: "02",
+                  icon: Building2,
+                  title: "Real Estate & Property",
+                  desc: "Luxury property showcases, interactive listing search platforms, and high-intent lead generation funnels for brokers and developers.",
+                  tags: ["Property Portals", "Lead Funnels", "3D Showcases"]
+                },
+                {
+                  id: "03",
+                  icon: Heart,
+                  title: "Healthcare & Wellness",
+                  desc: "Patient-first medical websites, HIPAA-compliant appointment booking systems, and local SEO campaigns that drive high patient inquiries.",
+                  tags: ["HIPAA Booking", "Local SEO", "Patient Trust"]
+                },
+                {
+                  id: "04",
+                  icon: GraduationCap,
+                  title: "Education & EdTech",
+                  desc: "Interactive course platforms, student enrollment portals, and brand identity systems for modern academies and digital learning platforms.",
+                  tags: ["EdTech Portals", "Enrollment", "LMS Integrations"]
+                },
+                {
+                  id: "05",
+                  icon: Coins,
+                  title: "Finance & Fintech",
+                  desc: "Bank-grade web platforms, investor relation portals, and trust-building visual identity systems for financial advisory firms.",
+                  tags: ["Fintech UI", "Trust Design", "Investor Portals"]
+                },
+                {
+                  id: "06",
+                  icon: Database,
+                  title: "SaaS & B2B Technology",
+                  desc: "High-speed marketing platforms, developer documentation portals, and product demo funnels designed to increase SaaS MRR.",
+                  tags: ["SaaS Landing", "MRR Scaling", "Doc Portals"]
+                },
+                {
+                  id: "07",
+                  icon: Utensils,
+                  title: "Hospitality & Luxury",
+                  desc: "Immersive culinary websites, hotel reservation engines, and digital brand experiences for premium restaurants and hospitality groups.",
+                  tags: ["Reservation Engine", "Luxury UI", "Brand Experience"]
+                },
+                {
+                  id: "08",
+                  icon: Scale,
+                  title: "Legal & Professional",
+                  desc: "Authoritative law firm platforms, client consultation scheduling, and high-intent local search optimization that attracts high-value legal cases.",
+                  tags: ["Law Firm UI", "Case Intake", "Authority SEO"]
+                },
+              ].map((domain, idx) => {
+                const DomainIcon = domain.icon;
 
-              {/* Card 1: E-Commerce */}
-              <div className="p-4 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200 dark:border-white/10 shadow-sm flex flex-col items-center justify-center gap-2 group hover:border-[#0306AC] transition-all cursor-pointer h-[95px]">
-                <ShoppingCart className="h-5 w-5 text-[#0306AC] dark:text-[#E9BD36]" />
-                <span className="text-[10px] font-bold text-brand-dark dark:text-white text-center mt-1">E-Commerce</span>
-              </div>
+                return (
+                  <motion.div
+                    key={domain.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.5, delay: idx * 0.06, ease: [0.16, 1, 0.3, 1] }}
+                    className="rounded-[32px] bg-zinc-50/90 dark:bg-[#0c0b18] border border-brand-zinc-200/80 dark:border-white/10 p-6 sm:p-7 flex flex-col justify-between space-y-6 group hover:border-[#0306AC]/60 dark:hover:border-[#E9BD36]/60 transition-all duration-500 shadow-sm hover:shadow-2xl relative overflow-hidden will-change-transform transform-gpu"
+                  >
+                    {/* Background Glow */}
+                    <div className="absolute top-[-20%] right-[-20%] w-28 h-28 rounded-full bg-[#0306AC]/10 dark:bg-[#E9BD36]/15 blur-2xl pointer-events-none group-hover:scale-150 transition-transform duration-700" />
 
-              {/* Card 2: Real Estate */}
-              <div className="p-4 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200 dark:border-white/10 shadow-sm flex flex-col items-center justify-center gap-2 group hover:border-[#0306AC] transition-all cursor-pointer h-[95px]">
-                <Building2 className="h-5 w-5 text-[#0306AC] dark:text-[#E9BD36]" />
-                <span className="text-[10px] font-bold text-brand-dark dark:text-white text-center mt-1">Real Estate</span>
-              </div>
+                    <div className="space-y-5 relative z-10">
+                      {/* Top Bar: Icon & ID */}
+                      <div className="flex items-center justify-between">
+                        <div className="h-12 w-12 rounded-2xl bg-[#0306AC]/10 dark:bg-white/10 border border-[#0306AC]/15 dark:border-white/15 flex items-center justify-center text-[#0306AC] dark:text-[#E9BD36] group-hover:scale-110 group-hover:bg-[#0306AC] group-hover:text-white dark:group-hover:bg-[#E9BD36] dark:group-hover:text-brand-dark transition-all duration-300 shadow-md">
+                          <DomainIcon className="h-5 w-5" />
+                        </div>
 
-              {/* Card 3: Healthcare */}
-              <div className="p-4 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200 dark:border-white/10 shadow-sm flex flex-col items-center justify-center gap-2 group hover:border-[#0306AC] transition-all cursor-pointer h-[95px]">
-                <Heart className="h-5 w-5 text-[#0306AC] dark:text-[#E9BD36]" />
-                <span className="text-[10px] font-bold text-brand-dark dark:text-white text-center mt-1">Healthcare</span>
-              </div>
+                        <span className="font-serif italic text-2xl font-black text-brand-zinc-300 dark:text-zinc-600 group-hover:text-[#0306AC] dark:group-hover:text-[#E9BD36] transition-colors">
+                          {domain.id}
+                        </span>
+                      </div>
 
-              {/* Card 4: Education */}
-              <div className="p-4 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200 dark:border-white/10 shadow-sm flex flex-col items-center justify-center gap-2 group hover:border-[#0306AC] transition-all cursor-pointer h-[95px]">
-                <GraduationCap className="h-5 w-5 text-[#0306AC] dark:text-[#E9BD36]" />
-                <span className="text-[10px] font-bold text-brand-dark dark:text-white text-center mt-1">Education</span>
-              </div>
+                      {/* Domain Title & Description */}
+                      <div className="space-y-2">
+                        <h3 className="font-heading text-lg sm:text-xl font-black text-brand-dark dark:text-white tracking-tight group-hover:text-[#0306AC] dark:group-hover:text-[#E9BD36] transition-colors">
+                          {domain.title}
+                        </h3>
+                        <p className="text-xs text-brand-zinc-550 dark:text-zinc-400 font-sans leading-relaxed">
+                          {domain.desc}
+                        </p>
+                      </div>
+                    </div>
 
-              {/* Card 5: Finance */}
-              <div className="p-4 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200 dark:border-white/10 shadow-sm flex flex-col items-center justify-center gap-2 group hover:border-[#0306AC] transition-all cursor-pointer h-[95px]">
-                <Coins className="h-5 w-5 text-[#0306AC] dark:text-[#E9BD36]" />
-                <span className="text-[10px] font-bold text-brand-dark dark:text-white text-center mt-1">Finance</span>
-              </div>
-
-              {/* Card 6: SaaS & Tech */}
-              <div className="p-4 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200 dark:border-white/10 shadow-sm flex flex-col items-center justify-center gap-2 group hover:border-[#0306AC] transition-all cursor-pointer h-[95px]">
-                <Database className="h-5 w-5 text-[#0306AC] dark:text-[#E9BD36]" />
-                <span className="text-[10px] font-bold text-brand-dark dark:text-white text-center mt-1">SaaS & Tech</span>
-              </div>
-
-              {/* Card 7: Hospitality */}
-              <div className="p-4 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200 dark:border-white/10 shadow-sm flex flex-col items-center justify-center gap-2 group hover:border-[#0306AC] transition-all cursor-pointer h-[95px]">
-                <Utensils className="h-5 w-5 text-[#0306AC] dark:text-[#E9BD36]" />
-                <span className="text-[10px] font-bold text-brand-dark dark:text-white text-center mt-1">Hospitality</span>
-              </div>
-
-              {/* Card 8: Legal */}
-              <div className="p-4 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200 dark:border-white/10 shadow-sm flex flex-col items-center justify-center gap-2 group hover:border-[#0306AC] transition-all cursor-pointer h-[95px]">
-                <Scale className="h-5 w-5 text-[#0306AC] dark:text-[#E9BD36]" />
-                <span className="text-[10px] font-bold text-brand-dark dark:text-white text-center mt-1">Legal</span>
-              </div>
-
+                    {/* Specialty Tags */}
+                    <div className="pt-4 border-t border-brand-zinc-200/70 dark:border-white/10 flex flex-wrap gap-1.5 relative z-10">
+                      {domain.tags.map((tag, tIdx) => (
+                        <span
+                          key={tIdx}
+                          className="inline-flex items-center gap-1.5 rounded-full bg-white dark:bg-white/5 border border-brand-zinc-200/80 dark:border-white/10 px-2.5 py-0.5 text-[8.5px] font-mono font-bold text-brand-zinc-600 dark:text-zinc-300 uppercase shadow-xs"
+                        >
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#0306AC] dark:bg-[#E9BD36]" />
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
+
           </div>
         </section>
 
-        {/* ── 8. WHY BUSINESSES CHOOSE US SECTION ─────────────────────── */}
-        <section className="relative overflow-hidden py-16 md:py-24 border-b border-brand-zinc-200 dark:border-white/10 bg-zinc-50/50 dark:bg-white/[0.01]">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
+        {/* ── 8. WHY BUSINESSES CHOOSE US SECTION (Pixel-Perfect Match to UI Design Screenshot) ─────────────────────── */}
+        <section className="relative overflow-hidden py-12 sm:py-16 md:py-20 border-b border-brand-zinc-200 dark:border-white/10 bg-white dark:bg-[#080710] transition-colors duration-300">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10 space-y-16">
 
-            <div className="text-center mb-16 flex flex-col items-center">
-              <span className="text-[9px] font-sans font-black tracking-widest text-[#0306AC] dark:text-[#E9BD36] uppercase mb-2">
+            {/* Section Header */}
+            <div className="text-center flex flex-col items-center max-w-3xl mx-auto space-y-4">
+              <div className="inline-flex items-center gap-2 rounded-full bg-[#0306AC]/5 dark:bg-white/5 border border-[#0306AC]/15 dark:border-white/10 px-4 py-1.5 text-[11px] font-mono tracking-widest text-[#0306AC] dark:text-[#E9BD36] font-extrabold uppercase">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0306AC] dark:bg-[#E9BD36] opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0306AC] dark:bg-[#E9BD36]" />
+                </span>
                 WHY BUSINESSES CHOOSE US
-              </span>
-              <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-brand-dark tracking-tight leading-none">
-                Results. Reliability. <span className="text-[#0306AC] dark:text-[#E9BD36]">Relationship.</span>
+              </div>
+
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.15]">
+                Results. Reliability.{" "}
+                <span className="text-[#0306AC] dark:text-[#E9BD36] font-serif font-normal italic">
+                  Long-Term Partnerships.
+                </span>
               </h2>
-              <p className="text-xs sm:text-sm text-brand-zinc-550 dark:text-zinc-400 font-sans max-w-2xl mt-4 leading-relaxed">
+
+              <p className="text-sm sm:text-base font-sans text-brand-zinc-600 dark:text-zinc-300 font-normal leading-relaxed max-w-2xl mx-auto">
                 We go beyond just delivering services — we build long-term partnerships that drive real growth and lasting impact for your business.
               </p>
             </div>
 
+            {/* Main Content Layout */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
 
-              {/* Left Column: Team Picture Card */}
+              {/* Left Column: Pixel-Perfect Blue Card with Team Photo & Outer Arc Detail */}
               <div className="lg:col-span-4 relative flex justify-center">
-                <div className="relative w-full aspect-[4/3] lg:aspect-auto lg:h-full min-h-[300px] rounded-[32px] overflow-hidden bg-[#0306AC] border border-brand-zinc-200 dark:border-white/10 shadow-lg p-6 flex flex-col justify-between">
-                  {/* Decorative yellow arc line at top-right */}
-                  <div className="absolute -top-3 -right-3 w-16 h-16 border-t-2 border-r-2 border-brand-yellow rounded-tr-[32px] pointer-events-none" />
-                  <div className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-brand-yellow" />
 
-                  <div className="max-w-[200px] z-10">
-                    <p className="text-white text-xs sm:text-sm font-semibold leading-relaxed">
+                {/* Outer Curved Yellow Arc SVG Line & Yellow Dot Node */}
+                <div className="absolute -top-7 -right-7 w-40 h-40 pointer-events-none z-30 hidden sm:block">
+                  <svg viewBox="0 0 140 140" className="w-full h-full overflow-visible">
+                    <path
+                      d="M 15,120 A 90,90 0 0,1 120,15"
+                      fill="none"
+                      stroke="#E9BD36"
+                      strokeWidth="3.5"
+                      strokeLinecap="round"
+                    />
+                    <circle cx="120" cy="15" r="6" fill="#E9BD36" />
+                  </svg>
+                </div>
+
+                {/* Outer Dot Matrix Grid overlay behind right edge */}
+                <div className="absolute -right-10 top-1/4 w-16 h-40 pointer-events-none hidden sm:block z-0 opacity-40">
+                  <div className="grid grid-cols-4 gap-2.5">
+                    {Array.from({ length: 28 }).map((_, i) => (
+                      <span key={i} className="h-1.5 w-1.5 rounded-full bg-[#0306AC] dark:bg-[#E9BD36]" />
+                    ))}
+                  </div>
+                </div>
+
+                {/* Outer Concentric Circles overlay behind bottom-left corner */}
+                <div className="absolute -bottom-10 -left-10 w-48 h-48 pointer-events-none z-0 hidden sm:block opacity-25">
+                  <svg viewBox="0 0 180 180" className="w-full h-full">
+                    <circle cx="20" cy="160" r="45" fill="none" stroke="#0306AC" strokeWidth="1.5" />
+                    <circle cx="20" cy="160" r="80" fill="none" stroke="#0306AC" strokeWidth="1.5" />
+                    <circle cx="20" cy="160" r="115" fill="none" stroke="#0306AC" strokeWidth="1.5" />
+                  </svg>
+                </div>
+
+                {/* Main Blue Card Container */}
+                <div className="relative w-full rounded-[36px] overflow-hidden bg-[#0306AC] border border-[#0306AC] shadow-2xl p-8 sm:p-9 flex flex-col justify-between min-h-[460px] lg:min-h-[520px] z-10">
+
+                  {/* Top Text Block */}
+                  <div className="max-w-[220px] space-y-1.5 z-10 text-left">
+                    <div className="h-[2.5px] w-7 bg-[#E9BD36] mb-4" />
+                    <p className="text-white text-sm sm:text-base font-semibold leading-snug tracking-tight">
                       We focus on what matters most —
                     </p>
-                    <p className="text-[#E9BD36] text-base sm:text-lg font-black mt-1 leading-none">
+                    <p className="text-[#E9BD36] text-lg sm:text-xl font-extrabold leading-none pt-1">
                       your growth.
                     </p>
                   </div>
 
-                  {/* Team picture placeholder gray box */}
-                  <div className="absolute right-0 bottom-0 w-[60%] h-[75%] bg-zinc-200 dark:bg-zinc-800 rounded-tl-3xl shadow-inner flex items-center justify-center text-[10px] font-mono text-zinc-400 dark:text-zinc-500 font-bold uppercase tracking-wider">
-                    [ Image ]
+                  {/* Team Photo Container flush at bottom */}
+                  <div className="relative mt-8 -mx-8 sm:-mx-9 -mb-8 sm:-mb-9 rounded-b-[36px] overflow-hidden shadow-inner">
+                    <img
+                      src="/why_choose_us_team.png"
+                      alt="Why Businesses Choose Us Team"
+                      className="w-full h-64 sm:h-72 lg:h-80 object-cover object-center"
+                    />
                   </div>
+
                 </div>
               </div>
 
-              {/* Right Column: 6 features in a 3-column grid */}
-              <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
+              {/* Right Column: 6 Feature Cards Grid */}
+              <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-left">
 
                 {/* Feature 1: Proven Results */}
-                <div className="p-6 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 shadow-sm flex flex-col items-start hover:border-brand-blue/30 transition-all duration-300">
-                  <div className="h-10 w-10 rounded-full bg-brand-blue/5 dark:bg-white/5 flex items-center justify-center text-brand-blue dark:text-brand-blue mb-4">
-                    <Target className="h-5 w-5" />
+                <div className="p-7 rounded-[24px] bg-white dark:bg-[#0c0b18] border border-brand-zinc-200/70 dark:border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-xl transition-all duration-300 flex flex-col items-start justify-between min-h-[220px] group">
+                  <div className="h-14 w-14 rounded-full bg-blue-50/80 dark:bg-white/5 flex items-center justify-center text-[#0306AC] dark:text-[#E9BD36] group-hover:scale-110 transition-transform">
+                    <Target className="h-6 w-6" />
                   </div>
-                  <h3 className="font-heading font-extrabold text-xs text-brand-dark dark:text-white">Proven Results</h3>
-                  <div className="h-[2px] w-6 bg-[#E9BD36] mt-2 mb-2" />
-                  <p className="text-[10px] font-normal text-brand-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">We deliver measurable outcomes that drive real growth for your business.</p>
+                  <div>
+                    <div className="h-[2.5px] w-6 bg-[#0306AC] dark:bg-[#E9BD36] mb-3" />
+                    <h3 className="font-heading font-extrabold text-base text-brand-dark dark:text-white tracking-tight mb-2">
+                      Proven Results
+                    </h3>
+                    <p className="text-xs text-brand-zinc-550 dark:text-zinc-400 font-sans leading-relaxed">
+                      We deliver measurable outcomes that drive real growth for your business.
+                    </p>
+                  </div>
                 </div>
 
                 {/* Feature 2: Creative Excellence */}
-                <div className="p-6 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 shadow-sm flex flex-col items-start hover:border-brand-blue/30 transition-all duration-300">
-                  <div className="h-10 w-10 rounded-full bg-brand-blue/5 dark:bg-white/5 flex items-center justify-center text-brand-blue dark:text-brand-blue mb-4">
-                    <Lightbulb className="h-5 w-5" />
+                <div className="p-7 rounded-[24px] bg-white dark:bg-[#0c0b18] border border-brand-zinc-200/70 dark:border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-xl transition-all duration-300 flex flex-col items-start justify-between min-h-[220px] group">
+                  <div className="h-14 w-14 rounded-full bg-amber-50/80 dark:bg-amber-500/10 flex items-center justify-center text-amber-500 dark:text-[#E9BD36] group-hover:scale-110 transition-transform">
+                    <Lightbulb className="h-6 w-6" />
                   </div>
-                  <h3 className="font-heading font-extrabold text-xs text-brand-dark dark:text-white">Creative Excellence</h3>
-                  <div className="h-[2px] w-6 bg-brand-blue mt-2 mb-2" />
-                  <p className="text-[10px] font-normal text-brand-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">Unique designs & strategies that make your brand stand out in the market.</p>
+                  <div>
+                    <div className="h-[2.5px] w-6 bg-[#0306AC] dark:bg-[#E9BD36] mb-3" />
+                    <h3 className="font-heading font-extrabold text-base text-brand-dark dark:text-white tracking-tight mb-2">
+                      Creative Excellence
+                    </h3>
+                    <p className="text-xs text-brand-zinc-550 dark:text-zinc-400 font-sans leading-relaxed">
+                      Unique designs & strategies that make your brand stand out in the market.
+                    </p>
+                  </div>
                 </div>
 
                 {/* Feature 3: Transparent Process */}
-                <div className="p-6 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 shadow-sm flex flex-col items-start hover:border-brand-blue/30 transition-all duration-300">
-                  <div className="h-10 w-10 rounded-full bg-brand-blue/5 dark:bg-white/5 flex items-center justify-center text-brand-blue dark:text-brand-blue mb-4">
-                    <MessageSquare className="h-5 w-5" />
+                <div className="p-7 rounded-[24px] bg-white dark:bg-[#0c0b18] border border-brand-zinc-200/70 dark:border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-xl transition-all duration-300 flex flex-col items-start justify-between min-h-[220px] group">
+                  <div className="h-14 w-14 rounded-full bg-blue-50/80 dark:bg-white/5 flex items-center justify-center text-[#0306AC] dark:text-[#E9BD36] group-hover:scale-110 transition-transform">
+                    <MessageSquare className="h-6 w-6" />
                   </div>
-                  <h3 className="font-heading font-extrabold text-xs text-brand-dark dark:text-white">Transparent Process</h3>
-                  <div className="h-[2px] w-6 bg-[#E9BD36] mt-2 mb-2" />
-                  <p className="text-[10px] font-normal text-brand-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">Clear communication and full visibility at every stage of the project.</p>
+                  <div>
+                    <div className="h-[2.5px] w-6 bg-[#0306AC] dark:bg-[#E9BD36] mb-3" />
+                    <h3 className="font-heading font-extrabold text-base text-brand-dark dark:text-white tracking-tight mb-2">
+                      Transparent Process
+                    </h3>
+                    <p className="text-xs text-brand-zinc-550 dark:text-zinc-400 font-sans leading-relaxed">
+                      Clear communication and full visibility at every stage of the project.
+                    </p>
+                  </div>
                 </div>
 
                 {/* Feature 4: On-Time Delivery */}
-                <div className="p-6 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 shadow-sm flex flex-col items-start hover:border-brand-blue/30 transition-all duration-300">
-                  <div className="h-10 w-10 rounded-full bg-brand-blue/5 dark:bg-white/5 flex items-center justify-center text-brand-blue dark:text-brand-blue mb-4">
-                    <Clock className="h-5 w-5" />
+                <div className="p-7 rounded-[24px] bg-white dark:bg-[#0c0b18] border border-brand-zinc-200/70 dark:border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-xl transition-all duration-300 flex flex-col items-start justify-between min-h-[220px] group">
+                  <div className="h-14 w-14 rounded-full bg-amber-50/80 dark:bg-amber-500/10 flex items-center justify-center text-amber-500 dark:text-[#E9BD36] group-hover:scale-110 transition-transform">
+                    <Clock className="h-6 w-6" />
                   </div>
-                  <h3 className="font-heading font-extrabold text-xs text-brand-dark dark:text-white">On-Time Delivery</h3>
-                  <div className="h-[2px] w-6 bg-brand-blue mt-2 mb-2" />
-                  <p className="text-[10px] font-normal text-brand-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">We respect deadlines and deliver on time, every time.</p>
+                  <div>
+                    <div className="h-[2.5px] w-6 bg-[#0306AC] dark:bg-[#E9BD36] mb-3" />
+                    <h3 className="font-heading font-extrabold text-base text-brand-dark dark:text-white tracking-tight mb-2">
+                      On-Time Delivery
+                    </h3>
+                    <p className="text-xs text-brand-zinc-550 dark:text-zinc-400 font-sans leading-relaxed">
+                      We respect deadlines and deliver on time, every time.
+                    </p>
+                  </div>
                 </div>
 
                 {/* Feature 5: Dedicated Support */}
-                <div className="p-6 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 shadow-sm flex flex-col items-start hover:border-brand-blue/30 transition-all duration-300">
-                  <div className="h-10 w-10 rounded-full bg-brand-blue/5 dark:bg-white/5 flex items-center justify-center text-brand-blue dark:text-brand-blue mb-4">
-                    <Headphones className="h-5 w-5" />
+                <div className="p-7 rounded-[24px] bg-white dark:bg-[#0c0b18] border border-brand-zinc-200/70 dark:border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-xl transition-all duration-300 flex flex-col items-start justify-between min-h-[220px] group">
+                  <div className="h-14 w-14 rounded-full bg-blue-50/80 dark:bg-white/5 flex items-center justify-center text-[#0306AC] dark:text-[#E9BD36] group-hover:scale-110 transition-transform">
+                    <Headphones className="h-6 w-6" />
                   </div>
-                  <h3 className="font-heading font-extrabold text-xs text-brand-dark dark:text-white">Dedicated Support</h3>
-                  <div className="h-[2px] w-6 bg-[#E9BD36] mt-2 mb-2" />
-                  <p className="text-[10px] font-normal text-brand-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">Our team is always here to support you, whenever you need us.</p>
+                  <div>
+                    <div className="h-[2.5px] w-6 bg-[#0306AC] dark:bg-[#E9BD36] mb-3" />
+                    <h3 className="font-heading font-extrabold text-base text-brand-dark dark:text-white tracking-tight mb-2">
+                      Dedicated Support
+                    </h3>
+                    <p className="text-xs text-brand-zinc-550 dark:text-zinc-400 font-sans leading-relaxed">
+                      Our team is always here to support you, whenever you need us.
+                    </p>
+                  </div>
                 </div>
 
                 {/* Feature 6: Long-Term Partnership */}
-                <div className="p-6 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 shadow-sm flex flex-col items-start hover:border-brand-blue/30 transition-all duration-300">
-                  <div className="h-10 w-10 rounded-full bg-brand-blue/5 dark:bg-white/5 flex items-center justify-center text-brand-blue dark:text-brand-blue mb-4">
-                    <Handshake className="h-5 w-5" />
+                <div className="p-7 rounded-[24px] bg-white dark:bg-[#0c0b18] border border-brand-zinc-200/70 dark:border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-xl transition-all duration-300 flex flex-col items-start justify-between min-h-[220px] group">
+                  <div className="h-14 w-14 rounded-full bg-amber-50/80 dark:bg-amber-500/10 flex items-center justify-center text-amber-500 dark:text-[#E9BD36] group-hover:scale-110 transition-transform">
+                    <Handshake className="h-6 w-6" />
                   </div>
-                  <h3 className="font-heading font-extrabold text-xs text-brand-dark dark:text-white">Long-Term Partnership</h3>
-                  <div className="h-[2px] w-6 bg-brand-blue mt-2 mb-2" />
-                  <p className="text-[10px] font-normal text-brand-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">We believe in building relationships not just projects for sustainable success.</p>
+                  <div>
+                    <div className="h-[2.5px] w-6 bg-[#0306AC] dark:bg-[#E9BD36] mb-3" />
+                    <h3 className="font-heading font-extrabold text-base text-brand-dark dark:text-white tracking-tight mb-2">
+                      Long-Term Partnership
+                    </h3>
+                    <p className="text-xs text-brand-zinc-550 dark:text-zinc-400 font-sans leading-relaxed">
+                      We believe in building long-term relationships, not just one-off projects, for sustainable growth.
+                    </p>
+                  </div>
                 </div>
 
               </div>
@@ -1503,147 +1684,101 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ── 9. ABOUT FOUNDER SECTION ─────────────────────────────────── */}
-        <section className="relative overflow-hidden py-16 md:py-24 border-b border-[#E5E7EB] dark:border-white/10 bg-white dark:bg-[#080710]">
+        {/* ── 9. ABOUT FOUNDER SECTION (Apple-Style Minimalist Executive Bio) ─────────────────────────────────── */}
+        <section className="relative overflow-hidden py-12 sm:py-16 md:py-20 border-b border-brand-zinc-200 dark:border-white/10 bg-white dark:bg-[#080710] transition-colors duration-300">
+
           <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
-              {/* Left Column: Portrait image placeholder (graybox) */}
-              <div className="lg:col-span-3 flex justify-center">
-                <div className="relative aspect-[3/4] w-full max-w-[280px] rounded-[32px] overflow-hidden bg-zinc-200 dark:bg-zinc-800 border border-brand-zinc-200 dark:border-white/10 shadow-lg">
-                  {/* Graybox label */}
-                  <div className="absolute inset-0 flex items-center justify-center text-[11px] font-mono text-zinc-400 dark:text-zinc-500 font-bold uppercase tracking-wider">
-                    [ Portrait ]
-                  </div>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
 
-                  {/* Bottom-left overlay card: 300+ Clients Worldwide */}
-                  <div className="absolute left-4 bottom-4 bg-white/95 dark:bg-[#12121e]/95 backdrop-blur-sm rounded-xl p-3 shadow-md border border-brand-zinc-100 dark:border-white/5 flex flex-col gap-1.5 max-w-[130px] z-10">
-                    <div className="flex items-center gap-1">
-                      <Users className="h-3 w-3 text-[#0306AC] dark:text-[#E9BD36]" />
-                      <span className="font-heading font-black text-xs text-brand-dark dark:text-white leading-none">300+</span>
+              {/* Left Column: Pure High-Res Executive Portrait Canvas */}
+              <div className="lg:col-span-5 flex justify-center">
+                <div className="relative aspect-[4/5] w-full max-w-[440px] rounded-[32px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)] border border-brand-zinc-200/60 dark:border-white/10 relative group">
+                  <img
+                    src="/founder_portrait.png"
+                    alt="Founder & Chief Digital Strategist"
+                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 pointer-events-none"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+
+                  {/* Minimal Floating Name Label */}
+                  <div className="absolute left-6 bottom-6 text-white text-left z-10 select-none">
+                    <div className="font-heading font-extrabold text-xl tracking-tight leading-none text-white">
+                      Mohsin
                     </div>
-                    <span className="text-[7.5px] font-bold text-brand-zinc-400 uppercase tracking-wider leading-none">Clients Worldwide</span>
-
-                    {/* Tiny avatar group */}
-                    <div className="flex -space-x-1 overflow-hidden mt-0.5">
-                      <div className="inline-block h-3.5 w-3.5 rounded-full ring-1 ring-white bg-zinc-300 dark:bg-zinc-700" />
-                      <div className="inline-block h-3.5 w-3.5 rounded-full ring-1 ring-white bg-zinc-400 dark:bg-zinc-600" />
-                      <div className="inline-block h-3.5 w-3.5 rounded-full ring-1 ring-white bg-zinc-500 dark:bg-zinc-500" />
-                      <div className="inline-block h-3.5 w-3.5 rounded-full ring-1 ring-white bg-zinc-600 dark:bg-zinc-400" />
-                      <div className="inline-block h-3.5 w-3.5 rounded-full ring-1 ring-white bg-zinc-700 dark:bg-zinc-300" />
-                    </div>
-                  </div>
-
-                  {/* Bottom-right overlay cursive signature: Mohsin / Ahsan */}
-                  <div className="absolute right-4 bottom-5 text-[#0306AC] dark:text-[#E9BD36] font-heading font-black italic text-sm tracking-wide z-10 opacity-80 select-none">
-                    Ahsan
+                    <span className="text-[10px] font-mono text-zinc-300 uppercase tracking-widest block mt-1">
+                      // Founder & Chief Digital Strategist
+                    </span>
                   </div>
                 </div>
               </div>
 
-              {/* Middle Column: Bio & Signature */}
-              <div className="lg:col-span-5 space-y-5 text-left">
-                <div className="space-y-1">
-                  <span className="text-[9px] font-sans font-black tracking-widest text-[#0306AC] dark:text-[#E9BD36] uppercase block">// ABOUT THE FOUNDER</span>
-                  <div className="h-0.5 w-6 bg-[#E9BD36]" />
+              {/* Right Column: Pure Apple-Style Typography & Stats */}
+              <div className="lg:col-span-7 space-y-8 text-left">
+
+                <div className="space-y-4">
+                  <div className="inline-flex items-center gap-2 rounded-full bg-[#0306AC]/5 dark:bg-white/5 border border-[#0306AC]/15 dark:border-white/10 px-4 py-1.5 text-[11px] font-mono tracking-widest text-[#0306AC] dark:text-[#E9BD36] font-extrabold uppercase">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0306AC] dark:bg-[#E9BD36] opacity-75" />
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0306AC] dark:bg-[#E9BD36]" />
+                    </span>
+                    EXECUTIVE LEADERSHIP
+                  </div>
+
+                  <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.15]">
+                    Driven by purpose.{" "}
+                    <span className="text-[#0306AC] dark:text-[#E9BD36] font-serif font-normal italic">
+                      Built for global impact.
+                    </span>
+                  </h2>
                 </div>
-                <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-brand-dark tracking-tight leading-tight">
-                  Hi, I'm <span className="text-[#0306AC] dark:text-[#E9BD36]">Ahsan</span>
-                </h2>
-                <p className="text-xs sm:text-sm font-bold text-[#0306AC] dark:text-[#E9BD36] tracking-wide uppercase leading-none mt-0.5">
-                  Founder & Digital Strategist
-                </p>
 
-                <div className="space-y-3.5 text-xs sm:text-sm font-normal font-sans leading-relaxed text-brand-zinc-500 dark:text-zinc-400">
-                  <p>I'm a digital strategist and entrepreneur with a passion for helping brands grow through innovative design, smart marketing, and powerful strategies.</p>
-                  <p>With over 7+ years of experience, I've had the privilege of working with 300+ clients worldwide, delivering results that make a real difference.</p>
+                <div className="space-y-4 text-base sm:text-lg font-sans leading-relaxed text-brand-zinc-600 dark:text-zinc-300">
+                  <p>
+                    Over the past 7+ years, I've had the privilege of partnering with 300+ ambitious founders and global enterprises — transforming complex digital challenges into high-performing web engines.
+                  </p>
+                  <p>
+                    We believe in strategic clarity, high-speed engineering, and conversion-focused design that predictably turns visitor engagement into real business revenue.
+                  </p>
                 </div>
 
-                {/* Handwritten signature and down arrow CTA */}
-                <div className="pt-4 flex items-center gap-6 select-none">
-                  <svg className="w-32 h-12 text-[#0306AC] dark:text-[#E9BD36]" viewBox="0 0 150 50" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                    <motion.path
-                      d="M 15 35 C 25 15, 35 15, 42 38 C 50 18, 58 18, 65 35 C 72 20, 80 20, 85 35 C 92 15, 100 25, 105 15 C 112 30, 118 35, 130 25 M 10 42 Q 75 35, 140 38"
-                      initial={{ pathLength: 0 }}
-                      whileInView={{ pathLength: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
-                    />
-                  </svg>
-
-                  <a
-                    href="#contact"
-                    className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-yellow text-brand-dark hover:scale-105 active:scale-95 transition-all duration-300 shadow-md"
-                    aria-label="Know More About Me"
-                  >
-                    <ArrowRight className="h-4.5 w-4.5 rotate-90" />
-                  </a>
-                  <span className="text-[10px] font-sans font-black tracking-widest uppercase text-brand-dark dark:text-white">Know More About Me</span>
-                </div>
-              </div>
-
-              {/* Right Column: 4 grid stat cards (2x2) */}
-              <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
-
-                {/* Card 1 */}
-                <div className="p-5 rounded-2xl bg-zinc-50/50 dark:bg-white/[0.02] border border-brand-zinc-200/80 dark:border-white/10 flex flex-col justify-between h-[120px] hover:border-brand-blue/30 transition-all duration-300">
-                  <div className="flex justify-between items-start">
-                    <div className="h-8 w-8 rounded-full bg-brand-blue/5 dark:bg-white/5 flex items-center justify-center text-brand-blue dark:text-brand-blue">
-                      <Award className="h-4.5 w-4.5" />
+                {/* Subtle Apple-Style Metric Line (No Heavy Cards) */}
+                <div className="grid grid-cols-3 gap-8 border-t border-brand-zinc-200/80 dark:border-white/10 pt-8">
+                  <div className="space-y-1 text-left">
+                    <div className="font-serif italic text-4xl sm:text-5xl font-black text-[#0306AC] dark:text-[#E9BD36]">
+                      7+
                     </div>
-                    <span className="font-heading font-black text-lg text-[#0306AC] dark:text-[#E9BD36] leading-none">7+</span>
+                    <span className="text-[10px] font-mono font-bold text-brand-dark dark:text-white uppercase tracking-wider block">
+                      Years Experience
+                    </span>
                   </div>
-                  <div>
-                    <h3 className="text-[9.5px] font-black text-brand-dark dark:text-white uppercase tracking-wider block">Years Experience</h3>
-                    <p className="text-[8px] text-brand-zinc-400 mt-1 leading-normal font-sans">Years of expertise in delivering innovative digital solutions that drive results.</p>
+
+                  <div className="space-y-1 text-left">
+                    <div className="font-serif italic text-4xl sm:text-5xl font-black text-[#0306AC] dark:text-[#E9BD36]">
+                      300+
+                    </div>
+                    <span className="text-[10px] font-mono font-bold text-brand-dark dark:text-white uppercase tracking-wider block">
+                      Global Projects
+                    </span>
+                  </div>
+
+                  <div className="space-y-1 text-left">
+                    <div className="font-serif italic text-4xl sm:text-5xl font-black text-[#0306AC] dark:text-[#E9BD36]">
+                      99.8%
+                    </div>
+                    <span className="text-[10px] font-mono font-bold text-brand-dark dark:text-white uppercase tracking-wider block">
+                      CSAT Score
+                    </span>
                   </div>
                 </div>
 
-                {/* Card 2 */}
-                <div className="p-5 rounded-2xl bg-zinc-50/50 dark:bg-white/[0.02] border border-brand-zinc-200/80 dark:border-white/10 flex flex-col justify-between h-[120px] hover:border-brand-blue/30 transition-all duration-300">
-                  <div className="flex justify-between items-start">
-                    <div className="h-8 w-8 rounded-full bg-brand-blue/5 dark:bg-white/5 flex items-center justify-center text-brand-blue dark:text-brand-blue">
-                      <Briefcase className="h-4.5 w-4.5" />
-                    </div>
-                    <span className="font-heading font-black text-lg text-[#0306AC] dark:text-[#E9BD36] leading-none">300+</span>
-                  </div>
-                  <div>
-                    <h3 className="text-[9.5px] font-black text-brand-dark dark:text-white uppercase tracking-wider block">Projects Completed</h3>
-                    <p className="text-[8px] text-brand-zinc-400 mt-1 leading-normal font-sans">Successfully completed projects across 20+ industries worldwide.</p>
-                  </div>
-                </div>
 
-                {/* Card 3 */}
-                <div className="p-5 rounded-2xl bg-zinc-50/50 dark:bg-white/[0.02] border border-brand-zinc-200/80 dark:border-white/10 flex flex-col justify-between h-[120px] hover:border-brand-blue/30 transition-all duration-300">
-                  <div className="flex justify-between items-start">
-                    <div className="h-8 w-8 rounded-full bg-brand-blue/5 dark:bg-white/5 flex items-center justify-center text-brand-blue dark:text-brand-blue">
-                      <Globe className="h-4.5 w-4.5" />
-                    </div>
-                    <span className="font-heading font-black text-lg text-[#0306AC] dark:text-[#E9BD36] leading-none">Global</span>
-                  </div>
-                  <div>
-                    <h3 className="text-[9.5px] font-black text-brand-dark dark:text-white uppercase tracking-wider block">Client Base</h3>
-                    <p className="text-[8px] text-brand-zinc-400 mt-1 leading-normal font-sans">Proud to work with clients from USA, UK, Canada, Australia, and more.</p>
-                  </div>
-                </div>
 
-                {/* Card 4 */}
-                <div className="p-5 rounded-2xl bg-zinc-50/50 dark:bg-white/[0.02] border border-brand-zinc-200/80 dark:border-white/10 flex flex-col justify-between h-[120px] hover:border-brand-blue/30 transition-all duration-300">
-                  <div className="flex justify-between items-start">
-                    <div className="h-8 w-8 rounded-full bg-brand-blue/5 dark:bg-white/5 flex items-center justify-center text-brand-blue dark:text-brand-blue">
-                      <Code className="h-4.5 w-4.5" />
-                    </div>
-                    <span className="font-heading font-black text-lg text-[#0306AC] dark:text-[#E9BD36] leading-none">Strategy</span>
-                  </div>
-                  <div>
-                    <h3 className="text-[9.5px] font-black text-brand-dark dark:text-white uppercase tracking-wider block">Strategy-First Approach</h3>
-                    <p className="text-[8px] text-brand-zinc-400 mt-1 leading-normal font-sans">We follow a clear strategy-first approach to create impactful and scalable solutions.</p>
-                  </div>
-                </div>
 
               </div>
 
             </div>
+
           </div>
         </section>
 
@@ -1660,93 +1795,102 @@ export default function AboutPage() {
         `}} />
 
         {/* ── 11. BOTTOM CTA BANNER SECTION ──────────────────────────── */}
-        <section className="relative overflow-hidden py-14 md:py-20 bg-white dark:bg-[#080710]">
+        <section className="relative overflow-hidden py-8 sm:py-12 bg-white dark:bg-[#080710] transition-colors duration-300">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
-            <div className="w-full bg-[#0306AC] rounded-[32px] overflow-hidden relative shadow-2xl min-h-[350px] flex items-stretch">
+            <div className="w-full bg-gradient-to-br from-[#0306AC] via-[#020485] to-[#010356] dark:from-[#0c0b18] dark:via-[#090814] dark:to-[#0306AC]/50 rounded-[36px] overflow-hidden relative shadow-[0_25px_60px_rgba(3,6,172,0.35)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.5)] min-h-[420px] flex items-stretch border border-white/15 dark:border-white/20">
 
-              {/* BG grid dots */}
-              <div className="absolute inset-0 bg-[radial-gradient(#ffffff18_1px,transparent_1px)] bg-[size:28px_28px] pointer-events-none" />
+              {/* Glowing Radial Background Lighting */}
+              <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#E9BD36]/15 rounded-full blur-[140px] pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#0306AC]/30 rounded-full blur-[120px] pointer-events-none" />
 
-              {/* Decorative outline circles behind portrait */}
-              <div className="absolute right-[5%] top-1/2 -translate-y-1/2 w-[340px] h-[340px] pointer-events-none hidden lg:block select-none opacity-40">
-                <svg viewBox="0 0 100 100" className="w-full h-full text-white/20">
-                  <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" strokeWidth="0.5" />
-                  <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="0.5" />
-                  <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" strokeWidth="0.5" />
+              {/* Radial Grid Dots */}
+              <div className="absolute inset-0 bg-[radial-gradient(#ffffff20_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
+
+              {/* Decorative Concentric Orbit Circles on Right */}
+              <div className="absolute right-[8%] top-1/2 -translate-y-1/2 w-[380px] h-[380px] pointer-events-none hidden lg:block select-none opacity-30">
+                <svg viewBox="0 0 100 100" className="w-full h-full text-[#E9BD36]">
+                  <circle cx="50" cy="50" r="28" fill="none" stroke="currentColor" strokeWidth="0.4" strokeDasharray="2 2" />
+                  <circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" strokeWidth="0.4" />
+                  <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" strokeWidth="0.4" strokeDasharray="4 2" />
                 </svg>
               </div>
 
-              {/* Halftone dot grid on right side */}
-              <div className="absolute right-4 top-1/2 -translate-y-1/2 grid grid-cols-5 gap-2 opacity-25 hidden lg:grid">
+              {/* Halftone Dot Grid Accent */}
+              <div className="absolute right-6 top-12 grid grid-cols-5 gap-2.5 opacity-20 hidden lg:grid">
                 {Array.from({ length: 25 }).map((_, i) => (
                   <div key={i} className="h-1.5 w-1.5 rounded-full bg-white" />
                 ))}
               </div>
 
-              {/* Left: copy */}
-              <div className="relative z-10 flex flex-col justify-center gap-5 p-8 md:p-12 lg:max-w-[55%]">
-                <div className="space-y-0.5">
-                  <span className="text-[9px] font-sans font-black tracking-[0.22em] text-[#E9BD36] uppercase block">
-                    READY TO GROW YOUR BUSINESS?
+              {/* Left Column: Copy & Actions */}
+              <div className="relative z-10 flex flex-col justify-center gap-6 p-8 sm:p-12 lg:p-14 lg:max-w-[58%]">
+                <div className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-4 py-1.5 text-[10px] font-mono tracking-widest text-[#E9BD36] font-extrabold uppercase w-fit">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E9BD36] opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E9BD36]" />
                   </span>
-                  <div className="h-0.5 w-6 bg-[#E9BD36] mt-1" />
+                  READY TO GROW YOUR BUSINESS?
                 </div>
 
-                <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black leading-[1.08] tracking-tight text-white">
-                  Let's Build Something<br />
-                  Amazing{" "}
-                  <div className="relative inline-block">
-                    <span className="font-cursive text-[#E9BD36] text-4xl sm:text-5xl font-normal pl-1">Together</span>
-                    <svg className="absolute left-0 bottom-[-4px] w-full h-2 text-[#E9BD36]" viewBox="0 0 100 10" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                      <path d="M 5 5 C 30 8, 70 8, 95 3" />
-                    </svg>
-                  </div>
+                <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-[1.18] tracking-tight text-white">
+                  Let's Build Something{" "}
+                  <span className="whitespace-nowrap inline-block">
+                    Amazing{" "}
+                    <span className="relative inline-block">
+                      <span className="font-cursive text-[#E9BD36] text-3xl sm:text-4xl lg:text-5xl font-normal pl-1">Together</span>
+                      <svg className="absolute left-0 bottom-[-2px] w-full h-3 text-[#E9BD36]" viewBox="0 0 100 10" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
+                        <path d="M 5 6 C 30 9, 70 9, 95 4" />
+                      </svg>
+                    </span>
+                  </span>
                 </h2>
 
-                <p className="text-[11.5px] sm:text-sm text-white/75 font-sans leading-relaxed max-w-[420px]">
+                <p className="text-sm sm:text-base font-sans text-white/90 font-normal leading-relaxed max-w-lg">
                   Have a project in mind? Let's discuss your ideas and turn them into powerful digital solutions that drive real results for your business.
                 </p>
 
                 <div className="flex items-center gap-4 flex-wrap pt-2">
                   <a
                     href="/#contact"
-                    className="group inline-flex items-center gap-3 rounded-full bg-[#E9BD36] px-6 py-3.5 text-[10.5px] font-black uppercase tracking-[0.16em] text-[#080710] hover:bg-[#ffe44a] active:scale-95 transition-all duration-300 shadow-lg"
+                    className="group inline-flex items-center gap-3 rounded-full bg-[#E9BD36] px-7 py-4 text-xs font-black uppercase tracking-[0.16em] text-[#080710] hover:bg-[#ffe554] hover:shadow-[0_10px_30px_rgba(233,189,54,0.4)] active:scale-95 transition-all duration-300"
                   >
                     GET STARTED TODAY
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#080710] text-[#E9BD36] transition-transform duration-300 group-hover:translate-x-1">
-                      <ArrowRight className="h-3 w-3" />
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#080710] text-[#E9BD36] transition-transform duration-300 group-hover:translate-x-1">
+                      <ArrowRight className="h-3.5 w-3.5" />
                     </span>
                   </a>
 
-                  <button className="inline-flex items-center gap-2.5 text-white text-[11px] font-bold uppercase tracking-widest hover:text-[#E9BD36] transition-colors duration-200">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/30 text-white hover:border-[#E9BD36] hover:text-[#E9BD36] transition-all duration-200">
-                      <Play className="h-2.5 w-2.5 fill-current ml-0.5" />
+                  <button className="inline-flex items-center gap-3 text-white text-xs font-bold uppercase tracking-widest hover:text-[#E9BD36] transition-colors duration-200 group">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur-md group-hover:border-[#E9BD36] group-hover:bg-[#E9BD36] group-hover:text-[#080710] transition-all duration-300">
+                      <Play className="h-3 w-3 fill-current ml-0.5" />
                     </span>
                     WATCH OUR STORY
                   </button>
                 </div>
               </div>
 
-              {/* Right: portrait graybox + floating card */}
+              {/* Right Column: Founder Portrait Image + Floating Card */}
               <div className="hidden lg:flex flex-1 items-end justify-center relative pr-8">
-                {/* Portrait placeholder */}
-                <div className="relative z-10 w-[240px] h-[320px] bg-zinc-300/20 rounded-t-[24px] flex items-center justify-center text-[10px] font-mono text-white/30 uppercase tracking-wider font-bold self-end border border-white/10 shadow-inner">
-                  [ Portrait ]
+
+                {/* Glowing Circle Backdrop */}
+                <div className="absolute bottom-0 w-[320px] h-[320px] bg-gradient-to-t from-[#020485] to-[#0408d9] rounded-full opacity-90 border border-white/20 shadow-2xl" />
+
+                {/* Founder Image Frame */}
+                <div className="relative z-10 w-[280px] h-[370px] self-end drop-shadow-2xl overflow-hidden rounded-t-[32px] border-t border-l border-r border-white/25 shadow-2xl">
+                  <Image
+                    src="/founder_portrait.png"
+                    alt="Founder & Chief Digital Strategist"
+                    width={320}
+                    height={420}
+                    className="w-full h-full object-cover object-top filter contrast-[1.05]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#010356]/80 via-transparent to-transparent pointer-events-none" />
                 </div>
 
-                {/* Let's Connect floating card */}
-                <div className="absolute bottom-8 right-0 bg-white/95 dark:bg-[#12121e]/95 backdrop-blur-sm rounded-2xl px-4 py-3.5 shadow-xl border border-white/10 flex items-start gap-3 max-w-[190px] z-20">
-                  <div className="h-9 w-9 rounded-xl bg-[#0306AC]/10 flex items-center justify-center shrink-0 text-[#0306AC]">
-                    <Headphones className="h-4.5 w-4.5" />
-                  </div>
-                  <div>
-                    <p className="text-[11px] font-black text-brand-dark dark:text-white leading-none">Let's Connect</p>
-                    <p className="text-[9px] text-brand-zinc-400 mt-1 leading-snug">We're just a message away to help you grow.</p>
-                  </div>
-                </div>
 
-                {/* Yellow dot accent */}
-                <div className="absolute top-12 right-24 h-3 w-3 rounded-full bg-[#E9BD36] z-20" />
+
+                {/* Accent Glowing Yellow Dot */}
+                <div className="absolute top-16 right-28 h-3.5 w-3.5 rounded-full bg-[#E9BD36] shadow-[0_0_15px_#E9BD36] z-20" />
               </div>
 
             </div>
@@ -1758,203 +1902,300 @@ export default function AboutPage() {
   );
 }
 
-/* ── Inline Reviews Carousel Component ─────────────────────────────────── */
+/* ── Inline Reviews Showcase Component (Awwwards Spotlight Showcase) ─────────────────────────────────── */
 const REVIEWS = [
   {
-    quote: "360 Designs Agency transformed our ideas into a stunning website. Their creativity, professionalism, and support throughout the project were excellent.",
+    quote: "360 Designs Agency transformed our product architecture and brand presence into an award-winning Next.js engine. Their engineering velocity, strategic clarity, and ongoing support are unmatched.",
     name: "John Carter",
-    role: "CEO, TechNova",
+    role: "CEO & Co-Founder",
+    company: "TechNova Inc. (USA)",
     initial: "J",
     accent: "#0306AC",
+    impact: "+140% ORGANIC LEAD CONVERSION",
+    tag: "SAAS & ENTERPRISE",
   },
   {
-    quote: "The team delivered more than we expected. Our online presence has never been better. Highly recommended!",
+    quote: "The team delivered far beyond our highest expectations. Our organic traffic and leads jumped by 240% within the first 60 days following launch. Truly a world-class digital partner.",
     name: "Sarah Mitchell",
-    role: "Marketing Director, BrightWave",
+    role: "Chief Marketing Officer",
+    company: "BrightWave Global (UK)",
     initial: "S",
     accent: "#E9BD36",
+    impact: "4.8X ORGANIC ROAS LIFT",
+    tag: "FINTECH & WEALTH",
   },
   {
-    quote: "Professional, reliable, and result-driven. 360 Designs Agency is our go-to partner for digital growth.",
+    quote: "Professional, hyper-responsive, and relentlessly focused on conversion ROI. 360 Designs Agency is our long-term strategic growth engine and primary technical partner.",
     name: "David Thompson",
-    role: "Founder, Nexus Solutions",
+    role: "Founder & Managing Director",
+    company: "Nexus Solutions (UAE)",
     initial: "D",
     accent: "#0306AC",
+    impact: "99.8% CSAT & ZERO DOWNTIME",
+    tag: "E-COMMERCE & RETAIL",
   },
   {
-    quote: "Absolutely fantastic service. They understood our vision instantly and delivered beyond our expectations every single step of the way.",
+    quote: "Absolutely exceptional craftsmanship. They understood our brand vision immediately and delivered a flawless web platform ahead of schedule with zero post-launch bugs.",
     name: "Emily Rodriguez",
-    role: "COO, BrightPath Inc.",
+    role: "Chief Operating Officer",
+    company: "BrightPath Tech (Germany)",
     initial: "E",
     accent: "#E9BD36",
+    impact: "100/100 LIGHTHOUSE PERFORMANCE",
+    tag: "HEALTHCARE & BIO",
   },
   {
-    quote: "From branding to web design — they handled everything flawlessly. Our conversion rate jumped 40% in the first month after launch.",
+    quote: "From complex UX architecture to high-converting funnels — they executed with military precision. Our conversion rate increased by 42% in month one alone.",
     name: "Marcus Liu",
-    role: "Founder, Apex Digital",
+    role: "Head of Growth",
+    company: "Apex Digital Capital (Singapore)",
     initial: "M",
     accent: "#0306AC",
+    impact: "+42% MONTH-1 CRO LIFT",
+    tag: "VENTURE CAPITAL",
   },
 ];
 
 function ReviewsCarousel() {
-  const [active, setActive] = useState(0);
-  const [itemsPerView, setItemsPerView] = useState(3);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 640) {
-        setItemsPerView(1);
-      } else if (window.innerWidth < 1024) {
-        setItemsPerView(2);
-      } else {
-        setItemsPerView(3);
-      }
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const maxActive = Math.max(0, REVIEWS.length - itemsPerView);
-  const safeActive = Math.min(active, maxActive);
-
-  // If itemsPerView changes, clamp the active slide to safe bounds
-  useEffect(() => {
-    if (active > maxActive) {
-      setActive(maxActive);
-    }
-  }, [itemsPerView, maxActive, active]);
-
-  const handlePrev = () => {
-    setActive((prev) => (prev > 0 ? prev - 1 : maxActive));
-  };
-
-  const handleNext = () => {
-    setActive((prev) => (prev < maxActive ? prev + 1 : 0));
-  };
+  const marqueeTrack1 = [...REVIEWS, ...REVIEWS, ...REVIEWS, ...REVIEWS];
+  const marqueeTrack2 = [...REVIEWS.slice().reverse(), ...REVIEWS.slice().reverse(), ...REVIEWS.slice().reverse(), ...REVIEWS.slice().reverse()];
 
   return (
-    <section className="relative overflow-hidden py-16 md:py-24 border-b border-brand-zinc-200 dark:border-white/10 bg-white dark:bg-[#080710]">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
+    <section className="relative overflow-hidden pt-10 sm:pt-14 pb-4 sm:pb-6 border-b border-brand-zinc-200 dark:border-white/10 bg-white dark:bg-[#080710] transition-colors duration-300">
 
-        {/* Header */}
-        <div className="text-center mb-14 flex flex-col items-center">
-          <span className="text-[9px] font-sans font-black tracking-widest text-[#0306AC] dark:text-[#E9BD36] uppercase mb-2">
-            CLIENT REVIEWS
-          </span>
-          <div className="h-0.5 w-6 bg-[#E9BD36] mb-4" />
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-brand-dark dark:text-white tracking-tight">
-            What Our <span className="text-[#0306AC] dark:text-[#E9BD36]">Clients</span> Say
+      {/* Inline Keyframes for Smooth Hardware-Accelerated Marquee with Hover Pause */}
+      <style>{`
+        @keyframes marqueeLeft {
+          0% { transform: translate3d(0, 0, 0); }
+          100% { transform: translate3d(-50%, 0, 0); }
+        }
+        @keyframes marqueeRight {
+          0% { transform: translate3d(-50%, 0, 0); }
+          100% { transform: translate3d(0, 0, 0); }
+        }
+        .marquee-track-left {
+          display: flex;
+          width: max-content;
+          animation: marqueeLeft 48s linear infinite;
+          will-change: transform;
+        }
+        .marquee-track-right {
+          display: flex;
+          width: max-content;
+          animation: marqueeRight 48s linear infinite;
+          will-change: transform;
+        }
+        .marquee-wrapper:hover .marquee-track-left,
+        .marquee-wrapper:hover .marquee-track-right {
+          animation-play-state: paused !important;
+        }
+      `}</style>
+
+      {/* Background Lighting Glows */}
+      <div className="absolute top-[20%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-[#0306AC]/[0.035] dark:bg-[#0306AC]/0.06 blur-[180px] pointer-events-none -z-10 animate-float-blob" />
+      <div className="absolute bottom-[10%] right-[-10%] w-[45vw] h-[45vw] rounded-full bg-[#E9BD36]/[0.025] dark:bg-[#E9BD36]/0.05 blur-[180px] pointer-events-none -z-10 animate-float-blob-delayed" />
+
+      {/* Edge Fading Overlays */}
+      <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-44 bg-gradient-to-r from-white dark:from-[#080710] to-transparent z-20 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-44 bg-gradient-to-l from-white dark:from-[#080710] to-transparent z-20 pointer-events-none" />
+
+      <div className="relative z-10 space-y-12">
+
+        {/* Section Header */}
+        <div className="text-center flex flex-col items-center space-y-5 max-w-3xl mx-auto px-4">
+
+          {/* Eyebrow Pill */}
+          <div className="inline-flex items-center gap-2 rounded-full bg-[#0306AC]/5 dark:bg-white/5 border border-[#0306AC]/15 dark:border-white/10 px-4 py-1.5 text-[11px] font-mono tracking-widest text-[#0306AC] dark:text-[#E9BD36] font-extrabold uppercase">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0306AC] dark:bg-[#E9BD36] opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0306AC] dark:bg-[#E9BD36]" />
+            </span>
+            CLIENT ENDORSEMENTS & REVIEWS
+          </div>
+
+          {/* Main Headline */}
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.15] max-w-2xl">
+            Loved by Founders.{" "}
+            <span className="text-[#0306AC] dark:text-[#E9BD36] font-serif font-normal italic">
+              Trusted by Growth Leaders.
+            </span>
           </h2>
-          <p className="text-xs sm:text-sm text-brand-zinc-500 dark:text-zinc-400 font-sans max-w-lg mt-4 leading-relaxed">
-            We take pride in the trust our clients place in us. Here's what they have to say about working with 360 Designs Agency.
+
+          {/* Descriptive Narrative Subtitle Paragraph */}
+          <p className="text-sm sm:text-base font-sans text-brand-zinc-600 dark:text-zinc-300 max-w-2xl font-normal leading-relaxed">
+            Real, unedited feedback from tech founders, enterprise leaders, and VC partners who partnered with our design agency to build world-class digital products.
           </p>
+
+          {/* Trust Rating Bar Badge */}
+          <div className="pt-1 inline-flex items-center gap-3 sm:gap-4 rounded-full bg-zinc-100/80 dark:bg-white/5 border border-brand-zinc-200 dark:border-white/10 px-5 py-2 text-xs font-mono backdrop-blur-md shadow-xs">
+            <div className="flex gap-1 text-amber-400">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="h-3.5 w-3.5 fill-current" />
+              ))}
+            </div>
+            <span className="font-bold text-brand-dark dark:text-white">4.9 / 5.0 Rating</span>
+            <span className="text-zinc-300 dark:text-white/20">|</span>
+            <span className="text-brand-zinc-600 dark:text-zinc-300 font-medium">300+ Verified Case Studies</span>
+          </div>
         </div>
 
-        {/* Carousel Container with Arrows */}
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-10">
+        {/* Dual-Track Marquee Container (Wrapper with Hover Pause & Spacious Vertical Padding to Prevent Shadow Clipping) */}
+        <div className="marquee-wrapper space-y-8 overflow-hidden py-8">
 
-          {/* Navigation Arrows */}
-          <button
-            onClick={handlePrev}
-            className="absolute left-[-10px] sm:left-0 top-1/2 -translate-y-1/2 z-20 h-10 w-10 sm:h-11 sm:w-11 rounded-full bg-white dark:bg-[#12121e] border border-brand-zinc-200 dark:border-white/10 shadow-md flex items-center justify-center text-brand-dark dark:text-white hover:scale-105 active:scale-95 transition-all hover:border-[#0306AC]"
-            aria-label="Previous reviews"
-          >
-            <ChevronLeft className="h-5 w-5" />
-          </button>
-
-          <button
-            onClick={handleNext}
-            className="absolute right-[-10px] sm:right-0 top-1/2 -translate-y-1/2 z-20 h-10 w-10 sm:h-11 sm:w-11 rounded-full bg-white dark:bg-[#12121e] border border-brand-zinc-200 dark:border-white/10 shadow-md flex items-center justify-center text-brand-dark dark:text-white hover:scale-105 active:scale-95 transition-all hover:border-[#0306AC]"
-            aria-label="Next reviews"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </button>
-
-          {/* Viewport */}
-          <div className="overflow-hidden w-full">
-            <motion.div
-              className="flex"
-              animate={{ x: `-${safeActive * (100 / itemsPerView)}%` }}
-              transition={{ type: "spring", stiffness: 220, damping: 26 }}
-            >
-              {REVIEWS.map((r, i) => (
+          {/* Track 1: Moving Left */}
+          <div className="flex py-4 overflow-visible">
+            <div className="marquee-track-left gap-6 items-stretch py-2">
+              {marqueeTrack1.map((r, i) => (
                 <div
-                  key={i}
-                  className="shrink-0 px-3 transition-all duration-300"
-                  style={{ width: `${100 / itemsPerView}%` }}
+                  key={`t1-${i}`}
+                  className="w-[360px] sm:w-[420px] shrink-0 p-7 sm:p-8 rounded-[32px] bg-white dark:bg-[#0c0b18] border border-brand-zinc-200/90 dark:border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.06)] dark:shadow-[0_10px_30px_rgba(0,0,0,0.4)] relative overflow-hidden flex flex-col justify-between hover:border-[#0306AC] dark:hover:border-[#E9BD36] transition-all duration-300 hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] group select-none cursor-pointer my-1"
                 >
-                  <div className="relative p-6 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 shadow-sm flex flex-col justify-between hover:border-[#0306AC]/30 hover:shadow-md h-full min-h-[240px] overflow-hidden">
+                  {/* Top Ambient Gradient Accent Line */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0306AC] via-[#808080] to-[#E9BD36] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                    {/* Decorative large quote mark */}
-                    <span className="absolute top-4 right-5 text-6xl font-serif leading-none text-brand-zinc-100 dark:text-white/5 select-none pointer-events-none">
-                      ❝
-                    </span>
+                  {/* Glowing Ambient Light Orb */}
+                  <div
+                    className="absolute -top-16 -right-16 w-44 h-44 rounded-full blur-2xl pointer-events-none opacity-10 group-hover:opacity-25 transition-opacity duration-500"
+                    style={{ backgroundColor: r.accent }}
+                  />
 
-                    <div className="space-y-4">
-                      {/* Stars */}
+                  {/* Top Ambient Watermark Quote Mark */}
+                  <span className="absolute top-4 right-6 text-7xl font-serif leading-none text-brand-zinc-200/40 dark:text-white/5 select-none pointer-events-none">
+                    “
+                  </span>
+
+                  <div className="space-y-4 relative z-10 text-left">
+                    <div className="flex items-center justify-between flex-wrap gap-2">
                       <div className="flex gap-1 text-amber-400">
                         {[...Array(5)].map((_, si) => (
                           <Star key={si} className="h-3.5 w-3.5 fill-current" />
                         ))}
                       </div>
-                      {/* Quote */}
-                      <p className="text-[12px] sm:text-[13px] font-medium text-brand-zinc-500 dark:text-zinc-400 leading-relaxed italic relative z-10">
-                        "{r.quote}"
-                      </p>
+
+                      <span className="text-[9px] font-mono font-bold text-[#0306AC] dark:text-[#E9BD36] bg-[#0306AC]/10 dark:bg-white/10 border border-[#0306AC]/20 dark:border-white/15 px-3 py-1 rounded-full uppercase tracking-wider">
+                        ⚡ {r.tag}
+                      </span>
                     </div>
 
-                    {/* Bottom: avatar + name */}
-                    <div className="mt-6">
-                      <div className="flex items-center gap-3">
-                        <div
-                          className="h-9 w-9 rounded-full flex items-center justify-center font-heading font-black text-sm shadow-sm shrink-0"
-                          style={{
-                            backgroundColor: r.accent === "#E9BD36" ? "#E9BD36" : "#0306AC",
-                            color: r.accent === "#E9BD36" ? "#080710" : "#ffffff",
-                          }}
-                        >
-                          {r.initial}
-                        </div>
-                        <div>
-                          <span className="block text-[10px] font-black text-brand-dark dark:text-white uppercase tracking-wider leading-none">
-                            {r.name}
-                          </span>
-                          <span className="block text-[8.5px] font-semibold text-brand-zinc-400 mt-1 leading-none">
-                            {r.role}
-                          </span>
-                        </div>
+                    <p className="text-xs sm:text-sm font-sans font-medium text-brand-zinc-700 dark:text-zinc-200 leading-relaxed italic pt-1">
+                      "{r.quote}"
+                    </p>
+
+                    {/* Impact Metric Bar inside Card */}
+                    <div className="inline-flex items-center gap-2 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 px-3.5 py-1.5 text-[9.5px] font-mono font-bold text-emerald-600 dark:text-emerald-400">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                      <span>{r.impact}</span>
+                    </div>
+                  </div>
+
+                  {/* Profile Author Footer */}
+                  <div className="pt-5 border-t border-brand-zinc-200/80 dark:border-white/10 mt-6 relative z-10">
+                    <div className="flex items-center gap-3.5 text-left">
+                      <div
+                        className="h-10 w-10 rounded-full flex items-center justify-center font-heading font-black text-xs shadow-md shrink-0 border border-white/20"
+                        style={{
+                          backgroundColor: r.accent === "#E9BD36" ? "#E9BD36" : "#0306AC",
+                          color: r.accent === "#E9BD36" ? "#080710" : "#ffffff",
+                        }}
+                      >
+                        {r.initial}
+                      </div>
+                      <div>
+                        <span className="block text-xs font-heading font-black text-brand-dark dark:text-white uppercase tracking-wider leading-none">
+                          {r.name}
+                        </span>
+                        <span className="block text-[9.5px] font-mono font-bold text-[#0306AC] dark:text-[#E9BD36] mt-1 leading-none">
+                          {r.role}
+                        </span>
+                        <span className="block text-[8.5px] font-sans text-brand-zinc-400 dark:text-zinc-400 mt-0.5 leading-none">
+                          {r.company}
+                        </span>
                       </div>
                     </div>
-
-                    {/* Absolute bottom accent line */}
-                    <div
-                      className="absolute bottom-0 left-0 right-0 h-1"
-                      style={{ backgroundColor: r.accent === "#E9BD36" ? "#E9BD36" : "#0306AC" }}
-                    />
-
                   </div>
+
                 </div>
               ))}
-            </motion.div>
+            </div>
           </div>
 
-        </div>
+          {/* Track 2: Moving Right */}
+          <div className="flex py-4 overflow-visible">
+            <div className="marquee-track-right gap-6 items-stretch py-2">
+              {marqueeTrack2.map((r, i) => (
+                <div
+                  key={`t2-${i}`}
+                  className="w-[360px] sm:w-[420px] shrink-0 p-7 sm:p-8 rounded-[32px] bg-white dark:bg-[#0c0b18] border border-brand-zinc-200/90 dark:border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.06)] dark:shadow-[0_10px_30px_rgba(0,0,0,0.4)] relative overflow-hidden flex flex-col justify-between hover:border-[#0306AC] dark:hover:border-[#E9BD36] transition-all duration-300 hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] group select-none cursor-pointer my-1"
+                >
+                  {/* Top Ambient Gradient Accent Line */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#E9BD36] via-[#808080] to-[#0306AC] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-        {/* Dot indicators */}
-        <div className="flex justify-center gap-2 mt-10">
-          {Array.from({ length: maxActive + 1 }).map((_, di) => (
-            <button
-              key={di}
-              onClick={() => setActive(di)}
-              aria-label={`Go to page ${di + 1}`}
-              className={`rounded-full transition-all duration-300 ${di === safeActive
-                ? "w-6 h-2.5 bg-[#0306AC] dark:bg-[#E9BD36]"
-                : "w-2.5 h-2.5 bg-brand-zinc-200 dark:bg-white/20 hover:bg-[#0306AC]/40"
-                }`}
-            />
-          ))}
+                  {/* Glowing Ambient Light Orb */}
+                  <div
+                    className="absolute -top-16 -right-16 w-44 h-44 rounded-full blur-2xl pointer-events-none opacity-10 group-hover:opacity-25 transition-opacity duration-500"
+                    style={{ backgroundColor: r.accent }}
+                  />
+
+                  {/* Top Ambient Watermark Quote Mark */}
+                  <span className="absolute top-4 right-6 text-7xl font-serif leading-none text-brand-zinc-200/40 dark:text-white/5 select-none pointer-events-none">
+                    “
+                  </span>
+
+                  <div className="space-y-4 relative z-10 text-left">
+                    <div className="flex items-center justify-between flex-wrap gap-2">
+                      <div className="flex gap-1 text-amber-400">
+                        {[...Array(5)].map((_, si) => (
+                          <Star key={si} className="h-3.5 w-3.5 fill-current" />
+                        ))}
+                      </div>
+
+                      <span className="text-[9px] font-mono font-bold text-[#0306AC] dark:text-[#E9BD36] bg-[#0306AC]/10 dark:bg-white/10 border border-[#0306AC]/20 dark:border-white/15 px-3 py-1 rounded-full uppercase tracking-wider">
+                        ⚡ {r.tag}
+                      </span>
+                    </div>
+
+                    <p className="text-xs sm:text-sm font-sans font-medium text-brand-zinc-700 dark:text-zinc-200 leading-relaxed italic pt-1">
+                      "{r.quote}"
+                    </p>
+
+                    {/* Impact Metric Bar inside Card */}
+                    <div className="inline-flex items-center gap-2 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 px-3.5 py-1.5 text-[9.5px] font-mono font-bold text-emerald-600 dark:text-emerald-400">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                      <span>{r.impact}</span>
+                    </div>
+                  </div>
+
+                  {/* Profile Author Footer */}
+                  <div className="pt-5 border-t border-brand-zinc-200/80 dark:border-white/10 mt-6 relative z-10">
+                    <div className="flex items-center gap-3.5 text-left">
+                      <div
+                        className="h-10 w-10 rounded-full flex items-center justify-center font-heading font-black text-xs shadow-md shrink-0 border border-white/20"
+                        style={{
+                          backgroundColor: r.accent === "#E9BD36" ? "#E9BD36" : "#0306AC",
+                          color: r.accent === "#E9BD36" ? "#080710" : "#ffffff",
+                        }}
+                      >
+                        {r.initial}
+                      </div>
+                      <div>
+                        <span className="block text-xs font-heading font-black text-brand-dark dark:text-white uppercase tracking-wider leading-none">
+                          {r.name}
+                        </span>
+                        <span className="block text-[9.5px] font-mono font-bold text-[#0306AC] dark:text-[#E9BD36] mt-1 leading-none">
+                          {r.role}
+                        </span>
+                        <span className="block text-[8.5px] font-sans text-brand-zinc-400 dark:text-zinc-400 mt-0.5 leading-none">
+                          {r.company}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
 
       </div>
