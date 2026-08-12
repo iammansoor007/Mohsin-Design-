@@ -116,62 +116,89 @@ export default function ContactForm() {
           {/* Left Column: Integrated Header & Contact Badges */}
           <div className="lg:col-span-5 space-y-8">
             <div className="space-y-4">
-              <span className="inline-flex items-center gap-2 rounded-full bg-brand-blue/10 px-3.5 py-1 text-[8px] md:text-[9px] font-black tracking-widest uppercase text-brand-blue select-none">
-                {contact.sectionNumber} // {contact.sectionTag}
-              </span>
-              <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-dark tracking-tight leading-[1.1] select-none">
-                {contact.titleIntro} <span className="text-brand-blue relative inline-block">
+              <div className="eyebrow-pill">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue dark:bg-brand-yellow opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-blue dark:bg-brand-yellow" />
+                </span>
+                {contact.sectionTag}
+              </div>
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.15]">
+                {contact.titleIntro}{" "}
+                <span className="text-brand-blue dark:text-brand-yellow font-serif font-normal italic">
                   {contact.titleHighlight}
-                  <svg className="absolute -bottom-1.5 md:-bottom-2 left-0 w-full h-2.5 md:h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(233, 189, 54,0.45)]" viewBox="0 0 100 14" preserveAspectRatio="none">
-                    <path
-                      d="M 2 7 Q 50 2, 98 5 C 99 5, 99 6, 98 6.5 Q 50 9, 2 8 C 1 8, 1 7, 2 7 Z"
-                      fill="#E9BD36"
-                    />
-                  </svg>
                 </span>
               </h2>
-              <p className="text-sm text-brand-zinc-500 leading-relaxed font-semibold max-w-md">
+              <p className="text-sm sm:text-base font-sans text-brand-zinc-600 dark:text-zinc-300 font-normal leading-relaxed max-w-lg">
                 {contact.description}
               </p>
             </div>
 
-            {/* Direct Contact Badges (Responsive Optimized) */}
-            <div className="space-y-3.5 max-w-sm">
-              {/* Email Badge */}
-              <div className="flex items-center gap-3 bg-white/45 dark:bg-white/5 backdrop-blur-md border border-white/60 dark:border-white/10 rounded-2xl p-3 transition-all duration-355 hover:border-brand-blue/30 dark:hover:border-brand-blue/30 hover:bg-white/60 dark:hover:bg-white/10 shadow-[0_2px_8px_rgba(0,0,0,0.01)]">
-                <div className="w-8 h-8 rounded-lg bg-brand-blue/10 border border-brand-blue/20 flex-shrink-0 flex items-center justify-center text-brand-blue shadow-sm">
-                  <Mail className="w-4 h-4" />
-                </div>
-                <a href={`mailto:${contact.email}`} className="text-[10px] xs:text-xs font-bold text-brand-dark hover:text-brand-blue transition-colors font-mono break-all sm:break-normal">
-                  {contact.email}
-                </a>
-              </div>
-
-              {/* Location Badge */}
-              <div className="flex items-center gap-3 bg-white/45 dark:bg-white/5 backdrop-blur-md border border-white/60 dark:border-white/10 rounded-2xl p-3 transition-all duration-355 hover:border-brand-blue/30 dark:hover:border-brand-blue/30 hover:bg-white/60 dark:hover:bg-white/10 shadow-[0_2px_8px_rgba(0,0,0,0.01)]">
-                <div className="w-8 h-8 rounded-lg bg-brand-blue/10 border border-brand-blue/20 flex-shrink-0 flex items-center justify-center text-brand-blue shadow-sm">
-                  <MapPin className="w-4 h-4" />
-                </div>
-                <span className="text-[10px] xs:text-xs font-bold text-brand-dark font-mono break-all sm:break-normal">
-                  {contact.location}
+            {/* Premium Unified Direct Contact Panel */}
+            <div className="bg-white/70 dark:bg-[#12121e]/90 backdrop-blur-xl border border-brand-zinc-200/80 dark:border-white/10 rounded-3xl p-6 shadow-[0_10px_35px_rgba(3,6,172,0.03)] space-y-5 max-w-md">
+              <div className="flex items-center justify-between pb-3 border-b border-brand-zinc-200/60 dark:border-white/10">
+                <span className="text-[10px] font-mono font-black uppercase tracking-widest text-brand-blue dark:text-brand-yellow">Direct Channels</span>
+                <span className="inline-flex items-center gap-1.5 text-[9px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  Typical response &lt; 2 hrs
                 </span>
               </div>
 
-              {/* Phone Badge */}
-              <div className="flex items-center gap-3 bg-white/45 dark:bg-white/5 backdrop-blur-md border border-white/60 dark:border-white/10 rounded-2xl p-3 transition-all duration-360 hover:border-brand-blue/30 dark:hover:border-brand-blue/30 hover:bg-white/60 dark:hover:bg-white/10 shadow-[0_2px_8px_rgba(0,0,0,0.01)]">
-                <div className="w-8 h-8 rounded-lg bg-brand-blue/10 border border-brand-blue/20 flex-shrink-0 flex items-center justify-center text-brand-blue shadow-sm">
-                  <Phone className="w-4 h-4" />
+              <div className="space-y-4">
+                {/* Email Item */}
+                <a
+                  href={`mailto:${contact.email}`}
+                  className="flex items-center gap-4 group/item p-2.5 rounded-2xl hover:bg-brand-blue/5 dark:hover:bg-white/5 transition-colors"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-brand-blue/10 dark:bg-brand-yellow/10 border border-brand-blue/20 dark:border-brand-yellow/20 flex items-center justify-center text-brand-blue dark:text-brand-yellow group-hover/item:scale-105 transition-transform shrink-0">
+                    <Mail className="w-4 h-4" />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="block text-[9px] font-mono font-bold text-brand-zinc-400 uppercase tracking-wider">Email Us</span>
+                    <span className="text-xs font-black text-brand-dark dark:text-white group-hover/item:text-brand-blue dark:group-hover/item:text-brand-yellow transition-colors font-mono truncate block">
+                      {contact.email}
+                    </span>
+                  </div>
+                </a>
+
+                {/* Location Item */}
+                <div className="flex items-center gap-4 p-2.5 rounded-2xl">
+                  <div className="w-10 h-10 rounded-xl bg-brand-blue/10 dark:bg-brand-yellow/10 border border-brand-blue/20 dark:border-brand-yellow/20 flex items-center justify-center text-brand-blue dark:text-brand-yellow shrink-0">
+                    <MapPin className="w-4 h-4" />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="block text-[9px] font-mono font-bold text-brand-zinc-400 uppercase tracking-wider">Headquarters</span>
+                    <span className="text-xs font-black text-brand-dark dark:text-white font-mono block">
+                      {contact.location}
+                    </span>
+                  </div>
                 </div>
-                <a href={`tel:${contact.phone.replace(/[^0-9+]/g, "")}`} className="text-[10px] xs:text-xs font-bold text-brand-dark hover:text-brand-blue transition-colors font-mono break-all sm:break-normal">
-                  {contact.phone}
+
+                {/* Phone Item */}
+                <a
+                  href={`tel:${contact.phone.replace(/[^0-9+]/g, "")}`}
+                  className="flex items-center gap-4 group/item p-2.5 rounded-2xl hover:bg-brand-blue/5 dark:hover:bg-white/5 transition-colors"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-brand-blue/10 dark:bg-brand-yellow/10 border border-brand-blue/20 dark:border-brand-yellow/20 flex items-center justify-center text-brand-blue dark:text-brand-yellow group-hover/item:scale-105 transition-transform shrink-0">
+                    <Phone className="w-4 h-4" />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="block text-[9px] font-mono font-bold text-brand-zinc-400 uppercase tracking-wider">Direct Line</span>
+                    <span className="text-xs font-black text-brand-dark dark:text-white group-hover/item:text-brand-blue dark:group-hover/item:text-brand-yellow transition-colors font-mono block">
+                      {contact.phone}
+                    </span>
+                  </div>
                 </a>
               </div>
             </div>
 
           </div>
 
-          {/* Right Column: Premium Support Card (Restored to Light Glassmorphism) */}
-          <div className="lg:col-span-7 w-full bg-white/45 dark:bg-white/5 backdrop-blur-xl border border-white/60 dark:border-white/10 p-4 sm:p-8 md:p-10 rounded-[2.5rem] shadow-[0_24px_80px_rgba(3, 6, 172,0.02)]">
+          {/* Right Column: Elite Premium Support Form Card */}
+          <div className="lg:col-span-7 w-full bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 p-6 sm:p-9 md:p-11 rounded-[2.5rem] shadow-[0_20px_60px_rgba(3,6,172,0.06)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.4)] relative overflow-hidden">
+            {/* Top subtle accent gradient bar */}
+            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-brand-blue via-brand-yellow to-brand-blue" />
+
             <AnimatePresence mode="wait">
               {!isSuccess ? (
                 <motion.form
@@ -179,69 +206,86 @@ export default function ContactForm() {
                   onSubmit={handleSubmit}
                   initial={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="space-y-5"
+                  className="space-y-6"
                   noValidate
                 >
-
-                  {/* Full Name */}
-                  <div className="space-y-2">
-                    <label className="text-[10px] font-mono font-black text-brand-zinc-500 dark:text-zinc-400 uppercase tracking-widest block">
-                      {contact.labelName}
-                    </label>
-                    <input
-                      type="text"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder={contact.placeholderName}
-                      className={`w-full bg-white/55 dark:bg-white/5 backdrop-blur-md border rounded-xl px-4 py-3.5 text-xs font-semibold text-brand-dark text-[#080710] dark:text-white placeholder-brand-zinc-400 dark:placeholder-zinc-500 focus:ring-4 focus:ring-brand-blue/5 focus:border-brand-blue focus:bg-white/80 dark:focus:bg-[#12121e] outline-none transition-all ${errors.name ? "border-red-400" : "border-brand-zinc-200/80 dark:border-white/10"
-                        }`}
-                    />
-                    {errors.name && <span className="text-[10px] font-bold text-red-500 block">{errors.name}</span>}
+                  <div className="space-y-1 mb-2">
+                    <h3 className="font-heading text-xl sm:text-2xl font-black text-brand-dark dark:text-white tracking-tight">
+                      Send Us a Message
+                    </h3>
+                    <p className="text-xs text-brand-zinc-500 dark:text-zinc-400 font-medium font-sans">
+                      Fill out the form below and we'll respond within 2 hours.
+                    </p>
                   </div>
 
-                  {/* Email Address */}
-                  <div className="space-y-2">
-                    <label className="text-[10px] font-mono font-black text-brand-zinc-500 dark:text-zinc-400 uppercase tracking-widest block">
-                      {contact.labelEmail}
-                    </label>
-                    <input
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder={contact.placeholderEmail}
-                      className={`w-full bg-white/55 dark:bg-white/5 backdrop-blur-md border rounded-xl px-4 py-3.5 text-xs font-semibold text-brand-dark text-[#080710] dark:text-white placeholder-brand-zinc-400 dark:placeholder-zinc-500 focus:ring-4 focus:ring-brand-blue/5 focus:border-brand-blue focus:bg-white/80 dark:focus:bg-[#12121e] outline-none transition-all ${errors.email ? "border-red-400" : "border-brand-zinc-200/80 dark:border-white/10"
-                        }`}
-                    />
-                    {errors.email && <span className="text-[10px] font-bold text-red-500 block">{errors.email}</span>}
+                  {/* 2-Column Inputs Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    {/* Full Name */}
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-mono font-black text-brand-zinc-500 dark:text-zinc-400 uppercase tracking-widest block">
+                        {contact.labelName} *
+                      </label>
+                      <div className="relative">
+                        <input
+                          type="text"
+                          value={formData.name}
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          placeholder={contact.placeholderName}
+                          className={`w-full bg-brand-light dark:bg-white/5 border rounded-2xl px-4 py-3.5 text-xs font-semibold text-brand-dark dark:text-white placeholder-brand-zinc-400 dark:placeholder-zinc-500 focus:ring-4 focus:ring-brand-blue/10 dark:focus:ring-brand-yellow/10 focus:border-brand-blue dark:focus:border-brand-yellow focus:bg-white dark:focus:bg-[#161622] outline-none transition-all ${errors.name ? "border-red-400" : "border-brand-zinc-200 dark:border-white/10"
+                            }`}
+                        />
+                      </div>
+                      {errors.name && <span className="text-[10px] font-bold text-red-500 block">{errors.name}</span>}
+                    </div>
+
+                    {/* Email Address */}
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-mono font-black text-brand-zinc-500 dark:text-zinc-400 uppercase tracking-widest block">
+                        {contact.labelEmail} *
+                      </label>
+                      <div className="relative">
+                        <input
+                          type="email"
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          placeholder={contact.placeholderEmail}
+                          className={`w-full bg-brand-light dark:bg-white/5 border rounded-2xl px-4 py-3.5 text-xs font-semibold text-brand-dark dark:text-white placeholder-brand-zinc-400 dark:placeholder-zinc-500 focus:ring-4 focus:ring-brand-blue/10 dark:focus:ring-brand-yellow/10 focus:border-brand-blue dark:focus:border-brand-yellow focus:bg-white dark:focus:bg-[#161622] outline-none transition-all ${errors.email ? "border-red-400" : "border-brand-zinc-200 dark:border-white/10"
+                            }`}
+                        />
+                      </div>
+                      {errors.email && <span className="text-[10px] font-bold text-red-500 block">{errors.email}</span>}
+                    </div>
                   </div>
 
                   {/* Phone Number */}
                   <div className="space-y-2">
                     <label className="text-[10px] font-mono font-black text-brand-zinc-500 dark:text-zinc-400 uppercase tracking-widest block">
-                      {contact.labelPhone}
+                      {contact.labelPhone} *
                     </label>
-                    <input
-                      type="text"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder={contact.placeholderPhone}
-                      className={`w-full bg-white/55 dark:bg-white/5 backdrop-blur-md border rounded-xl px-4 py-3.5 text-xs font-semibold text-brand-dark text-[#080710] dark:text-white placeholder-brand-zinc-400 dark:placeholder-zinc-500 focus:ring-4 focus:ring-brand-blue/5 focus:border-brand-blue focus:bg-white/80 dark:focus:bg-[#12121e] outline-none transition-all ${errors.phone ? "border-red-400" : "border-brand-zinc-200/80 dark:border-white/10"
-                        }`}
-                    />
+                    <div className="relative">
+                      <input
+                        type="text"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        placeholder={contact.placeholderPhone}
+                        className={`w-full bg-brand-light dark:bg-white/5 border rounded-2xl px-4 py-3.5 text-xs font-semibold text-brand-dark dark:text-white placeholder-brand-zinc-400 dark:placeholder-zinc-500 focus:ring-4 focus:ring-brand-blue/10 dark:focus:ring-brand-yellow/10 focus:border-brand-blue dark:focus:border-brand-yellow focus:bg-white dark:focus:bg-[#161622] outline-none transition-all ${errors.phone ? "border-red-400" : "border-brand-zinc-200 dark:border-white/10"
+                          }`}
+                      />
+                    </div>
                     {errors.phone && <span className="text-[10px] font-bold text-red-500 block">{errors.phone}</span>}
                   </div>
 
                   {/* Message */}
                   <div className="space-y-2">
                     <label className="text-[10px] font-mono font-black text-brand-zinc-500 dark:text-zinc-400 uppercase tracking-widest block">
-                      {contact.labelMessage}
+                      {contact.labelMessage} *
                     </label>
                     <textarea
                       rows={4}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder={contact.placeholderMessage}
-                      className={`w-full bg-white/55 dark:bg-white/5 backdrop-blur-md border rounded-xl px-4 py-3.5 text-xs font-semibold text-brand-dark text-[#080710] dark:text-white placeholder-brand-zinc-400 dark:placeholder-zinc-500 focus:ring-4 focus:ring-brand-blue/5 focus:border-brand-blue focus:bg-white/80 dark:focus:bg-[#12121e] outline-none transition-all resize-none ${errors.message ? "border-red-400" : "border-brand-zinc-200/80 dark:border-white/10"
+                      className={`w-full bg-brand-light dark:bg-white/5 border rounded-2xl px-4 py-3.5 text-xs font-semibold text-brand-dark dark:text-white placeholder-brand-zinc-400 dark:placeholder-zinc-500 focus:ring-4 focus:ring-brand-blue/10 dark:focus:ring-brand-yellow/10 focus:border-brand-blue dark:focus:border-brand-yellow focus:bg-white dark:focus:bg-[#161622] outline-none transition-all resize-none ${errors.message ? "border-red-400" : "border-brand-zinc-200 dark:border-white/10"
                         }`}
                     />
                     {errors.message && <span className="text-[10px] font-bold text-red-500 block">{errors.message}</span>}
@@ -252,21 +296,14 @@ export default function ContactForm() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#0306AC] dark:bg-[#E9BD36] shadow-[0_4px_28px_rgba(3, 6, 172,0.15)] dark:shadow-[0_4px_28px_rgba(233, 189, 54,0.15)] active:scale-[0.97] transition-all duration-300 border border-[#0306AC] dark:border-[#E9BD36] cursor-pointer w-full sm:w-auto"
+                      className="inline-flex items-center justify-between gap-3 rounded-full bg-brand-blue dark:bg-brand-yellow border border-brand-blue dark:border-brand-yellow pl-7 pr-1.5 py-1.5 text-xs font-black uppercase tracking-[0.14em] text-white dark:text-[#080710] shadow-lg hover:bg-[#0408d9] dark:hover:bg-[#f5ca4a] hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed w-full sm:w-auto min-w-[200px]"
                     >
-                      {/* Curtain slides in from left on hover */}
-                      <span
-                        aria-hidden="true"
-                        className="absolute inset-0 bg-[#080710] dark:bg-white translate-x-[-102%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
-                      />
-                      {/* Label */}
-                      <span className="relative z-10 pl-7 pr-5 py-[14px] text-xs font-black uppercase tracking-[0.15em] text-white dark:text-[#080710] group-hover:text-white dark:group-hover:text-[#080710] transition-colors duration-300 delay-75 whitespace-nowrap flex-1 text-center sm:text-left">
+                      <span className="whitespace-nowrap">
                         {isSubmitting ? "Sending..." : contact.btnSubmit}
                       </span>
-                      {/* Arrow circle — inverts on hover */}
-                      <span className="relative z-10 mr-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#E9BD36] dark:group-hover:bg-[#0306AC] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-dark text-brand-yellow">
                         {isSubmitting ? (
-                          <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
+                          <div className="h-4 w-4 animate-spin rounded-full border-2 border-brand-yellow border-t-transparent" />
                         ) : (
                           <ArrowRight className="h-4 w-4" />
                         )}
@@ -282,20 +319,28 @@ export default function ContactForm() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="flex flex-col items-center justify-center text-center py-16 space-y-5"
                 >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-blue text-white shadow-md shadow-brand-blue/15 animate-bounce">
-                    <CheckCircle className="h-9 w-9 text-white" />
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-brand-blue text-white shadow-xl shadow-brand-blue/20 animate-bounce">
+                    <CheckCircle className="h-10 w-10 text-white" />
                   </div>
 
                   <div className="space-y-2">
-                    <h3 className="font-heading text-2xl font-bold text-brand-dark">{contact.successTitle}</h3>
-                    <p className="text-sm text-brand-zinc-500 font-semibold leading-relaxed max-w-md">
+                    <h3 className="font-heading text-2xl font-black text-brand-dark dark:text-white">{contact.successTitle}</h3>
+                    <p className="text-sm text-brand-zinc-600 dark:text-zinc-300 font-medium leading-relaxed max-w-md">
                       {contact.successParagraph1}
-                      <span className="text-brand-blue font-bold uppercase">{formData.name}</span>
+                      <span className="text-brand-blue dark:text-brand-yellow font-black uppercase mx-1">{formData.name}</span>
                       {contact.successParagraph2}
-                      <span className="text-brand-blue font-bold lowercase">{formData.email}</span>
-                      {contact.successParagraph3}
                     </p>
                   </div>
+
+                  <button
+                    onClick={() => {
+                      setIsSuccess(false);
+                      setFormData({ name: "", email: "", phone: "", message: "" });
+                    }}
+                    className="inline-flex items-center gap-2 text-xs font-mono font-black uppercase tracking-widest text-brand-blue dark:text-brand-yellow hover:underline cursor-pointer pt-4"
+                  >
+                    Send Another Message <ArrowRight className="h-3.5 w-3.5" />
+                  </button>
                 </motion.div>
               )}
             </AnimatePresence>

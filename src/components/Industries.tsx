@@ -67,26 +67,17 @@ export default function Industries() {
         
         {/* Title */}
         <div className="text-center mb-16 flex flex-col items-center">
-          <span className="text-[10px] font-sans font-black tracking-widest text-brand-zinc-400 uppercase mb-3">
-            {industries.sectionNumber} // {industries.sectionTag}
-          </span>
-          <h2 className="font-heading text-4xl md:text-5xl font-extrabold text-brand-dark tracking-tight leading-[1.15]">
+          <div className="eyebrow-pill mb-3">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue dark:bg-brand-yellow opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-blue dark:bg-brand-yellow" />
+            </span>
+            {industries.sectionTag}
+          </div>
+          <h2 className="font-heading text-4xl md:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.15]">
             {industries.titleIntro}{" "}
-            <span className="relative inline-block text-brand-blue">
+            <span className="text-brand-blue dark:text-brand-yellow font-serif font-normal italic">
               {industries.titleHighlight}
-              <svg className="absolute -bottom-2.5 left-0 w-full h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(233, 189, 54,0.45)]" viewBox="0 0 100 10" preserveAspectRatio="none">
-                <motion.path
-                  d="M 2 5 Q 50 3.5, 98 5"
-                  stroke="#E9BD36"
-                  strokeWidth="3.5"
-                  strokeLinecap="round"
-                  variants={drawVariants}
-                  custom={{ delay: 0.2, duration: 0.6 }}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: false }}
-                />
-              </svg>
             </span>
           </h2>
         </div>

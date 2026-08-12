@@ -611,20 +611,18 @@ export default function Services() {
           transition={{ duration: 0.6 }}
           className="flex flex-col gap-4 mb-8 md:mb-12"
         >
-          <span className="inline-flex items-center gap-2 rounded-full bg-brand-blue/10 px-3.5 py-1 text-[8px] md:text-[9px] font-black tracking-widest uppercase text-brand-blue select-none self-start">
-            {services.sectionNumber} // {services.sectionTag}
-          </span>
+          <div className="eyebrow-pill self-start">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue dark:bg-brand-yellow opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-blue dark:bg-brand-yellow" />
+            </span>
+            {services.sectionTag}
+          </div>
           <div className="flex items-center justify-between gap-4 w-full">
-            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-dark tracking-tight leading-[1.1] select-none">
-              {services.titleIntro}
-              <span className="text-brand-blue relative inline-block">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.15]">
+              {services.titleIntro}{" "}
+              <span className="text-brand-blue dark:text-brand-yellow font-serif font-normal italic">
                 {services.titleHighlight}
-                <svg className="absolute -bottom-1.5 md:-bottom-2 left-0 w-full h-2.5 md:h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(233, 189, 54,0.45)]" viewBox="0 0 100 10" preserveAspectRatio="none">
-                  <path
-                    d="M 2 5 Q 50 2, 98 4 C 99 4, 99 5, 98 5.5 Q 50 7.5, 2 6 Z"
-                    fill="#E9BD36"
-                  />
-                </svg>
               </span>
             </h2>
 
@@ -632,21 +630,21 @@ export default function Services() {
             <div className="flex gap-2 sm:gap-3 select-none shrink-0">
               <button
                 onClick={handlePrev}
-                className="flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full border border-brand-zinc-300 text-brand-dark hover:border-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300 active:scale-95 shadow-sm cursor-pointer"
+                className="flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full border border-brand-zinc-300 dark:border-white/20 text-brand-dark dark:text-white hover:border-brand-blue hover:bg-brand-blue hover:text-white dark:hover:border-brand-yellow dark:hover:bg-brand-yellow dark:hover:text-brand-dark transition-all duration-300 active:scale-95 shadow-sm cursor-pointer"
                 aria-label={services.ariaPrev}
               >
                 <ArrowLeft className="h-4.5 w-4.5 md:h-5 md:w-5" />
               </button>
               <button
                 onClick={handleNext}
-                className="flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full border border-brand-zinc-300 text-brand-dark hover:border-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300 active:scale-95 shadow-sm cursor-pointer"
+                className="flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full border border-brand-zinc-300 dark:border-white/20 text-brand-dark dark:text-white hover:border-brand-blue hover:bg-brand-blue hover:text-white dark:hover:border-brand-yellow dark:hover:bg-brand-yellow dark:hover:text-brand-dark transition-all duration-300 active:scale-95 shadow-sm cursor-pointer"
                 aria-label={services.ariaNext}
               >
                 <ArrowRight className="h-4.5 w-4.5 md:h-5 md:w-5" />
               </button>
             </div>
           </div>
-          <p className="text-brand-zinc-500 font-medium leading-relaxed text-xs md:text-sm max-w-xl">
+          <p className="text-brand-zinc-500 dark:text-zinc-300 font-medium leading-relaxed text-xs md:text-sm max-w-xl">
             {services.description}
           </p>
         </motion.div>
@@ -700,9 +698,9 @@ export default function Services() {
 
                       {/* Category pill */}
                       <div className="inline-flex items-center self-start gap-1.5 mb-5 px-3 py-1 rounded-full
-                        bg-brand-blue/8 border border-brand-blue/15 text-brand-blue
+                        bg-brand-blue/8 border border-brand-blue/15 text-brand-blue dark:text-brand-yellow
                         group-hover:bg-white/15 group-hover:border-white/20 group-hover:text-brand-yellow
-                        dark:group-hover:bg-brand-blue/10 dark:group-hover:border-brand-blue/25 dark:group-hover:text-brand-blue
+                        dark:group-hover:bg-brand-yellow/15 dark:group-hover:border-brand-yellow/30 dark:group-hover:text-brand-yellow
                         transition-all duration-300">
                         <span className="w-1.5 h-1.5 rounded-full bg-current" />
                         <span className="font-mono text-[8px] font-black uppercase tracking-widest">{service.category}</span>
@@ -711,11 +709,11 @@ export default function Services() {
                       {/* Illustration Box */}
                       <div className="relative w-full aspect-[16/9] flex items-center justify-center mb-5
                         rounded-2xl border border-brand-blue/10 bg-gradient-to-br from-brand-blue/3 to-transparent
-                        group-hover:border-white/15 dark:group-hover:border-brand-blue/15 group-hover:from-white/8 dark:group-hover:from-brand-blue/5 group-hover:to-white/3
+                        group-hover:border-white/15 dark:group-hover:border-brand-yellow/20 group-hover:from-white/8 dark:group-hover:from-brand-yellow/5 group-hover:to-white/3
                         transition-all duration-500 overflow-hidden">
                         {/* Glow blob inside illustration box */}
                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                          <div className="w-24 h-24 rounded-full bg-brand-blue/10 blur-2xl group-hover:bg-white/15 dark:group-hover:bg-brand-blue/10 group-hover:scale-150 transition-all duration-500" />
+                          <div className="w-24 h-24 rounded-full bg-brand-blue/10 blur-2xl group-hover:bg-white/15 dark:group-hover:bg-brand-yellow/10 group-hover:scale-150 transition-all duration-500" />
                         </div>
                         <div className="relative z-10 w-full h-full max-h-[130px] flex items-center justify-center group-hover:scale-[1.05] transition-transform duration-500">
                           {getServiceIllustration(service.num, service)}
@@ -724,28 +722,28 @@ export default function Services() {
 
                       {/* Title */}
                       <h3 className="font-heading text-lg md:text-xl font-black mb-2 leading-tight
-                        text-brand-dark group-hover:text-white dark:group-hover:text-white transition-colors duration-300">
+                        text-brand-dark dark:text-white group-hover:text-white dark:group-hover:text-brand-yellow transition-colors duration-300">
                         {service.title}
                       </h3>
 
                       {/* Description */}
                       <p className="text-xs md:text-[13px] font-medium leading-relaxed
-                        text-brand-zinc-500 group-hover:text-blue-100 dark:group-hover:text-brand-zinc-400 transition-colors duration-300">
+                        text-brand-zinc-500 dark:text-zinc-300 group-hover:text-blue-100 dark:group-hover:text-zinc-200 transition-colors duration-300">
                         {service.desc}
                       </p>
                     </div>
 
                     {/* Footer row */}
                     <div className="flex items-center justify-between mt-6 pt-5
-                      border-t border-brand-blue/10 group-hover:border-white/15 dark:group-hover:border-white/5 transition-colors duration-300">
+                      border-t border-brand-blue/10 dark:border-white/10 group-hover:border-white/15 dark:group-hover:border-white/20 transition-colors duration-300">
                       <div className="flex items-center gap-2">
-                        <span className="text-[9px] font-mono font-black text-brand-blue/40 group-hover:text-white/40 dark:group-hover:text-brand-blue/40 transition-colors duration-300 uppercase tracking-widest">{services.serviceLabel}</span>
-                        <span className="text-[11px] font-mono font-black text-brand-blue group-hover:text-brand-yellow dark:group-hover:text-brand-blue transition-colors duration-300">{service.num}</span>
+                        <span className="text-[9px] font-mono font-black text-brand-blue/60 dark:text-zinc-400 group-hover:text-white/60 dark:group-hover:text-zinc-300 transition-colors duration-300 uppercase tracking-widest">{services.serviceLabel}</span>
+                        <span className="text-[11px] font-mono font-black text-brand-blue dark:text-brand-yellow group-hover:text-brand-yellow dark:group-hover:text-brand-yellow transition-colors duration-300">{service.num}</span>
                       </div>
                       <div className="flex h-10 w-10 items-center justify-center rounded-full
-                        bg-brand-blue/8 border border-brand-blue/20 text-brand-blue
+                        bg-brand-blue/8 border border-brand-blue/20 text-brand-blue dark:text-brand-yellow dark:border-brand-yellow/30
                         group-hover:bg-brand-yellow group-hover:border-brand-yellow group-hover:text-brand-dark
-                        dark:group-hover:bg-brand-blue dark:group-hover:border-brand-blue dark:group-hover:text-[#080710]
+                        dark:group-hover:bg-brand-yellow dark:group-hover:border-brand-yellow dark:group-hover:text-[#080710]
                         group-hover:rotate-45 transition-all duration-500 shadow-sm">
                         <ArrowUpRight className="h-4.5 w-4.5" strokeWidth={2.5} />
                       </div>

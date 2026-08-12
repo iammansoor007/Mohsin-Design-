@@ -35,7 +35,7 @@ export default function Navbar() {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="mx-auto max-w-7xl rounded-full border border-brand-zinc-200/80 bg-white/80 px-3 sm:px-6 py-2.5 sm:py-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] backdrop-blur-md flex items-center justify-between pointer-events-auto"
+        className="mx-auto max-w-7xl rounded-full border border-brand-zinc-200/80 dark:border-white/10 bg-white/80 dark:bg-[#12121e]/80 px-3 sm:px-6 py-2.5 sm:py-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] backdrop-blur-md flex items-center justify-between pointer-events-auto"
       >
         {/* Brand Logo - Aligned with Hero badge and theme */}
         <div className="flex items-center gap-2 sm:gap-3">
@@ -46,25 +46,25 @@ export default function Navbar() {
             </div>
           </div>
           <div className="flex flex-col">
-            <span className="font-sans font-black text-xs sm:text-base tracking-tight text-brand-dark leading-none">
+            <span className="font-sans font-black text-xs sm:text-base tracking-tight text-brand-dark dark:text-white leading-none">
               {navbar.logoText}
             </span>
-            <span className="font-sans font-bold text-[7.5px] sm:text-[8.5px] tracking-[0.2em] text-brand-blue uppercase leading-none mt-1">
+            <span className="font-sans font-bold text-[7.5px] sm:text-[8.5px] tracking-[0.2em] text-brand-blue dark:text-brand-yellow uppercase leading-none mt-1">
               {navbar.logoSub}
             </span>
           </div>
         </div>
 
         {/* Desktop Nav - Centered */}
-        <nav className="hidden md:flex items-center gap-8 font-sans font-bold text-xs uppercase tracking-wider text-brand-dark">
+        <nav className="hidden md:flex items-center gap-8 font-sans font-bold text-xs uppercase tracking-wider text-brand-dark dark:text-white">
           {navbar.links.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              className="relative py-1 hover:text-brand-blue transition-colors group flex items-center gap-1"
+              className="relative py-1 hover:text-brand-blue dark:hover:text-brand-yellow transition-colors group flex items-center gap-1"
             >
               {item.label}
-              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-brand-blue transition-all duration-300 group-hover:w-full" />
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-brand-blue dark:bg-brand-yellow transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
         </nav>
@@ -75,26 +75,17 @@ export default function Navbar() {
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-brand-zinc-200 bg-brand-light hover:bg-brand-yellow/20 transition-all duration-300 text-brand-dark"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-brand-zinc-200 dark:border-white/15 bg-brand-light dark:bg-white/10 hover:bg-brand-yellow/20 transition-all duration-300 text-brand-dark dark:text-white"
           >
             {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
           <a
             href={navbar.ctaHref}
-            className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#0306AC] dark:bg-[#E9BD36] shadow-sm active:scale-[0.97] transition-all duration-300 border border-[#0306AC] dark:border-[#E9BD36]"
+            className="btn-primary-cta"
           >
-            {/* Curtain slides in from left on hover */}
-            <span
-              aria-hidden="true"
-              className="absolute inset-0 bg-[#080710] dark:bg-white translate-x-[-102%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
-            />
-            {/* Label */}
-            <span className="relative z-10 pl-5 pr-3 py-2 text-[9px] font-black uppercase tracking-widest text-white dark:text-[#080710] group-hover:text-white dark:group-hover:text-[#080710] transition-colors duration-300 delay-75 whitespace-nowrap">
-              {navbar.ctaText}
-            </span>
-            {/* Arrow circle — inverts on hover */}
-            <span className="relative z-10 mr-1.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#E9BD36] dark:group-hover:bg-[#0306AC] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
-              <ArrowUpRight className="h-3 w-3" />
+            <span>{navbar.ctaText}</span>
+            <span className="btn-icon">
+              <ArrowUpRight className="h-3.5 w-3.5" />
             </span>
           </a>
         </div>
@@ -104,13 +95,13 @@ export default function Navbar() {
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-brand-zinc-200 bg-brand-light hover:bg-brand-yellow/20 transition-all duration-300 text-brand-dark"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-brand-zinc-200 dark:border-white/15 bg-brand-light dark:bg-white/10 hover:bg-brand-yellow/20 transition-all duration-300 text-brand-dark dark:text-white"
           >
             {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="rounded-full p-2 text-brand-dark hover:bg-brand-zinc-100 transition-colors"
+            className="rounded-full p-2 text-brand-dark dark:text-white hover:bg-brand-zinc-100 dark:hover:bg-white/10 transition-colors"
             aria-label={navbar.ariaToggleMenu}
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -123,7 +114,7 @@ export default function Navbar() {
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="absolute left-4 right-4 mt-2 rounded-2xl border border-brand-zinc-200 bg-white p-5 sm:p-6 shadow-xl md:hidden pointer-events-auto"
+          className="absolute left-4 right-4 mt-2 rounded-2xl border border-brand-zinc-200 dark:border-white/10 bg-white dark:bg-[#12121e] p-5 sm:p-6 shadow-xl md:hidden pointer-events-auto"
         >
           <nav className="flex flex-col gap-4 text-sm font-bold uppercase tracking-wider">
             {navbar.links.map((item) => (
@@ -131,26 +122,20 @@ export default function Navbar() {
                 key={item.label}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="block py-2 text-brand-dark hover:text-brand-blue transition-colors"
+                className="block py-2 text-brand-dark dark:text-white hover:text-brand-blue dark:hover:text-brand-yellow transition-colors"
               >
                 {item.label}
               </Link>
             ))}
-            <hr className="border-brand-zinc-100" />
+            <hr className="border-brand-zinc-100 dark:border-white/10" />
             <a
               href={navbar.ctaHref}
               onClick={() => setIsOpen(false)}
-              className="group relative flex items-center justify-between overflow-hidden rounded-full bg-[#E9BD36] dark:bg-[#0306AC] border border-[#E9BD36] dark:border-[#0306AC] transition-all duration-300"
+              className="btn-primary-cta w-full"
             >
-              <span
-                aria-hidden="true"
-                className="absolute inset-0 bg-[#080710] dark:bg-white translate-x-[-102%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
-              />
-              <span className="relative z-10 pl-6 py-3 text-xs font-black uppercase tracking-widest text-[#080710] dark:text-white group-hover:text-white dark:group-hover:text-[#080710] transition-colors duration-300 delay-75">
-                {navbar.ctaText}
-              </span>
-              <span className="relative z-10 mr-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#E9BD36] dark:group-hover:bg-[#0306AC] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
-                <ArrowUpRight className="h-4 w-4" />
+              <span>{navbar.ctaText}</span>
+              <span className="btn-icon">
+                <ArrowUpRight className="h-3.5 w-3.5" />
               </span>
             </a>
           </nav>

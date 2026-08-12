@@ -193,49 +193,26 @@ export default function AboutOwner() {
 
             {/* Section Tag */}
             <div className="space-y-4">
-              <span className="text-[10px] font-sans font-black tracking-widest text-brand-zinc-400 uppercase">
-                {aboutOwner.sectionNumber} // {aboutOwner.sectionTag}
-              </span>
+              <div className="eyebrow-pill self-start">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue dark:bg-brand-yellow opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-blue dark:bg-brand-yellow" />
+                </span>
+                {aboutOwner.sectionTag}
+              </div>
 
-              {/* Header with hand-drawn style highlight line */}
-              <h2 className="font-heading text-4xl sm:text-5xl font-extrabold leading-[1.15] text-brand-dark tracking-tight">
+              {/* Header */}
+              <h2 className="font-heading text-4xl sm:text-5xl font-black leading-[1.15] text-brand-dark dark:text-white tracking-tight">
                 {aboutOwner.titleIntro}
-                <span className="relative inline-block text-brand-blue">
+                <span className="text-brand-blue dark:text-brand-yellow font-serif font-normal italic">
                   {aboutOwner.titleHighlight}
-                  <svg className="absolute -bottom-2.5 left-0 w-full h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(233, 189, 54,0.45)]" viewBox="0 0 100 10" preserveAspectRatio="none">
-                    {/* Primary marker highlight stroke */}
-                    <motion.path
-                      d="M 2 5 Q 50 3.5, 98 5"
-                      stroke="#E9BD36"
-                      strokeWidth="3.5"
-                      strokeLinecap="round"
-                      variants={drawVariants}
-                      custom={{ delay: 0.3, duration: 0.6 }}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: false }}
-                    />
-                    {/* Secondary overlapping stroke to make it look organic and hand-drawn */}
-                    <motion.path
-                      d="M 8 7 Q 50 5.5, 92 6.5"
-                      stroke="#E9BD36"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      opacity="0.8"
-                      variants={drawVariants}
-                      custom={{ delay: 0.5, duration: 0.5 }}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: false }}
-                    />
-                  </svg>
                 </span>
               </h2>
             </div>
 
             {/* Narrative biography */}
             <div className="space-y-5 font-sans">
-              <p className="text-lg md:text-xl text-brand-dark leading-relaxed font-semibold">
+              <p className="text-lg md:text-xl text-brand-dark dark:text-zinc-100 leading-relaxed font-semibold">
                 {aboutOwner.bioParagraph1}
               </p>
               <p className="text-sm md:text-base text-brand-zinc-600 dark:text-zinc-400 leading-relaxed font-normal">
@@ -246,28 +223,28 @@ export default function AboutOwner() {
             {/* Stats Row */}
             <div className="grid grid-cols-3 gap-1.5 xs:gap-3 sm:gap-6 pt-8 border-t border-brand-zinc-200 dark:border-white/10 mt-8 w-full">
               <div className="relative pl-2 sm:pl-6 border-l-2 border-brand-yellow">
-                <div className="text-xl xs:text-2xl sm:text-4xl md:text-5xl font-heading font-black text-brand-blue leading-none">
+                <div className="text-xl xs:text-2xl sm:text-4xl md:text-5xl font-heading font-black text-brand-blue dark:text-white leading-none">
                   <RollingNumber value={aboutOwner.yearsExpValue} suffix={aboutOwner.yearsExpSuffix} />
                 </div>
-                <div className="text-[8px] sm:text-[10px] font-bold text-brand-zinc-500 uppercase tracking-widest mt-3 leading-none">
+                <div className="text-[8px] sm:text-[10px] font-bold text-brand-zinc-500 dark:text-zinc-300 uppercase tracking-widest mt-3 leading-none">
                   {aboutOwner.yearsExpLabel}
                 </div>
               </div>
 
               <div className="relative pl-2 sm:pl-6 border-l-2 border-brand-yellow">
-                <div className="text-xl xs:text-2xl sm:text-4xl md:text-5xl font-heading font-black text-brand-blue leading-none">
+                <div className="text-xl xs:text-2xl sm:text-4xl md:text-5xl font-heading font-black text-brand-blue dark:text-white leading-none">
                   <RollingNumber value={aboutOwner.brandsScaledValue} suffix={aboutOwner.brandsScaledSuffix} />
                 </div>
-                <div className="text-[8px] sm:text-[10px] font-bold text-brand-zinc-500 uppercase tracking-widest mt-3 leading-none">
+                <div className="text-[8px] sm:text-[10px] font-bold text-brand-zinc-500 dark:text-zinc-300 uppercase tracking-widest mt-3 leading-none">
                   {aboutOwner.brandsScaledLabel}
                 </div>
               </div>
 
               <div className="relative pl-2 sm:pl-6 border-l-2 border-brand-yellow">
-                <div className="text-xl xs:text-2xl sm:text-4xl md:text-5xl font-heading font-black text-brand-blue leading-none">
+                <div className="text-xl xs:text-2xl sm:text-4xl md:text-5xl font-heading font-black text-brand-blue dark:text-white leading-none">
                   <RollingNumber value={aboutOwner.successRateValue} suffix={aboutOwner.successRateSuffix} />
                 </div>
-                <div className="text-[8px] sm:text-[10px] font-bold text-brand-zinc-500 uppercase tracking-widest mt-3 leading-none">
+                <div className="text-[8px] sm:text-[10px] font-bold text-brand-zinc-500 dark:text-zinc-300 uppercase tracking-widest mt-3 leading-none">
                   {aboutOwner.successRateLabel}
                 </div>
               </div>
@@ -277,19 +254,10 @@ export default function AboutOwner() {
             <div className="pt-4">
               <a
                 href={aboutOwner.ctaHref}
-                className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#0306AC] dark:bg-[#E9BD36] shadow-[0_4px_28px_rgba(3, 6, 172,0.15)] dark:shadow-[0_4px_28px_rgba(233, 189, 54,0.15)] active:scale-[0.97] transition-all duration-300 border border-[#0306AC] dark:border-[#E9BD36]"
+                className="btn-secondary-cta"
               >
-                {/* Curtain slides in from left on hover */}
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-0 bg-[#080710] dark:bg-white translate-x-[-102%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
-                />
-                {/* Label */}
-                <span className="relative z-10 pl-7 pr-5 py-[14px] text-[10px] font-black uppercase tracking-widest text-white dark:text-[#080710] group-hover:text-white dark:group-hover:text-[#080710] transition-colors duration-300 delay-75 whitespace-nowrap">
-                  {aboutOwner.ctaText}
-                </span>
-                {/* Arrow circle — inverts on hover */}
-                <span className="relative z-10 mr-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#E9BD36] dark:group-hover:bg-[#0306AC] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
+                <span>{aboutOwner.ctaText}</span>
+                <span className="btn-icon">
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </span>
               </a>

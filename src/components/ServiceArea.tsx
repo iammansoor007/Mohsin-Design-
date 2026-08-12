@@ -42,35 +42,22 @@ export default function ServiceArea() {
           {/* ── Left Column ── */}
           <div className="w-full lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left gap-6">
 
-            <span className="text-[10px] font-sans font-black tracking-widest text-brand-zinc-400 uppercase">
-              {serviceArea.sectionNumber} // {serviceArea.sectionTag}
-            </span>
+            <div className="eyebrow-pill self-center lg:self-start">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue dark:bg-brand-yellow opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-blue dark:bg-brand-yellow" />
+              </span>
+              {serviceArea.sectionTag}
+            </div>
 
-            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-dark tracking-tight leading-[1.15]">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.15]">
               {serviceArea.titleIntro}
-              <span className="relative inline-block text-brand-blue">
+              <span className="text-brand-blue dark:text-brand-yellow font-serif font-normal italic">
                 {serviceArea.titleHighlight}
-                <svg
-                  className="absolute -bottom-2.5 left-0 w-full h-3 pointer-events-none text-brand-yellow"
-                  style={{ filter: "var(--underline-glow)" }}
-                  viewBox="0 0 100 10"
-                  preserveAspectRatio="none"
-                >
-                  <motion.path
-                    d="M 2 5 Q 50 3.5, 98 5"
-                    stroke="#E9BD36"
-                    strokeWidth="3.5"
-                    strokeLinecap="round"
-                    initial={{ pathLength: 0 }}
-                    whileInView={{ pathLength: 1 }}
-                    viewport={{ once: false }}
-                    transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                  />
-                </svg>
               </span>
             </h2>
 
-            <p className="text-sm sm:text-base md:text-lg text-brand-zinc-500 leading-relaxed font-normal max-w-md">
+            <p className="text-sm sm:text-base font-sans text-brand-zinc-600 dark:text-zinc-300 font-normal leading-relaxed max-w-md">
               {serviceArea.description}
             </p>
 
@@ -141,22 +128,11 @@ export default function ServiceArea() {
 
             <a
               href={serviceArea.ctaHref}
-              className="group self-center lg:self-start relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#E9BD36] dark:bg-[#0306AC] shadow-[0_4px_28px_rgba(233, 189, 54,0.15)] dark:shadow-[0_4px_28px_rgba(3, 6, 172,0.15)] active:scale-[0.97] transition-transform duration-150 border border-[#E9BD36] dark:border-[#0306AC]"
+              className="btn-primary-cta self-center lg:self-start"
             >
-              {/* Curtain slides in from left on hover */}
-              <span
-                aria-hidden="true"
-                className="absolute inset-0 bg-[#080710] dark:bg-white translate-x-[-102%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
-              />
-
-              {/* Label */}
-              <span className="relative z-10 pl-7 pr-5 py-[14px] text-[11px] font-black uppercase tracking-[0.15em] text-[#080710] dark:text-white group-hover:text-white dark:group-hover:text-[#080710] transition-colors duration-300 delay-75 whitespace-nowrap">
-                {serviceArea.ctaText}
-              </span>
-
-              {/* Arrow circle — inverts on hover */}
-              <span className="relative z-10 mr-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#E9BD36] dark:group-hover:bg-[#0306AC] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
-                <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+              <span>{serviceArea.ctaText}</span>
+              <span className="btn-icon">
+                <ArrowRight className="h-3.5 w-3.5" />
               </span>
             </a>
           </div>

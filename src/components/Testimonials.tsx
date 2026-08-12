@@ -121,21 +121,20 @@ export default function Testimonials() {
         {/* Header Section & Scorecard (Side by Side) */}
         <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="flex flex-col gap-4 max-w-2xl">
-            <span className="inline-flex items-center gap-2 rounded-full bg-brand-blue/10 px-3.5 py-1 text-[8px] md:text-[9px] font-black tracking-widest uppercase text-brand-blue select-none self-start">
-              {testimonialsData.sectionNumber} // {testimonialsData.sectionTag}
-            </span>
-            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-dark tracking-tight leading-[1.1] select-none">
-              {testimonialsData.titleIntro} <span className="text-brand-blue relative inline-block">
+            <div className="eyebrow-pill self-start">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue dark:bg-brand-yellow opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-blue dark:bg-brand-yellow" />
+              </span>
+              {testimonialsData.sectionTag}
+            </div>
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.15]">
+              {testimonialsData.titleIntro}{" "}
+              <span className="text-brand-blue dark:text-brand-yellow font-serif font-normal italic">
                 {testimonialsData.titleHighlight}
-                <svg className="absolute -bottom-1.5 md:-bottom-2 left-0 w-full h-2.5 md:h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(233, 189, 54,0.45)]" viewBox="0 0 100 10" preserveAspectRatio="none">
-                  <path
-                    d="M 2 5 Q 50 2, 98 4 C 99 4, 99 5, 98 5.5 Q 50 7.5, 2 6 Z"
-                    fill="#E9BD36"
-                  />
-                </svg>
               </span>
             </h2>
-            <p className="text-brand-zinc-500 font-medium leading-relaxed text-xs md:text-sm mt-1">
+            <p className="text-sm sm:text-base font-sans text-brand-zinc-600 dark:text-zinc-300 font-normal leading-relaxed max-w-2xl">
               {testimonialsData.description}
             </p>
           </div>
@@ -144,9 +143,9 @@ export default function Testimonials() {
           <div className="bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 rounded-2xl p-4 sm:p-5 shadow-[0_8px_24px_rgba(3, 6, 172,0.02)] relative overflow-hidden group/scorecard shrink-0 min-w-[260px] md:max-w-sm">
             <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-brand-blue to-brand-blue/40" />
             <div className="flex items-center gap-4 relative z-10">
-              <div className="flex flex-col items-center justify-center h-14 w-14 rounded-xl bg-brand-blue text-white dark:text-[#080710] shadow-sm border border-brand-blue/10">
+              <div className="flex flex-col items-center justify-center h-14 w-14 rounded-xl bg-brand-blue text-white shadow-sm border border-brand-blue/10">
                 <span className="font-heading font-black text-lg leading-none">{testimonialsData.scorecardRating}</span>
-                <span className="font-mono text-[6px] font-bold uppercase tracking-widest text-white dark:text-[#080710] opacity-80 mt-1">{testimonialsData.scorecardRatingLabel}</span>
+                <span className="font-mono text-[6px] font-bold uppercase tracking-widest text-white/80 mt-1">{testimonialsData.scorecardRatingLabel}</span>
               </div>
               <div className="space-y-1">
                 <div className="flex gap-0.5 text-[#E9BD36]">
@@ -154,10 +153,10 @@ export default function Testimonials() {
                     <Star key={i} className="h-3.5 w-3.5 fill-[#E9BD36] text-[#E9BD36]" />
                   ))}
                 </div>
-                <span className="block text-[10px] font-black text-brand-dark uppercase tracking-wider leading-none">
+                <span className="block text-[10px] font-black text-brand-dark dark:text-white uppercase tracking-wider leading-none">
                   {testimonialsData.scorecardTitle}
                 </span>
-                <span className="block text-[8px] font-bold text-brand-zinc-400 uppercase tracking-widest">
+                <span className="block text-[8px] font-bold text-brand-zinc-400 dark:text-zinc-300 uppercase tracking-widest">
                   {testimonialsData.scorecardSub}
                 </span>
               </div>
@@ -198,9 +197,9 @@ export default function Testimonials() {
                       {item.name.charAt(0)}
                     </div>
                     <div className="min-w-0">
-                      <span className="block text-[11px] font-black text-brand-dark leading-none">{item.name}</span>
+                      <span className="block text-[11px] font-black text-brand-dark dark:text-white leading-none">{item.name}</span>
                       <span className="block text-[9px] font-bold text-brand-zinc-400 uppercase tracking-widest mt-1">
-                        {item.role} // <span className="text-brand-blue font-black">{item.company}</span>
+                        {item.role} <span className="opacity-40 mx-0.5">·</span> <span className="text-brand-blue dark:text-brand-yellow font-black">{item.company}</span>
                       </span>
                     </div>
                     <Quote className="h-5 w-5 ml-auto text-brand-blue/10" />
@@ -227,7 +226,7 @@ export default function Testimonials() {
                         <Star key={i} className="h-3 w-3 fill-[#E9BD36] text-[#E9BD36]" />
                       ))}
                     </div>
-                    <p className="text-xs font-semibold text-brand-dark leading-relaxed line-clamp-3">
+                    <p className="text-xs font-semibold text-brand-dark dark:text-zinc-300 leading-relaxed line-clamp-3">
                       "{item.quote}"
                     </p>
                   </div>
@@ -236,9 +235,9 @@ export default function Testimonials() {
                       {item.name.charAt(0)}
                     </div>
                     <div className="min-w-0">
-                      <span className="block text-[11px] font-black text-brand-dark leading-none">{item.name}</span>
+                      <span className="block text-[11px] font-black text-brand-dark dark:text-white leading-none">{item.name}</span>
                       <span className="block text-[9px] font-bold text-brand-zinc-400 uppercase tracking-widest mt-1">
-                        {item.role} // <span className="text-brand-blue font-black">{item.company}</span>
+                        {item.role} <span className="opacity-40 mx-0.5">·</span> <span className="text-brand-blue dark:text-brand-yellow font-black">{item.company}</span>
                       </span>
                     </div>
                     <Quote className="h-5 w-5 ml-auto text-brand-blue/10" />
@@ -265,7 +264,7 @@ export default function Testimonials() {
                         <Star key={i} className="h-3 w-3 fill-[#E9BD36] text-[#E9BD36]" />
                       ))}
                     </div>
-                    <p className="text-xs font-semibold text-brand-dark leading-relaxed line-clamp-3">
+                    <p className="text-xs font-semibold text-brand-dark dark:text-zinc-300 leading-relaxed line-clamp-3">
                       "{item.quote}"
                     </p>
                   </div>
@@ -274,9 +273,9 @@ export default function Testimonials() {
                       {item.name.charAt(0)}
                     </div>
                     <div className="min-w-0">
-                      <span className="block text-[11px] font-black text-brand-dark leading-none">{item.name}</span>
+                      <span className="block text-[11px] font-black text-brand-dark dark:text-white leading-none">{item.name}</span>
                       <span className="block text-[9px] font-bold text-brand-zinc-400 uppercase tracking-widest mt-1">
-                        {item.role} // <span className="text-brand-blue font-black">{item.company}</span>
+                        {item.role} <span className="opacity-40 mx-0.5">·</span> <span className="text-brand-blue dark:text-brand-yellow font-black">{item.company}</span>
                       </span>
                     </div>
                     <Quote className="h-5 w-5 ml-auto text-brand-blue/10" />

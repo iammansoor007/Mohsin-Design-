@@ -2,7 +2,7 @@
 
 import { useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Star } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Play, Star } from "lucide-react";
 import Image from "next/image";
 
 import content from "@/data/content.json";
@@ -130,8 +130,8 @@ export default function Hero() {
           >
             {/* Pill Badge */}
             <motion.div variants={itemVariants} className="inline-flex pointer-events-auto">
-              <span className="inline-flex items-center gap-2 rounded-full bg-brand-yellow px-4 py-1.5 text-[10px] font-extrabold tracking-wider uppercase text-brand-dark select-none shadow-sm">
-                <Star className="h-3.5 w-3.5 fill-brand-dark text-brand-dark shrink-0" />
+              <span className="inline-flex items-center gap-2 rounded-full bg-brand-yellow px-4 py-1.5 text-[10px] font-black tracking-wider uppercase text-[#080710] select-none shadow-sm">
+                <Star className="h-3.5 w-3.5 fill-[#080710] text-[#080710] shrink-0" />
                 {hero.badgeText}
               </span>
             </motion.div>
@@ -139,12 +139,12 @@ export default function Hero() {
             {/* Headline */}
             <motion.h1
               variants={itemVariants}
-              className="font-heading text-[10.5vw] sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight text-brand-dark select-none"
+              className="font-heading text-[10.5vw] sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight text-brand-dark dark:text-white select-none"
             >
               {hero.titleLine1}<br />
               That <motion.span
                 whileHover="hover"
-                className="text-brand-blue relative inline-block pointer-events-auto cursor-pointer"
+                className="text-brand-blue dark:text-brand-yellow relative inline-block pointer-events-auto cursor-pointer"
               >
                 {hero.titleLine2}
                 {/* Custom animated hand-drawn SVG underline with gradient and hover interaction */}
@@ -205,7 +205,7 @@ export default function Hero() {
             {/* Description */}
             <motion.p
               variants={itemVariants}
-              className="max-w-lg text-[15px] sm:text-sm md:text-base text-brand-zinc-800 dark:text-gray-300 leading-relaxed font-semibold font-sans select-none"
+              className="text-sm sm:text-base font-sans text-brand-zinc-600 dark:text-zinc-300 font-normal leading-relaxed max-w-lg"
             >
               {hero.description}
             </motion.p>
@@ -215,43 +215,25 @@ export default function Hero() {
               variants={itemVariants}
               className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-1 w-full sm:w-auto"
             >
-              {/* Primary Cobalt Blue Button */}
+              {/* Primary CTA */}
               <a
                 href={hero.ctaPrimaryHref}
-                className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#0306AC] dark:bg-[#E9BD36] shadow-[0_4px_28px_rgba(3, 6, 172,0.15)] dark:shadow-[0_4px_28px_rgba(233, 189, 54,0.15)] active:scale-[0.97] transition-all duration-350 border border-[#0306AC] dark:border-[#E9BD36] pointer-events-auto"
+                className="btn-primary-cta pointer-events-auto"
               >
-                {/* Curtain slides in from left on hover */}
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-0 bg-[#080710] dark:bg-white translate-x-[-102%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
-                />
-                {/* Label */}
-                <span className="relative z-10 pl-7 pr-5 py-[14px] text-xs font-black uppercase tracking-[0.15em] text-white dark:text-[#080710] group-hover:text-white dark:group-hover:text-[#080710] transition-colors duration-300 delay-75 whitespace-nowrap">
-                  {hero.ctaPrimaryText}
-                </span>
-                {/* Arrow circle — inverts on hover */}
-                <span className="relative z-10 mr-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#E9BD36] dark:group-hover:bg-[#0306AC] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
-                  <ArrowRight className="h-4 w-4" />
+                <span>{hero.ctaPrimaryText}</span>
+                <span className="btn-icon">
+                  <ArrowRight className="h-3.5 w-3.5" />
                 </span>
               </a>
 
-              {/* Secondary White/Border Button */}
+              {/* Secondary CTA */}
               <a
                 href={hero.ctaSecondaryHref}
-                className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-white dark:bg-[#1a1a2e] shadow-sm active:scale-[0.97] transition-all duration-350 border border-[#080710]/10 dark:border-white/15 pointer-events-auto"
+                className="btn-secondary-cta pointer-events-auto"
               >
-                {/* Curtain slides in from left on hover */}
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-0 bg-[#E9BD36] dark:bg-[#0306AC] translate-x-[-102%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
-                />
-                {/* Label */}
-                <span className="relative z-10 pl-7 pr-5 py-[14px] text-xs font-black uppercase tracking-[0.15em] text-[#080710] dark:text-white group-hover:text-[#080710] dark:group-hover:text-white transition-colors duration-300 delay-75 whitespace-nowrap">
-                  {hero.ctaSecondaryText}
-                </span>
-                {/* Arrow circle — inverts on hover */}
-                <span className="relative z-10 mr-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#080710] dark:group-hover:bg-[#0306AC] group-hover:text-[#E9BD36] dark:group-hover:text-white transition-all duration-300">
-                  <ArrowUpRight className="h-4 w-4" />
+                <span>{hero.ctaSecondaryText}</span>
+                <span className="btn-icon">
+                  <ArrowUpRight className="h-3.5 w-3.5" />
                 </span>
               </a>
             </motion.div>
@@ -280,7 +262,7 @@ export default function Hero() {
                 <defs>
                   <path id="circlePath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" />
                 </defs>
-                <text className="text-[8.5px] font-black uppercase tracking-widest fill-brand-dark font-sans">
+                <text className="text-[8.5px] font-black uppercase tracking-widest fill-brand-dark dark:fill-white font-sans">
                   <textPath href="#circlePath" startOffset="0%">
                     {hero.circleText}
                   </textPath>

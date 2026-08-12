@@ -66,21 +66,20 @@ export default function Blog() {
           transition={{ duration: 0.6 }}
           className="flex flex-col gap-4 mb-16"
         >
-          <span className="inline-flex items-center gap-2 rounded-full bg-brand-blue/10 px-3.5 py-1 text-[8px] md:text-[9px] font-black tracking-widest uppercase text-brand-blue select-none self-start">
-            {blog.sectionNumber} // {blog.sectionTag}
-          </span>
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-dark tracking-tight leading-[1.1] select-none">
-            {blog.titleIntro} <span className="text-brand-blue relative inline-block">
+          <div className="eyebrow-pill self-start">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue dark:bg-brand-yellow opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-blue dark:bg-brand-yellow" />
+            </span>
+            {blog.sectionTag}
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.15]">
+            {blog.titleIntro}{" "}
+            <span className="text-brand-blue dark:text-brand-yellow font-serif font-normal italic">
               {blog.titleHighlight}
-              <svg className="absolute -bottom-1.5 md:-bottom-2 left-0 w-full h-2.5 md:h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(233, 189, 54,0.45)]" viewBox="0 0 100 10" preserveAspectRatio="none">
-                <path
-                  d="M 2 5 Q 50 2, 98 4 C 99 4, 99 5, 98 5.5 Q 50 7.5, 2 6 Z"
-                  fill="#E9BD36"
-                />
-              </svg>
             </span>
           </h2>
-          <p className="text-brand-zinc-500 font-medium leading-relaxed text-xs md:text-sm max-w-xl">
+          <p className="text-sm sm:text-base font-sans text-brand-zinc-600 dark:text-zinc-300 font-normal leading-relaxed max-w-xl">
             {blog.description}
           </p>
         </motion.div>
@@ -117,29 +116,29 @@ export default function Blog() {
                 <div className="space-y-4">
                   {/* Category Pill and Read Time */}
                   <div className="flex items-center justify-between">
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-blue/5 border border-brand-blue/10 text-brand-blue">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-blue/5 border border-brand-blue/10 text-brand-blue dark:text-brand-yellow">
                       <span className="w-1.5 h-1.5 rounded-full bg-current" />
                       <span className="font-mono text-[8px] font-black uppercase tracking-widest">{posts[0].category}</span>
                     </div>
-                    <span className="block text-[10px] font-bold text-brand-zinc-400 uppercase tracking-wider">
+                    <span className="block text-[10px] font-bold text-brand-zinc-400 dark:text-zinc-400 uppercase tracking-wider">
                       {posts[0].date}{blog.dateSeparator}{posts[0].readTime}
                     </span>
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-heading text-lg sm:text-xl md:text-2xl font-black text-brand-dark leading-snug group-hover:text-brand-blue transition-colors duration-300">
+                  <h3 className="font-heading text-lg sm:text-xl md:text-2xl font-black text-brand-dark dark:text-white leading-snug group-hover:text-brand-blue dark:group-hover:text-brand-yellow transition-colors duration-300">
                     {posts[0].title}
                   </h3>
 
                   {/* Excerpt */}
-                  <p className="text-xs sm:text-[13px] text-brand-zinc-500 font-medium leading-relaxed">
+                  <p className="text-xs sm:text-[13px] text-brand-zinc-500 dark:text-zinc-300 font-medium leading-relaxed">
                     {posts[0].excerpt}
                   </p>
 
                   {/* Read More button */}
                   <div className="flex items-center gap-2 pt-2">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-brand-blue">{blog.featuredLabel}</span>
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-blue/5 border border-brand-blue/10 text-brand-blue group-hover:bg-brand-blue group-hover:text-white dark:group-hover:text-[#080710] transition-all duration-300">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-brand-blue dark:text-brand-yellow">{blog.featuredLabel}</span>
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-blue/5 border border-brand-blue/10 text-brand-blue dark:text-brand-yellow group-hover:bg-brand-blue group-hover:text-white dark:group-hover:bg-brand-yellow dark:group-hover:text-[#080710] transition-all duration-300">
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                     </div>
                   </div>
@@ -178,16 +177,16 @@ export default function Blog() {
                   <div className="flex-1 min-w-0 space-y-1.5 w-full">
                     {/* Meta category row */}
                     <div className="flex items-center justify-between gap-2">
-                      <span className="font-mono text-[7px] font-black text-brand-blue uppercase tracking-widest bg-brand-blue/5 px-2 py-0.5 rounded-md">
+                      <span className="font-mono text-[7px] font-black text-brand-blue dark:text-brand-yellow uppercase tracking-widest bg-brand-blue/5 px-2 py-0.5 rounded-md">
                         {post.category}
                       </span>
-                      <span className="block text-[9px] font-bold text-brand-zinc-400 uppercase tracking-wider">
+                      <span className="block text-[9px] font-bold text-brand-zinc-400 dark:text-zinc-400 uppercase tracking-wider">
                         {post.date}
                       </span>
                     </div>
 
                     {/* Title */}
-                    <h3 className="font-heading text-xs sm:text-[13px] md:text-sm font-black text-brand-dark leading-snug group-hover:text-brand-blue transition-colors duration-300 line-clamp-2">
+                    <h3 className="font-heading text-xs sm:text-[13px] md:text-sm font-black text-brand-dark dark:text-white leading-snug group-hover:text-brand-blue dark:group-hover:text-brand-yellow transition-colors duration-300 line-clamp-2">
                       {post.title}
                     </h3>
 

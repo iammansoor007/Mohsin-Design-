@@ -90,7 +90,7 @@ const TickerDigit = ({ digit }: { digit: number }) => {
         {numbers.map((num) => (
           <span
             key={num}
-            className="flex items-center justify-center leading-none bg-clip-text text-transparent bg-gradient-to-r from-[#0306AC] to-[#4b4fff] dark:from-[#E9BD36] dark:to-[#FFA800]"
+            className="flex items-center justify-center leading-none bg-clip-text text-transparent bg-gradient-to-r from-brand-blue to-blue-500 dark:from-brand-yellow dark:to-amber-400"
             style={{
               height: "1em",
               WebkitBackgroundClip: "text"
@@ -113,7 +113,7 @@ const DigitTicker = ({ value }: { value: number }) => {
           return (
             <span
               key={idx}
-              className="leading-none bg-clip-text text-transparent bg-gradient-to-r from-[#0306AC] to-[#4b4fff] dark:from-[#E9BD36] dark:to-[#FFA800]"
+              className="leading-none bg-clip-text text-transparent bg-gradient-to-r from-brand-blue to-blue-500 dark:from-brand-yellow dark:to-amber-400"
               style={{ WebkitBackgroundClip: "text" }}
             >
               {digit}
@@ -169,10 +169,10 @@ export default function AboutPage() {
       <main className="flex-1 w-full bg-white dark:bg-[#080710] text-brand-dark dark:text-white transition-colors duration-300 relative overflow-x-clip">
 
         {/* Awwwards-Level Floating Blurred Mesh Blobs */}
-        <div className="absolute top-[3%] left-[-15%] w-[50vw] h-[50vw] rounded-full bg-[#0306AC]/[0.03] dark:bg-[#0306AC]/[0.06] blur-[120px] pointer-events-none select-none -z-10 animate-float-blob" />
-        <div className="absolute top-[28%] right-[-10%] w-[45vw] h-[45vw] rounded-full bg-[#E9BD36]/[0.02] dark:bg-[#E9BD36]/[0.05] blur-[150px] pointer-events-none select-none -z-10 animate-float-blob-delayed" />
-        <div className="absolute bottom-[30%] left-[-12%] w-[48vw] h-[48vw] rounded-full bg-[#0306AC]/[0.02] dark:bg-[#0306AC]/[0.04] blur-[140px] pointer-events-none select-none -z-10 animate-float-blob" />
-        <div className="absolute bottom-[5%] right-[-12%] w-[42vw] h-[42vw] rounded-full bg-[#E9BD36]/[0.015] dark:bg-[#E9BD36]/[0.035] blur-[160px] pointer-events-none select-none -z-10 animate-float-blob-delayed" />
+        <div className="absolute top-[3%] left-[-15%] w-[50vw] h-[50vw] rounded-full bg-brand-blue/[0.03] dark:bg-brand-blue/[0.06] blur-[120px] pointer-events-none select-none -z-10 animate-float-blob" />
+        <div className="absolute top-[28%] right-[-10%] w-[45vw] h-[45vw] rounded-full bg-brand-yellow/[0.02] dark:bg-brand-yellow/[0.05] blur-[150px] pointer-events-none select-none -z-10 animate-float-blob-delayed" />
+        <div className="absolute bottom-[30%] left-[-12%] w-[48vw] h-[48vw] rounded-full bg-brand-blue/[0.02] dark:bg-brand-blue/[0.04] blur-[140px] pointer-events-none select-none -z-10 animate-float-blob" />
+        <div className="absolute bottom-[5%] right-[-12%] w-[42vw] h-[42vw] rounded-full bg-brand-yellow/[0.015] dark:bg-brand-yellow/[0.035] blur-[160px] pointer-events-none select-none -z-10 animate-float-blob-delayed" />
 
         {/* Awwwards-Level Background Grid Pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808007_1px,transparent_1px),linear-gradient(to_bottom,#80808007_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none -z-10" />
@@ -182,7 +182,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 -z-10 bg-linear-grid-blue-4 [background-size:40px_40px] opacity-[0.05] dark:opacity-[0.08]" />
 
           {/* Ambient Glows */}
-          <div className="absolute top-[10%] left-[-5%] w-[350px] h-[350px] rounded-full bg-[#0306AC]/[0.02] dark:bg-[#0306AC]/[0.05] blur-[120px] pointer-events-none -z-10" />
+          <div className="absolute top-[10%] left-[-5%] w-[350px] h-[350px] rounded-full bg-brand-blue/[0.02] dark:bg-brand-blue/[0.05] blur-[120px] pointer-events-none -z-10" />
 
           <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -196,17 +196,17 @@ export default function AboutPage() {
               >
                 {/* Yellow Badge */}
                 <div className="inline-flex">
-                  <span className="inline-flex items-center gap-2 rounded-full bg-[#E9BD36] px-4 py-1.5 text-[10px] font-black uppercase tracking-wider text-[#080710] dark:text-[#080710] shadow-sm">
-                    <Star className="h-3.5 w-3.5 fill-[#080710] text-[#080710] dark:fill-[#080710] dark:text-[#080710] shrink-0" />
+                  <span className="eyebrow-pill-yellow">
+                    <Star className="h-3.5 w-3.5 fill-brand-dark text-brand-dark shrink-0" />
                     ABOUT 360 DESIGNS AGENCY
                   </span>
                 </div>
 
                 <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] text-brand-dark dark:text-white max-w-xl">
                   We Build Digital Experiences That{" "}
-                  <span className="relative inline-block text-[#0306AC] dark:text-[#E9BD36] pb-1">
+                  <span className="relative inline-block text-brand-blue dark:text-brand-yellow pb-1">
                     Drive Real Growth.
-                    <svg className="absolute -bottom-1.5 left-0 w-full h-3.5 pointer-events-none text-[#E9BD36] opacity-90" viewBox="0 0 100 10" preserveAspectRatio="none">
+                    <svg className="absolute -bottom-1.5 left-0 w-full h-3.5 pointer-events-none text-brand-yellow opacity-90" viewBox="0 0 100 10" preserveAspectRatio="none">
                       <motion.path
                         d="M 2 5 Q 50 1.5, 98 3.5 C 99 3.5, 99 4.5, 98 5 Q 50 7, 2 5.5 Z"
                         fill="currentColor"
@@ -228,27 +228,21 @@ export default function AboutPage() {
                   {/* Let's Work Together */}
                   <a
                     href="/#contact"
-                    className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#E9BD36] text-[#080710] shadow-[0_4px_28px_rgba(233,189,54,0.3)] active:scale-[0.97] transition-all duration-350 border border-[#E9BD36] pointer-events-auto"
+                    className="btn-primary-cta"
                   >
-                    <span className="absolute inset-0 bg-white translate-x-[-102%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]" />
-                    <span className="relative z-10 pl-6 pr-4 py-[11px] text-[11px] font-black uppercase tracking-wider text-[#080710] group-hover:text-[#080710] transition-colors duration-300 delay-75 whitespace-nowrap">
-                      LET'S WORK TOGETHER
-                    </span>
-                    <span className="relative z-10 mr-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#080710] text-[#E9BD36] transition-all duration-300">
+                    <span>LET'S WORK TOGETHER</span>
+                    <span className="btn-icon">
                       <ArrowRight className="h-3.5 w-3.5" />
                     </span>
                   </a>
 
                   {/* Watch Our Story */}
                   <button
-                    className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-white dark:bg-[#1a1a2e] shadow-sm active:scale-[0.97] transition-all duration-350 border border-[#080710]/10 dark:border-white/15"
+                    className="btn-secondary-cta"
                   >
-                    <span className="absolute inset-0 bg-[#E9BD36] dark:bg-[#0306AC] translate-x-[-102%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]" />
-                    <span className="relative z-10 pl-6 pr-4 py-[11px] text-[11px] font-black uppercase tracking-wider text-[#080710] dark:text-white group-hover:text-[#080710] dark:group-hover:text-white transition-colors duration-300 delay-75 whitespace-nowrap">
-                      WATCH OUR STORY
-                    </span>
-                    <span className="relative z-10 mr-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#080710] dark:group-hover:bg-[#0306AC] group-hover:text-[#E9BD36] dark:group-hover:text-white transition-all duration-300">
-                      <Play className="h-3.5 w-3.5 fill-current" />
+                    <span>WATCH OUR STORY</span>
+                    <span className="btn-icon">
+                      <Play className="h-3.5 w-3.5 fill-current ml-0.5" />
                     </span>
                   </button>
                 </div>
@@ -257,8 +251,8 @@ export default function AboutPage() {
               {/* Right Column: Hero Image */}
               <div className="lg:col-span-6 relative w-full h-[320px] sm:h-[420px] md:h-[480px] lg:h-[520px] flex items-center justify-center pt-8 lg:pt-0">
                 {/* Background Blobs for depth */}
-                <div className="absolute top-[10%] right-[10%] w-[320px] h-[320px] rounded-full bg-[#E9BD36]/[0.05] dark:bg-[#E9BD36]/[0.1] blur-[80px] pointer-events-none -z-10" />
-                <div className="absolute bottom-[10%] left-[10%] w-[300px] h-[300px] rounded-full bg-[#0306AC]/[0.03] dark:bg-[#0306AC]/[0.08] blur-[80px] pointer-events-none -z-10" />
+                <div className="absolute top-[10%] right-[10%] w-[320px] h-[320px] rounded-full bg-brand-yellow/[0.05] dark:bg-brand-yellow/[0.1] blur-[80px] pointer-events-none -z-10" />
+                <div className="absolute bottom-[10%] left-[10%] w-[300px] h-[300px] rounded-full bg-brand-blue/[0.03] dark:bg-brand-blue/[0.08] blur-[80px] pointer-events-none -z-10" />
 
                 <motion.div
                   initial={{ opacity: 0, scale: 0.98, y: 15 }}
@@ -286,17 +280,17 @@ export default function AboutPage() {
               {/* Left Column: Symmetrical Stat-Style Intro */}
               <div className="lg:col-span-4 flex flex-col justify-between self-stretch text-left">
                 <div className="w-full space-y-4">
-                  <div className="inline-flex items-center gap-2 rounded-full bg-[#0306AC]/5 dark:bg-white/5 border border-[#0306AC]/15 dark:border-white/10 px-4 py-1.5 text-[11px] font-mono tracking-widest text-[#0306AC] dark:text-[#E9BD36] font-extrabold uppercase">
+                  <div className="eyebrow-pill">
                     <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0306AC] dark:bg-[#E9BD36] opacity-75" />
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0306AC] dark:bg-[#E9BD36]" />
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue dark:bg-brand-yellow opacity-75" />
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-blue dark:bg-brand-yellow" />
                     </span>
                     SUMMARY & METRICS
                   </div>
 
                   <h2 className="font-heading text-3xl sm:text-4xl font-black tracking-tight leading-[1.12] text-brand-dark dark:text-white">
                     We shape the future of digital{" "}
-                    <span className="text-[#0306AC] dark:text-[#E9BD36] font-serif font-normal italic">brands.</span>
+                    <span className="text-brand-blue dark:text-brand-yellow font-serif font-normal italic">brands.</span>
                   </h2>
 
                   <p className="text-sm font-sans text-brand-zinc-600 dark:text-zinc-300 font-normal leading-relaxed max-w-xs">
@@ -306,7 +300,7 @@ export default function AboutPage() {
 
                 {/* Symmetrical Core Expertise List at the Bottom */}
                 <div className="pt-6 mt-8 border-t border-brand-zinc-100 dark:border-white/5 w-full select-none">
-                  <span className="text-[7.5px] font-mono tracking-widest text-[#0306AC] dark:text-[#E9BD36] uppercase font-black block mb-3">
+                  <span className="text-[7.5px] font-mono tracking-widest text-brand-blue dark:text-brand-yellow uppercase font-black block mb-3">
                     // EXPERTISE
                   </span>
                   <div className="grid grid-cols-2 gap-y-3.5 gap-x-6">
@@ -444,7 +438,7 @@ export default function AboutPage() {
               {/* Left Column: Heading and Interactive Editorial Rows */}
               <div className="lg:col-span-6 space-y-10 text-left">
                 <div className="space-y-4">
-                  <div className="inline-flex items-center gap-2 rounded-full bg-[#0306AC]/5 dark:bg-white/5 border border-[#0306AC]/15 dark:border-white/10 px-4 py-1.5 text-[11px] font-mono tracking-widest text-[#0306AC] dark:text-[#E9BD36] font-extrabold uppercase">
+                  <div className="eyebrow-pill">
                     <span className="relative flex h-2 w-2">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0306AC] dark:bg-[#E9BD36] opacity-75" />
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0306AC] dark:bg-[#E9BD36]" />
@@ -624,7 +618,7 @@ export default function AboutPage() {
 
             {/* Header Block */}
             <div className="text-left max-w-2xl space-y-4">
-              <div className="inline-flex items-center gap-2 rounded-full bg-[#0306AC]/5 dark:bg-white/5 border border-[#0306AC]/15 dark:border-white/10 px-4 py-1.5 text-[11px] font-mono tracking-widest text-[#0306AC] dark:text-[#E9BD36] font-extrabold uppercase">
+              <div className="eyebrow-pill">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0306AC] dark:bg-[#E9BD36] opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0306AC] dark:bg-[#E9BD36]" />
@@ -952,7 +946,7 @@ export default function AboutPage() {
 
                   {/* Header */}
                   <div className="space-y-3">
-                    <div className="inline-flex items-center gap-2 rounded-full bg-[#0306AC]/5 dark:bg-white/5 border border-[#0306AC]/15 dark:border-white/10 px-4 py-1.5 text-[11px] font-mono tracking-widest text-[#0306AC] dark:text-[#E9BD36] font-extrabold uppercase">
+                    <div className="eyebrow-pill">
                       <span className="relative flex h-2 w-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0306AC] dark:bg-[#E9BD36] opacity-75" />
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0306AC] dark:bg-[#E9BD36]" />
@@ -1197,7 +1191,7 @@ export default function AboutPage() {
             {/* Section Header */}
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 text-left border-b border-brand-zinc-200/80 dark:border-white/10 pb-12">
               <div className="max-w-2xl space-y-4">
-                <div className="inline-flex items-center gap-2 rounded-full bg-[#0306AC]/5 dark:bg-white/5 border border-[#0306AC]/15 dark:border-white/10 px-4 py-1.5 text-[11px] font-mono tracking-widest text-[#0306AC] dark:text-[#E9BD36] font-extrabold uppercase">
+                <div className="eyebrow-pill">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0306AC] dark:bg-[#E9BD36] opacity-75" />
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0306AC] dark:bg-[#E9BD36]" />
@@ -1351,7 +1345,7 @@ export default function AboutPage() {
             {/* Section Header */}
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 text-left border-b border-brand-zinc-200/80 dark:border-white/10 pb-12">
               <div className="max-w-2xl space-y-4">
-                <div className="inline-flex items-center gap-2 rounded-full bg-[#0306AC]/5 dark:bg-white/5 border border-[#0306AC]/15 dark:border-white/10 px-4 py-1.5 text-[11px] font-mono tracking-widest text-[#0306AC] dark:text-[#E9BD36] font-extrabold uppercase">
+                <div className="eyebrow-pill">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0306AC] dark:bg-[#E9BD36] opacity-75" />
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0306AC] dark:bg-[#E9BD36]" />
@@ -1495,7 +1489,7 @@ export default function AboutPage() {
 
             {/* Section Header */}
             <div className="text-center flex flex-col items-center max-w-3xl mx-auto space-y-4">
-              <div className="inline-flex items-center gap-2 rounded-full bg-[#0306AC]/5 dark:bg-white/5 border border-[#0306AC]/15 dark:border-white/10 px-4 py-1.5 text-[11px] font-mono tracking-widest text-[#0306AC] dark:text-[#E9BD36] font-extrabold uppercase">
+              <div className="eyebrow-pill">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0306AC] dark:bg-[#E9BD36] opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0306AC] dark:bg-[#E9BD36]" />
@@ -1519,10 +1513,10 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
 
               {/* Left Column: Pixel-Perfect Blue Card with Team Photo & Outer Arc Detail */}
-              <div className="lg:col-span-4 relative flex justify-center">
+              <div className="lg:col-span-4 relative flex justify-center z-10">
 
                 {/* Outer Curved Yellow Arc SVG Line & Yellow Dot Node */}
-                <div className="absolute -top-7 -right-7 w-40 h-40 pointer-events-none z-30 hidden sm:block">
+                <div className="absolute -top-6 -right-4 w-36 h-36 pointer-events-none z-20 hidden sm:block">
                   <svg viewBox="0 0 140 140" className="w-full h-full overflow-visible">
                     <path
                       d="M 15,120 A 90,90 0 0,1 120,15"
@@ -1536,33 +1530,26 @@ export default function AboutPage() {
                 </div>
 
                 {/* Outer Dot Matrix Grid overlay behind right edge */}
-                <div className="absolute -right-10 top-1/4 w-16 h-40 pointer-events-none hidden sm:block z-0 opacity-40">
-                  <div className="grid grid-cols-4 gap-2.5">
-                    {Array.from({ length: 28 }).map((_, i) => (
-                      <span key={i} className="h-1.5 w-1.5 rounded-full bg-[#0306AC] dark:bg-[#E9BD36]" />
+                <div className="absolute -right-3 top-1/4 w-12 h-36 pointer-events-none hidden sm:block z-0 opacity-25">
+                  <div className="grid grid-cols-3 gap-2">
+                    {Array.from({ length: 21 }).map((_, i) => (
+                      <span key={i} className="h-1.5 w-1.5 rounded-full bg-brand-blue dark:bg-brand-yellow" />
                     ))}
                   </div>
                 </div>
 
-                {/* Outer Concentric Circles overlay behind bottom-left corner */}
-                <div className="absolute -bottom-10 -left-10 w-48 h-48 pointer-events-none z-0 hidden sm:block opacity-25">
-                  <svg viewBox="0 0 180 180" className="w-full h-full">
-                    <circle cx="20" cy="160" r="45" fill="none" stroke="#0306AC" strokeWidth="1.5" />
-                    <circle cx="20" cy="160" r="80" fill="none" stroke="#0306AC" strokeWidth="1.5" />
-                    <circle cx="20" cy="160" r="115" fill="none" stroke="#0306AC" strokeWidth="1.5" />
-                  </svg>
-                </div>
+
 
                 {/* Main Blue Card Container */}
-                <div className="relative w-full rounded-[36px] overflow-hidden bg-[#0306AC] border border-[#0306AC] shadow-2xl p-8 sm:p-9 flex flex-col justify-between min-h-[460px] lg:min-h-[520px] z-10">
+                <div className="relative w-full rounded-[36px] overflow-hidden bg-brand-blue border border-brand-blue shadow-2xl p-8 sm:p-9 flex flex-col justify-between min-h-[460px] lg:min-h-[520px] z-10">
 
                   {/* Top Text Block */}
                   <div className="max-w-[220px] space-y-1.5 z-10 text-left">
-                    <div className="h-[2.5px] w-7 bg-[#E9BD36] mb-4" />
+                    <div className="h-[2.5px] w-7 bg-brand-yellow mb-4" />
                     <p className="text-white text-sm sm:text-base font-semibold leading-snug tracking-tight">
                       We focus on what matters most —
                     </p>
-                    <p className="text-[#E9BD36] text-lg sm:text-xl font-extrabold leading-none pt-1">
+                    <p className="text-brand-yellow text-lg sm:text-xl font-extrabold leading-none pt-1">
                       your growth.
                     </p>
                   </div>
@@ -1580,7 +1567,7 @@ export default function AboutPage() {
               </div>
 
               {/* Right Column: 6 Feature Cards Grid */}
-              <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-left">
+              <div className="lg:col-span-8 relative z-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-left">
 
                 {/* Feature 1: Proven Results */}
                 <div className="p-7 rounded-[24px] bg-white dark:bg-[#0c0b18] border border-brand-zinc-200/70 dark:border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-xl transition-all duration-300 flex flex-col items-start justify-between min-h-[220px] group">
@@ -1717,7 +1704,7 @@ export default function AboutPage() {
               <div className="lg:col-span-7 space-y-8 text-left">
 
                 <div className="space-y-4">
-                  <div className="inline-flex items-center gap-2 rounded-full bg-[#0306AC]/5 dark:bg-white/5 border border-[#0306AC]/15 dark:border-white/10 px-4 py-1.5 text-[11px] font-mono tracking-widest text-[#0306AC] dark:text-[#E9BD36] font-extrabold uppercase">
+                  <div className="eyebrow-pill">
                     <span className="relative flex h-2 w-2">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0306AC] dark:bg-[#E9BD36] opacity-75" />
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0306AC] dark:bg-[#E9BD36]" />
@@ -1797,7 +1784,7 @@ export default function AboutPage() {
         {/* ── 11. BOTTOM CTA BANNER SECTION ──────────────────────────── */}
         <section className="relative overflow-hidden py-8 sm:py-12 bg-white dark:bg-[#080710] transition-colors duration-300">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
-            <div className="w-full bg-gradient-to-br from-[#0306AC] via-[#020485] to-[#010356] dark:from-[#0c0b18] dark:via-[#090814] dark:to-[#0306AC]/50 rounded-[36px] overflow-hidden relative shadow-[0_25px_60px_rgba(3,6,172,0.35)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.5)] min-h-[420px] flex items-stretch border border-white/15 dark:border-white/20">
+            <div className="cta-banner-card">
 
               {/* Glowing Radial Background Lighting */}
               <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#E9BD36]/15 rounded-full blur-[140px] pointer-events-none" />
@@ -1852,19 +1839,19 @@ export default function AboutPage() {
                 <div className="flex items-center gap-4 flex-wrap pt-2">
                   <a
                     href="/#contact"
-                    className="group inline-flex items-center gap-3 rounded-full bg-[#E9BD36] px-7 py-4 text-xs font-black uppercase tracking-[0.16em] text-[#080710] hover:bg-[#ffe554] hover:shadow-[0_10px_30px_rgba(233,189,54,0.4)] active:scale-95 transition-all duration-300"
+                    className="btn-primary-cta"
                   >
-                    GET STARTED TODAY
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#080710] text-[#E9BD36] transition-transform duration-300 group-hover:translate-x-1">
+                    <span>GET STARTED TODAY</span>
+                    <span className="btn-icon">
                       <ArrowRight className="h-3.5 w-3.5" />
                     </span>
                   </a>
 
-                  <button className="inline-flex items-center gap-3 text-white text-xs font-bold uppercase tracking-widest hover:text-[#E9BD36] transition-colors duration-200 group">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur-md group-hover:border-[#E9BD36] group-hover:bg-[#E9BD36] group-hover:text-[#080710] transition-all duration-300">
-                      <Play className="h-3 w-3 fill-current ml-0.5" />
+                  <button className="btn-secondary-cta">
+                    <span>WATCH OUR STORY</span>
+                    <span className="btn-icon">
+                      <Play className="h-3.5 w-3.5 fill-current ml-0.5" />
                     </span>
-                    WATCH OUR STORY
                   </button>
                 </div>
               </div>
@@ -2005,7 +1992,7 @@ function ReviewsCarousel() {
         <div className="text-center flex flex-col items-center space-y-5 max-w-3xl mx-auto px-4">
 
           {/* Eyebrow Pill */}
-          <div className="inline-flex items-center gap-2 rounded-full bg-[#0306AC]/5 dark:bg-white/5 border border-[#0306AC]/15 dark:border-white/10 px-4 py-1.5 text-[11px] font-mono tracking-widest text-[#0306AC] dark:text-[#E9BD36] font-extrabold uppercase">
+          <div className="eyebrow-pill">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0306AC] dark:bg-[#E9BD36] opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0306AC] dark:bg-[#E9BD36]" />

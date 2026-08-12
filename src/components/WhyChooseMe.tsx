@@ -109,15 +109,15 @@ function AnimatedStat({
         </svg>
         {/* Number */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="font-heading font-black text-[15px] sm:text-[18px] text-brand-dark leading-none">
+          <span className="font-heading font-black text-[15px] sm:text-[18px] text-brand-dark dark:text-white leading-none">
             {displayed}
           </span>
         </div>
       </div>
       {/* Labels */}
       <div className="text-center">
-        <p className="text-[9px] font-black uppercase tracking-widest text-brand-dark">{label}</p>
-        <p className="text-[8.5px] text-brand-zinc-400 mt-0.5 leading-snug whitespace-pre-line">{sublabel}</p>
+        <p className="text-[9px] font-black uppercase tracking-widest text-brand-dark dark:text-white">{label}</p>
+        <p className="text-[8.5px] text-brand-zinc-400 dark:text-zinc-400 mt-0.5 leading-snug whitespace-pre-line">{sublabel}</p>
       </div>
     </div>
   );
@@ -275,35 +275,24 @@ export default function WhyChooseMe() {
               className="space-y-7"
             >
               {/* Pill */}
-              <span className="inline-flex items-center gap-2 rounded-full bg-brand-blue/10 px-3.5 py-1.5 text-[9px] font-black tracking-widest uppercase text-brand-blue">
-                {whyChooseMe.sectionNumber} // {whyChooseMe.sectionTag}
-              </span>
+              <div className="eyebrow-pill">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue dark:bg-brand-yellow opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-blue dark:bg-brand-yellow" />
+                </span>
+                {whyChooseMe.sectionTag}
+              </div>
 
               {/* Heading */}
-              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-dark leading-[1.15] tracking-tight">
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white leading-[1.15] tracking-tight">
                 {whyChooseMe.titleIntro}{" "}
-                <span className="text-brand-blue relative inline-block">
+                <span className="text-brand-blue dark:text-brand-yellow font-serif font-normal italic">
                   {whyChooseMe.titleHighlight}
-                  <svg
-                    className="absolute -bottom-1.5 left-0 w-full h-3 pointer-events-none text-brand-yellow"
-                    style={{ filter: "var(--underline-glow)" }}
-                    viewBox="0 0 100 10"
-                    preserveAspectRatio="none"
-                  >
-                    <motion.path
-                      d="M 2 5 Q 50 2, 98 4 C 99 4, 99 5, 98 5.5 Q 50 7.5, 2 6 Z"
-                      fill="#E9BD36"
-                      variants={drawVariants}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: false }}
-                    />
-                  </svg>
                 </span>
               </h2>
 
               {/* Subtext */}
-              <p className="text-brand-zinc-500 text-sm leading-relaxed max-w-sm">
+              <p className="text-sm sm:text-base font-sans text-brand-zinc-600 dark:text-zinc-300 font-normal leading-relaxed max-w-sm">
                 {whyChooseMe.subtext}
               </p>
 
@@ -357,22 +346,22 @@ export default function WhyChooseMe() {
                     <div className="flex items-start gap-4 flex-1 min-w-0">
                       {/* Icon */}
                       <div className="shrink-0 flex h-11 w-11 items-center justify-center rounded-xl
-                        bg-brand-blue/8 border border-brand-blue/15 text-brand-blue
-                        group-hover:bg-brand-blue group-hover:text-white dark:group-hover:text-[#080710] group-hover:border-brand-blue
-                        group-hover:shadow-[0_6px_20px_rgba(3, 6, 172,0.22)] dark:group-hover:shadow-[0_6px_20px_rgba(233, 189, 54,0.12)]
+                        bg-brand-blue/8 border border-brand-blue/15 text-brand-blue dark:text-brand-yellow dark:bg-brand-yellow/10 dark:border-brand-yellow/20
+                        group-hover:bg-brand-blue group-hover:text-white dark:group-hover:bg-brand-yellow dark:group-hover:text-[#080710] group-hover:border-brand-blue dark:group-hover:border-brand-yellow
+                        group-hover:shadow-[0_6px_20px_rgba(3,6,172,0.22)] dark:group-hover:shadow-[0_6px_20px_rgba(233,189,54,0.18)]
                         transition-all duration-300 mt-0.5">
                         <Icon className="h-[18px] w-[18px]" />
                       </div>
 
                       {/* Text */}
                       <div className="flex-1 min-w-0 space-y-1.5">
-                        <span className="font-mono text-[10px] font-black text-brand-blue tracking-widest">
+                        <span className="font-mono text-[10px] font-black text-brand-blue dark:text-brand-yellow tracking-widest">
                           {reason.num}
                         </span>
-                        <h3 className="font-heading font-extrabold text-[1.1rem] text-brand-dark group-hover:text-brand-blue transition-colors duration-300 leading-snug">
+                        <h3 className="font-heading font-extrabold text-[1.1rem] text-brand-dark dark:text-white group-hover:text-brand-blue dark:group-hover:text-brand-yellow transition-colors duration-300 leading-snug">
                           {reason.title}
                         </h3>
-                        <p className="text-[13px] text-brand-zinc-500 leading-relaxed">
+                        <p className="text-[13px] text-brand-zinc-500 dark:text-zinc-400 leading-relaxed">
                           {reason.desc}
                         </p>
                       </div>

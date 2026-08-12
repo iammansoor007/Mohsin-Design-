@@ -263,21 +263,20 @@ export default function Portfolio() {
           transition={{ duration: 0.6 }}
           className="flex flex-col gap-4 mb-6 md:mb-8 text-center items-center max-w-3xl mx-auto"
         >
-          <span className="inline-flex items-center gap-2 rounded-full bg-brand-blue/10 px-3.5 py-1 text-[8px] md:text-[9px] font-black tracking-widest uppercase text-brand-blue select-none self-center">
-            {portfolio.sectionNumber} // {portfolio.sectionTag}
-          </span>
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-dark tracking-tight leading-[1.1] select-none">
-            {portfolio.titleIntro} <span className="text-brand-blue relative inline-block">
+          <div className="eyebrow-pill self-center">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue dark:bg-brand-yellow opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-blue dark:bg-brand-yellow" />
+            </span>
+            {portfolio.sectionTag}
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.15]">
+            {portfolio.titleIntro}{" "}
+            <span className="text-brand-blue dark:text-brand-yellow font-serif font-normal italic">
               {portfolio.titleHighlight}
-              <svg className="absolute -bottom-1.5 md:-bottom-2 left-0 w-full h-2.5 md:h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(233, 189, 54,0.45)]" viewBox="0 0 100 10" preserveAspectRatio="none">
-                <path
-                  d="M 2 5 Q 50 2, 98 4 C 99 4, 99 5, 98 5.5 Q 50 7.5, 2 6 Z"
-                  fill="#E9BD36"
-                />
-              </svg>
             </span>
           </h2>
-          <p className="text-brand-zinc-500 font-medium leading-relaxed text-xs md:text-sm max-w-xl mx-auto">
+          <p className="text-sm sm:text-base font-sans text-brand-zinc-600 dark:text-zinc-300 font-normal leading-relaxed max-w-2xl mx-auto">
             {portfolio.description}
           </p>
         </motion.div>
@@ -305,11 +304,11 @@ export default function Portfolio() {
                   {isActive && (
                     <motion.div
                       layoutId="activeCategoryTab"
-                      className="absolute inset-0 bg-brand-blue rounded-full shadow-md z-0"
+                      className="absolute inset-0 bg-brand-blue dark:bg-brand-yellow rounded-full shadow-md z-0"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
-                  <span className={`relative z-10 flex items-center gap-2 transition-colors duration-300 ${isActive ? "text-white dark:text-[#080710]" : "text-brand-zinc-500 dark:text-zinc-400 group-hover:text-brand-dark"}`}>
+                  <span className={`relative z-10 flex items-center gap-2 transition-colors duration-300 ${isActive ? "text-white dark:text-[#080710] font-black" : "text-brand-zinc-500 dark:text-zinc-400 hover:text-brand-dark dark:hover:text-white"}`}>
                     <Icon className="h-3.5 w-3.5" />
                     <span>{cat.label}</span>
                   </span>
@@ -424,16 +423,16 @@ export default function Portfolio() {
                     >
                       {/* Badge Row */}
                       <motion.div variants={detailsItemVariants} className="flex flex-wrap justify-center lg:justify-start items-center gap-2.5">
-                        <span className="text-[10px] font-mono font-black text-brand-blue uppercase tracking-widest bg-brand-blue/5 border border-brand-blue/15 px-3 py-1 rounded-full">
+                        <span className="text-[10px] font-mono font-black text-brand-blue dark:text-brand-yellow uppercase tracking-widest bg-brand-blue/5 border border-brand-blue/15 px-3 py-1 rounded-full">
                           {portfolio.labelCaseStudy} {activeSlide.num}
                         </span>
-                        <h3 className="font-heading font-black text-xl text-brand-dark">
+                        <h3 className="font-heading font-black text-xl text-brand-dark dark:text-white">
                           {activeSlide.brand}
                         </h3>
                       </motion.div>
 
                       {/* Main Subtitle */}
-                      <motion.p variants={detailsItemVariants} className="text-sm font-bold tracking-wide uppercase text-brand-zinc-400">
+                      <motion.p variants={detailsItemVariants} className="text-sm font-bold tracking-wide uppercase text-brand-zinc-400 dark:text-zinc-300">
                         {activeSlide.subtitle}
                       </motion.p>
 
@@ -465,12 +464,12 @@ export default function Portfolio() {
                               className="bg-brand-light dark:bg-[#161622] border border-brand-zinc-200/50 dark:border-white/10 rounded-2xl p-4 flex flex-col justify-between min-h-[96px] shadow-xs relative overflow-hidden"
                             >
                               <div className="flex justify-between items-start">
-                                <span className="font-heading font-black text-base sm:text-xl text-brand-blue leading-none tracking-tight">
+                                <span className="font-heading font-black text-base sm:text-xl text-brand-blue dark:text-brand-yellow leading-none tracking-tight">
                                   {stat.value}
                                 </span>
                                 <StatIcon className="h-4.5 w-4.5 text-brand-yellow fill-brand-yellow/10" strokeWidth={2.5} />
                               </div>
-                              <p className="text-[9px] font-bold text-brand-zinc-500 uppercase tracking-widest mt-3 leading-snug">
+                              <p className="text-[9px] font-bold text-brand-zinc-500 dark:text-zinc-400 uppercase tracking-widest mt-3 leading-snug">
                                 {stat.label}
                               </p>
                             </motion.div>
