@@ -1394,6 +1394,7 @@
       "titleHighlight": "We Serve",
       "description": "Choose a location to discover marketing strategies shaped around its audience, competition, and growth opportunities.",
       "cursiveText": "Explore Our Global Presence",
+      "locationsLabel": "Available Locations",
       "countries": [
         {
           "id": "USA",
@@ -1403,6 +1404,14 @@
           "image": "/locations_usa.png",
           "buttonText": "View USA Page",
           "buttonHref": "#contact",
+          "description": "Accelerating brand growth across North America with targeted search optimization, high-impact paid campaigns, and localized marketing tailored to state-level consumer demographics.",
+          "pillars": ["State-Level Geo Targeting", "High-Volume Lead Gen", "SEO & Paid Media Scale"],
+          "footerTag": "Full US Market Coverage",
+          "metrics": [
+            { "label": "States Active", "value": "10" },
+            { "label": "Growth Rate", "value": "+140%" },
+            { "label": "Active Clients", "value": "45+" }
+          ],
           "states": [
             "Texas",
             "Wyoming",
@@ -1424,6 +1433,14 @@
           "image": "/locations_nz.png",
           "buttonText": "View New Zealand Page",
           "buttonHref": "#contact",
+          "description": "Empowering business growth across Auckland and Wellington with comprehensive digital strategies, high-visibility search marketing, and tailored performance campaigns.",
+          "pillars": ["Auckland & Wellington Focus", "Localized Social Strategy", "High ROI Local Search"],
+          "footerTag": "NZ Regional Reach",
+          "metrics": [
+            { "label": "Regions Active", "value": "4" },
+            { "label": "Growth Rate", "value": "+115%" },
+            { "label": "Active Clients", "value": "20+" }
+          ],
           "states": [
             "North Island",
             "Auckland",
@@ -1439,6 +1456,14 @@
           "image": "/locations_australia.png",
           "buttonText": "View Australia Page",
           "buttonHref": "#contact",
+          "description": "Expanding market share in Australian metropolitan hubs including Sydney, Melbourne, and Brisbane through multi-channel ad campaigns and data-driven growth strategies.",
+          "pillars": ["Metro Campaign Scaling", "Dynamic Multi-Channel Ads", "Advanced Audience Mapping"],
+          "footerTag": "Metro Hub Scaling",
+          "metrics": [
+            { "label": "Metro Hubs Active", "value": "4" },
+            { "label": "Growth Rate", "value": "+130%" },
+            { "label": "Active Clients", "value": "35+" }
+          ],
           "states": [
             "New South Wales",
             "Victoria",
@@ -1448,15 +1473,18 @@
         }
       ]
     },
-    "cta": {
-      "eyebrow": "LET'S GROW TOGETHER",
-      "titleIntro": "Ready to Grow in Your ",
-      "titleHighlight": "Market?",
-      "description": "Let's turn local market insights into a digital strategy that helps your brand reach the right audience, stand out, and grow with confidence.",
-      "buttonText": "Start Free Consultation",
-      "buttonHref": "#contact",
-      "image": "/locations_cta_team.png",
-      "imageAlt": "Marketing team collaborating in workspace"
+    "ctaBanner": {
+      "eyebrow": "EXPAND YOUR REACH",
+      "titleIntro": "Ready to Dominate Your ",
+      "titleWord1": "Local ",
+      "titleWord2": "Market?",
+      "description": "Whether you are scaling across the US, New Zealand, Australia, or expanding globally, we turn local market insights into high-converting digital campaigns.",
+      "ctaPrimaryText": "Schedule Strategy Call",
+      "ctaPrimaryHref": "#contact",
+      "ctaSecondaryText": "Explore Market Coverage",
+      "ctaSecondaryHref": "#presence-section",
+      "portraitSrc": "/locations_cta_team.png",
+      "portraitAlt": "Global digital marketing agency team strategy session"
     }
   }
 }

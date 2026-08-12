@@ -597,6 +597,30 @@ section,
   background-color: rgba(255, 255, 255, 0.2) !important;
 }
 
+/* Ensure secondary CTA buttons inside dark CTA banner cards remain white and fully legible in both light and dark modes */
+.cta-banner-card .btn-secondary-cta {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+.cta-banner-card .btn-secondary-cta > span:first-child {
+  color: #ffffff !important;
+}
+
+.cta-banner-card .btn-secondary-cta .btn-icon {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+}
+
+.cta-banner-card .btn-secondary-cta:hover {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.45) !important;
+}
+
+.cta-banner-card .btn-secondary-cta:hover .btn-icon {
+  background-color: rgba(255, 255, 255, 0.25) !important;
+}
+
 /* --- Submit CTA: For forms (full width on mobile) --- */
 .btn-submit-cta {
   display: inline-flex !important;
