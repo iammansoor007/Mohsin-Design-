@@ -60,14 +60,452 @@
       "Development"
     ]
   },
-  "aboutHero": {
-    "badgeText": "ABOUT 360 DESIGNS AGENCY",
-    "titleIntro": "We Build Digital Experiences That ",
-    "titleHighlight": "Drive Real Growth.",
-    "description": "We are a digital agency with a passion for performance. We help brands grow with smart strategies, creative design, and powerful digital solutions that deliver measurable results.",
-    "ctaPrimaryText": "LET'S WORK TOGETHER",
-    "ctaPrimaryHref": "/#contact",
-    "ctaSecondaryText": "WATCH OUR STORY"
+  "aboutPage": {
+    "hero": {
+      "badgeText": "ABOUT 360 DESIGNS AGENCY",
+      "titleIntro": "We Build Digital Experiences That ",
+      "titleHighlight": "Drive Real Growth.",
+      "description": "We are a digital agency with a passion for performance. We help brands grow with smart strategies, creative design, and powerful digital solutions that deliver measurable results.",
+      "ctaPrimaryText": "LET'S WORK TOGETHER",
+      "ctaPrimaryHref": "/#contact",
+      "ctaSecondaryText": "WATCH OUR STORY",
+      "heroImage": "/mohsinaboutowner.png",
+      "heroImageAlt": "About 360 Designs Agency Overview"
+    },
+    "stats": {
+      "eyebrow": "SUMMARY & METRICS",
+      "titleIntro": "We shape the future of digital ",
+      "titleHighlight": "brands.",
+      "description": "Every strategic choice, line of code, and creative pixel is engineered to establish market leadership and drive commercial value.",
+      "expertiseHeader": "// EXPERTISE",
+      "expertiseList": [
+        { "num": "[ 01 ]", "label": "Strategy" },
+        { "num": "[ 02 ]", "label": "UI / UX" },
+        { "num": "[ 03 ]", "label": "Next.js" },
+        { "num": "[ 04 ]", "label": "Growth" }
+      ],
+      "metrics": [
+        {
+          "num": "[ 01 ]",
+          "value": 300,
+          "suffix": "+",
+          "label": "Global Clients",
+          "sublabel": "Active partnerships across borders and industries",
+          "iconName": "Globe"
+        },
+        {
+          "num": "[ 02 ]",
+          "value": 250,
+          "suffix": "+",
+          "label": "Projects Built",
+          "sublabel": "Delivered with absolute pixel perfection",
+          "iconName": "Rocket"
+        },
+        {
+          "num": "[ 03 ]",
+          "value": 98,
+          "suffix": "%",
+          "label": "Satisfaction Rate",
+          "sublabel": "Ranked by our clients' success and reviews",
+          "iconName": "Heart"
+        },
+        {
+          "num": "[ 04 ]",
+          "value": 7,
+          "suffix": "+",
+          "label": "Years Active",
+          "sublabel": "Pioneering industry-leading digital design",
+          "iconName": "Trophy"
+        }
+      ]
+    },
+    "whoWeAre": {
+      "eyebrow": "WHO WE ARE",
+      "titleIntro": "Designing landmarks, ",
+      "titleHighlight": "not just interfaces.",
+      "description": "We are an elite coalition of design purists, engineering craftspeople, and performance strategists who build high-ticket platforms that command market attention and scale digital authority.",
+      "watermark": "CREATIVE",
+      "rows": [
+        {
+          "num": "[ 01 ]",
+          "title": "Radical Aesthetics",
+          "desc": "Avant-garde layout architectures and bespoke identity systems built to visually isolate your brand from standard templates."
+        },
+        {
+          "num": "[ 02 ]",
+          "title": "High-Fidelity Engineering",
+          "desc": "Next.js production engines engineered with semantic HTML, precise performance caching, and custom Framer Motion dynamics."
+        },
+        {
+          "num": "[ 03 ]",
+          "title": "Commercial Growth Engines",
+          "desc": "Strategic landing funnels and advanced SEO frameworks focused on positioning, high intent search rankings, and enterprise sales."
+        }
+      ],
+      "parallaxBadge": "STUDIO PARALLAX // ACTIVE",
+      "imgAbstract": "/agency_abstract_graphics.png",
+      "imgWorkspace": "/agency_workspace.png",
+      "imgUiDetail": "/agency_ui_detail.png"
+    },
+    "philosophy": {
+      "eyebrow": "PHILOSOPHY & CONVICTIONS",
+      "titleIntro": "Our Strategic ",
+      "titleHighlight": "Foundation.",
+      "mission": {
+        "num": "01",
+        "label": "// OUR MISSION",
+        "titleIntro": "We engineer digital architectures that multiply commercial ",
+        "titleHighlight": "authority.",
+        "desc": "To empower organizations with strategy-led Next.js configurations and conversion-focused design systems that scale organic visibility and brand value.",
+        "quote": "\"We build software meant to dominate digital markets, not just exist online.\"",
+        "badgeLatency": "LATENCY // 12ms",
+        "badgePerformance": "PERFORMANCE // 99.4%",
+        "tags": ["Custom Next.js", "High-Velocity Load", "Organic SEO"]
+      },
+      "vision": {
+        "num": "02",
+        "label": "// OUR VISION",
+        "titleIntro": "We establish the digital standards that others ",
+        "titleHighlight": "replicate.",
+        "desc": "To pioneer an era where web engineering matches the tier of luxury brand design, proving that accessibility, speed, and clean typography are commercially absolute.",
+        "quote": "\"Design without technical rigor is just decorative artwork.\"",
+        "badgeAccessibility": "ACCESSIBILITY // AAA",
+        "badgeLighthouse": "LIGHTHOUSE // 100/100",
+        "tags": ["Design Systems", "Universal WCAG", "Brand Architecture"]
+      },
+      "values": {
+        "num": "03",
+        "label": "// SHARED VALUES",
+        "titleIntro": "Absolute precision, transparent pipelines, zero ",
+        "titleHighlight": "clutter.",
+        "desc": "We view our partnerships as collaborative sprints, aligning through direct synchronization and zero-downtime engineering cycles.",
+        "quote": "\"Direct technical alignment eliminates management noise.\"",
+        "badgeSync": "SYNC STATUS // CONNECTED",
+        "badgeSprint": "AGENCY SPRINT // ACTIVE",
+        "tags": ["Modular Sprints", "Direct Discord Sync", "Zero Downtime"]
+      }
+    },
+    "servicesDirectory": {
+      "eyebrow": "SERVICES DIRECTORY",
+      "titleIntro": "Capabilities built to ",
+      "titleHighlight": "elevate your brand.",
+      "consultationBtnText": "SCHEDULE FREE CONSULTATION",
+      "consultationBtnHref": "/contact",
+      "stages": [
+        {
+          "id": "01",
+          "iconName": "Palette",
+          "category": "BRANDING & VISUAL IDENTITY",
+          "title": "Brand Identity Systems & Design Tokens",
+          "desc": "We create distinctive logos, custom color schemes, typography guidelines, and design tokens that make your brand stand out and build instant customer trust.",
+          "image": "/agency_ui_detail.png",
+          "badge": "100% BESPOKE DESIGN",
+          "navTag": "Design",
+          "deliverables": ["Logo Architecture", "Color Tokens", "Brand Style Guide", "Design Systems"]
+        },
+        {
+          "id": "02",
+          "iconName": "Code",
+          "category": "WEB & PLATFORM ENGINEERING",
+          "title": "Next.js 15 Web Design & App Development",
+          "desc": "Building ultra-fast, mobile-responsive Next.js websites powered by Tailwind CSS and Framer Motion graphics engineered to maximize visitor conversions.",
+          "image": "/agency_workspace.png",
+          "badge": "VELOCITY // 99.8% LIGHTHOUSE",
+          "navTag": "Development",
+          "deliverables": ["Next.js 15 Engine", "Tailwind CSS", "Framer Motion", "Edge API Routes"]
+        },
+        {
+          "id": "03",
+          "iconName": "Search",
+          "category": "SEARCH ENGINE OPTIMIZATION",
+          "title": "Technical SEO & Search Authority",
+          "desc": "Boost your Google rankings and attract high-intent organic traffic through technical SEO audits, JSON-LD schema markup, and strategic keyword silos.",
+          "image": "/agency_abstract_graphics.png",
+          "badge": "RANK #1 GOOGLE TARGET",
+          "navTag": "SEO",
+          "deliverables": ["Technical SEO Audits", "JSON-LD Schemas", "Keyword Silos", "Search Authority"]
+        },
+        {
+          "id": "04",
+          "iconName": "Megaphone",
+          "category": "PAID MEDIA & FUNNELS",
+          "title": "Paid Advertising & High-ROAS Funnels",
+          "desc": "Executing ROI-focused Google and Meta ad campaigns targeted at ready-to-buy customers to deliver measurable commercial returns on ad spend.",
+          "image": "/agency_ui_detail.png",
+          "badge": "4.8X AVERAGE ROAS",
+          "navTag": "Marketing",
+          "deliverables": ["Google PPC Ads", "Meta Campaigns", "Pixel Analytics", "Retargeting Funnels"]
+        },
+        {
+          "id": "05",
+          "iconName": "Users",
+          "category": "COMMUNITY & SOCIAL MEDIA",
+          "title": "Social Media Strategy & Audience Growth",
+          "desc": "Cultivating dedicated brand communities across Instagram, LinkedIn, and YouTube using custom motion graphics, video reels, and data-backed posting.",
+          "image": "/agency_workspace.png",
+          "badge": "+340% ENGAGEMENT LIFT",
+          "navTag": "Growth",
+          "deliverables": ["Omnichannel Strategy", "Motion Reels", "Community Growth", "Channel Management"]
+        },
+        {
+          "id": "06",
+          "iconName": "Video",
+          "category": "CREATIVE STUDIO & PRODUCTION",
+          "title": "High-End 4K Video Production & Copywriting",
+          "desc": "Producing cinematic media assets, persuasive copywriting, and brand editorial content designed to engage audiences and convert leads.",
+          "image": "/agency_abstract_graphics.png",
+          "badge": "4K CINEMA PRODUCTION",
+          "navTag": "Studio",
+          "deliverables": ["Brand Copywriting", "4K Video Media", "Social Reels", "Editorial Layouts"]
+        }
+      ]
+    },
+    "methodology": {
+      "eyebrow": "THE METHODOLOGY",
+      "titleIntro": "Our 5-Step Process for ",
+      "titleHighlight": "Predictable Results.",
+      "description": "A transparent, structured workflow engineered to deliver high-speed web platforms with zero friction and guaranteed deadlines.",
+      "steps": [
+        {
+          "step": "01",
+          "iconName": "Search",
+          "title": "Discovery & Market Audit",
+          "desc": "We analyze your business model, target audience personas, conversion bottlenecks, and competitor strategies to build an actionable blueprint.",
+          "deliverables": ["Market Positioning", "User Personas", "Bottleneck Audit"],
+          "badge": "PHASE 01 // AUDIT"
+        },
+        {
+          "step": "02",
+          "iconName": "Compass",
+          "title": "Architecture & Sprint Spec",
+          "desc": "Designing site sitemaps, interactive wireframes, component design tokens, and technical requirements before writing a single line of code.",
+          "deliverables": ["Design Tokens", "Wireframe Specs", "Tech Stack Spec"],
+          "badge": "PHASE 02 // PLAN"
+        },
+        {
+          "step": "03",
+          "iconName": "Code",
+          "title": "High-Speed Engineering",
+          "desc": "Building custom Next.js 15 web components, Tailwind CSS design systems, and Framer Motion micro-animations with weekly demo builds.",
+          "deliverables": ["Next.js Engine", "Motion System", "API Routes"],
+          "badge": "PHASE 03 // BUILD"
+        },
+        {
+          "step": "04",
+          "iconName": "ShieldCheck",
+          "title": "Testing & Accessibility QA",
+          "desc": "Rigorous cross-browser testing, mobile WCAG accessibility audits, SEO schema verification, and Lighthouse 99+ speed optimizations.",
+          "deliverables": ["WCAG 2.1 Audit", "Lighthouse 99+", "SEO Schemas"],
+          "badge": "PHASE 04 // VERIFY"
+        },
+        {
+          "step": "05",
+          "iconName": "Rocket",
+          "title": "Launch & Growth Scaling",
+          "desc": "Zero-downtime production deployment followed by post-launch conversion rate optimization (CRO) and ongoing performance enhancements.",
+          "deliverables": ["Zero Downtime", "CRO Analytics", "Growth Sprints"],
+          "badge": "PHASE 05 // SCALE"
+        }
+      ]
+    },
+    "domainExpertise": {
+      "eyebrow": "DOMAIN EXPERTISE",
+      "titleIntro": "Empowering Ambitious Brands Across ",
+      "titleHighlight": "Key Industries.",
+      "description": "Tailored Next.js web platforms, technical SEO strategies, and high-ROAS marketing funnels engineered specifically for domain customer journeys.",
+      "domains": [
+        {
+          "id": "01",
+          "iconName": "ShoppingCart",
+          "title": "E-Commerce & DTC",
+          "desc": "High-converting online store platforms with Shopify/Next.js integrations, frictionless checkout, and high-ROAS paid Meta ad campaigns.",
+          "tags": ["Custom Checkouts", "High ROAS", "Shopify Engine"]
+        },
+        {
+          "id": "02",
+          "iconName": "Building2",
+          "title": "Real Estate & Property",
+          "desc": "Luxury property showcases, interactive listing search platforms, and high-intent lead generation funnels for brokers and developers.",
+          "tags": ["Property Portals", "Lead Funnels", "3D Showcases"]
+        },
+        {
+          "id": "03",
+          "iconName": "Heart",
+          "title": "Healthcare & Wellness",
+          "desc": "Patient-first medical websites, HIPAA-compliant appointment booking systems, and local SEO campaigns that drive high patient inquiries.",
+          "tags": ["HIPAA Booking", "Local SEO", "Patient Trust"]
+        },
+        {
+          "id": "04",
+          "iconName": "GraduationCap",
+          "title": "Education & EdTech",
+          "desc": "Interactive course platforms, student enrollment portals, and brand identity systems for modern academies and digital learning platforms.",
+          "tags": ["EdTech Portals", "Enrollment", "LMS Integrations"]
+        },
+        {
+          "id": "05",
+          "iconName": "Coins",
+          "title": "Finance & Fintech",
+          "desc": "Bank-grade web platforms, investor relation portals, and trust-building visual identity systems for financial advisory firms.",
+          "tags": ["Fintech UI", "Trust Design", "Investor Portals"]
+        },
+        {
+          "id": "06",
+          "iconName": "Database",
+          "title": "SaaS & B2B Technology",
+          "desc": "High-speed marketing platforms, developer documentation portals, and product demo funnels designed to increase SaaS MRR.",
+          "tags": ["SaaS Landing", "MRR Scaling", "Doc Portals"]
+        },
+        {
+          "id": "07",
+          "iconName": "Utensils",
+          "title": "Hospitality & Luxury",
+          "desc": "Immersive culinary websites, hotel reservation engines, and digital brand experiences for premium restaurants and hospitality groups.",
+          "tags": ["Reservation Engine", "Luxury UI", "Brand Experience"]
+        },
+        {
+          "id": "08",
+          "iconName": "Scale",
+          "title": "Legal & Professional",
+          "desc": "Authoritative law firm platforms, client consultation scheduling, and high-intent local search optimization that attracts high-value legal cases.",
+          "tags": ["Law Firm UI", "Case Intake", "Authority SEO"]
+        }
+      ]
+    },
+    "whyChooseUs": {
+      "eyebrow": "WHY BUSINESSES CHOOSE US",
+      "titleIntro": "Results. Reliability. ",
+      "titleHighlight": "Long-Term Partnerships.",
+      "description": "We go beyond just delivering services — we build long-term partnerships that drive real growth and lasting impact for your business.",
+      "blueCardLine1": "We focus on what matters most —",
+      "blueCardLine2": "your growth.",
+      "blueCardImage": "/why_choose_us_team.png",
+      "blueCardImageAlt": "Why Businesses Choose Us Team",
+      "features": [
+        {
+          "iconName": "Target",
+          "iconBg": "blue",
+          "title": "Proven Results",
+          "desc": "We deliver measurable outcomes that drive real growth for your business."
+        },
+        {
+          "iconName": "Lightbulb",
+          "iconBg": "amber",
+          "title": "Creative Excellence",
+          "desc": "Unique designs & strategies that make your brand stand out in the market."
+        },
+        {
+          "iconName": "MessageSquare",
+          "iconBg": "blue",
+          "title": "Transparent Process",
+          "desc": "Clear communication and full visibility at every stage of the project."
+        },
+        {
+          "iconName": "Clock",
+          "iconBg": "amber",
+          "title": "On-Time Delivery",
+          "desc": "We respect deadlines and deliver on time, every time."
+        },
+        {
+          "iconName": "Headphones",
+          "iconBg": "blue",
+          "title": "Dedicated Support",
+          "desc": "Our team is always here to support you, whenever you need us."
+        },
+        {
+          "iconName": "Handshake",
+          "iconBg": "amber",
+          "title": "Long-Term Partnership",
+          "desc": "We believe in building long-term relationships, not just one-off projects, for sustainable growth."
+        }
+      ]
+    },
+    "executiveLeadership": {
+      "eyebrow": "EXECUTIVE LEADERSHIP",
+      "titleIntro": "Driven by purpose. ",
+      "titleHighlight": "Built for global impact.",
+      "bioParagraph1": "Over the past 7+ years, I've had the privilege of partnering with 300+ ambitious founders and global enterprises — transforming complex digital challenges into high-performing web engines.",
+      "bioParagraph2": "We believe in strategic clarity, high-speed engineering, and conversion-focused design that predictably turns visitor engagement into real business revenue.",
+      "portraitSrc": "/founder_portrait.png",
+      "portraitAlt": "Founder & Chief Digital Strategist",
+      "founderName": "Mohsin",
+      "founderTitle": "// Founder & Chief Digital Strategist",
+      "metrics": [
+        { "value": "7+", "label": "Years Experience" },
+        { "value": "300+", "label": "Global Projects" },
+        { "value": "99.8%", "label": "CSAT Score" }
+      ]
+    },
+    "reviews": {
+      "eyebrow": "CLIENT ENDORSEMENTS & REVIEWS",
+      "titleIntro": "Loved by Founders. ",
+      "titleHighlight": "Trusted by Growth Leaders.",
+      "description": "Real, unedited feedback from tech founders, enterprise leaders, and VC partners who partnered with our design agency to build world-class digital products.",
+      "ratingValue": "4.9 / 5.0 Rating",
+      "ratingSub": "300+ Verified Case Studies",
+      "list": [
+        {
+          "quote": "360 Designs Agency transformed our product architecture and brand presence into an award-winning Next.js engine. Their engineering velocity, strategic clarity, and ongoing support are unmatched.",
+          "name": "John Carter",
+          "role": "CEO & Co-Founder",
+          "company": "TechNova Inc. (USA)",
+          "initial": "J",
+          "accent": "#0306AC",
+          "impact": "+140% ORGANIC LEAD CONVERSION",
+          "tag": "SAAS & ENTERPRISE"
+        },
+        {
+          "quote": "The team delivered far beyond our highest expectations. Our organic traffic and leads jumped by 240% within the first 60 days following launch. Truly a world-class digital partner.",
+          "name": "Sarah Mitchell",
+          "role": "Chief Marketing Officer",
+          "company": "BrightWave Global (UK)",
+          "initial": "S",
+          "accent": "#E9BD36",
+          "impact": "4.8X ORGANIC ROAS LIFT",
+          "tag": "FINTECH & WEALTH"
+        },
+        {
+          "quote": "Professional, hyper-responsive, and relentlessly focused on conversion ROI. 360 Designs Agency is our long-term strategic growth engine and primary technical partner.",
+          "name": "David Thompson",
+          "role": "Founder & Managing Director",
+          "company": "Nexus Solutions (UAE)",
+          "initial": "D",
+          "accent": "#0306AC",
+          "impact": "99.8% CSAT & ZERO DOWNTIME",
+          "tag": "E-COMMERCE & RETAIL"
+        },
+        {
+          "quote": "Absolutely exceptional craftsmanship. They understood our brand vision immediately and delivered a flawless web platform ahead of schedule with zero post-launch bugs.",
+          "name": "Emily Rodriguez",
+          "role": "Chief Operating Officer",
+          "company": "BrightPath Tech (Germany)",
+          "initial": "E",
+          "accent": "#E9BD36",
+          "impact": "100/100 LIGHTHOUSE PERFORMANCE",
+          "tag": "HEALTHCARE & BIO"
+        },
+        {
+          "quote": "From complex UX architecture to high-converting funnels — they executed with military precision. Our conversion rate increased by 42% in month one alone.",
+          "name": "Marcus Liu",
+          "role": "Head of Growth",
+          "company": "Apex Digital Capital (Singapore)",
+          "initial": "M",
+          "accent": "#0306AC",
+          "impact": "+42% MONTH-1 CRO LIFT",
+          "tag": "VENTURE CAPITAL"
+        }
+      ]
+    },
+    "ctaBanner": {
+      "eyebrow": "READY TO GROW YOUR BUSINESS?",
+      "titleIntro": "Let's Build Something ",
+      "titleWord1": "Amazing ",
+      "titleWord2": "Together",
+      "description": "Have a project in mind? Let's discuss your ideas and turn them into powerful digital solutions that drive real results for your business.",
+      "ctaPrimaryText": "GET STARTED TODAY",
+      "ctaPrimaryHref": "/#contact",
+      "ctaSecondaryText": "WATCH OUR STORY"
+    }
   },
   "aboutOwner": {
     "sectionNumber": "01",
