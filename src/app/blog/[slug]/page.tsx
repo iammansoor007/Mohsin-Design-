@@ -32,11 +32,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     (p) => p.slug === slug || String(p.id) === slug
   );
 
-  if (!post) return { title: "Post Not Found | 360 Designs Agency" };
+  if (!post) return { title: "Post Not Found | Mohsin Designs" };
 
   return {
     title: {
-      absolute: `${post.title} | 360 Designs Agency`
+      absolute: `${post.title} | Mohsin Designs`
     },
     description: post.desc,
     openGraph: {
@@ -96,7 +96,7 @@ export default async function BlogPostPage({ params }: Props) {
         },
         "publisher": {
           "@type": "Organization",
-          "name": "360 Designs Agency"
+          "name": "Mohsin Designs"
         },
         "image": post.image,
         "wordCount": wordCount,
