@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Clock,
@@ -169,7 +170,7 @@ export default function BlogPage() {
           </div>
         </section>
 
-        {/* ── 3. MODERN EDITORIAL CARDS ────────────────────────────────── */}
+        {/* ── 3. MODERN EDITORIAL CARDS WITH LINK WRAPPER ─────────────── */}
         <section id="articles" className="my-10">
           <AnimatePresence mode="wait">
             <motion.div
@@ -181,9 +182,10 @@ export default function BlogPage() {
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
               {filteredPosts.map((post) => (
-                <div
+                <Link
                   key={post.id}
-                  className="bg-white dark:bg-[#12121e] border border-brand-zinc-200/90 dark:border-white/10 hover:border-brand-blue/60 dark:hover:border-brand-yellow/60 rounded-[28px] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-400 flex flex-col justify-between group select-none relative"
+                  href={`/blog/${post.slug || post.id}`}
+                  className="bg-white dark:bg-[#12121e] border border-brand-zinc-200/90 dark:border-white/10 hover:border-brand-blue/60 dark:hover:border-brand-yellow/60 rounded-[28px] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-400 flex flex-col justify-between group select-none relative block cursor-pointer"
                 >
                   <div>
                     {/* Full-Bleed Cover Image Banner */}
@@ -222,7 +224,7 @@ export default function BlogPage() {
                       {post.readTime}
                     </span>
                   </div>
-                </div>
+                </Link>
               ))}
             </motion.div>
           </AnimatePresence>
