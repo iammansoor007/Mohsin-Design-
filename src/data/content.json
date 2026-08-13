@@ -25,7 +25,7 @@
       },
       {
         "label": "Services",
-        "href": "/#services"
+        "href": "/services"
       },
       {
         "label": "Portfolio",
@@ -2229,6 +2229,112 @@
       },
       "portraitSrc": "/founder_portrait_nobg.png",
       "portraitAlt": "Founder & Creative Director"
+    }
+  },
+  "servicesPage": {
+    "metadata": {
+      "title": "Our Services | Mohsin Designs",
+      "description": "From brand identity and SEO to web design, paid ads, and social media — Mohsin Designs delivers end-to-end digital solutions that grow your business."
+    },
+    "hero": {
+      "eyebrow": "WHAT WE DO",
+      "titleIntro": "Complete Digital Solutions to ",
+      "titleHighlight": "Grow Your Business",
+      "description": "From strategy to execution, we provide end-to-end digital solutions that help you generate leads, grow traffic, and increase revenue.",
+      "ctaPrimary": { "label": "Start a Project", "href": "/contact" },
+      "ctaSecondary": { "label": "Book a Consultation", "href": "/contact" },
+      "badgeText": "OUR SERVICES"
+    },
+    "grid": {
+      "eyebrow": "WHAT WE DO",
+      "titleIntro": "Our Digital ",
+      "titleHighlight": "Services",
+      "subtext": "Powerful services designed to meet your business goals and deliver measurable results.",
+      "cards": [
+        {
+          "id": "01",
+          "iconName": "Search",
+          "tag": "SEO",
+          "title": "Search Engine Optimization (SEO)",
+          "desc": "Rank higher on search engines, get more traffic, and grow your business organically with proven SEO strategies.",
+          "color": "#2563EB",
+          "href": "/contact"
+        },
+        {
+          "id": "02",
+          "iconName": "Monitor",
+          "tag": "Web Design",
+          "title": "Website Design & Development",
+          "desc": "Beautiful, fast, and conversion-focused websites built on Next.js and Tailwind CSS that create lasting impressions.",
+          "color": "#7C3AED",
+          "href": "/contact"
+        },
+        {
+          "id": "03",
+          "iconName": "Megaphone",
+          "tag": "Social Media",
+          "title": "Social Media Marketing",
+          "desc": "Engage your audience, build your brand, and grow your business across social platforms with tailored content strategies.",
+          "color": "#DB2777",
+          "href": "/contact"
+        },
+        {
+          "id": "04",
+          "iconName": "MousePointerClick",
+          "tag": "Paid Ads",
+          "title": "Pay Per Click Advertising",
+          "desc": "Target the right audience, drive quality traffic, and maximize your ROI with Google & Meta ad campaigns.",
+          "color": "#D97706",
+          "href": "/contact"
+        },
+        {
+          "id": "05",
+          "iconName": "Palette",
+          "tag": "Branding",
+          "title": "Branding & Identity Design",
+          "desc": "Build a strong brand identity that connects with your audience and sets you apart — logos, guidelines, and design systems.",
+          "color": "#059669",
+          "href": "/contact"
+        },
+        {
+          "id": "06",
+          "iconName": "PenTool",
+          "tag": "Content",
+          "title": "Content Marketing & Copywriting",
+          "desc": "Powerful content that informs, engages, and converts your visitors into customers through strategic storytelling.",
+          "color": "#0891B2",
+          "href": "/contact"
+        },
+        {
+          "id": "07",
+          "iconName": "ShoppingCart",
+          "tag": "E-Commerce",
+          "title": "E-Commerce Solutions",
+          "desc": "Scalable e-commerce stores built on Shopify, WooCommerce, or Next.js that provide seamless shopping experiences.",
+          "color": "#7C3AED",
+          "href": "/contact"
+        },
+        {
+          "id": "08",
+          "iconName": "BarChart2",
+          "tag": "Analytics",
+          "title": "Analytics & Conversion Optimization",
+          "desc": "Track performance, optimize funnels, and increase conversions with data-driven insights and A/B testing.",
+          "color": "#2563EB",
+          "href": "/contact"
+        }
+      ]
+    },
+    "cta": {
+      "badgeText": "GET STARTED",
+      "titleIntro": "Ready to ",
+      "titleHighlight": "Grow Your Business?",
+      "description": "Let's discuss how our digital solutions can help you attract more customers, increase sales, and grow your brand online. First consultation is completely free.",
+      "ctaPrimary": { "label": "Schedule Free Consultation", "href": "/contact" },
+      "ctaSecondary": { "label": "Explore Portfolio", "href": "/portfolio" },
+      "guaranteeText": "No commitment. Completely free.",
+      "portraitSrc": "/founder_portrait_nobg.png",
+      "portraitAlt": "Mohsin — Founder & Creative Director"
     }
   }
 }
