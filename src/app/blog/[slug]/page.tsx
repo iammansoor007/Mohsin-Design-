@@ -147,15 +147,18 @@ export default async function BlogPostPage({ params }: Props) {
       <ReadingProgress />
 
       {/* ── 1. HERO SECTION WITH FULL BLEED BACKGROUND ────────────────── */}
-      <section className="-mt-[110px] sm:-mt-[125px] lg:-mt-[140px] pt-[140px] sm:pt-[160px] lg:pt-[175px] pb-10 sm:pb-14 relative overflow-hidden border-b border-brand-zinc-200 dark:border-white/10">
+      <section className="-mt-[110px] sm:-mt-[125px] lg:-mt-[140px] pt-[140px] sm:pt-[160px] lg:pt-[175px] pb-12 sm:pb-16 relative overflow-hidden border-b border-brand-zinc-200 dark:border-white/10">
         {/* Background Graphic Bleed */}
         <div className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
           <img
             src="/portfolio_hero_bg.png"
             alt="Header Background"
-            className="w-full h-full object-cover object-right opacity-100 dark:opacity-60"
+            className="absolute inset-0 w-full h-full object-cover object-right opacity-30 dark:opacity-20"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent dark:from-[#080710] dark:via-[#080710]/90 dark:to-transparent pointer-events-none" />
+          {/* Strong solid white/dark background to prevent any bleed-through on left */}
+          <div className="absolute inset-0 bg-white dark:bg-[#080710]" style={{ maskImage: 'linear-gradient(to right, white 55%, transparent 90%)', WebkitMaskImage: 'linear-gradient(to right, white 55%, transparent 90%)' }} />
+          {/* Additional gradient layer */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-transparent dark:from-[#080710] dark:via-[#080710]/95 dark:to-transparent pointer-events-none" />
         </div>
 
         <div className="mx-auto max-w-6xl px-4 sm:px-6 relative z-10 w-full">
@@ -173,7 +176,7 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
 
           {/* Title */}
-          <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white leading-[1.18] tracking-tight mb-6">
+          <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white leading-[1.18] tracking-tight mb-6 max-w-3xl drop-shadow-sm">
             {post.title}
           </h1>
 
@@ -196,6 +199,7 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         </div>
       </section>
+
 
       {/* Featured Cover Image Container */}
       <div className="mx-auto max-w-6xl px-4 sm:px-6 mt-8 sm:mt-10 relative z-20">
