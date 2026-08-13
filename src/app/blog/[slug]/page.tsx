@@ -19,8 +19,7 @@ import {
 
 import ReadingProgress from "@/components/blog/ReadingProgress";
 import ShareButton from "@/components/blog/ShareButton";
-import blogData from "@/data/blogData.json";
-import "../blog.css";
+import contentData from "@/data/content.json";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -28,6 +27,7 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
+  const blogData = contentData.blogPage;
   const post = blogData.blogPosts.find(
     (p) => p.slug === slug || String(p.id) === slug
   );
@@ -63,6 +63,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
+  const blogData = contentData.blogPage;
 
   const post = blogData.blogPosts.find(
     (p) => p.slug === slug || String(p.id) === slug

@@ -18,10 +18,7 @@ import {
 } from "lucide-react";
 
 // Extracted JSON Data
-import blogData from "@/data/blogData.json";
-
-// Extracted Modular Stylesheet
-import "./blog.css";
+import contentData from "@/data/content.json";
 
 // Hand-Drawn SVG Brush stroke variants
 const drawVariants = {
@@ -48,7 +45,7 @@ export default function BlogPage() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
 
-  const { hero, categories, blogPosts, ctaBanner } = blogData;
+  const { hero, categories, blogPosts, ctaBanner } = contentData.blogPage;
 
   const filteredPosts =
     activeCategory === "all"
@@ -57,7 +54,7 @@ export default function BlogPage() {
 
   return (
     <main className="flex-1 w-full bg-white dark:bg-[#080710] text-brand-dark dark:text-white transition-colors duration-300 relative overflow-x-clip font-sans pb-6">
-      
+
       {/* Floating Blurred Mesh Blobs */}
       <div className="absolute top-[1%] left-[-15%] w-[50vw] h-[50vw] rounded-full bg-brand-blue/[0.03] dark:bg-brand-blue/[0.06] blur-[120px] pointer-events-none select-none -z-10 animate-float-blob" />
       <div className="absolute top-[28%] right-[-10%] w-[45vw] h-[45vw] rounded-full bg-brand-yellow/[0.02] dark:bg-brand-yellow/[0.05] blur-[150px] pointer-events-none select-none -z-10 animate-float-blob-delayed" />
@@ -145,11 +142,10 @@ export default function BlogPage() {
                     setActiveCategory(cat.id);
                     setCurrentPage(1);
                   }}
-                  className={`relative flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full text-xs font-black tracking-wider uppercase transition-colors duration-300 cursor-pointer whitespace-nowrap z-10 group ${
-                    isActive
+                  className={`relative flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full text-xs font-black tracking-wider uppercase transition-colors duration-300 cursor-pointer whitespace-nowrap z-10 group ${isActive
                       ? "text-white dark:text-[#080710]"
                       : "text-brand-zinc-600 dark:text-zinc-400 hover:text-brand-dark dark:hover:text-white"
-                  }`}
+                    }`}
                 >
                   {/* Animated Spring Sliding Background Pill */}
                   {isActive && (
@@ -246,11 +242,10 @@ export default function BlogPage() {
                 <button
                   key={num}
                   onClick={() => setCurrentPage(num)}
-                  className={`w-9 h-9 rounded-full text-xs font-mono font-black flex items-center justify-center transition-all ${
-                    currentPage === num
+                  className={`w-9 h-9 rounded-full text-xs font-mono font-black flex items-center justify-center transition-all ${currentPage === num
                       ? "bg-brand-blue text-white shadow-md shadow-brand-blue/30 dark:bg-brand-yellow dark:text-brand-dark"
                       : "text-brand-zinc-600 dark:text-zinc-400 hover:bg-brand-zinc-100 dark:hover:bg-zinc-800"
-                  }`}
+                    }`}
                 >
                   {num}
                 </button>
@@ -260,11 +255,10 @@ export default function BlogPage() {
 
               <button
                 onClick={() => setCurrentPage(8)}
-                className={`w-9 h-9 rounded-full text-xs font-mono font-black flex items-center justify-center transition-all ${
-                  currentPage === 8
+                className={`w-9 h-9 rounded-full text-xs font-mono font-black flex items-center justify-center transition-all ${currentPage === 8
                     ? "bg-brand-blue text-white shadow-md shadow-brand-blue/30 dark:bg-brand-yellow dark:text-brand-dark"
                     : "text-brand-zinc-600 dark:text-zinc-400 hover:bg-brand-zinc-100 dark:hover:bg-zinc-800"
-                }`}
+                  }`}
               >
                 8
               </button>

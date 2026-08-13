@@ -8,7 +8,7 @@
     "logoText": "360 Designs Agency",
     "logoSub": "Digital Marketing Agency",
     "ctaText": "Let's Talk",
-    "ctaHref": "#contact",
+    "ctaHref": "/contact",
     "ariaToggleMenu": "Toggle Menu",
     "links": [
       {
@@ -37,7 +37,7 @@
       },
       {
         "label": "Contact",
-        "href": "/#contact"
+        "href": "/contact"
       }
     ]
   },
@@ -1200,40 +1200,53 @@
   },
   "blog": {
     "sectionNumber": "06",
-    "sectionTag": "JOURNAL",
+    "sectionTag": "BLOG",
     "titleIntro": "Latest ",
-    "titleHighlight": "Blog",
-    "description": "Expert insights and strategies curated by our team to help your business grow online.",
-    "labelReadTime": "min read",
-    "featuredLabel": "Featured Article",
-    "dateSeparator": " • ",
+    "titleHighlight": "Insights & Articles",
+    "description": "Stay ahead of the curve with practical guides, case studies, and actionable strategies on design, SEO, and business growth.",
+    "viewAllBtn": "View All Articles",
+    "readTimeLabel": "min read",
+    "dateSeparator": "•",
+    "featuredLabel": "FEATURED",
     "posts": [
       {
-        "image": "/blog1.png",
-        "date": "May 2026",
+        "id": 1,
+        "title": "How to Measure SEO Performance After Hiring an Agency",
+        "category": "SEO Strategy",
+        "date": "May 8, 2026",
+        "readTime": "7 min read",
+        "snippet": "Learn the key metrics, tools, and reporting frameworks to track SEO performance and ensure your agency delivers compounding ROI.",
+        "excerpt": "Learn the key metrics, tools, and reporting frameworks to track SEO performance and ensure your agency delivers compounding ROI.",
+        "image": "/blog_card_1.png",
+        "href": "/blog/how-to-measure-seo-performance-after-hiring-an-agency",
+        "link": "/blog/how-to-measure-seo-performance-after-hiring-an-agency",
+        "featured": true
+      },
+      {
+        "id": 2,
+        "title": "The Real Cost of Cheap Web Design & Why It Hurts Growth",
+        "category": "Web Design",
+        "date": "May 5, 2026",
         "readTime": "5 min read",
-        "title": "Why Every Website Needs Professional SEO Services for Success",
-        "excerpt": "A deep dive into why SEO is the backbone of your online presence and how it drives long-term, sustainable growth for your business.",
-        "category": "SEO",
-        "link": "#"
+        "snippet": "Discover how low-cost templates cost businesses thousands in lost sales, slow load speeds, and poor conversion rates.",
+        "excerpt": "Discover how low-cost templates cost businesses thousands in lost sales, slow load speeds, and poor conversion rates.",
+        "image": "/blog_card_2.png",
+        "href": "/blog/the-real-cost-of-cheap-web-design-and-why-it-hurts-growth",
+        "link": "/blog/the-real-cost-of-cheap-web-design-and-why-it-hurts-growth",
+        "featured": false
       },
       {
-        "image": "/blog2.png",
-        "date": "May 2026",
-        "readTime": "4 min read",
-        "title": "How to Boost Your Online Visibility with SEO Content Services",
-        "excerpt": "Learn how publishing the right content can answer your customers' questions and establish your brand as an industry authority.",
-        "category": "MARKETING",
-        "link": "#"
-      },
-      {
-        "image": "/blog3.png",
-        "date": "May 2026",
-        "readTime": "6 min read",
-        "title": "Technical SEO Services That Fix Issues & Boost Long-Term Rankings",
-        "excerpt": "A guide to the technical optimizations in 2026 that ensure search engines can find you and direct qualified leads to your site.",
-        "category": "TECHNICAL SEO",
-        "link": "#"
+        "id": 3,
+        "title": "PPC vs. Organic SEO: Which Delivers Better ROI in 2026?",
+        "category": "Digital Marketing",
+        "date": "Apr 28, 2026",
+        "readTime": "8 min read",
+        "snippet": "An honest comparison of Google Ads vs. organic search engine optimization to help you invest your marketing budget wisely.",
+        "excerpt": "An honest comparison of Google Ads vs. organic search engine optimization to help you invest your marketing budget wisely.",
+        "image": "/blog_card_3.png",
+        "href": "/blog/ppc-vs-organic-seo-which-delivers-better-roi-in-2026",
+        "link": "/blog/ppc-vs-organic-seo-which-delivers-better-roi-in-2026",
+        "featured": false
       }
     ]
   },
@@ -1682,6 +1695,540 @@
       "ctaSecondaryHref": "#presence-section",
       "portraitSrc": "/locations_cta_team.png",
       "portraitAlt": "Global digital marketing agency team strategy session"
+    }
+  },
+  "contactPage": {
+    "metadata": {
+      "title": "Contact Us | 360 Designs Agency",
+      "description": "Have a project in mind or want to scale your business online? Get in touch with 360 Designs Agency. We respond within 24 hours."
+    },
+    "hero": {
+      "eyebrow": "GET IN TOUCH",
+      "titleLine1": "Let's Build Something",
+      "titleLine2": "Amazing",
+      "titleHighlight": "Together.",
+      "description": "Have a project in mind or just want to say hello? We'd love to hear from you. Fill out the form and we'll get back to you within 24 hours.",
+      "form": {
+        "title": "Send Us a Message",
+        "services": [
+          "Select a service",
+          "SEO & Organic Growth",
+          "Website Design & Development",
+          "Paid Ads (Google & Meta)",
+          "Social Media Management",
+          "Brand Identity & Design",
+          "Full Digital Strategy"
+        ],
+        "submitButton": "Send Message",
+        "guaranteeText": "We respect your privacy. No spam, ever."
+      }
+    },
+    "contactMethods": {
+      "eyebrow": "OTHER WAYS TO CONNECT",
+      "title": "Choose the way that works best for you.",
+      "methods": [
+        {
+          "id": "call",
+          "icon": "Phone",
+          "title": "Call Us",
+          "info": "+1 (123) 456-7890",
+          "sub": "Mon - Fri, 9AM - 6PM EST",
+          "actionHref": "tel:+11234567890",
+          "color": "blue"
+        },
+        {
+          "id": "email",
+          "icon": "Mail",
+          "title": "Email Us",
+          "info": "hello@mohsingdesigns.com",
+          "sub": "We reply within 24 hours",
+          "actionHref": "mailto:hello@mohsingdesigns.com",
+          "color": "indigo"
+        },
+        {
+          "id": "whatsapp",
+          "icon": "MessageSquare",
+          "title": "WhatsApp",
+          "info": "+1 (123) 456-7890",
+          "sub": "Chat with us instantly",
+          "actionHref": "https://wa.me/11234567890",
+          "color": "emerald"
+        },
+        {
+          "id": "book-call",
+          "icon": "Calendar",
+          "title": "Book a Call",
+          "info": "Schedule a free consultation",
+          "sub": "Pick a time that works for you",
+          "actionHref": "#contact-form",
+          "color": "purple"
+        }
+      ]
+    },
+    "office": {
+      "title": "Our Office",
+      "addressLine1": "123 Business St, Suite 100",
+      "addressLine2": "New York, NY 10001",
+      "country": "United States",
+      "hoursWeekdays": "Mon - Fri: 9:00 AM - 6:00 PM EST",
+      "hoursWeekends": "Sat - Sun: Closed",
+      "phone": "+1 (123) 456-7890",
+      "email": "hello@mohsingdesigns.com",
+      "mapCoordinates": {
+        "lat": 40.7128,
+        "lng": -74.006,
+        "zoom": 13
+      }
+    },
+    "ctaBanner": {
+      "eyebrow": "PREFER A DIRECT STRATEGY SESSION?",
+      "titleIntro": "Want to Speak",
+      "titleHighlight": "Directly",
+      "titleLine2": "With Our Founders?",
+      "description": "Skip the form queue and schedule a 1-on-1 strategy call with our Lead Creative Director to audit your brand, SEO, and growth bottlenecks.",
+      "ctaPrimary": {
+        "label": "BOOK A DIRECT CALL",
+        "href": "tel:+11234567890"
+      },
+      "ctaSecondary": {
+        "label": "CHAT ON WHATSAPP",
+        "href": "https://wa.me/11234567890"
+      },
+      "guaranteeText": "100% free discovery call. No sales pitch, just actionable strategy.",
+      "portraitSrc": "/founder_portrait_nobg.png",
+      "portraitAlt": "Founder & Creative Director"
+    }
+  },
+  "blogPage": {
+    "metadata": {
+      "title": "Blog & Insights | 360 Designs Agency",
+      "description": "Explore our latest articles, expert guides, and battle-tested strategies to grow your business online and stay ahead of the competition."
+    },
+    "hero": {
+      "badgeText": "OUR BLOG & INSIGHTS",
+      "titleLine1": "Insights That Drive",
+      "titleHighlight": "Real Results.",
+      "description": "Explore our latest articles, expert guides, and battle-tested strategies to grow your business online and stay ahead of the competition.",
+      "ctaPrimary": {
+        "label": "EXPLORE ALL ARTICLES",
+        "href": "#articles"
+      },
+      "ctaSecondary": {
+        "label": "BROWSE CATEGORIES",
+        "href": "#categories"
+      },
+      "heroBgImage": "/portfolio_hero_bg.png",
+      "heroBgAlt": "Blog Hero Background"
+    },
+    "categories": [
+      {
+        "id": "all",
+        "label": "All Articles",
+        "count": 12,
+        "icon": "LayoutGrid"
+      },
+      {
+        "id": "seo",
+        "label": "SEO Strategies",
+        "count": 8,
+        "icon": "Globe"
+      },
+      {
+        "id": "web-design",
+        "label": "Web Design",
+        "count": 2,
+        "icon": "Palette"
+      },
+      {
+        "id": "digital-marketing",
+        "label": "Marketing",
+        "count": 2,
+        "icon": "Share2"
+      }
+    ],
+    "blogPosts": [
+      {
+        "id": 1,
+        "slug": "how-to-measure-seo-performance-after-hiring-an-agency",
+        "categoryKey": "seo",
+        "badge": "SEO Strategy",
+        "readTime": "7 min read",
+        "title": "How to Measure SEO Performance After Hiring an Agency",
+        "desc": "Learn the key metrics, tools, and reporting frameworks to track SEO performance and ensure your agency delivers compounding ROI.",
+        "date": "May 8, 2026",
+        "image": "/blog_card_1.png",
+        "author": {
+          "name": "Mohsin",
+          "role": "Founder & Creative Director",
+          "avatar": "/founder_portrait_nobg.png"
+        },
+        "takeaways": [
+          "Focus on Organic Revenue and Qualified Leads, not just vanity keyword rankings.",
+          "Track Google Search Console Impression-to-Click Conversion Ratios weekly.",
+          "Demand monthly transparent attribution reports showing bottom-line ROI.",
+          "Monitor technical site health and Core Web Vitals alongside content growth."
+        ],
+        "content": [
+          {
+            "heading": "The Real Metrics That Matter in Modern Agency Partnerships",
+            "text": "When investing in professional SEO services, tracking the right KPIs is crucial to evaluating campaign success. Too many business owners fall into the trap of monitoring superficial vanity metrics—like tracking rankings for non-commercial search terms—while ignoring the metrics that actually impact the bottom line."
+          },
+          {
+            "heading": "1. Organic Conversion Rate and Qualified Lead Volume",
+            "text": "Rankings are simply a gateway. The true indicator of effective SEO is whether search traffic converts into inbound phone calls, form submissions, and booked consultations. High-performing agencies optimize for high-intent transactional keywords that bring in ready-to-buy customers."
+          },
+          {
+            "heading": "2. Google Search Console & Non-Branded Organic Impressions",
+            "text": "Before conversions spike, non-branded search impressions provide an early diagnostic signal of search authority growth. A healthy organic strategy consistently expands your impression footprint across non-branded commercial search queries."
+          },
+          {
+            "heading": "3. Technical Site Health & Core Web Vitals",
+            "text": "Technical foundation dictates organic indexation speed and ranking stability. A top-tier SEO partner ensures page load times remain under 1.8 seconds, mobile responsiveness is flawless, and clean XML sitemap indexing is maintained without crawl errors."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "slug": "questions-to-ask-before-hiring-an-seo-agency",
+        "categoryKey": "seo",
+        "badge": "Buyer's Guide",
+        "readTime": "6 min read",
+        "title": "Questions to Ask Before Hiring an SEO Agency",
+        "desc": "Hiring the right SEO agency can make or break your business growth. Here are the 10 must-ask questions before signing.",
+        "date": "May 6, 2026",
+        "image": "/blog_card_2.png",
+        "author": {
+          "name": "Mohsin",
+          "role": "Founder & Creative Director",
+          "avatar": "/founder_portrait_nobg.png"
+        },
+        "takeaways": [
+          "Ask for verified case studies in your specific industry niche.",
+          "Understand their exact link-building and content production processes.",
+          "Ensure full ownership of all analytics accounts, content, and site assets.",
+          "Avoid agencies promising guaranteed #1 rankings overnight."
+        ],
+        "content": [
+          {
+            "heading": "Navigating the Search Agency Vetting Process",
+            "text": "Partnering with an SEO agency is a strategic investment in your market share. To separate elite growth agencies from low-quality providers, asking precise technical and operational questions during pre-contract discovery is essential."
+          },
+          {
+            "heading": "Key Vetting Criteria & Questions to Ask",
+            "text": "1. Can you share verified case studies with bottom-line revenue metrics?\n2. What is your process for technical site audits and speed optimization?\n3. How do you earn high-authority backlinks without risky black-hat tactics?\n4. Will our team retain 100% ownership of all created content and site assets?"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "slug": "10-must-know-seo-strategies-for-hvac-contractors",
+        "categoryKey": "seo",
+        "badge": "HVAC SEO",
+        "readTime": "6 min read",
+        "title": "10 Must-Know SEO Strategies for HVAC Contractors",
+        "desc": "Proven local SEO tactics designed to help HVAC contractors dominate local map packs, capture emergency calls, and grow revenue.",
+        "date": "May 4, 2026",
+        "image": "/blog_card_3.png",
+        "author": {
+          "name": "Mohsin",
+          "role": "Founder & Creative Director",
+          "avatar": "/founder_portrait_nobg.png"
+        },
+        "takeaways": [
+          "Dominate the Google 3-Pack with optimized Google Business Profiles.",
+          "Build location-specific service landing pages for every target city.",
+          "Automate review generation after every emergency service call.",
+          "Optimize for voice search queries like 'HVAC repair near me'."
+        ],
+        "content": [
+          {
+            "heading": "Dominating Local Search for Emergency HVAC Services",
+            "text": "For HVAC contractors, ranking in the Google Map Pack during peak summer heatwaves or winter freezes directly determines business success. Local homeowners search with high intent when heating or AC systems fail."
+          },
+          {
+            "heading": "Core HVAC Search Tactics",
+            "text": "1. Claim and optimize Google Business Profile categories for AC Repair & Furnace Installation.\n2. Add GEO-targeted service area pages with local customer testimonials.\n3. Publish transparent pricing guides to capture early-stage research queries."
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "slug": "best-seo-strategies-for-dental-clinics-in-2026",
+        "categoryKey": "seo",
+        "badge": "Local SEO",
+        "readTime": "6 min read",
+        "title": "Best SEO Strategies for Dental Clinics in 2026",
+        "desc": "Attract more local patients and scale your dental practice with these battle-tested local SEO and Google Business profile optimization steps.",
+        "date": "May 2, 2026",
+        "image": "/blog_card_4.png",
+        "author": {
+          "name": "Mohsin",
+          "role": "Founder & Creative Director",
+          "avatar": "/founder_portrait_nobg.png"
+        },
+        "takeaways": [
+          "Optimize for high-value cosmetic dental treatment search terms.",
+          "Use patient review automation to maintain 4.9+ star Google ratings.",
+          "Publish treatment guides explaining clear procedures and pricing.",
+          "Ensure seamless online booking integration on mobile landing pages."
+        ],
+        "content": [
+          {
+            "heading": "Attracting High-Value Dental Patients Online",
+            "text": "Dental practices rely on strong local search visibility to capture patients seeking cosmetic dentistry, clear aligners, and emergency dental care. Implementing local search best practices ensures your clinic stays visible when patients search."
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "slug": "what-to-expect-in-the-first-90-days-of-seo-services",
+        "categoryKey": "seo",
+        "badge": "SEO Campaign",
+        "readTime": "7 min read",
+        "title": "What to Expect in the First 90 Days of SEO Services",
+        "desc": "A realistic timeline and milestone breakdown of what happens during month 1, 2, and 3 of a professional SEO growth campaign.",
+        "date": "Apr 30, 2026",
+        "image": "/blog_card_5.png",
+        "author": {
+          "name": "Mohsin",
+          "role": "Founder & Creative Director",
+          "avatar": "/founder_portrait_nobg.png"
+        },
+        "takeaways": [
+          "Month 1: Deep technical audit, keyword architecture & competitor analysis.",
+          "Month 2: On-page optimization, content pillar creation & page speed fixes.",
+          "Month 3: Authority link building, initial keyword ranking momentum & lead tracking."
+        ],
+        "content": [
+          {
+            "heading": "The 90-Day SEO Milestone Roadmap",
+            "text": "SEO is a compounding growth asset. Understanding the initial 90-day phase sets clear expectations and aligns team execution with long-term revenue targets."
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "slug": "why-your-seo-strategy-needs-regular-updates-in-2026",
+        "categoryKey": "seo",
+        "badge": "Algorithm Safe",
+        "readTime": "6 min read",
+        "title": "Why Your SEO Strategy Needs Regular Updates in 2026",
+        "desc": "Search engine algorithms evolve every month. Discover how continuous content and technical updates protect your organic revenue.",
+        "date": "Apr 28, 2026",
+        "image": "/blog_card_6.png",
+        "author": {
+          "name": "Mohsin",
+          "role": "Founder & Creative Director",
+          "avatar": "/founder_portrait_nobg.png"
+        },
+        "takeaways": [
+          "Adapt to Google Core Updates with ongoing content refreshes.",
+          "Audit technical site health quarterly to prevent indexing decay.",
+          "Leverage structured schema markup for rich search snippet features."
+        ],
+        "content": [
+          {
+            "heading": "Future-Proofing Search Rankings Against Core Updates",
+            "text": "Search algorithms are updated regularly. Continuous content updating and technical vigilance preserve ranking positions against algorithm fluctuations."
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "slug": "why-plumbing-companies-need-seo-to-rank-locally",
+        "categoryKey": "seo",
+        "badge": "Plumbing SEO",
+        "readTime": "6 min read",
+        "title": "Why Plumbing Companies Need SEO to Rank Locally",
+        "desc": "Local search is the primary source of emergency plumbing calls. Learn how local SEO drives high-intent service leads directly to your dispatchers.",
+        "date": "Apr 26, 2026",
+        "image": "/blog_card_7.png",
+        "author": {
+          "name": "Mohsin",
+          "role": "Founder & Creative Director",
+          "avatar": "/founder_portrait_nobg.png"
+        },
+        "takeaways": [
+          "Capture urgent emergency plumbing searches with 24/7 schema markup.",
+          "Build localized landing pages for surrounding service suburbs.",
+          "Optimize Google Business Profile posts and photo uploads weekly."
+        ],
+        "content": [
+          {
+            "heading": "Capturing Emergency Service Demand Locally",
+            "text": "When pipes burst or drains clog, homeowners turn immediately to local search. Local SEO places your plumbing business at the top when emergency calls happen."
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "slug": "why-businesses-recommend-professional-seo-services",
+        "categoryKey": "seo",
+        "badge": "SEO Services",
+        "readTime": "6 min read",
+        "title": "Why Businesses Recommend Professional SEO Services",
+        "desc": "Real case studies and economic reasons why scaling businesses invest in professional SEO teams over unproven DIY tools.",
+        "date": "Apr 24, 2026",
+        "image": "/blog_card_8.png",
+        "author": {
+          "name": "Mohsin",
+          "role": "Founder & Creative Director",
+          "avatar": "/founder_portrait_nobg.png"
+        },
+        "takeaways": [
+          "Professional teams bring specialized technical, creative, and analytics talent.",
+          "Compounding organic traffic reduces long-term paid acquisition CAC.",
+          "Dedicated account management ensures clear transparent reporting."
+        ],
+        "content": [
+          {
+            "heading": "The Economics of Professional Organic Growth",
+            "text": "Scaling companies recognize that organic search is the most cost-effective acquisition channel over time, providing sustainable returns beyond paid ads."
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "slug": "seo-audit-services-how-they-help-fix-ranking-problems",
+        "categoryKey": "seo",
+        "badge": "Technical Audit",
+        "readTime": "7 min read",
+        "title": "SEO Audit Services: How They Help Fix Ranking Problems",
+        "desc": "Deep technical audits uncover site architecture bugs, indexing blocks, and slow page speeds that choke your search traffic.",
+        "date": "Apr 22, 2026",
+        "image": "/blog_card_9.png",
+        "author": {
+          "name": "Mohsin",
+          "role": "Founder & Creative Director",
+          "avatar": "/founder_portrait_nobg.png"
+        },
+        "takeaways": [
+          "Uncover hidden indexation blocks, canonical loops, and broken links.",
+          "Identify duplicate content issues degrading domain search authority.",
+          "Create an actionable prioritized technical fix engineering roadmap."
+        ],
+        "content": [
+          {
+            "heading": "Diagnosing Underperforming Search Traffic",
+            "text": "A comprehensive technical SEO audit diagnoses invisible code barriers, crawling bottlenecks, and indexation issues preventing top rankings."
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "slug": "why-seo-is-a-long-term-investment-not-a-one-time-task",
+        "categoryKey": "seo",
+        "badge": "SEO ROI",
+        "readTime": "6 min read",
+        "title": "Why SEO Is a Long-Term Investment, Not a One-Time Task",
+        "desc": "Why treating SEO as a continuous growth engine yields exponential compounding returns compared to short-lived ad spending.",
+        "date": "Apr 20, 2026",
+        "image": "/blog_card_10.png",
+        "author": {
+          "name": "Mohsin",
+          "role": "Founder & Creative Director",
+          "avatar": "/founder_portrait_nobg.png"
+        },
+        "takeaways": [
+          "Organic search authority builds long-term enterprise brand value.",
+          "Continuous optimization prevents competitors from claiming search market share.",
+          "Compounding content assets generate leads years after initial publication."
+        ],
+        "content": [
+          {
+            "heading": "The Compounding ROI of Search Engine Optimization",
+            "text": "Unlike paid ad campaigns that stop generating leads when budget halts, search engine optimization creates persistent digital assets that yield recurring value."
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "slug": "how-digital-marketing-and-seo-work-together-for-growth",
+        "categoryKey": "digital-marketing",
+        "badge": "Marketing Synergies",
+        "readTime": "7 min read",
+        "title": "How Digital Marketing and SEO Work Together for Growth",
+        "desc": "Unify content marketing, paid acquisition, and organic search into a single high-conversion funnel that dominates your industry niche.",
+        "date": "Apr 18, 2026",
+        "image": "/blog_card_11.png",
+        "author": {
+          "name": "Mohsin",
+          "role": "Founder & Creative Director",
+          "avatar": "/founder_portrait_nobg.png"
+        },
+        "takeaways": [
+          "Align PPC search query data to fuel high-converting organic SEO content.",
+          "Retarget organic blog readers across paid social channels.",
+          "Create cohesive omnichannel brand messaging across all digital touchpoints."
+        ],
+        "content": [
+          {
+            "heading": "Unifying Search and Omnichannel Growth",
+            "text": "Integrating search engine optimization with paid media and content marketing creates a unified digital strategy that maximizes customer acquisition."
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "slug": "content-marketing-strategies-that-improve-seo-rankings",
+        "categoryKey": "digital-marketing",
+        "badge": "Content Strategy",
+        "readTime": "6 min read",
+        "title": "Content Marketing Strategies That Improve SEO Rankings",
+        "desc": "Learn how to research topic clusters, craft search-intent optimized articles, and earn high-authority backlinks naturally.",
+        "date": "Apr 16, 2026",
+        "image": "/blog_card_12.png",
+        "author": {
+          "name": "Mohsin",
+          "role": "Founder & Creative Director",
+          "avatar": "/founder_portrait_nobg.png"
+        },
+        "takeaways": [
+          "Structure content in topic clusters anchored by comprehensive pillar pages.",
+          "Target commercial intent keywords with high user engagement.",
+          "Earn natural backlinks with original research, data guides, and visuals."
+        ],
+        "content": [
+          {
+            "heading": "Building Search Authority Through High-Impact Content",
+            "text": "High-quality content marketing remains the foundation of organic search visibility. Developing comprehensive, user-focused guides establishes topical authority."
+          }
+        ]
+      }
+    ],
+    "ctaBanner": {
+      "eyebrow": "LET'S BUILD SOMETHING GREAT",
+      "titleIntro": "Ready to Launch Your",
+      "titleHighlight": "Today?",
+      "titleLine2": "Next Big Project",
+      "description": "Let's turn your vision into a stunning digital reality. Get in touch for a custom strategy, competitive pricing, and fast execution.",
+      "ctaPrimary": {
+        "label": "START YOUR PROJECT",
+        "href": "#contact"
+      },
+      "ctaSecondary": {
+        "label": "GET FREE ESTIMATE",
+        "href": "/#articles"
+      },
+      "portraitSrc": "/founder_portrait_nobg.png",
+      "portraitAlt": "Founder & Creative Director"
+    },
+    "detailCtaBanner": {
+      "eyebrow": "GROW YOUR ORGANIC REVENUE",
+      "titleIntro": "Ready to Dominate Your",
+      "titleHighlight": "Now?",
+      "titleLine2": "Local Search Market",
+      "description": "Don't let qualified buyers slip to competitors. Get a comprehensive site audit and battle-tested local SEO roadmap engineered for fast ranking growth.",
+      "ctaPrimary": {
+        "label": "CLAIM YOUR FREE AUDIT",
+        "href": "/#contact"
+      },
+      "ctaSecondary": {
+        "label": "EXPLORE OUR SERVICES",
+        "href": "/#services"
+      },
+      "portraitSrc": "/founder_portrait_nobg.png",
+      "portraitAlt": "Founder & Creative Director"
     }
   }
 }
