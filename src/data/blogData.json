@@ -1,0 +1,167 @@
+{
+  "metadata": {
+    "title": "Blog & Insights | 360 Designs Agency",
+    "description": "Explore our latest articles, expert guides, and battle-tested strategies to grow your business online and stay ahead of the competition."
+  },
+  "hero": {
+    "badgeText": "OUR BLOG & INSIGHTS",
+    "titleLine1": "Insights That Drive",
+    "titleHighlight": "Real Results.",
+    "description": "Explore our latest articles, expert guides, and battle-tested strategies to grow your business online and stay ahead of the competition.",
+    "ctaPrimary": {
+      "label": "EXPLORE ALL ARTICLES",
+      "href": "#articles"
+    },
+    "ctaSecondary": {
+      "label": "BROWSE CATEGORIES",
+      "href": "#categories"
+    },
+    "heroBgImage": "/portfolio_hero_bg.png",
+    "heroBgAlt": "Blog Hero Background"
+  },
+  "categories": [
+    { "id": "all", "label": "All Articles", "count": 12, "icon": "LayoutGrid" },
+    { "id": "seo", "label": "SEO Strategies", "count": 8, "icon": "Globe" },
+    { "id": "web-design", "label": "Web Design", "count": 2, "icon": "Palette" },
+    { "id": "digital-marketing", "label": "Marketing", "count": 2, "icon": "Share2" }
+  ],
+  "blogPosts": [
+    {
+      "id": 1,
+      "categoryKey": "seo",
+      "badge": "SEO Strategy",
+      "readTime": "7 min read",
+      "title": "How to Measure SEO Performance After Hiring an Agency",
+      "desc": "Learn the key metrics, tools, and reporting frameworks to track SEO performance and ensure your agency delivers compounding ROI.",
+      "date": "May 8, 2026",
+      "image": "/blog_card_1.png"
+    },
+    {
+      "id": 2,
+      "categoryKey": "seo",
+      "badge": "Buyer's Guide",
+      "readTime": "6 min read",
+      "title": "Questions to Ask Before Hiring an SEO Agency",
+      "desc": "Hiring the right SEO agency can make or break your business growth. Here are the 10 must-ask questions before signing.",
+      "date": "May 6, 2026",
+      "image": "/blog_card_2.png"
+    },
+    {
+      "id": 3,
+      "categoryKey": "seo",
+      "badge": "HVAC SEO",
+      "readTime": "6 min read",
+      "title": "10 Must-Know SEO Strategies for HVAC Contractors",
+      "desc": "Proven local SEO tactics designed to help HVAC contractors dominate local map packs, capture emergency calls, and grow revenue.",
+      "date": "May 4, 2026",
+      "image": "/blog_card_3.png"
+    },
+    {
+      "id": 4,
+      "categoryKey": "seo",
+      "badge": "Local SEO",
+      "readTime": "6 min read",
+      "title": "Best SEO Strategies for Dental Clinics in 2026",
+      "desc": "Attract more local patients and scale your dental practice with these battle-tested local SEO and Google Business profile optimization steps.",
+      "date": "May 2, 2026",
+      "image": "/blog_card_4.png"
+    },
+    {
+      "id": 5,
+      "categoryKey": "seo",
+      "badge": "SEO Campaign",
+      "readTime": "7 min read",
+      "title": "What to Expect in the First 90 Days of SEO Services",
+      "desc": "A realistic timeline and milestone breakdown of what happens during month 1, 2, and 3 of a professional SEO growth campaign.",
+      "date": "Apr 30, 2026",
+      "image": "/blog_card_5.png"
+    },
+    {
+      "id": 6,
+      "categoryKey": "seo",
+      "badge": "Algorithm Safe",
+      "readTime": "6 min read",
+      "title": "Why Your SEO Strategy Needs Regular Updates in 2026",
+      "desc": "Search engine algorithms evolve every month. Discover how continuous content and technical updates protect your organic revenue.",
+      "date": "Apr 28, 2026",
+      "image": "/blog_card_6.png"
+    },
+    {
+      "id": 7,
+      "categoryKey": "seo",
+      "badge": "Plumbing SEO",
+      "readTime": "6 min read",
+      "title": "Why Plumbing Companies Need SEO to Rank Locally",
+      "desc": "Local search is the primary source of emergency plumbing calls. Learn how local SEO drives high-intent service leads directly to your dispatchers.",
+      "date": "Apr 26, 2026",
+      "image": "/blog_card_7.png"
+    },
+    {
+      "id": 8,
+      "categoryKey": "seo",
+      "badge": "SEO Services",
+      "readTime": "6 min read",
+      "title": "Why Businesses Recommend Professional SEO Services",
+      "desc": "Real case studies and economic reasons why scaling businesses invest in professional SEO teams over unproven DIY tools.",
+      "date": "Apr 24, 2026",
+      "image": "/blog_card_8.png"
+    },
+    {
+      "id": 9,
+      "categoryKey": "seo",
+      "badge": "Technical Audit",
+      "readTime": "7 min read",
+      "title": "SEO Audit Services: How They Help Fix Ranking Problems",
+      "desc": "Deep technical audits uncover site architecture bugs, indexing blocks, and slow page speeds that choke your search traffic.",
+      "date": "Apr 22, 2026",
+      "image": "/blog_card_9.png"
+    },
+    {
+      "id": 10,
+      "categoryKey": "seo",
+      "badge": "SEO ROI",
+      "readTime": "6 min read",
+      "title": "Why SEO Is a Long-Term Investment, Not a One-Time Task",
+      "desc": "Why treating SEO as a continuous growth engine yields exponential compounding returns compared to short-lived ad spending.",
+      "date": "Apr 20, 2026",
+      "image": "/blog_card_10.png"
+    },
+    {
+      "id": 11,
+      "categoryKey": "digital-marketing",
+      "badge": "Marketing Synergies",
+      "readTime": "7 min read",
+      "title": "How Digital Marketing and SEO Work Together for Growth",
+      "desc": "Unify content marketing, paid acquisition, and organic search into a single high-conversion funnel that dominates your industry niche.",
+      "date": "Apr 18, 2026",
+      "image": "/blog_card_11.png"
+    },
+    {
+      "id": 12,
+      "categoryKey": "digital-marketing",
+      "badge": "Content Strategy",
+      "readTime": "6 min read",
+      "title": "Content Marketing Strategies That Improve SEO Rankings",
+      "desc": "Learn how to research topic clusters, craft search-intent optimized articles, and earn high-authority backlinks naturally.",
+      "date": "Apr 16, 2026",
+      "image": "/blog_card_12.png"
+    }
+  ],
+  "ctaBanner": {
+    "eyebrow": "LET'S BUILD SOMETHING GREAT",
+    "titleIntro": "Ready to Launch Your",
+    "titleHighlight": "Today?",
+    "titleLine2": "Next Big Project",
+    "description": "Let's turn your vision into a stunning digital reality. Get in touch for a custom strategy, competitive pricing, and fast execution.",
+    "ctaPrimary": {
+      "label": "START YOUR PROJECT",
+      "href": "#contact"
+    },
+    "ctaSecondary": {
+      "label": "GET FREE ESTIMATE",
+      "href": "#articles"
+    },
+    "portraitSrc": "/founder_portrait_nobg.png",
+    "portraitAlt": "Founder & Creative Director"
+  }
+}

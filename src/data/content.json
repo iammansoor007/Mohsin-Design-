@@ -29,11 +29,11 @@
       },
       {
         "label": "Portfolio",
-        "href": "/#portfolio"
+        "href": "/portfolio"
       },
       {
         "label": "Blog",
-        "href": "/#blog"
+        "href": "/blog"
       },
       {
         "label": "Contact",
