@@ -2250,6 +2250,7 @@
       "titleIntro": "Our Digital ",
       "titleHighlight": "Services",
       "subtext": "Powerful services designed to meet your business goals and deliver measurable results.",
+      "ctaText": "Get Started",
       "cards": [
         {
           "id": "01",
@@ -2257,7 +2258,8 @@
           "tag": "SEO",
           "title": "Search Engine Optimization (SEO)",
           "desc": "Rank higher on search engines, get more traffic, and grow your business organically with proven SEO strategies.",
-          "color": "#2563EB",
+          "features": ["Keyword Research & Audit", "On-Page & Technical SEO", "High-Quality Backlink Building"],
+          "color": "#0306AC",
           "href": "/contact"
         },
         {
@@ -2266,7 +2268,8 @@
           "tag": "Web Design",
           "title": "Website Design & Development",
           "desc": "Beautiful, fast, and conversion-focused websites built on Next.js and Tailwind CSS that create lasting impressions.",
-          "color": "#7C3AED",
+          "features": ["Next.js & Tailwind CSS", "Stunning UI/UX Design", "Performance Optimization"],
+          "color": "#E9BD36",
           "href": "/contact"
         },
         {
@@ -2275,7 +2278,8 @@
           "tag": "Social Media",
           "title": "Social Media Marketing",
           "desc": "Engage your audience, build your brand, and grow your business across social platforms with tailored content strategies.",
-          "color": "#DB2777",
+          "features": ["Content Strategy & Creation", "Community Management", "Audience Growth Campaigns"],
+          "color": "#0306AC",
           "href": "/contact"
         },
         {
@@ -2284,7 +2288,8 @@
           "tag": "Paid Ads",
           "title": "Pay Per Click Advertising",
           "desc": "Target the right audience, drive quality traffic, and maximize your ROI with Google & Meta ad campaigns.",
-          "color": "#D97706",
+          "features": ["Google & Meta Ads Management", "A/B Conversion Testing", "ROI Tracking & Reporting"],
+          "color": "#E9BD36",
           "href": "/contact"
         },
         {
@@ -2293,7 +2298,8 @@
           "tag": "Branding",
           "title": "Branding & Identity Design",
           "desc": "Build a strong brand identity that connects with your audience and sets you apart — logos, guidelines, and design systems.",
-          "color": "#059669",
+          "features": ["Logo & Guidelines Design", "Visual Identity Systems", "Brand Positioning Strategy"],
+          "color": "#0306AC",
           "href": "/contact"
         },
         {
@@ -2302,7 +2308,8 @@
           "tag": "Content",
           "title": "Content Marketing & Copywriting",
           "desc": "Powerful content that informs, engages, and converts your visitors into customers through strategic storytelling.",
-          "color": "#0891B2",
+          "features": ["High-Converting Copywriting", "Blog & Resource Articles", "Email Newsletter Campaigns"],
+          "color": "#E9BD36",
           "href": "/contact"
         },
         {
@@ -2311,7 +2318,8 @@
           "tag": "E-Commerce",
           "title": "E-Commerce Solutions",
           "desc": "Scalable e-commerce stores built on Shopify, WooCommerce, or Next.js that provide seamless shopping experiences.",
-          "color": "#7C3AED",
+          "features": ["Shopify & Custom Storefronts", "Conversion Rate Optimization", "Secure Payment Integrations"],
+          "color": "#0306AC",
           "href": "/contact"
         },
         {
@@ -2320,19 +2328,20 @@
           "tag": "Analytics",
           "title": "Analytics & Conversion Optimization",
           "desc": "Track performance, optimize funnels, and increase conversions with data-driven insights and A/B testing.",
-          "color": "#2563EB",
+          "features": ["Google Analytics 4 & Tag Setup", "Conversion Funnel Audits", "A/B Testing Implementation"],
+          "color": "#E9BD36",
           "href": "/contact"
         }
       ]
     },
-    "cta": {
-      "badgeText": "GET STARTED",
-      "titleIntro": "Ready to ",
-      "titleHighlight": "Grow Your Business?",
-      "description": "Let's discuss how our digital solutions can help you attract more customers, increase sales, and grow your brand online. First consultation is completely free.",
-      "ctaPrimary": { "label": "Schedule Free Consultation", "href": "/contact" },
-      "ctaSecondary": { "label": "Explore Portfolio", "href": "/portfolio" },
-      "guaranteeText": "No commitment. Completely free.",
+    "ctaBanner": {
+      "eyebrow": "READY TO GROW?",
+      "titleIntro": "Let's Build Something",
+      "titleHighlight": "Remarkable",
+      "titleLine2": "Together — Starting Today.",
+      "description": "Whether you need a brand new website, a powerful SEO strategy, or a complete digital transformation — we're here to make it happen. Book a free call and let's talk about your goals.",
+      "ctaPrimary": { "label": "START YOUR PROJECT", "href": "/contact" },
+      "ctaSecondary": { "label": "VIEW OUR WORK", "href": "/portfolio" },
       "portraitSrc": "/founder_portrait_nobg.png",
       "portraitAlt": "Mohsin — Founder & Creative Director"
     }

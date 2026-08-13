@@ -121,9 +121,9 @@ export default function ContactPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-7"
+              className="lg:col-span-7 flex justify-center"
             >
-              <div className="contact-card-glass p-7 sm:p-10 rounded-[32px] shadow-2xl relative border border-brand-zinc-200/90 dark:border-white/10 overflow-hidden">
+              <div className="contact-card-glass p-7 sm:p-10 rounded-[32px] shadow-2xl relative border border-brand-zinc-200/90 dark:border-white/10 overflow-hidden w-full max-w-xl">
                 <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-brand-dark dark:text-white mb-6">
                   {hero.form.title}
                 </h2>
@@ -401,7 +401,7 @@ export default function ContactPage() {
               </div>
 
               {/* Headline */}
-              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-[1.18] tracking-tight text-white">
+              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-[1.35] tracking-tight text-white">
                 {ctaBanner.titleIntro}{" "}
                 <span className="relative inline-block">
                   <span className="font-cursive text-[#E9BD36] text-3xl sm:text-4xl lg:text-5xl font-normal pl-1">
