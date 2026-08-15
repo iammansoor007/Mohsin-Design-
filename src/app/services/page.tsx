@@ -86,7 +86,7 @@ function ServiceCard({
           ["--x" as any]: coords.x,
           ["--y" as any]: coords.y,
         }}
-        className="group interactive-border-shine rounded-[32px] p-8 flex flex-col gap-6 overflow-hidden cursor-pointer w-full"
+        className="group interactive-border-shine rounded-[24px] xs:rounded-[32px] p-5 xs:p-8 flex flex-col gap-4 xs:gap-6 overflow-hidden cursor-pointer w-full"
       >
         {/* Border Beam Accent line that slides on hover */}
         <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-brand-blue via-blue-500 to-brand-blue dark:from-brand-yellow dark:via-amber-400 dark:to-brand-yellow scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left z-10" />
@@ -219,7 +219,7 @@ export default function ServicesPage() {
               </div>
 
               {/* Headline */}
-              <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] text-brand-dark dark:text-white max-w-3xl">
+              <h1 className="font-heading text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] text-brand-dark dark:text-white max-w-3xl">
                 {hero.titleIntro}
                 <span className="relative inline-block text-brand-blue dark:text-brand-yellow pb-1 ml-1">
                   {hero.titleHighlight}
@@ -281,7 +281,7 @@ export default function ServicesPage() {
             <div className="flex justify-center">
               <span className="eyebrow-pill">{grid.eyebrow}</span>
             </div>
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.12] text-brand-dark dark:text-white">
+            <h2 className="font-heading text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.12] text-brand-dark dark:text-white">
               {grid.titleIntro}
               <span className="relative inline-block text-brand-blue dark:text-brand-yellow pb-1 ml-1">
                 {grid.titleHighlight}
@@ -337,7 +337,7 @@ export default function ServicesPage() {
             className="cta-banner-card !shadow-[0_16px_40px_-12px_rgba(3,6,172,0.22)] dark:!shadow-[0_16px_40px_-12px_rgba(0,0,0,0.5)]"
           >
             {/* Left text column */}
-            <div className="relative z-10 flex flex-col justify-center gap-6 p-8 sm:p-12 lg:p-14 lg:max-w-[62%]">
+            <div className="relative z-10 flex flex-col justify-center gap-5 p-5 xs:p-8 sm:p-12 lg:p-14 lg:max-w-[62%]">
 
               {/* Eyebrow */}
               <div className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-4 py-1.5 text-[10px] font-mono tracking-widest text-[#E9BD36] font-extrabold uppercase w-fit">
@@ -349,7 +349,7 @@ export default function ServicesPage() {
               </div>
 
               {/* Headline */}
-              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-[1.35] tracking-tight text-white">
+              <h2 className="font-heading text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-[1.35] tracking-tight text-white">
                 {ctaBanner.titleIntro}{" "}
                 <span className="relative inline-block">
                   <span className="font-cursive text-[#E9BD36] text-3xl sm:text-4xl lg:text-5xl font-normal pl-1">

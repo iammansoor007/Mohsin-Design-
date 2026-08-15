@@ -515,10 +515,8 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
                   <Star className="h-3.5 w-3.5 fill-[#080710] text-[#080710] shrink-0" />
                   {service.tag}
                 </span>
-                <div className="h-[1px] w-12 bg-brand-zinc-300 dark:bg-zinc-700" />
               </div>
-
-              <h1 className="font-heading text-4xl sm:text-5xl lg:text-[56px] font-black tracking-tight leading-[1.12] text-brand-dark dark:text-white max-w-2xl">
+              <h1 className="font-heading text-3xl xs:text-4xl sm:text-5xl lg:text-[56px] font-black tracking-tight leading-[1.12] text-brand-dark dark:text-white max-w-2xl">
                 {service.hero.titleIntro}
                 <span className="relative inline-block text-brand-blue dark:text-brand-yellow pb-1 ml-1 font-black">
                   {service.hero.titleHighlight}
@@ -542,7 +540,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
               {/* Benefits Checklist */}
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
                 {service.hero.benefits.map((b: string, i: number) => (
-                  <li key={i} className="flex items-start gap-2.5 text-xs font-semibold text-brand-zinc-700 dark:text-zinc-350 group/item">
+                  <li key={i} className="flex items-start gap-2.5 text-xs font-semibold text-brand-zinc-700 dark:text-zinc-355 group/item">
                     <span className="h-4.5 w-4.5 rounded-full bg-brand-blue/10 dark:bg-brand-yellow/10 flex items-center justify-center shrink-0 mt-0.5 text-brand-blue dark:text-brand-yellow border border-brand-blue/15 dark:border-brand-yellow/15 shadow-sm group-hover/item:scale-105 transition-transform duration-300">
                       <Check className="h-3 w-3 stroke-[2.5]" />
                     </span>
@@ -570,7 +568,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
               transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
               className="lg:col-span-6 flex justify-center w-full"
             >
-              <div id="contact-form" className="contact-card-glass p-6 sm:p-9 rounded-[32px] shadow-2xl relative border border-brand-zinc-200/95 dark:border-white/10 overflow-hidden w-full max-w-xl">
+              <div id="contact-form" className="contact-card-glass p-4.5 xs:p-6 sm:p-9 rounded-[24px] xs:rounded-[32px] shadow-2xl relative border border-brand-zinc-200/95 dark:border-white/10 overflow-hidden w-full max-w-xl">
                 <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-brand-dark dark:text-white mb-5">
                   Request a Free Audit
                 </h2>
@@ -751,7 +749,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
             <div className="flex justify-center">
               <span className="eyebrow-pill">{service.whatIncluded.eyebrow}</span>
             </div>
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.12]">
+            <h2 className="font-heading text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.12]">
               {service.whatIncluded.titleIntro}
               <span className="relative inline-block text-brand-blue dark:text-brand-yellow pb-1 ml-1 font-black">
                 {service.whatIncluded.titleHighlight}
@@ -772,7 +770,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 text-left">
             {service.whatIncluded.pillars.map((pillar: any, idx: number) => (
-              <SpotlightCard key={idx} className="bg-zinc-50/80 dark:bg-[#0c0b18] border border-brand-zinc-200/80 dark:border-white/10 p-7 sm:p-8 flex flex-col justify-between h-full min-h-[340px] hover:shadow-2xl hover:border-brand-blue/60 dark:hover:border-brand-yellow/60 transition-all duration-300 relative overflow-hidden group">
+              <SpotlightCard key={idx} className="bg-zinc-50/80 dark:bg-[#0c0b18] border border-brand-zinc-200/80 dark:border-white/10 p-5 xs:p-7 sm:p-8 flex flex-col justify-between h-full min-h-[280px] sm:min-h-[340px] hover:shadow-2xl hover:border-brand-blue/60 dark:hover:border-brand-yellow/60 transition-all duration-300 relative overflow-hidden group">
                 <div className="space-y-5">
                   <span className="font-serif italic text-4xl sm:text-5xl font-black text-brand-zinc-200 dark:text-white/10 group-hover:text-brand-blue dark:group-hover:text-brand-yellow transition-colors duration-500 leading-none select-none">
                     0{idx + 1}
@@ -813,7 +811,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
             {/* Left Column Sticky info - Fix: added self-start to enable stickiness */}
             <div className="lg:col-span-5 lg:sticky lg:top-28 self-start space-y-4 text-left">
               <span className="eyebrow-pill">{service.strategy.eyebrow}</span>
-              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.12] max-w-sm">
+              <h2 className="font-heading text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.12] max-w-sm">
                 {service.strategy.titleIntro}
                 <span className="text-brand-blue dark:text-brand-yellow font-serif font-normal italic">
                   {service.strategy.titleHighlight}
@@ -865,7 +863,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
             <div className="flex justify-center">
               <span className="eyebrow-pill">{service.benefits.eyebrow}</span>
             </div>
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.12]">
+            <h2 className="font-heading text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.12]">
               {service.benefits.titleIntro}
               <span className="relative inline-block text-brand-blue dark:text-brand-yellow pb-1 ml-1 font-black">
                 {service.benefits.titleHighlight}
@@ -891,7 +889,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
               const BenefitIcon = benefitIcons[idx % benefitIcons.length];
 
               return (
-                <SpotlightCard key={idx} className="bg-white dark:bg-[#12121e] border border-brand-zinc-200/90 dark:border-white/10 p-6 sm:p-7 rounded-[26px] hover:shadow-2xl transition-all duration-300 flex flex-col justify-between min-h-[250px] relative overflow-hidden group">
+                <SpotlightCard key={idx} className="bg-white dark:bg-[#12121e] border border-brand-zinc-200/90 dark:border-white/10 p-4.5 xs:p-6 sm:p-7 rounded-[20px] xs:rounded-[26px] hover:shadow-2xl transition-all duration-300 flex flex-col justify-between min-h-[250px] relative overflow-hidden group">
                   <div className="relative flex items-center justify-between w-full pb-2.5 mb-3">
                     <BenefitIcon className="h-4.5 w-4.5 text-[#0306AC] dark:text-[#E9BD36] transition-transform duration-300 group-hover:rotate-[15deg]" />
                     <span className="text-[8.5px] font-mono tracking-widest text-brand-zinc-400 dark:text-zinc-500 select-none">BENEFIT 0{idx + 1}</span>
@@ -932,9 +930,9 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
             {/* Left Sticky Panel - Fix: Added self-start to float correctly */}
-            <div className="lg:col-span-5 lg:sticky lg:top-28 self-start space-y-5 text-left">
+            <div className="lg:col-span-5 lg:sticky lg:top-28 self-start space-y-4 text-left">
               <span className="eyebrow-pill">{service.process.eyebrow}</span>
-              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.12] max-w-sm">
+              <h2 className="font-heading text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.12] max-w-sm">
                 {service.process.titleIntro}
                 <span className="text-brand-blue dark:text-brand-yellow font-serif font-normal italic">
                   {service.process.titleHighlight}
@@ -961,7 +959,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
                 return (
                   <SpotlightCard
                     key={idx}
-                    className="bg-white dark:bg-[#0c0b18] border border-brand-zinc-200 dark:border-white/10 p-6 sm:p-8 rounded-[30px] hover:shadow-2xl hover:border-brand-blue/30 dark:hover:border-brand-yellow/30 transition-all duration-350 flex flex-col justify-between group min-h-[220px]"
+                    className="bg-white dark:bg-[#0c0b18] border border-brand-zinc-200 dark:border-white/10 p-4.5 xs:p-6 sm:p-8 rounded-[22px] xs:rounded-[30px] hover:shadow-2xl hover:border-brand-blue/30 dark:hover:border-brand-yellow/30 transition-all duration-300 flex flex-col justify-between group min-h-[220px]"
                   >
                     <div className="space-y-4">
                       {/* Top Header */}
@@ -1020,7 +1018,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
             <div className="lg:col-span-5 text-left space-y-6 lg:sticky lg:top-28">
               <div className="space-y-4">
                 <span className="eyebrow-pill">{service.results.eyebrow}</span>
-                <h2 className="font-heading text-3xl sm:text-4xl font-black text-brand-dark dark:text-white leading-[1.15]">
+                <h2 className="font-heading text-2xl xs:text-3xl sm:text-4xl font-black text-brand-dark dark:text-white leading-[1.15]">
                   {service.results.titleIntro}
                   <span className="text-brand-blue dark:text-brand-yellow font-serif font-normal italic block mt-1">
                     {service.results.titleHighlight}
@@ -1052,7 +1050,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
                   </div>
                 </div>
 
-                <div className="relative min-h-[165px] w-full">
+                <div className="relative min-h-[195px] xs:min-h-[165px] w-full">
                   <AnimatePresence mode="wait">
                     {service.results.caseStudies.map((cs: any, idx: number) => {
                       if (activeCaseIdx !== idx) return null;
@@ -1092,7 +1090,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
             {/* Right side stats counters */}
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
               {service.results.metrics.map((metric: any, idx: number) => (
-                <div key={idx} className="bg-white dark:bg-[#0c0b18] border border-brand-zinc-200 dark:border-white/5 p-6 rounded-[22px] shadow-[0_4px_25px_rgba(0,0,0,0.015)] flex flex-col justify-between hover:-translate-y-1 hover:border-brand-blue/30 dark:hover:border-brand-yellow/30 transition-all duration-300 group min-h-[170px] relative overflow-hidden">
+                <div key={idx} className="bg-white dark:bg-[#0c0b18] border border-brand-zinc-200 dark:border-white/5 p-4.5 xs:p-6 rounded-[20px] xs:rounded-[22px] shadow-[0_4px_25px_rgba(0,0,0,0.015)] flex flex-col justify-between hover:-translate-y-1 hover:border-brand-blue/30 dark:hover:border-brand-yellow/30 transition-all duration-300 group min-h-[170px] relative overflow-hidden">
                   <div className="relative flex items-center justify-between w-full pb-2 mb-3">
                     <Trophy className="h-4.5 w-4.5 text-brand-blue dark:text-brand-yellow transition-transform duration-300 group-hover:rotate-[15deg]" />
                     <span className="text-[8px] font-mono tracking-widest text-brand-zinc-400 dark:text-zinc-500 select-none">M0{idx + 1}</span>
@@ -1129,7 +1127,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
             <div className="flex justify-center">
               <span className="eyebrow-pill">{service.industries.eyebrow}</span>
             </div>
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.12]">
+            <h2 className="font-heading text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.12]">
               {service.industries.titleIntro}
               <span className="relative inline-block text-brand-blue dark:text-brand-yellow pb-1 ml-1 font-black">
                 {service.industries.titleHighlight}
@@ -1157,7 +1155,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
               const abbreviation = words.map((w: string) => w[0]).join("").toUpperCase().slice(0, 2);
 
               return (
-                <SpotlightCard key={idx} className="bg-zinc-50/80 dark:bg-[#0c0b18] border border-brand-zinc-200/90 dark:border-white/5 p-7 sm:p-8 rounded-[28px] hover:shadow-2xl hover:border-brand-blue/30 dark:hover:border-brand-yellow/30 transition-all duration-500 flex flex-col justify-between min-h-[240px] relative group text-left">
+                <SpotlightCard key={idx} className="bg-zinc-50/80 dark:bg-[#0c0b18] border border-brand-zinc-200/90 dark:border-white/5 p-5 xs:p-7 sm:p-8 rounded-[20px] xs:rounded-[28px] hover:shadow-2xl hover:border-brand-blue/30 dark:hover:border-brand-yellow/30 transition-all duration-500 flex flex-col justify-between min-h-[240px] relative group text-left">
                   
                   {/* Floating Watermark */}
                   <span className="absolute top-4 right-6 font-serif italic text-6xl font-black text-brand-zinc-200/20 dark:text-white/5 select-none pointer-events-none transition-transform duration-500 group-hover:scale-110">
@@ -1200,7 +1198,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-14 text-left">
             <div className="space-y-3">
               <span className="eyebrow-pill">{service.tools.eyebrow}</span>
-              <h2 className="font-heading text-3xl sm:text-4xl font-black text-brand-dark dark:text-white tracking-tight leading-tight">
+              <h2 className="font-heading text-2xl xs:text-3xl sm:text-4xl font-black text-brand-dark dark:text-white tracking-tight leading-tight">
                 {service.tools.titleIntro}
                 <span className="text-brand-blue dark:text-brand-yellow ml-1 font-black">
                   {service.tools.titleHighlight}
@@ -1221,7 +1219,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
               return (
                 <SpotlightCard
                   key={idx}
-                  className="bg-white dark:bg-[#0c0b18] border border-brand-zinc-200 dark:border-white/10 rounded-[28px] hover:shadow-2xl transition-all duration-300 flex flex-col justify-between min-h-[220px] relative text-left group"
+                  className="bg-white dark:bg-[#0c0b18] border border-brand-zinc-200 dark:border-white/10 rounded-[20px] xs:rounded-[28px] hover:shadow-2xl transition-all duration-300 flex flex-col justify-between min-h-[220px] relative text-left group"
                 >
                   {/* Console Header Bar */}
                   <div className="flex items-center justify-between px-6 pt-4 pb-3 border-b border-brand-zinc-150 dark:border-white/5 select-none bg-zinc-50/50 dark:bg-white/[0.01]">
@@ -1277,7 +1275,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
             <div className="lg:w-[42%] lg:shrink-0 lg:sticky lg:top-28 self-start flex flex-col justify-start lg:pr-16 lg:border-r border-brand-zinc-200 dark:border-white/10 text-left space-y-7">
               <div className="space-y-4">
                 <span className="eyebrow-pill">{service.whyChooseUs.eyebrow}</span>
-                <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white leading-[1.15] tracking-tight">
+                <h2 className="font-heading text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white leading-[1.15] tracking-tight">
                   {service.whyChooseUs.titleIntro}{" "}
                   <span className="text-brand-blue dark:text-brand-yellow font-serif font-normal italic">
                     {service.whyChooseUs.titleHighlight}
@@ -1289,7 +1287,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
               </div>
 
               {/* 3 Circular Stat Rings */}
-              <div className="flex items-center justify-between gap-4 pt-6 w-full select-none">
+              <div className="grid grid-cols-3 gap-1 pt-6 w-full select-none">
                 <AnimatedStat value="100%" label="PERFORMANCE" sublabel="Next.js Headless\nSpeed Optimization" percentage={1.0} />
                 <div className="w-px h-12 bg-brand-zinc-200 dark:bg-white/10 self-center hidden sm:block" />
                 <AnimatedStat value="4.5x" label="AVERAGE ROI" sublabel="Attributed Leads\nGrowth Scaling" percentage={0.9} />
@@ -1369,7 +1367,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {recommendedServices.map((recSrv, idx) => (
               <Link key={idx} href={`/services/${recSrv.slug}`} className="w-full flex flex-col group/rec cursor-pointer">
-                <SpotlightCard className="bg-zinc-50/80 dark:bg-[#0c0b18] border border-brand-zinc-200/90 dark:border-white/10 p-7 rounded-[30px] hover:shadow-2xl group-hover/rec:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between h-full min-h-[220px]">
+                <SpotlightCard className="bg-zinc-50/80 dark:bg-[#0c0b18] border border-brand-zinc-200/90 dark:border-white/10 p-5 xs:p-7 rounded-[20px] xs:rounded-[30px] hover:shadow-2xl group-hover/rec:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between h-full min-h-[220px]">
                   <div className="space-y-4 text-left">
                     <span className="font-mono text-[10px] font-black text-brand-blue/60 dark:text-brand-yellow/60 uppercase tracking-widest block">
                       Recommended 0{idx + 1}
@@ -1422,7 +1420,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
               </div>
             </div>
 
-            <div className="lg:col-span-4 bg-zinc-50/90 dark:bg-[#0c0b18]/95 border border-brand-zinc-200/90 dark:border-white/10 p-8 rounded-[28px] shadow-lg flex flex-col justify-between space-y-6">
+            <div className="lg:col-span-4 bg-zinc-50/90 dark:bg-[#0c0b18]/95 border border-brand-zinc-200/90 dark:border-white/10 p-5 xs:p-8 rounded-[20px] xs:rounded-[28px] shadow-lg flex flex-col justify-between space-y-6">
               <div className="space-y-3 text-left">
                 <div className="flex items-center gap-2 text-brand-blue dark:text-brand-yellow font-mono text-xs font-black uppercase tracking-widest">
                   <MapPin className="w-4 h-4" />
@@ -1494,7 +1492,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
             viewport={{ once: true }}
             className="cta-banner-card !shadow-[0_16px_40px_-12px_rgba(3,6,172,0.22)] dark:!shadow-[0_16px_40px_-12px_rgba(0,0,0,0.5)]"
           >
-            <div className="relative z-10 flex flex-col justify-center gap-5 p-7 sm:p-11 lg:p-14 lg:max-w-[62%] text-left">
+            <div className="relative z-10 flex flex-col justify-center gap-5 p-5 xs:p-7 sm:p-11 lg:p-14 lg:max-w-[62%] text-left">
               <div className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-4 py-1.5 text-[10px] font-mono tracking-widest text-[#E9BD36] font-extrabold uppercase w-fit">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E9BD36] opacity-75" />

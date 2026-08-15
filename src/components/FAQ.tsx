@@ -54,7 +54,7 @@ export default function FAQ({ data }: { data?: any }) {
             </div>
 
             {/* Premium Clean Sticky Strategy Session Box */}
-            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-blue via-[#020485] to-[#010356] dark:from-[#12121e] dark:via-[#0f0f1a] dark:to-brand-dark border border-brand-blue/20 dark:border-white/10 p-7 text-white shadow-xl group transition-all duration-300">
+            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-blue via-[#020485] to-[#010356] dark:from-[#12121e] dark:via-[#0f0f1a] dark:to-brand-dark border border-brand-blue/20 dark:border-white/10 p-5 xs:p-7 text-white shadow-xl group transition-all duration-300">
               <div className="relative z-20 space-y-5">
                 <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 text-[9px] font-mono font-black tracking-wider uppercase text-brand-yellow">
                   {faq.strategyAudit.badge}
@@ -91,7 +91,7 @@ export default function FAQ({ data }: { data?: any }) {
               return (
                 <div
                   key={f.question}
-                  className={`group relative overflow-hidden rounded-2xl border transition-all duration-300 cursor-pointer select-none p-5 sm:p-6 ${
+                  className={`group relative overflow-hidden rounded-2xl border transition-all duration-300 cursor-pointer select-none p-4 xs:p-5 sm:p-6 ${
                     isOpen
                       ? "bg-white dark:bg-[#12121e] border-brand-blue/30 dark:border-brand-yellow/30 shadow-md"
                       : "bg-white/60 dark:bg-[#12121e]/60 border-brand-zinc-200/80 dark:border-white/10 hover:bg-white dark:hover:bg-[#12121e] hover:border-brand-blue/20 dark:hover:border-brand-yellow/20"
