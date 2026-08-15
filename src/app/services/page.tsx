@@ -17,6 +17,9 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import contentData from "@/data/content.json";
+import Link from "next/link";
+import { slugify } from "@/lib/services";
+
 
 // ── Icon resolver ─────────────────────────────────────────────────────────────
 const iconMap: Record<string, React.ElementType> = {
@@ -72,100 +75,102 @@ function ServiceCard({
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 32 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.55, delay: index * 0.07, ease: "easeOut" }}
-      onMouseMove={handleMouseMove}
-      style={{
-        ["--x" as any]: coords.x,
-        ["--y" as any]: coords.y,
-      }}
-      className="group interactive-border-shine rounded-[32px] p-8 flex flex-col gap-6 overflow-hidden cursor-pointer w-full"
-    >
-      {/* Border Beam Accent line that slides on hover */}
-      <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-brand-blue via-blue-500 to-brand-blue dark:from-brand-yellow dark:via-amber-400 dark:to-brand-yellow scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left z-10" />
-
-      {/* Premium Grid Dot Background texture */}
-      <div className="absolute inset-0 bg-grid-blue-8 bg-[size:24px_24px] opacity-[0.03] dark:opacity-[0.05] group-hover:opacity-[0.08] transition-opacity duration-500 pointer-events-none z-0" />
-
-      {/* Ghost large number — decorative background */}
-      <span
-        aria-hidden="true"
-        className="absolute -right-3 -top-5 font-heading font-black text-[96px] leading-none select-none pointer-events-none
-          text-brand-blue/[0.04] dark:text-brand-yellow/[0.02] group-hover:text-brand-blue/[0.08] dark:group-hover:text-brand-yellow/[0.05]
-          group-hover:-translate-y-1 transition-all duration-500 z-0"
-      >
-        {card.id}
-      </span>
-
-      {/* Interactive Cursor Spotlight Glow Effect */}
-      <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0 dark:hidden"
+    <Link href={`/services/${slugify(card.title)}`} className="w-full flex">
+      <motion.div
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.55, delay: index * 0.07, ease: "easeOut" }}
+        onMouseMove={handleMouseMove}
         style={{
-          background: "radial-gradient(circle 120px at var(--x) var(--y), rgba(3, 6, 172, 0.05), transparent 80%)",
+          ["--x" as any]: coords.x,
+          ["--y" as any]: coords.y,
         }}
-      />
-      <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0 hidden dark:block"
-        style={{
-          background: "radial-gradient(circle 120px at var(--x) var(--y), rgba(233, 189, 54, 0.06), transparent 80%)",
-        }}
-      />
-
-      {/* Decorative colored radial background glow on hover */}
-      <div className="absolute -bottom-20 -right-20 w-44 h-44 rounded-full opacity-0 group-hover:opacity-[0.12] blur-3xl transition-all duration-500 pointer-events-none z-0 bg-brand-blue dark:bg-brand-yellow" />
-
-      {/* Icon Wrapper (Solid fill on hover) */}
-      <div className="relative z-10 w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-500
-        bg-brand-blue/[0.06] border border-brand-blue/10 group-hover:bg-gradient-to-br group-hover:from-brand-blue group-hover:to-blue-600 group-hover:border-transparent group-hover:shadow-[0_8px_20px_rgba(3,6,172,0.2)]
-        dark:bg-brand-yellow/[0.10] dark:border-brand-yellow/15 dark:group-hover:from-brand-yellow dark:group-hover:to-amber-500 dark:group-hover:border-transparent dark:group-hover:shadow-[0_8px_20px_rgba(233,189,54,0.25)]
-        group-hover:scale-105 group-hover:rotate-[2deg]"
+        className="group interactive-border-shine rounded-[32px] p-8 flex flex-col gap-6 overflow-hidden cursor-pointer w-full"
       >
-        <Icon className="w-6 h-6 text-brand-blue dark:text-brand-yellow transition-all duration-300 group-hover:text-white dark:group-hover:text-[#0c0b18] group-hover:scale-110" />
-      </div>
+        {/* Border Beam Accent line that slides on hover */}
+        <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-brand-blue via-blue-500 to-brand-blue dark:from-brand-yellow dark:via-amber-400 dark:to-brand-yellow scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left z-10" />
 
-      {/* Content wrapper */}
-      <div className="relative z-10 flex flex-col gap-3.5 flex-1">
-        <h3 className="font-heading text-[16px] font-extrabold leading-snug text-brand-dark dark:text-white transition-colors duration-300 group-hover:text-brand-blue dark:group-hover:text-brand-yellow">
-          {card.title}
-        </h3>
-        <p className="text-[13px] text-brand-zinc-550 dark:text-zinc-400 leading-relaxed font-normal">
-          {card.desc}
-        </p>
+        {/* Premium Grid Dot Background texture */}
+        <div className="absolute inset-0 bg-grid-blue-8 bg-[size:24px_24px] opacity-[0.03] dark:opacity-[0.05] group-hover:opacity-[0.08] transition-opacity duration-500 pointer-events-none z-0" />
 
-        {/* Feature Checkpoints */}
-        <ul className="flex flex-col gap-3 pt-4 mt-auto border-t border-brand-zinc-100 dark:border-white/[0.05] group-hover:border-brand-blue/20 dark:group-hover:border-brand-yellow/20 transition-colors duration-500">
-          {card.features.map((feature, idx) => (
-            <li
-              key={idx}
-              className="flex items-start gap-3 text-xs text-brand-zinc-650 dark:text-zinc-350 transition-all duration-300 group-hover:translate-x-1.5"
-            >
-              <span className="w-5 h-5 rounded-full bg-brand-blue/[0.06] dark:bg-brand-yellow/[0.08] flex items-center justify-center shrink-0 mt-0.5 border border-brand-blue/10 dark:border-brand-yellow/10 transition-all duration-300 group-hover:bg-brand-blue dark:group-hover:bg-brand-yellow group-hover:border-transparent group-hover:shadow-[0_2px_8px_rgba(3,6,172,0.2)] dark:group-hover:shadow-[0_2px_8px_rgba(233,189,54,0.25)]">
-                <CheckCircle2 className="w-3 h-3 text-brand-blue dark:text-brand-yellow transition-colors duration-300 group-hover:text-white dark:group-hover:text-[#0c0b18]" />
-              </span>
-              <span className="font-semibold leading-normal pt-0.5">{feature}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Bottom Footer Action Area */}
-      <div className="relative z-10 flex items-center justify-between pt-5 border-t border-brand-zinc-150 dark:border-white/[0.05] group-hover:border-brand-blue/20 dark:group-hover:border-brand-yellow/20 transition-colors duration-500 mt-auto">
-        <span className="text-[10.5px] font-mono font-black uppercase tracking-wider flex items-center gap-1.5 transition-all duration-300 text-brand-zinc-600 dark:text-zinc-400 group-hover:text-brand-blue dark:group-hover:text-brand-yellow">
-          {contentData.servicesPage.grid.ctaText}
-          <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-        </span>
-        {/* Decorative arrow circle container that slides in on hover */}
-        <div className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 border opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0
-          border-brand-blue/15 bg-brand-blue/[0.05] dark:border-brand-yellow/20 dark:bg-brand-yellow/[0.08]
-          group-hover:shadow-[0_4px_12px_rgba(3,6,172,0.15)] dark:group-hover:shadow-[0_4px_12px_rgba(233,189,54,0.2)]"
+        {/* Ghost large number — decorative background */}
+        <span
+          aria-hidden="true"
+          className="absolute -right-3 -top-5 font-heading font-black text-[96px] leading-none select-none pointer-events-none
+            text-brand-blue/[0.04] dark:text-brand-yellow/[0.02] group-hover:text-brand-blue/[0.08] dark:group-hover:text-brand-yellow/[0.05]
+            group-hover:-translate-y-1 transition-all duration-500 z-0"
         >
-          <ArrowRight className="w-4 h-4 text-brand-blue dark:text-brand-yellow" />
+          {card.id}
+        </span>
+
+        {/* Interactive Cursor Spotlight Glow Effect */}
+        <div
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0 dark:hidden"
+          style={{
+            background: "radial-gradient(circle 120px at var(--x) var(--y), rgba(3, 6, 172, 0.05), transparent 80%)",
+          }}
+        />
+        <div
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0 hidden dark:block"
+          style={{
+            background: "radial-gradient(circle 120px at var(--x) var(--y), rgba(233, 189, 54, 0.06), transparent 80%)",
+          }}
+        />
+
+        {/* Decorative colored radial background glow on hover */}
+        <div className="absolute -bottom-20 -right-20 w-44 h-44 rounded-full opacity-0 group-hover:opacity-[0.12] blur-3xl transition-all duration-500 pointer-events-none z-0 bg-brand-blue dark:bg-brand-yellow" />
+
+        {/* Icon Wrapper (Solid fill on hover) */}
+        <div className="relative z-10 w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-500
+          bg-brand-blue/[0.06] border border-brand-blue/10 group-hover:bg-gradient-to-br group-hover:from-brand-blue group-hover:to-blue-600 group-hover:border-transparent group-hover:shadow-[0_8px_20px_rgba(3,6,172,0.2)]
+          dark:bg-brand-yellow/[0.10] dark:border-brand-yellow/15 dark:group-hover:from-brand-yellow dark:group-hover:to-amber-500 dark:group-hover:border-transparent dark:group-hover:shadow-[0_8px_20px_rgba(233,189,54,0.25)]
+          group-hover:scale-105 group-hover:rotate-[2deg]"
+        >
+          <Icon className="w-6 h-6 text-brand-blue dark:text-brand-yellow transition-all duration-300 group-hover:text-white dark:group-hover:text-[#0c0b18] group-hover:scale-110" />
         </div>
-      </div>
-    </motion.div>
+
+        {/* Content wrapper */}
+        <div className="relative z-10 flex flex-col gap-3.5 flex-1">
+          <h3 className="font-heading text-[16px] font-extrabold leading-snug text-brand-dark dark:text-white transition-colors duration-300 group-hover:text-brand-blue dark:group-hover:text-brand-yellow">
+            {card.title}
+          </h3>
+          <p className="text-[13px] text-brand-zinc-550 dark:text-zinc-400 leading-relaxed font-normal">
+            {card.desc}
+          </p>
+
+          {/* Feature Checkpoints */}
+          <ul className="flex flex-col gap-3 pt-4 mt-auto border-t border-brand-zinc-100 dark:border-white/[0.05] group-hover:border-brand-blue/20 dark:group-hover:border-brand-yellow/20 transition-colors duration-500">
+            {card.features.map((feature, idx) => (
+              <li
+                key={idx}
+                className="flex items-start gap-3 text-xs text-brand-zinc-650 dark:text-zinc-350 transition-all duration-300 group-hover:translate-x-1.5"
+              >
+                <span className="w-5 h-5 rounded-full bg-brand-blue/[0.06] dark:bg-brand-yellow/[0.08] flex items-center justify-center shrink-0 mt-0.5 border border-brand-blue/10 dark:border-brand-yellow/10 transition-all duration-300 group-hover:bg-brand-blue dark:group-hover:bg-brand-yellow group-hover:border-transparent group-hover:shadow-[0_2px_8px_rgba(3,6,172,0.2)] dark:group-hover:shadow-[0_2px_8px_rgba(233,189,54,0.25)]">
+                  <CheckCircle2 className="w-3 h-3 text-brand-blue dark:text-brand-yellow transition-colors duration-300 group-hover:text-white dark:group-hover:text-[#0c0b18]" />
+                </span>
+                <span className="font-semibold leading-normal pt-0.5">{feature}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Bottom Footer Action Area */}
+        <div className="relative z-10 flex items-center justify-between pt-5 border-t border-brand-zinc-150 dark:border-white/[0.05] group-hover:border-brand-blue/20 dark:group-hover:border-brand-yellow/20 transition-colors duration-500 mt-auto">
+          <span className="text-[10.5px] font-mono font-black uppercase tracking-wider flex items-center gap-1.5 transition-all duration-300 text-brand-zinc-600 dark:text-zinc-400 group-hover:text-brand-blue dark:group-hover:text-brand-yellow">
+            {contentData.servicesPage.grid.ctaText}
+            <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+          </span>
+          {/* Decorative arrow circle container that slides in on hover */}
+          <div className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 border opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0
+            border-brand-blue/15 bg-brand-blue/[0.05] dark:border-brand-yellow/20 dark:bg-brand-yellow/[0.08]
+            group-hover:shadow-[0_4px_12px_rgba(3,6,172,0.15)] dark:group-hover:shadow-[0_4px_12px_rgba(233,189,54,0.2)]"
+          >
+            <ArrowRight className="w-4 h-4 text-brand-blue dark:text-brand-yellow" />
+          </div>
+        </div>
+      </motion.div>
+    </Link>
   );
 }
 
