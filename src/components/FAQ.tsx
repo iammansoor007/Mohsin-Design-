@@ -17,7 +17,7 @@ export default function FAQ({ data }: { data?: any }) {
   return (
     <section
       id="faq"
-      className="relative overflow-hidden bg-white dark:bg-[#080710] py-24 md:py-32 border-b border-brand-zinc-200 dark:border-white/10"
+      className="relative overflow-x-clip bg-white dark:bg-[#080710] py-24 md:py-32 border-b border-brand-zinc-200 dark:border-white/10"
     >
       {/* Decorative Soft Blur Orb */}
       <div className="absolute -left-32 top-1/3 h-96 w-96 rounded-full bg-brand-blue/5 dark:bg-brand-yellow/5 blur-3xl pointer-events-none" />
@@ -27,7 +27,7 @@ export default function FAQ({ data }: { data?: any }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
           {/* ── Left Column: Sticky Title & Info ── */}
-          <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-8 flex flex-col justify-start">
+          <div className="lg:col-span-5 lg:sticky lg:top-28 self-start space-y-8 flex flex-col justify-start">
             
             <div className="flex flex-col gap-4">
               {/* Category Pill Tag */}

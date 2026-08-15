@@ -232,7 +232,7 @@ export default function Footer() {
               key={idx}
               variants={letterVariants}
               className={`inline-block transition-all duration-300 cursor-default hover:scale-110 ${
-                idx >= 11 
+                idx >= 7 
                   ? "text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.28)] dark:[-webkit-text-stroke:1px_rgba(255,255,255,0.12)] hover:[-webkit-text-stroke:1px_#E9BD36] pointer-events-auto" 
                   : "text-white/20 dark:text-white/[0.06] hover:text-brand-yellow dark:hover:text-brand-blue pointer-events-auto"
               }`}

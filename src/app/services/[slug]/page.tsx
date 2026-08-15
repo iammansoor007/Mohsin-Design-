@@ -7,22 +7,15 @@ import { notFound } from "next/navigation";
 import { motion, AnimatePresence, useMotionValue, useSpring, useInView } from "framer-motion";
 import {
   ArrowRight,
-  Play,
   MapPin,
   Clock,
   Trophy,
-  Users,
-  Smile,
-  ArrowUpRight,
   Sparkles,
   Star,
   Send,
   Mail,
-  MessageSquare,
-  Calendar,
   Check,
   ChevronDown,
-  Plus,
   Search,
   Monitor,
   Megaphone,
@@ -34,18 +27,22 @@ import {
   CheckCircle2,
   Cpu,
   ShieldCheck,
-  Target,
   Award,
   Globe,
   DollarSign,
   Briefcase,
   TrendingUp,
   Building2,
-  Phone
+  Phone,
+  Target,
+  Terminal,
+  Zap,
+  HeartHandshake
 } from "lucide-react";
 
-import { getServiceData, slugify } from "@/lib/services";
+import { getServiceData } from "@/lib/services";
 import FAQ from "@/components/FAQ";
+import Blog from "@/components/Blog";
 
 // ── Icon Map Resolver ──
 const iconMap: Record<string, React.ElementType> = {
@@ -62,27 +59,26 @@ const iconMap: Record<string, React.ElementType> = {
   MapPin,
   Star,
   Trophy,
-  Users,
-  Smile,
   ShieldCheck,
   Award,
   DollarSign,
   Briefcase,
   Cpu,
   TrendingUp,
-  Building2
+  Building2,
+  Target
 };
 
 // ── Custom Ad Platform Logos for Client Trust ──
 const GoogleAdsLogo = () => (
-  <svg viewBox="0 0 48 48" className="h-5.5 w-auto shrink-0 filter drop-shadow-md">
+  <svg viewBox="0 0 48 48" className="h-5 w-auto shrink-0 filter drop-shadow-md">
     <path d="M34.7 4.3c-2.1 0-3.9 1-5.1 2.6L12.5 35.8c-1 1.7-1 3.8 0 5.5.9 1.6 2.6 2.5 4.5 2.5h20.3c3.2 0 5.7-2.6 5.7-5.7V10c0-3.1-2.5-5.7-5.7-5.7h-2.6z" fill="#F9BC05" />
     <path d="M12.5 35.8L29.6 6.9c1.2-1.6 3-2.6 5.1-2.6H17c-1.9 0-3.6.9-4.5 2.5L2.6 24.3c-1.8 3.1-.7 7.1 2.4 8.9l7.5 2.6z" fill="#4285F4" />
   </svg>
 );
 
 const MetaLogo = () => (
-  <svg viewBox="0 0 24 24" className="h-5.5 w-auto fill-[#0668E1] shrink-0 filter drop-shadow-md">
+  <svg viewBox="0 0 24 24" className="h-5 w-auto fill-[#0668E1] shrink-0 filter drop-shadow-md">
     <path d="M16.48 7.38c-1.34 0-2.58.55-3.5 1.55-.92-1-2.16-1.55-3.5-1.55-2.73 0-4.96 2.23-4.96 4.96s2.23 4.96 4.96 4.96c1.34 0 2.58-.55 3.5-1.55.92 1 2.16 1.55 3.5 1.55 2.73 0 4.96-2.23 4.96-4.96s-2.23-4.96-4.96-4.96zm-7 8.08c-1.72 0-3.12-1.4-3.12-3.12s1.4-3.12 3.12-3.12 3.12 1.4 3.12 3.12-1.4 3.12-3.12 3.12zm7 0c-1.72 0-3.12-1.4-3.12-3.12s1.4-3.12 3.12-3.12 3.12 1.4 3.12 3.12-1.4 3.12-3.12 3.12z" />
   </svg>
 );
@@ -96,13 +92,13 @@ const AmazonLogo = () => (
 );
 
 const BingLogo = () => (
-  <svg viewBox="0 0 24 24" className="h-5.5 w-auto fill-[#008373] dark:fill-[#00b29a] shrink-0">
+  <svg viewBox="0 0 24 24" className="h-5 w-auto fill-[#008373] dark:fill-[#00b29a] shrink-0">
     <path d="M5 2L15 6v12l-6 4v-9l6-2V6L5 2z" />
   </svg>
 );
 
 const AppleLogo = () => (
-  <svg viewBox="0 0 24 24" className="h-5.5 w-auto fill-brand-dark dark:fill-white shrink-0">
+  <svg viewBox="0 0 24 24" className="h-5 w-auto fill-brand-dark dark:fill-white shrink-0">
     <path d="M18.7 18.5c-.8 1.2-1.7 2.4-3 2.4-1.3 0-1.7-.8-3.2-.8s-2 .8-3.2.8c-1.3 0-2.3-1.2-3.1-2.4C4.6 16 3.3 10.9 4.9 8.1c.8-1.4 2.2-2.3 3.8-2.3 1.2 0 2.4.8 3.2.8.7 0 2.1-.9 3.6-.9 1.5 0 2.9.5 3.8 1.8-3.1 1.8-2.6 6-0.1 7.2-.9 2.2-2.1 4.5-3.5 5.8zM15.9 4.2c.8-.9 1.3-2.2 1.1-3.5-1.1.1-2.5.8-3.3 1.8-.7.8-1.3 2.1-1.1 3.4 1.2.1 2.5-.7 3.3-1.7z" />
   </svg>
 );
@@ -166,7 +162,9 @@ const DigitTicker = ({ value }: { value: string | number }) => {
   return (
     <span className="inline-flex items-baseline">
       {digits.map((digit, idx) => {
-        if (isNaN(Number(digit))) {
+        // Fix: Use regex to explicitly check if character is a digit (0-9)
+        // This prevents space, % or other characters from evaluating as 0
+        if (!/[0-9]/.test(digit)) {
           return (
             <span
               key={idx}
@@ -206,21 +204,21 @@ function SpotlightCard({ children, className = "" }: { children: React.ReactNode
       <motion.div
         className="pointer-events-none absolute -inset-px rounded-[28px] opacity-0 group-hover/spotlight:opacity-100 transition-opacity duration-500 z-10"
         style={{
-          background: `radial-gradient(400px circle at var(--x, 0px) var(--y, 0px), rgba(3, 6, 172, 0.05), transparent 80%)`
+          background: `radial-gradient(400px circle at var(--x, 0px) var(--y, 0px), rgba(3, 6, 172, 0.03), transparent 80%)`
         }}
       />
       <motion.div
         className="pointer-events-none absolute -inset-px rounded-[28px] opacity-0 dark:group-hover/spotlight:opacity-100 transition-opacity duration-500 z-10"
         style={{
-          background: `radial-gradient(400px circle at var(--x, 0px) var(--y, 0px), rgba(233, 189, 54, 0.05), transparent 80%)`
+          background: `radial-gradient(400px circle at var(--x, 0px) var(--y, 0px), rgba(233, 189, 54, 0.03), transparent 80%)`
         }}
       />
 
       <div
         ref={(el) => {
           if (el) {
-            mouseX.on("change", (x) => el.style.setProperty("--x", `${x}px`));
-            mouseY.on("change", (y) => el.style.setProperty("--y", `${y}px`));
+            mouseX.on("change", (x: number) => el.style.setProperty("--x", `${x}px`));
+            mouseY.on("change", (y: number) => el.style.setProperty("--y", `${y}px`));
           }
         }}
         className="w-full h-full relative z-20"
@@ -231,13 +229,170 @@ function SpotlightCard({ children, className = "" }: { children: React.ReactNode
   );
 }
 
-interface PageProps {
+// ── Animated Circular Stat (From homepage WhyChooseMe) ──
+const RADIUS = 34;
+const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
+
+function AnimatedStat({
+  value,
+  label,
+  sublabel,
+  percentage,
+}: {
+  value: string;
+  label: string;
+  sublabel: string;
+  percentage: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: false, margin: "-80px" });
+  const [displayed, setDisplayed] = useState(value.replace(/[0-9.]/g, "0"));
+  const [dotProgress, setDotProgress] = useState(0);
+
+  useEffect(() => {
+    if (isInView) {
+      const isFloat = value.includes(".");
+      const isPercent = value.includes("%");
+      const suffix = isPercent ? "%" : value.replace(/[0-9.]/g, "");
+      const numeric = parseFloat(value.replace(/[^0-9.]/g, ""));
+      const DURATION = 1400;
+      const DELAY = 150;
+      const startTime = performance.now() + DELAY;
+      let rafId: number;
+      
+      const tick = (now: number) => {
+        const elapsed = Math.max(0, now - startTime);
+        const raw = Math.min(elapsed / DURATION, 1);
+        const eased = 1 - Math.pow(1 - raw, 4);
+        
+        setDisplayed((isFloat ? (eased * numeric).toFixed(1) : Math.round(eased * numeric).toString()) + suffix);
+        setDotProgress(eased * percentage);
+        
+        if (raw < 1) {
+          rafId = requestAnimationFrame(tick);
+        } else {
+          setDotProgress(percentage);
+        }
+      };
+      
+      rafId = requestAnimationFrame(tick);
+      return () => cancelAnimationFrame(rafId);
+    } else {
+      setDisplayed(value.replace(/[0-9.]/g, "0"));
+      setDotProgress(0);
+    }
+  }, [isInView, percentage, value]);
+
+  const dotAngle = 2 * Math.PI * dotProgress;
+  const dotX = 41 + RADIUS * Math.cos(dotAngle);
+  const dotY = 41 + RADIUS * Math.sin(dotAngle);
+  const gradientId = `ringGradient-${label.replace(/[^a-zA-Z0-9]/g, "")}`;
+
+  return (
+    <div ref={ref} className="flex flex-col items-center gap-3">
+      <div className="relative w-[80px] h-[80px] sm:w-[90px] sm:h-[90px]">
+        <div className="absolute inset-0 rounded-full bg-brand-blue/5 dark:bg-brand-yellow/5 blur-md" />
+        <svg viewBox="0 0 82 82" className="relative w-full h-full -rotate-90">
+          <defs>
+            <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#0306AC" />
+              <stop offset="100%" stopColor="#E9BD36" />
+            </linearGradient>
+          </defs>
+          <circle
+            cx="41" cy="41" r={RADIUS}
+            fill="none"
+            stroke="rgba(3, 6, 172, 0.08)"
+            strokeWidth="5"
+          />
+          <circle
+            cx="41" cy="41" r={RADIUS}
+            fill="none"
+            stroke={`url(#${gradientId})`}
+            strokeWidth="5"
+            strokeLinecap="round"
+            strokeDasharray={CIRCUMFERENCE}
+            strokeDashoffset={CIRCUMFERENCE * (1 - dotProgress)}
+          />
+          <circle
+            cx={dotX} cy={dotY} r="4.5"
+            fill="#E9BD36"
+            stroke="white"
+            strokeWidth="1.5"
+          />
+        </svg>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <span className="font-heading font-black text-[14px] sm:text-[16px] text-brand-dark dark:text-white leading-none">
+            {displayed}
+          </span>
+        </div>
+      </div>
+      <div className="text-center">
+        <p className="text-[9px] font-black uppercase tracking-widest text-brand-dark dark:text-white">{label}</p>
+        <p className="text-[8px] text-brand-zinc-400 dark:text-zinc-400 mt-0.5 leading-snug whitespace-pre-line">{sublabel}</p>
+      </div>
+    </div>
+  );
+}
+
+// ── Vectors Illustrations for differentiators (From homepage WhyChooseMe) ──
+const differentiatorsIllustrations = [
+  <svg key="1" viewBox="0 0 160 100" fill="none" className="w-full h-full">
+    <rect x="8" y="10" width="62" height="80" rx="8" fill="#0306AC" fillOpacity="0.07" stroke="#0306AC" strokeWidth="1" strokeOpacity="0.2" />
+    <rect x="16" y="20" width="46" height="7" rx="3.5" fill="#0306AC" fillOpacity="0.18" />
+    <rect x="16" y="33" width="30" height="5" rx="2.5" fill="#0306AC" fillOpacity="0.1" />
+    <rect x="16" y="43" width="40" height="5" rx="2.5" fill="#0306AC" fillOpacity="0.1" />
+    <circle cx="16" cy="73" r="6" fill="#0306AC" />
+    <circle cx="28" cy="73" r="6" fill="#E9BD36" />
+    <rect x="84" y="8" width="68" height="42" rx="8" fill="#0306AC" fillOpacity="0.07" stroke="#0306AC" strokeWidth="1" strokeOpacity="0.18" />
+    <circle cx="102" cy="28" r="10" fill="#0306AC" fillOpacity="0.15" />
+    <rect x="118" y="21" width="26" height="4" rx="2" fill="#0306AC" fillOpacity="0.2" />
+  </svg>,
+  <svg key="2" viewBox="0 0 160 100" fill="none" className="w-full h-full">
+    <rect x="8" y="8" width="144" height="84" rx="9" fill="#0306AC" fillOpacity="0.06" stroke="#0306AC" strokeWidth="1" strokeOpacity="0.18" />
+    <rect x="8" y="8" width="144" height="18" rx="9" fill="#0306AC" fillOpacity="0.08" />
+    <circle cx="22" cy="17" r="3.5" fill="#0306AC" fillOpacity="0.35" />
+    <circle cx="33" cy="17" r="3.5" fill="#0306AC" fillOpacity="0.2" />
+    <rect x="18" y="34" width="20" height="4" rx="2" fill="#0306AC" fillOpacity="0.5" />
+    <rect x="44" y="34" width="48" height="4" rx="2" fill="#0306AC" fillOpacity="0.2" />
+    <rect x="98" y="34" width="24" height="4" rx="2" fill="#E9BD36" fillOpacity="0.7" />
+  </svg>,
+  <svg key="3" viewBox="0 0 160 100" fill="none" className="w-full h-full">
+    <line x1="8" y1="92" x2="152" y2="92" stroke="#0306AC" strokeWidth="1" strokeOpacity="0.12" />
+    <rect x="16" y="68" width="16" height="24" rx="3" fill="#0306AC" fillOpacity="0.12" />
+    <rect x="38" y="52" width="16" height="40" rx="3" fill="#0306AC" fillOpacity="0.2" />
+    <rect x="60" y="38" width="16" height="54" rx="3" fill="#0306AC" fillOpacity="0.32" />
+    <polyline points="24,66 46,50 68,36 90,22 112,10" stroke="#E9BD36" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+    <circle cx="24" cy="66" r="3.5" fill="#E9BD36" />
+    <circle cx="46" cy="50" r="3.5" fill="#E9BD36" />
+    <circle cx="68" cy="36" r="3.5" fill="#E9BD36" />
+  </svg>,
+  <svg key="4" viewBox="0 0 160 100" fill="none" className="w-full h-full">
+    <rect x="8" y="8" width="88" height="34" rx="10" fill="#0306AC" fillOpacity="0.09" stroke="#0306AC" strokeWidth="1" strokeOpacity="0.18" />
+    <path d="M18 42 L14 50 L24 42" fill="#0306AC" fillOpacity="0.09" />
+    <rect x="16" y="18" width="64" height="4" rx="2" fill="#0306AC" fillOpacity="0.3" />
+    <rect x="64" y="52" width="88" height="34" rx="10" fill="#E9BD36" fillOpacity="0.22" stroke="#E9BD36" strokeOpacity="0.55" strokeWidth="1" />
+    <rect x="72" y="62" width="64" height="4" rx="2" fill="#0306AC" fillOpacity="0.22" />
+  </svg>
+];
+
+// ── Specific technical deliverables per roadmap step ──
+const roadmapDeliverables: Record<number, string[]> = {
+  0: ["Google Search Console crawl diagnostics log", "Competitor backlinks overlapping index", "Core Web Vitals loading bottleneck check"],
+  1: ["Commercial search priority map authoring", "Intent-based topic structure planning", "Semantic keyword clusters setup"],
+  2: ["H1-H4 headings structures rewrite rules", "Title & Meta description tags optimizations", "JSON-LD schema structured data injection"],
+  3: ["Render-blocking scripts async tags setup", "Vercel edge CDN cache configuration", "Image formats (WebP/AVIF) audit fixes"],
+  4: ["High-authority editorial mentions pitches", "Niche local citation indexes registry", "Toxic backlink removal & disavow log"],
+  5: ["Custom GA4 key event tracking logs", "Attributed phone calls & forms tracking", "Bi-weekly Looker Studio conversion audit"]
+};
+
+interface ServicePageProps {
   params: Promise<{
     slug: string;
   }>;
 }
 
-export default function ServiceDetailPage({ params }: PageProps) {
+export default function ServiceDetailPage({ params }: ServicePageProps) {
   const { slug } = use(params);
   const service = getServiceData(slug);
 
@@ -255,6 +410,9 @@ export default function ServiceDetailPage({ params }: PageProps) {
     agreePrivacy: false
   });
   const [submitted, setSubmitted] = useState(false);
+
+  // Simple state for results case studies
+  const [activeCaseIdx, setActiveCaseIdx] = useState<number>(0);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -287,6 +445,38 @@ export default function ServiceDetailPage({ params }: PageProps) {
   const recommendedServices = allServices
     .filter((s) => s.slug !== service.slug)
     .slice(0, 3);
+
+  // Map tools details dynamically to display a crisp card grid in Section 09
+  const getToolDescription = (name: string) => {
+    const specs: Record<string, { desc: string; tag: string }> = {
+      "Google Search": { desc: "Indexation audits, keyword position mapping, and search volume gap tracing.", tag: "SEO CORE" },
+      "Google Maps": { desc: "GBP optimization, geographical radius reviews, and local map pack positioning.", tag: "LOCAL SEO" },
+      "Google Business": { desc: "Lead citation indexation and customer review generation workflows.", tag: "REPUTATION" },
+      "Bing Search": { desc: "Secondary index submittals and webmaster console indexing validation.", tag: "SEARCH INDEX" },
+      "React.js": { desc: "Modular, reactive front-end library built for speedy interaction states.", tag: "FRONTEND" },
+      "Next.js": { desc: "Headless rendering backend with automatic static optimization and route pre-fetching.", tag: "CORE DEV" },
+      "Tailwind CSS": { desc: "Utility-first CSS compiler to keep stylesheet sizes down and performance high.", tag: "STYLING" },
+      "Vercel": { desc: "Serverless global edge CDN network offering 99.9% uptime and instant caching.", tag: "EDGE NETWORK" },
+      "Framer Motion": { desc: "Clean React animations library built for hardware-accelerated 60fps renders.", tag: "UX ANIMATIONS" },
+      "Instagram": { desc: "Social asset template curation, reels outreach, and caption formatting setups.", tag: "SOCIAL ENGAGE" },
+      "TikTok": { desc: "Viral video visual scripting, trend syncer, and hook timer calibration.", tag: "VIRAL CAPTURE" },
+      "LinkedIn": { desc: "High-intent corporate networking templates, B2B lead generation lists, and outreach.", tag: "B2B LEADS" },
+      "Google Ads": { desc: "Intent-targeted keyword bidding and negative keyword filters for immediate ROAS.", tag: "PPC SEARCH" },
+      "Meta Ads": { desc: "Lookalike targeting, customer pixel tracking, and retargeting workflows.", tag: "PPC SOCIAL" },
+      "Shopify API": { desc: "Headless storefront catalogs synchronizations, checkout webhooks, and automation.", tag: "E-COMM BACKEND" },
+      "Stripe": { desc: "Encrypt-level single-click credit card payments processing with local currency support.", tag: "GATEWAY" },
+      "Google Analytics 4": { desc: "Server-side tag setup to capture 100% of campaign lead and attribution logs.", tag: "DATA RUN" },
+      "Google Tag Manager": { desc: "Container mapping setup to safely deploy marketing pixels and clicks logs.", tag: "TAG RUN" },
+      "Looker Studio": { desc: "Attribution dashboards compiling all conversion sources into real-time ROI reports.", tag: "REPORTING" },
+      "SEMrush": { desc: "Competitor organic keywords volume checks and domain backlink audits.", tag: "AUDITS" },
+      "Ahrefs": { desc: "Contextual link building directories research and authority ratings checks.", tag: "LINK MAP" },
+      "Klaviyo": { desc: "Behavioral emails flows scripts targeting abandoned carts and user lists.", tag: "RETENTION" }
+    };
+    return specs[name] || {
+      desc: "Strategic tool configuration customized to scale lead capture and brand authority.",
+      tag: "CAMPAIGN"
+    };
+  };
 
   return (
     <main className="flex-1 w-full bg-white dark:bg-[#080710] text-brand-dark dark:text-white transition-colors duration-300 relative overflow-x-clip font-sans">
@@ -345,7 +535,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
                 </span>
               </h1>
 
-              <p className="text-sm sm:text-base font-sans text-brand-zinc-650 dark:text-zinc-300 leading-relaxed max-w-xl font-normal">
+              <p className="text-sm sm:text-base font-sans text-brand-zinc-655 dark:text-zinc-300 leading-relaxed max-w-xl font-normal">
                 {service.hero.description}
               </p>
 
@@ -399,7 +589,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
                       <h3 className="font-heading text-xl font-bold text-brand-dark dark:text-white">
                         Consultation Booked!
                       </h3>
-                      <p className="text-xs font-sans text-brand-zinc-650 dark:text-zinc-355 max-w-xs mx-auto leading-relaxed">
+                      <p className="text-xs font-sans text-brand-zinc-655 dark:text-zinc-355 max-w-xs mx-auto leading-relaxed">
                         Thanks for reaching out! We'll audit your brand's presence and email you a customized growth strategy within 24 hours.
                       </p>
                     </motion.div>
@@ -477,7 +667,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
                       onChange={(e) => setFormData({ ...formData, agreePrivacy: e.target.checked })}
                       className="w-4 h-4 rounded border-brand-zinc-300 text-brand-blue focus:ring-brand-blue cursor-pointer"
                     />
-                    <label htmlFor="privacy" className="text-[11px] font-sans text-brand-zinc-650 dark:text-zinc-400 cursor-pointer select-none">
+                    <label htmlFor="privacy" className="text-[11px] font-sans text-brand-zinc-655 dark:text-zinc-400 cursor-pointer select-none">
                       I agree to the <Link href="/privacy" className="text-brand-blue dark:text-brand-yellow font-bold underline">Privacy Policy</Link>
                     </label>
                   </div>
@@ -498,7 +688,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
       </section>
 
       {/* ── 02. CLIENT TRUST MARQUEE ── */}
-      <section className="py-7 border-b border-brand-zinc-200 dark:border-white/10 bg-zinc-50/20 dark:bg-[#0c0b18]/40 select-none overflow-hidden logo-marquee-wrapper relative">
+      <section className="py-7 border-b border-brand-zinc-200 dark:border-white/10 bg-zinc-50/20 dark:bg-[#0c0b18]/40 select-none overflow-hidden logo-marquee-track-container relative">
         <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent dark:from-[#080710] z-20 pointer-events-none" />
         <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent dark:from-[#080710] z-20 pointer-events-none" />
 
@@ -542,7 +732,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
             animation: marqueeLogos 22s linear infinite;
             will-change: transform;
           }
-          .logo-marquee-wrapper:hover .logo-marquee-track {
+          .logo-marquee-track-container:hover .logo-marquee-track {
             animation-play-state: paused;
           }
         `}</style>
@@ -580,14 +770,13 @@ export default function ServiceDetailPage({ params }: PageProps) {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 text-left">
             {service.whatIncluded.pillars.map((pillar: any, idx: number) => (
               <SpotlightCard key={idx} className="bg-zinc-50/80 dark:bg-[#0c0b18] border border-brand-zinc-200/80 dark:border-white/10 p-7 sm:p-8 flex flex-col justify-between h-full min-h-[340px] hover:shadow-2xl hover:border-brand-blue/60 dark:hover:border-brand-yellow/60 transition-all duration-300 relative overflow-hidden group">
                 <div className="space-y-5">
-                  {/* Digital Badge Indicator */}
-                  <div className="w-11 h-11 rounded-2xl bg-brand-blue/[0.06] dark:bg-brand-yellow/[0.08] border border-brand-blue/10 dark:border-brand-yellow/10 flex items-center justify-center shrink-0 text-brand-blue dark:text-brand-yellow font-mono text-sm font-black group-hover:rotate-[15deg] transition-transform duration-350">
+                  <span className="font-serif italic text-4xl sm:text-5xl font-black text-brand-zinc-200 dark:text-white/10 group-hover:text-brand-blue dark:group-hover:text-brand-yellow transition-colors duration-500 leading-none select-none">
                     0{idx + 1}
-                  </div>
+                  </span>
                   <div className="space-y-2 text-left">
                     <h3 className="font-heading text-lg sm:text-xl font-extrabold text-brand-dark dark:text-white leading-tight">
                       {pillar.title}
@@ -600,7 +789,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
 
                 <ul className="space-y-2.5 pt-6 mt-6 border-t border-brand-zinc-150 dark:border-white/5 text-left">
                   {pillar.features.map((feature: string, fIdx: number) => (
-                    <li key={fIdx} className="flex items-center gap-2.5 text-xs text-brand-zinc-650 dark:text-zinc-350 font-bold group/item">
+                    <li key={fIdx} className="flex items-center gap-2.5 text-xs text-brand-zinc-655 dark:text-zinc-355 font-bold group/item">
                       <span className="w-5 h-5 rounded-full bg-brand-blue/10 dark:bg-brand-yellow/10 text-brand-blue dark:text-brand-yellow flex items-center justify-center shrink-0 border border-brand-blue/15 dark:border-brand-yellow/15 group-hover/item:scale-105 transition-transform duration-300">
                         <Check className="w-3 h-3 stroke-[2.5]" />
                       </span>
@@ -615,14 +804,14 @@ export default function ServiceDetailPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* ── 04. SERVICE STRATEGY (5-6 Components) ── */}
-      <section className="relative overflow-hidden py-20 md:py-24 bg-zinc-50/15 dark:bg-[#0c0b18]/10 border-b border-brand-zinc-200 dark:border-white/10">
+      {/* ── 04. SERVICE STRATEGY (Left Sticky Right Scroll) ── */}
+      <section className="relative overflow-x-clip py-20 md:py-24 bg-zinc-50/15 dark:bg-[#0c0b18]/10 border-b border-brand-zinc-200 dark:border-white/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
-            {/* Left Column Sticky info */}
-            <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-4 text-left">
+            {/* Left Column Sticky info - Fix: added self-start to enable stickiness */}
+            <div className="lg:col-span-5 lg:sticky lg:top-28 self-start space-y-4 text-left">
               <span className="eyebrow-pill">{service.strategy.eyebrow}</span>
               <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.12] max-w-sm">
                 {service.strategy.titleIntro}
@@ -630,37 +819,31 @@ export default function ServiceDetailPage({ params }: PageProps) {
                   {service.strategy.titleHighlight}
                 </span>
               </h2>
-              <p className="text-sm sm:text-base font-sans text-brand-zinc-605 dark:text-zinc-300 font-normal leading-relaxed max-w-sm">
+              <p className="text-sm sm:text-base font-sans text-brand-zinc-605 dark:text-zinc-350 font-normal leading-relaxed max-w-sm">
                 A custom implementation plan targeting bottlenecks and compounding acquisition flows.
               </p>
             </div>
 
-            {/* Right Column Grid List */}
-            <div className="lg:col-span-7 space-y-4">
+            {/* Right Column Staggered List (Scrollable) */}
+            <div className="lg:col-span-7 space-y-8 text-left">
               {service.strategy.components.map((comp: any, idx: number) => (
-                <motion.div
+                <div
                   key={idx}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.05 }}
-                  className="bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/5 p-6 rounded-[22px] shadow-sm hover:shadow-md hover:border-brand-blue/20 dark:hover:border-brand-yellow/20 flex gap-5 items-start transition-all duration-300 group relative overflow-hidden"
+                  className="flex gap-6 sm:gap-8 items-start border-b border-brand-zinc-200/80 dark:border-white/5 pb-8 last:border-none last:pb-0 group"
                 >
-                  {/* Expanding line indicator */}
-                  <div className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-brand-blue dark:bg-brand-yellow group-hover:w-full transition-all duration-500 ease-out" />
-                  
-                  <div className="h-10 w-10 rounded-xl bg-brand-blue/5 dark:bg-brand-yellow/5 text-brand-blue dark:text-brand-yellow flex items-center justify-center shrink-0 font-mono text-[13px] font-black group-hover:scale-105 transition-transform duration-300 border border-brand-blue/10 dark:border-brand-yellow/10">
+                  <span className="font-serif italic text-4xl sm:text-5xl font-black text-brand-zinc-200 dark:text-white/10 group-hover:text-brand-blue dark:group-hover:text-brand-yellow transition-colors duration-500 leading-none select-none">
                     {comp.num}
-                  </div>
-                  <div className="space-y-1 text-left">
-                    <h3 className="font-heading text-base font-extrabold text-brand-dark dark:text-white group-hover:text-brand-blue dark:group-hover:text-brand-yellow transition-colors duration-300">
+                  </span>
+                  
+                  <div className="space-y-2 flex-1">
+                    <h3 className="font-heading text-lg sm:text-xl font-extrabold text-brand-dark dark:text-white group-hover:text-brand-blue dark:group-hover:text-brand-yellow transition-colors duration-300 leading-tight">
                       {comp.title}
                     </h3>
-                    <p className="text-xs font-sans text-brand-zinc-600 dark:text-zinc-400 leading-relaxed font-normal">
+                    <p className="text-xs sm:text-[13.5px] font-sans text-brand-zinc-600 dark:text-zinc-400 leading-relaxed font-normal">
                       {comp.desc}
                     </p>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
 
@@ -701,15 +884,14 @@ export default function ServiceDetailPage({ params }: PageProps) {
             </h2>
           </motion.div>
 
+          {/* Grid layout - spacious cards containing metric values */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {service.benefits.list.map((b: any, idx: number) => {
-              // Map index to a specific Lucide Icon
               const benefitIcons = [TrendingUp, Target, Award, DollarSign];
               const BenefitIcon = benefitIcons[idx % benefitIcons.length];
 
               return (
                 <SpotlightCard key={idx} className="bg-white dark:bg-[#12121e] border border-brand-zinc-200/90 dark:border-white/10 p-6 sm:p-7 rounded-[26px] hover:shadow-2xl transition-all duration-300 flex flex-col justify-between min-h-[250px] relative overflow-hidden group">
-                  {/* Expanding underline top borders */}
                   <div className="relative flex items-center justify-between w-full pb-2.5 mb-3">
                     <BenefitIcon className="h-4.5 w-4.5 text-[#0306AC] dark:text-[#E9BD36] transition-transform duration-300 group-hover:rotate-[15deg]" />
                     <span className="text-[8.5px] font-mono tracking-widest text-brand-zinc-400 dark:text-zinc-500 select-none">BENEFIT 0{idx + 1}</span>
@@ -723,10 +905,10 @@ export default function ServiceDetailPage({ params }: PageProps) {
                         <DigitTicker value={b.metric} />
                       </span>
                     </div>
-                    <h3 className="font-heading text-base font-extrabold text-brand-dark dark:text-white mt-2 transition-colors duration-300 group-hover:text-brand-blue dark:group-hover:text-brand-yellow">
+                    <h3 className="font-heading text-sm sm:text-base font-extrabold text-brand-dark dark:text-white mt-2 transition-colors duration-300 group-hover:text-brand-blue dark:group-hover:text-brand-yellow">
                       {b.title}
                     </h3>
-                    <p className="text-xs font-sans text-brand-zinc-550 dark:text-zinc-400 leading-relaxed font-normal">
+                    <p className="text-xs font-sans text-brand-zinc-555 dark:text-zinc-400 leading-relaxed font-normal">
                       {b.desc}
                     </p>
                   </div>
@@ -743,77 +925,98 @@ export default function ServiceDetailPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* ── 06. OUR PROCESS (6 Steps) ── */}
-      <section className="relative overflow-hidden py-20 md:py-24 bg-zinc-50/15 dark:bg-[#0c0b18]/10 border-b border-brand-zinc-200 dark:border-white/10">
+      {/* ── 06. OUR PROCESS / ROADMAP (Sticky Left, Scroll Right Editorial Cards) ── */}
+      <section className="relative overflow-x-clip py-20 md:py-24 bg-zinc-50/15 dark:bg-[#0c0b18]/10 border-b border-brand-zinc-200 dark:border-white/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16 space-y-4"
-          >
-            <div className="flex justify-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            
+            {/* Left Sticky Panel - Fix: Added self-start to float correctly */}
+            <div className="lg:col-span-5 lg:sticky lg:top-28 self-start space-y-5 text-left">
               <span className="eyebrow-pill">{service.process.eyebrow}</span>
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.12] max-w-sm">
+                {service.process.titleIntro}
+                <span className="text-brand-blue dark:text-brand-yellow font-serif font-normal italic">
+                  {service.process.titleHighlight}
+                </span>
+              </h2>
+              <p className="text-sm font-sans text-brand-zinc-605 dark:text-zinc-355 font-normal leading-relaxed max-w-sm">
+                We orchestrate campaigns sequentially, guaranteeing structured code deliverables and auditable checkpoints at each stage of your roadmap.
+              </p>
+              
+              {/* Premium Callout */}
+              <div className="hidden lg:block border border-brand-zinc-200 dark:border-white/10 bg-white/40 dark:bg-[#12121e]/20 p-5 rounded-2xl text-xs space-y-2.5 max-w-sm">
+                <p className="font-mono text-[9px] uppercase tracking-wider text-[#0306AC] dark:text-[#E9BD36] font-extrabold">// PROCESS COMPLIANCE</p>
+                <p className="text-brand-zinc-500 dark:text-zinc-400 font-normal leading-relaxed">
+                  Every milestone is cataloged in the shared workspace, providing real-time deployment logs and verification reports.
+                </p>
+              </div>
             </div>
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.12]">
-              {service.process.titleIntro}
-              <span className="relative inline-block text-brand-blue dark:text-brand-yellow pb-1 ml-1 font-black">
-                {service.process.titleHighlight}
-                <svg className="absolute -bottom-1.5 left-0 w-full h-3.5 pointer-events-none text-brand-yellow opacity-90" viewBox="0 0 100 10" preserveAspectRatio="none">
-                  <motion.path
-                    d="M 2 5 Q 50 1.5, 98 3.5 C 99 3.5, 99 4.5, 98 5 Q 50 7, 2 5.5 Z"
-                    fill="currentColor"
-                    custom={{ delay: 0.3, duration: 0.65 }}
-                    variants={drawVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                  />
-                </svg>
-              </span>
-            </h2>
-          </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 relative">
-            {service.process.steps.map((step: any, idx: number) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.08 }}
-                className="flex flex-col gap-4 text-left relative z-15 group"
-              >
-                {/* Step Circle indicator */}
-                <div className="h-10 w-10 rounded-full bg-brand-blue dark:bg-brand-yellow text-white dark:text-[#080710] flex items-center justify-center font-mono font-black text-xs shadow-md shrink-0 border border-white/20 group-hover:scale-105 transition-transform duration-300">
-                  {step.num}
-                </div>
-                <div className="space-y-1.5">
-                  <h3 className="font-heading text-[15px] font-extrabold text-brand-dark dark:text-white leading-tight group-hover:text-brand-blue dark:group-hover:text-brand-yellow transition-colors duration-300">
-                    {step.title}
-                  </h3>
-                  <p className="text-xs font-sans text-brand-zinc-600 dark:text-zinc-400 leading-relaxed font-normal">
-                    {step.desc}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+            {/* Right Column: Premium Staggered Console Cards (Scrollable) */}
+            <div className="lg:col-span-7 space-y-6 text-left relative pl-1">
+              {service.process.steps.map((step: any, idx: number) => {
+                const deliverables = roadmapDeliverables[idx] || [];
 
-            {/* Desktop Connector Line */}
-            <div className="hidden lg:block absolute top-5 left-8 right-8 h-[1px] bg-brand-zinc-200 dark:bg-zinc-800 -z-0" />
+                return (
+                  <SpotlightCard
+                    key={idx}
+                    className="bg-white dark:bg-[#0c0b18] border border-brand-zinc-200 dark:border-white/10 p-6 sm:p-8 rounded-[30px] hover:shadow-2xl hover:border-brand-blue/30 dark:hover:border-brand-yellow/30 transition-all duration-350 flex flex-col justify-between group min-h-[220px]"
+                  >
+                    <div className="space-y-4">
+                      {/* Top Header */}
+                      <div className="flex items-center justify-between pb-3.5 border-b border-brand-zinc-150 dark:border-white/5">
+                        <span className="font-serif italic text-3xl font-black text-brand-zinc-200 dark:text-white/10 group-hover:text-brand-blue dark:group-hover:text-brand-yellow transition-colors duration-300 leading-none select-none">
+                          0{idx + 1}
+                        </span>
+                        <span className="font-mono text-[8.5px] font-black tracking-widest text-[#0306AC] dark:text-[#E9BD36] bg-brand-blue/5 dark:bg-[#E9BD36]/10 px-3 py-1 rounded-full uppercase">
+                          PHASE 0{idx + 1} // CAMPAIGN
+                        </span>
+                      </div>
+
+                      <div className="space-y-2">
+                        <h3 className="font-heading text-lg font-black text-brand-dark dark:text-white group-hover:text-brand-blue dark:group-hover:text-brand-yellow transition-colors duration-300">
+                          {step.title}
+                        </h3>
+                        <p className="text-xs sm:text-[13px] font-sans text-brand-zinc-600 dark:text-zinc-400 leading-relaxed font-normal">
+                          {step.desc}
+                        </p>
+                      </div>
+
+                      {/* Technical Deliverables Checklist */}
+                      <ul className="space-y-2 pt-3 border-t border-brand-zinc-150 dark:border-white/5">
+                        {deliverables.map((item: string, dIdx: number) => (
+                          <li key={dIdx} className="flex items-start gap-2 text-xs text-brand-zinc-550 dark:text-zinc-350 font-bold group/item">
+                            <span className="h-4 w-4 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-500/15">
+                              <Check className="w-2.5 h-2.5 stroke-[3]" />
+                            </span>
+                            <span className="leading-snug">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="pt-4 mt-5 border-t border-brand-zinc-150 dark:border-white/5 flex items-center justify-between text-brand-zinc-400 dark:text-zinc-550 font-mono text-[8px] font-bold uppercase tracking-widest">
+                      <span>Verification Checkpoint</span>
+                      <span>Verified Node</span>
+                    </div>
+                  </SpotlightCard>
+                );
+              })}
+            </div>
+
           </div>
 
         </div>
       </section>
 
-      {/* ── 07. RESULTS (Metrics / Outcomes) ── */}
+      {/* ── 07. RESULTS (Metrics & Dynamic Cases Switcher) ── */}
       <section className="relative overflow-hidden py-16 md:py-20 border-b border-brand-zinc-200 dark:border-white/10 bg-[#F9FAFB]/50 dark:bg-[#0c0b18]/15">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
 
-            {/* Left side text info */}
+            {/* Left side text & Dynamic Case switcher */}
             <div className="lg:col-span-5 text-left space-y-6 lg:sticky lg:top-28">
               <div className="space-y-4">
                 <span className="eyebrow-pill">{service.results.eyebrow}</span>
@@ -823,27 +1026,66 @@ export default function ServiceDetailPage({ params }: PageProps) {
                     {service.results.titleHighlight}
                   </span>
                 </h2>
-                <p className="text-xs sm:text-sm font-sans text-brand-zinc-650 dark:text-zinc-350 leading-relaxed font-normal">
+                <p className="text-xs sm:text-sm font-sans text-brand-zinc-655 dark:text-zinc-355 leading-relaxed font-normal">
                   Verifiable metric indicators driven by precise performance scaling and custom coding.
                 </p>
               </div>
 
-              {/* Collapsed Case Studies */}
-              <div className="space-y-4 pt-4 border-t border-brand-zinc-200 dark:border-white/15">
-                <h4 className="font-mono text-[9px] font-black uppercase text-brand-zinc-400 tracking-widest">
-                  Featured Case Studies
-                </h4>
-                {service.results.caseStudies.map((cs: any, idx: number) => (
-                  <div key={idx} className="p-4 rounded-2xl bg-white dark:bg-[#12121e]/50 border border-brand-zinc-200/60 dark:border-white/5 text-xs text-left space-y-1.5 shadow-sm">
-                    <div className="flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                      <span className="font-heading font-extrabold text-brand-dark dark:text-white">{cs.title}</span>
-                    </div>
-                    <p className="text-brand-zinc-550 dark:text-zinc-400 font-normal leading-relaxed">
-                      {cs.outcome}
-                    </p>
+              {/* Dynamic Case Studies Switcher */}
+              <div className="space-y-4 pt-4 border-t border-brand-zinc-200 dark:border-white/15 w-full">
+                <div className="flex items-center justify-between gap-4">
+                  <h4 className="font-mono text-[9px] font-black uppercase text-brand-zinc-400 tracking-widest">
+                    Featured Case Studies
+                  </h4>
+                  <div className="flex items-center gap-1.5 select-none">
+                    {service.results.caseStudies.map((_: any, idx: number) => (
+                      <button
+                        key={idx}
+                        onClick={() => setActiveCaseIdx(idx)}
+                        className={`h-2.5 rounded-full transition-all duration-300 ${
+                          activeCaseIdx === idx
+                            ? "w-6 bg-[#0306AC] dark:bg-[#E9BD36]"
+                            : "w-2.5 bg-brand-zinc-300 dark:bg-zinc-700 hover:bg-brand-zinc-400"
+                        }`}
+                      />
+                    ))}
                   </div>
-                ))}
+                </div>
+
+                <div className="relative min-h-[165px] w-full">
+                  <AnimatePresence mode="wait">
+                    {service.results.caseStudies.map((cs: any, idx: number) => {
+                      if (activeCaseIdx !== idx) return null;
+                      return (
+                        <motion.div
+                          key={idx}
+                          initial={{ opacity: 0, x: 15 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          exit={{ opacity: 0, x: -15 }}
+                          transition={{ duration: 0.35, ease: "easeOut" }}
+                          className="p-5 rounded-2xl bg-white dark:bg-[#12121e]/50 border border-brand-zinc-200/60 dark:border-white/5 text-xs text-left space-y-2.5 shadow-sm absolute inset-0 w-full h-full flex flex-col justify-between"
+                        >
+                          <div className="space-y-1.5">
+                            <div className="flex items-center gap-2">
+                              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                              <span className="font-heading font-extrabold text-[13px] text-brand-dark dark:text-white leading-tight">
+                                {cs.title}
+                              </span>
+                            </div>
+                            <p className="text-brand-zinc-555 dark:text-zinc-400 font-normal leading-relaxed text-[11.5px] line-clamp-3">
+                              {cs.challenge} {cs.strategy}
+                            </p>
+                          </div>
+                          
+                          <div className="flex items-center justify-between pt-2.5 border-t border-brand-zinc-100 dark:border-white/5">
+                            <span className="font-mono text-[9px] uppercase tracking-wider text-brand-zinc-400">Campaign Outcome</span>
+                            <span className="font-mono text-[10px] font-black text-brand-blue dark:text-brand-yellow">{cs.outcome}</span>
+                          </div>
+                        </motion.div>
+                      );
+                    })}
+                  </AnimatePresence>
+                </div>
               </div>
             </div>
 
@@ -851,8 +1093,6 @@ export default function ServiceDetailPage({ params }: PageProps) {
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
               {service.results.metrics.map((metric: any, idx: number) => (
                 <div key={idx} className="bg-white dark:bg-[#0c0b18] border border-brand-zinc-200 dark:border-white/5 p-6 rounded-[22px] shadow-[0_4px_25px_rgba(0,0,0,0.015)] flex flex-col justify-between hover:-translate-y-1 hover:border-brand-blue/30 dark:hover:border-brand-yellow/30 transition-all duration-300 group min-h-[170px] relative overflow-hidden">
-                  
-                  {/* Underline indicators that grow on hover */}
                   <div className="relative flex items-center justify-between w-full pb-2 mb-3">
                     <Trophy className="h-4.5 w-4.5 text-brand-blue dark:text-brand-yellow transition-transform duration-300 group-hover:rotate-[15deg]" />
                     <span className="text-[8px] font-mono tracking-widest text-brand-zinc-400 dark:text-zinc-500 select-none">M0{idx + 1}</span>
@@ -865,7 +1105,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
                       <DigitTicker value={metric.value} />
                     </span>
                     <span className="block font-mono text-[9px] font-black uppercase text-brand-blue dark:text-brand-yellow tracking-widest pt-1">{metric.label}</span>
-                    <span className="block text-[11px] font-sans text-brand-zinc-550 dark:text-zinc-400 pt-1 leading-snug font-normal">{metric.desc}</span>
+                    <span className="block text-[11px] font-sans text-brand-zinc-555 dark:text-zinc-400 pt-1 leading-snug font-normal">{metric.desc}</span>
                   </div>
                 </div>
               ))}
@@ -876,7 +1116,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* ── 08. INDUSTRIES WE SERVE ── */}
+      {/* ── 08. INDUSTRIES WE SERVE (Dashed Icon Container Style) ── */}
       <section className="relative overflow-hidden py-20 md:py-24 border-b border-brand-zinc-200 dark:border-white/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
 
@@ -908,24 +1148,42 @@ export default function ServiceDetailPage({ params }: PageProps) {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {service.industries.list.map((ind: any, idx: number) => {
-              // Custom icons for visual interest
               const indIcons = [Globe, Cpu, Building2, ShoppingCart, Star, Briefcase];
               const IndustryIcon = indIcons[idx % indIcons.length];
+              
+              const words = ind.title.split(" ");
+              const abbreviation = words.map((w: string) => w[0]).join("").toUpperCase().slice(0, 2);
 
               return (
-                <SpotlightCard key={idx} className="bg-zinc-50/80 dark:bg-[#0c0b18] border border-brand-zinc-200/90 dark:border-white/5 p-6 rounded-[24px] hover:shadow-xl hover:border-brand-blue/30 dark:hover:border-brand-yellow/30 transition-all duration-300 flex items-start gap-4 text-left group">
-                  <div className="w-10 h-10 rounded-lg bg-brand-blue/10 dark:bg-brand-yellow/10 flex items-center justify-center shrink-0 text-brand-blue dark:text-brand-yellow border border-brand-blue/15 dark:border-brand-yellow/15 group-hover:scale-105 transition-transform duration-300">
-                    <IndustryIcon className="w-5 h-5" />
+                <SpotlightCard key={idx} className="bg-zinc-50/80 dark:bg-[#0c0b18] border border-brand-zinc-200/90 dark:border-white/5 p-7 sm:p-8 rounded-[28px] hover:shadow-2xl hover:border-brand-blue/30 dark:hover:border-brand-yellow/30 transition-all duration-500 flex flex-col justify-between min-h-[240px] relative group text-left">
+                  
+                  {/* Floating Watermark */}
+                  <span className="absolute top-4 right-6 font-serif italic text-6xl font-black text-brand-zinc-200/20 dark:text-white/5 select-none pointer-events-none transition-transform duration-500 group-hover:scale-110">
+                    {abbreviation}
+                  </span>
+
+                  <div className="space-y-5">
+                    {/* Icon Container with double ring on hover */}
+                    <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-zinc-100 dark:bg-[#1e1e2e] border border-brand-zinc-200 dark:border-white/10 group-hover:bg-[#0306AC] dark:group-hover:bg-[#E9BD36] group-hover:border-none transition-all duration-500 ease-out shadow-sm group-hover:shadow-md shrink-0">
+                      <div className="absolute inset-0 rounded-2xl border border-dashed border-[#0306AC]/0 dark:border-[#E9BD36]/0 group-hover:border-[#0306AC]/30 dark:group-hover:border-[#E9BD36]/30 group-hover:scale-110 transition-all duration-500" />
+                      <IndustryIcon className="h-6.5 w-6.5 text-[#0306AC] dark:text-[#E9BD36] group-hover:text-white dark:group-hover:text-brand-dark transition-all duration-300 group-hover:scale-110" />
+                    </div>
+                    
+                    <div className="space-y-1">
+                      <h3 className="font-heading text-base font-extrabold text-brand-dark dark:text-white group-hover:text-[#0306AC] dark:group-hover:text-[#E9BD36] transition-colors duration-300">
+                        {ind.title}
+                      </h3>
+                      <p className="text-xs sm:text-[13px] font-sans text-brand-zinc-600 dark:text-zinc-400 leading-relaxed font-normal">
+                        {ind.desc}
+                      </p>
+                    </div>
                   </div>
-                  <div className="space-y-1">
-                    <h3 className="font-heading text-base font-extrabold text-brand-dark dark:text-white">
-                      {ind.title}
-                    </h3>
-                    <p className="text-xs font-sans text-brand-zinc-600 dark:text-zinc-400 leading-relaxed font-normal">
-                      {ind.desc}
-                    </p>
+
+                  <div className="pt-4 mt-5 border-t border-brand-zinc-150 dark:border-white/5 flex items-center justify-between text-brand-blue/60 dark:text-brand-yellow/60 font-mono text-[8px] font-black uppercase tracking-widest">
+                    <span>Target Sector</span>
+                    <span>Verified Optimization</span>
                   </div>
                 </SpotlightCard>
               );
@@ -935,12 +1193,12 @@ export default function ServiceDetailPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* ── 09. TOOLS & TECHNOLOGY ── */}
-      <section className="relative overflow-hidden py-16 md:py-20 bg-zinc-50/10 dark:bg-[#0c0b18]/10 border-b border-brand-zinc-200 dark:border-white/10">
+      {/* ── 09. TOOLS & TECHNOLOGY (Console Mockup Style) ── */}
+      <section className="relative overflow-hidden py-20 md:py-24 bg-zinc-50/10 dark:bg-[#0c0b18]/10 border-b border-brand-zinc-200 dark:border-white/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
 
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
-            <div className="text-left space-y-3">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-14 text-left">
+            <div className="space-y-3">
               <span className="eyebrow-pill">{service.tools.eyebrow}</span>
               <h2 className="font-heading text-3xl sm:text-4xl font-black text-brand-dark dark:text-white tracking-tight leading-tight">
                 {service.tools.titleIntro}
@@ -949,19 +1207,58 @@ export default function ServiceDetailPage({ params }: PageProps) {
                 </span>
               </h2>
             </div>
-            <p className="text-xs sm:text-sm font-sans text-brand-zinc-655 dark:text-zinc-300 max-w-xs leading-relaxed text-left font-normal">
-              Advanced software platforms and modern frameworks powering our campaigns and designs.
+            <p className="text-xs sm:text-sm font-sans text-brand-zinc-655 dark:text-zinc-355 max-w-sm leading-relaxed font-normal">
+              High-performance frameworks and analytics systems driving client ROI metrics.
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-4 justify-start">
+          {/* Console Card Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {service.tools.list.map((tool: any, idx: number) => {
               const ToolIcon = iconMap[tool.iconName] || Search;
+              const specs = getToolDescription(tool.name);
+
               return (
-                <div key={idx} className="flex items-center gap-2.5 px-5 py-3 rounded-full bg-white dark:bg-[#12121e] border border-brand-zinc-200 dark:border-white/10 shadow-sm hover:border-brand-blue/35 dark:hover:border-brand-yellow/35 hover:-translate-y-0.5 transition-all duration-300 font-mono text-xs font-black uppercase text-brand-dark dark:text-white group cursor-default">
-                  <ToolIcon className="w-4.5 h-4.5 text-brand-blue dark:text-brand-yellow group-hover:scale-105 transition-transform duration-300" />
-                  <span>{tool.name}</span>
-                </div>
+                <SpotlightCard
+                  key={idx}
+                  className="bg-white dark:bg-[#0c0b18] border border-brand-zinc-200 dark:border-white/10 rounded-[28px] hover:shadow-2xl transition-all duration-300 flex flex-col justify-between min-h-[220px] relative text-left group"
+                >
+                  {/* Console Header Bar */}
+                  <div className="flex items-center justify-between px-6 pt-4 pb-3 border-b border-brand-zinc-150 dark:border-white/5 select-none bg-zinc-50/50 dark:bg-white/[0.01]">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/80" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-green-400/80" />
+                    </div>
+                    <span className="font-mono text-[8px] tracking-widest text-brand-zinc-400 dark:text-zinc-550 font-bold uppercase">
+                      {specs.tag}
+                    </span>
+                  </div>
+
+                  {/* Console Body */}
+                  <div className="p-6 flex-1 flex flex-col justify-between">
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-3">
+                        <div className="w-9 h-9 rounded-lg bg-brand-blue/5 dark:bg-brand-yellow/5 flex items-center justify-center shrink-0 border border-brand-blue/10 dark:border-brand-yellow/10">
+                          <ToolIcon className="w-4.5 h-4.5 text-brand-blue dark:text-brand-yellow" />
+                        </div>
+                        <h3 className="font-heading text-base font-extrabold text-brand-dark dark:text-white group-hover:text-brand-blue dark:group-hover:text-brand-yellow transition-colors duration-300">
+                          {tool.name}
+                        </h3>
+                      </div>
+                      <p className="text-xs sm:text-[13px] font-sans text-brand-zinc-600 dark:text-zinc-400 leading-relaxed font-normal">
+                        {specs.desc}
+                      </p>
+                    </div>
+
+                    {/* Progress Gauge */}
+                    <div className="pt-4 mt-4 border-t border-brand-zinc-150 dark:border-white/5 space-y-1">
+                      <div className="h-1 w-full bg-brand-zinc-100 dark:bg-white/5 rounded-full overflow-hidden">
+                        <div className="h-full bg-gradient-to-r from-brand-blue to-[#10b981] dark:from-[#E9BD36] dark:to-emerald-400 w-[90%] rounded-full group-hover:w-full transition-all duration-700 ease-out" />
+                      </div>
+                    </div>
+                  </div>
+                </SpotlightCard>
               );
             })}
           </div>
@@ -969,51 +1266,79 @@ export default function ServiceDetailPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* ── 10. WHY CHOOSE US (Differentiators) ── */}
-      <section className="relative overflow-hidden py-20 md:py-24 border-b border-brand-zinc-200 dark:border-white/10">
+      {/* ── 10. WHY CHOOSE US (Sticky Left, Scroll Right Differentiators) ── */}
+      <section className="relative overflow-x-clip py-20 md:py-24 border-b border-brand-zinc-200 dark:border-white/10">
+        <div className="absolute inset-0 opacity-[0.022] pointer-events-none" style={{ backgroundImage: "radial-gradient(#0306AC 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
+        
         <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
+          <div className="flex flex-col lg:flex-row lg:items-start gap-12 lg:gap-0">
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Left Sticky Column with Stat Rings - Fix: Added self-start to ensure stickiness */}
+            <div className="lg:w-[42%] lg:shrink-0 lg:sticky lg:top-28 self-start flex flex-col justify-start lg:pr-16 lg:border-r border-brand-zinc-200 dark:border-white/10 text-left space-y-7">
+              <div className="space-y-4">
+                <span className="eyebrow-pill">{service.whyChooseUs.eyebrow}</span>
+                <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white leading-[1.15] tracking-tight">
+                  {service.whyChooseUs.titleIntro}{" "}
+                  <span className="text-brand-blue dark:text-brand-yellow font-serif font-normal italic">
+                    {service.whyChooseUs.titleHighlight}
+                  </span>
+                </h2>
+                <p className="text-sm font-sans text-brand-zinc-655 dark:text-zinc-355 leading-relaxed font-normal">
+                  We design fully custom solutions engineered around revenue metrics, performance, and transparency.
+                </p>
+              </div>
 
-            {/* Left Col: Info */}
-            <div className="lg:col-span-5 text-left space-y-4">
-              <span className="eyebrow-pill">{service.whyChooseUs.eyebrow}</span>
-              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.12]">
-                {service.whyChooseUs.titleIntro}
-                <span className="text-brand-blue dark:text-brand-yellow font-serif font-normal italic block mt-1">
-                  {service.whyChooseUs.titleHighlight}
-                </span>
-              </h2>
-              <p className="text-sm font-sans text-brand-zinc-650 dark:text-zinc-350 leading-relaxed font-normal max-w-md">
-                We design fully custom solutions engineered around revenue metrics, performance, and transparency.
-              </p>
+              {/* 3 Circular Stat Rings */}
+              <div className="flex items-center justify-between gap-4 pt-6 w-full select-none">
+                <AnimatedStat value="100%" label="PERFORMANCE" sublabel="Next.js Headless\nSpeed Optimization" percentage={1.0} />
+                <div className="w-px h-12 bg-brand-zinc-200 dark:bg-white/10 self-center hidden sm:block" />
+                <AnimatedStat value="4.5x" label="AVERAGE ROI" sublabel="Attributed Leads\nGrowth Scaling" percentage={0.9} />
+                <div className="w-px h-12 bg-brand-zinc-200 dark:bg-white/10 self-center hidden sm:block" />
+                <AnimatedStat value="24/7" label="DATA SYNC" sublabel="Live Tracking\nReal-time Reports" percentage={0.85} />
+              </div>
             </div>
 
-            {/* Right Col: Grid of 4 */}
-            <div className="lg:col-span-7 grid sm:grid-cols-2 gap-6 text-left">
+            {/* Right Column: Differentiators Rows with custom inline vector illustrations (Scrollable) */}
+            <div className="lg:flex-1 lg:pl-14 flex flex-col text-left">
               {service.whyChooseUs.list.map((item: any, idx: number) => (
-                <div key={idx} className="bg-zinc-50/70 dark:bg-[#0c0b18] border border-brand-zinc-200/90 dark:border-white/5 p-6 rounded-[24px] shadow-sm hover:shadow-xl hover:border-brand-blue/30 dark:hover:border-brand-yellow/30 transition-all duration-300 group relative overflow-hidden">
-                  
-                  {/* Indicator bottom line */}
-                  <div className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#0306AC] dark:bg-[#E9BD36] group-hover:w-full transition-all duration-500 ease-out" />
+                <div
+                  key={idx}
+                  className="group border-b border-brand-zinc-200 dark:border-white/10 last:border-b-0 py-8 first:pt-0 last:pb-0"
+                >
+                  <div className="flex items-center gap-6">
+                    
+                    {/* Left details */}
+                    <div className="flex items-start gap-4 flex-1 min-w-0">
+                      <div className="shrink-0 flex h-11 w-11 items-center justify-center rounded-xl bg-brand-blue/8 border border-brand-blue/15 text-brand-blue dark:text-brand-yellow dark:bg-brand-yellow/10 dark:border-brand-yellow/20 group-hover:bg-[#0306AC] group-hover:text-white dark:group-hover:bg-[#E9BD36] dark:group-hover:text-brand-dark group-hover:border-none transition-all duration-300 mt-0.5 shadow-sm">
+                        <Check className="h-[18px] w-[18px] stroke-[3]" />
+                      </div>
+                      
+                      <div className="flex-1 min-w-0 space-y-1.5">
+                        <span className="font-mono text-[9px] font-black text-brand-blue/60 dark:text-brand-yellow/60 tracking-widest uppercase">
+                          Differentiator 0{idx + 1}
+                        </span>
+                        <h3 className="font-heading font-extrabold text-[1.1rem] text-brand-dark dark:text-white group-hover:text-brand-blue dark:group-hover:text-brand-yellow transition-colors duration-300 leading-snug">
+                          {item.title}
+                        </h3>
+                        <p className="text-[13px] text-brand-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
 
-                  <div className="w-9 h-9 rounded-lg bg-emerald-500/10 dark:bg-emerald-500/10 flex items-center justify-center shrink-0 text-emerald-650 dark:text-emerald-400 mb-4 border border-emerald-500/15 group-hover:scale-105 transition-transform duration-300">
-                    <Check className="w-5 h-5 stroke-[3]" />
-                  </div>
-                  <div className="space-y-1.5">
-                    <h3 className="font-heading text-base font-extrabold text-brand-dark dark:text-white transition-colors duration-300 group-hover:text-brand-blue dark:group-hover:text-brand-yellow">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs font-sans text-brand-zinc-600 dark:text-zinc-400 leading-relaxed font-normal">
-                      {item.desc}
-                    </p>
+                    {/* Right Illustration container */}
+                    <div className="hidden md:block shrink-0 w-[140px] h-[88px] rounded-2xl border border-brand-blue/10 bg-gradient-to-br from-brand-blue/4 to-transparent overflow-hidden group-hover:border-brand-blue/20 group-hover:from-brand-blue/8 transition-all duration-400">
+                      <div className="w-full h-full p-2 group-hover:scale-[1.03] transition-transform duration-400 origin-center">
+                        {differentiatorsIllustrations[idx % differentiatorsIllustrations.length]}
+                      </div>
+                    </div>
+
                   </div>
                 </div>
               ))}
             </div>
 
           </div>
-
         </div>
       </section>
 
@@ -1058,7 +1383,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
                   </div>
 
                   <div className="relative z-10 flex items-center justify-between pt-5 border-t border-brand-zinc-150 dark:border-white/5 transition-colors duration-300 mt-6">
-                    <span className="text-[10px] font-mono font-black uppercase tracking-wider flex items-center gap-1.5 transition-all duration-300 text-brand-zinc-600 dark:text-zinc-450 group-hover/rec:text-brand-blue dark:group-hover/rec:text-brand-yellow">
+                    <span className="text-[10px] font-mono font-black uppercase tracking-wider flex items-center gap-1.5 transition-all duration-300 text-brand-zinc-600 dark:text-zinc-455 group-hover/rec:text-brand-blue dark:group-hover/rec:text-brand-yellow">
                       View Service
                       <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/rec:translate-x-1" />
                     </span>
@@ -1071,12 +1396,14 @@ export default function ServiceDetailPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* ── 12. MAP SECTION ── */}
+      {/* ── 12. LATEST ARTICLES ── */}
+      <Blog />
+
+      {/* ── 13. MAP SECTION ── */}
       <section className="relative overflow-hidden py-16 sm:py-20 border-b border-brand-zinc-200 dark:border-white/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
 
-            {/* Left map */}
             <div className="lg:col-span-8 bg-white dark:bg-[#12121e] border border-brand-zinc-200/90 dark:border-white/10 rounded-[28px] overflow-hidden shadow-lg min-h-[380px] relative group">
               <iframe
                 title="Office Map"
@@ -1095,17 +1422,16 @@ export default function ServiceDetailPage({ params }: PageProps) {
               </div>
             </div>
 
-            {/* Right details */}
             <div className="lg:col-span-4 bg-zinc-50/90 dark:bg-[#0c0b18]/95 border border-brand-zinc-200/90 dark:border-white/10 p-8 rounded-[28px] shadow-lg flex flex-col justify-between space-y-6">
               <div className="space-y-3 text-left">
                 <div className="flex items-center gap-2 text-brand-blue dark:text-brand-yellow font-mono text-xs font-black uppercase tracking-widest">
                   <MapPin className="w-4 h-4" />
-                  <span>12 // OFFICE NODE</span>
+                  <span>13 // OFFICE NODE</span>
                 </div>
                 <h3 className="font-heading text-2xl font-extrabold text-brand-dark dark:text-white leading-tight">
                   Times Square Node
                 </h3>
-                <p className="text-xs sm:text-sm font-sans text-brand-zinc-650 dark:text-zinc-350 leading-relaxed font-normal">
+                <p className="text-xs sm:text-sm font-sans text-brand-zinc-655 dark:text-zinc-355 leading-relaxed font-normal">
                   123 Business St, Suite 100 <br /> New York, NY 10001, USA
                 </p>
               </div>
@@ -1145,10 +1471,10 @@ export default function ServiceDetailPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* ── 13. FAQ SECTION ── */}
+      {/* ── 14. FAQ SECTION ── */}
       <FAQ
         data={{
-          sectionTag: "13 // FREQUENTLY ASKED",
+          sectionTag: "14 // FREQUENTLY ASKED",
           titleIntro: "Service ",
           titleHighlight: "FAQ",
           list: service.faqs.map((f: any) => ({
@@ -1168,10 +1494,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
             viewport={{ once: true }}
             className="cta-banner-card !shadow-[0_16px_40px_-12px_rgba(3,6,172,0.22)] dark:!shadow-[0_16px_40px_-12px_rgba(0,0,0,0.5)]"
           >
-            {/* Left text */}
             <div className="relative z-10 flex flex-col justify-center gap-5 p-7 sm:p-11 lg:p-14 lg:max-w-[62%] text-left">
-
-              {/* Eyebrow */}
               <div className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-4 py-1.5 text-[10px] font-mono tracking-widest text-[#E9BD36] font-extrabold uppercase w-fit">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E9BD36] opacity-75" />
@@ -1180,7 +1503,6 @@ export default function ServiceDetailPage({ params }: PageProps) {
                 {service.finalCta.eyebrow}
               </div>
 
-              {/* Headline */}
               <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[46px] font-black leading-[1.25] tracking-tight text-white">
                 {service.finalCta.titleIntro}{" "}
                 <span className="relative inline-block">
@@ -1195,13 +1517,11 @@ export default function ServiceDetailPage({ params }: PageProps) {
                 {service.finalCta.titleLine2}
               </h2>
 
-              {/* Description */}
               <p className="text-xs sm:text-sm font-sans text-white/90 leading-relaxed max-w-lg font-normal">
                 {service.finalCta.description}
               </p>
 
-              {/* Buttons */}
-              <div className="flex items-center gap-4 flex-wrap pt-2">
+              <div className="flex flex-wrap items-center gap-4 pt-2">
                 <a href="#contact-form" className="btn-primary-cta">
                   <span>Schedule Discovery Session</span>
                   <span className="btn-icon"><ArrowRight className="h-3.5 w-3.5" /></span>
@@ -1213,7 +1533,6 @@ export default function ServiceDetailPage({ params }: PageProps) {
               </div>
             </div>
 
-            {/* Right Side Portrait & Arch Graphic */}
             <div className="hidden lg:flex flex-1 items-end justify-center relative pr-8">
               <div className="absolute bottom-0 w-[320px] h-[320px] bg-gradient-to-t from-[#020485] to-[#0408d9] rounded-full opacity-90 border border-white/20 shadow-2xl" />
               <div className="relative z-10 w-[280px] h-[370px] self-end drop-shadow-2xl overflow-hidden rounded-t-[32px] border-t border-l border-r border-white/25 shadow-2xl">
@@ -1232,7 +1551,6 @@ export default function ServiceDetailPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Cursive Font Styles */}
       <style dangerouslySetInnerHTML={{
         __html: `
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
