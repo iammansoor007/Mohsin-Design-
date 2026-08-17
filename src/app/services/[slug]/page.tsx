@@ -43,6 +43,7 @@ import {
 import { getServiceData } from "@/lib/services";
 import FAQ from "@/components/FAQ";
 import Blog from "@/components/Blog";
+import ServiceArea from "@/components/ServiceArea";
 
 // ── Icon Map Resolver ──
 const iconMap: Record<string, React.ElementType> = {
@@ -251,10 +252,19 @@ function AnimatedStat({
 
   useEffect(() => {
     if (isInView) {
+      let numeric = 0;
+      let suffix = "";
+      if (value.includes("/")) {
+        const parts = value.split("/");
+        numeric = parseFloat(parts[0]);
+        suffix = "/" + parts[1];
+      } else {
+        const isFloat = value.includes(".");
+        const isPercent = value.includes("%");
+        suffix = isPercent ? "%" : value.replace(/[0-9.]/g, "");
+        numeric = parseFloat(value.replace(/[^0-9.]/g, ""));
+      }
       const isFloat = value.includes(".");
-      const isPercent = value.includes("%");
-      const suffix = isPercent ? "%" : value.replace(/[0-9.]/g, "");
-      const numeric = parseFloat(value.replace(/[^0-9.]/g, ""));
       const DURATION = 1400;
       const DELAY = 150;
       const startTime = performance.now() + DELAY;
@@ -329,7 +339,11 @@ function AnimatedStat({
       </div>
       <div className="text-center">
         <p className="text-[9px] font-black uppercase tracking-widest text-brand-dark dark:text-white">{label}</p>
-        <p className="text-[8px] text-brand-zinc-400 dark:text-zinc-400 mt-0.5 leading-snug whitespace-pre-line">{sublabel}</p>
+        <p className="text-[8px] text-brand-zinc-400 dark:text-zinc-400 mt-0.5 leading-snug">
+          {sublabel.split('\\n').map((line, i) => (
+            <span key={i} className="block">{line}</span>
+          ))}
+        </p>
       </div>
     </div>
   );
@@ -392,6 +406,20 @@ interface ServicePageProps {
   }>;
 }
 
+const getServiceIcon = (slug: string) => {
+  switch (slug) {
+    case "seo": return <Search className="w-5 h-5" />;
+    case "web-design": return <Monitor className="w-5 h-5" />;
+    case "social-media": return <Megaphone className="w-5 h-5" />;
+    case "paid-ads": return <TrendingUp className="w-5 h-5" />;
+    case "branding": return <Palette className="w-5 h-5" />;
+    case "content-marketing": return <PenTool className="w-5 h-5" />;
+    case "e-commerce": return <ShoppingCart className="w-5 h-5" />;
+    case "analytics": return <BarChart2 className="w-5 h-5" />;
+    default: return <Sparkles className="w-5 h-5" />;
+  }
+};
+
 export default function ServiceDetailPage({ params }: ServicePageProps) {
   const { slug } = use(params);
   const service = getServiceData(slug);
@@ -399,6 +427,20 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
   if (!service) {
     notFound();
   }
+
+  const sliderRef = useRef<HTMLDivElement>(null);
+
+  const scrollLeft = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollBy({ left: -360, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollBy({ left: 360, behavior: "smooth" });
+    }
+  };
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -433,18 +475,16 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
 
   // Get recommended services
   const allServices = [
-    { title: "Search Engine Optimization (SEO)", slug: "seo", desc: "Rank higher on search engines and get organic leads." },
-    { title: "Website Design & Development", slug: "web-design", desc: "Blazing fast luxury websites built on Next.js." },
-    { title: "Social Media Marketing", slug: "social-media", desc: "Build highly-engaged online communities." },
-    { title: "Pay Per Click Advertising", slug: "paid-ads", desc: "Laser-focused Google & Meta ad campaigns." },
-    { title: "Branding & Identity Design", slug: "branding", desc: "Stunning corporate identity guides and packaging." },
-    { title: "Content Marketing & Copywriting", slug: "content-marketing", desc: "Persuasive editorial copywriting and blogs." },
-    { title: "E-Commerce Solutions", slug: "e-commerce", desc: "Scalable online storefronts with seamless checkout." },
-    { title: "Analytics & Conversion Optimization", slug: "analytics", desc: "GA4 integrations and conversion funnel testing." }
+    { title: "Search Engine Optimization (SEO)", slug: "seo", desc: "Rank higher on search engines and get organic leads.", tags: ["Keyword Strategy", "Technical Audit", "Backlink Growth"] },
+    { title: "Website Design & Development", slug: "web-design", desc: "Blazing fast luxury websites built on Next.js.", tags: ["Next.js Core", "Aesthetic UI/UX", "Edge Hosting"] },
+    { title: "Social Media Marketing", slug: "social-media", desc: "Build highly-engaged online communities.", tags: ["Audience Growth", "Brand Alignment", "Ad Campaigns"] },
+    { title: "Pay Per Click Advertising", slug: "paid-ads", desc: "Laser-focused Google & Meta ad campaigns.", tags: ["Conversion Tracking", "A/B Copy Testing", "Budget Tuning"] },
+    { title: "Branding & Identity Design", slug: "branding", desc: "Stunning corporate identity guides and packaging.", tags: ["Logo Systems", "Visual Identity", "Style Guides"] },
+    { title: "Content Marketing & Copywriting", slug: "content-marketing", desc: "Persuasive editorial copywriting and blogs.", tags: ["SEO Copywriting", "Editorial Strategy", "Lead Funnels"] },
+    { title: "E-Commerce Solutions", slug: "e-commerce", desc: "Scalable online storefronts with seamless checkout.", tags: ["Shopify/Stripe", "Checkout Tuning", "Dynamic Catalogs"] },
+    { title: "Analytics & Conversion Optimization", slug: "analytics", desc: "GA4 integrations and conversion funnel testing.", tags: ["GA4 Custom Events", "Attribution Models", "Looker Studio"] }
   ];
-  const recommendedServices = allServices
-    .filter((s) => s.slug !== service.slug)
-    .slice(0, 3);
+  const recommendedServices = allServices.filter((s) => s.slug !== service.slug);
 
   // Map tools details dynamically to display a crisp card grid in Section 09
   const getToolDescription = (name: string) => {
@@ -510,12 +550,20 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               className="lg:col-span-6 space-y-6 text-left"
             >
-              <div className="flex items-center gap-3">
-                <span className="inline-flex items-center gap-2 rounded-full bg-brand-yellow px-4 py-1.5 text-[10px] font-mono font-black tracking-widest uppercase text-[#080710] shadow-sm">
-                  <Star className="h-3.5 w-3.5 fill-[#080710] text-[#080710] shrink-0" />
-                  {service.tag}
+              {/* Breadcrumbs */}
+              <nav className="flex items-center gap-2 text-[10px] sm:text-xs font-mono tracking-wider uppercase text-brand-zinc-400 dark:text-zinc-550 select-none">
+                <Link href="/" className="hover:text-brand-blue dark:hover:text-brand-yellow transition-colors">
+                  Home
+                </Link>
+                <span className="text-brand-zinc-300 dark:text-zinc-700">/</span>
+                <Link href="/services" className="hover:text-brand-blue dark:hover:text-brand-yellow transition-colors">
+                  Services
+                </Link>
+                <span className="text-brand-zinc-300 dark:text-zinc-700">/</span>
+                <span className="text-brand-blue dark:text-brand-yellow font-black">
+                  {service.title}
                 </span>
-              </div>
+              </nav>
               <h1 className="font-heading text-3xl xs:text-4xl sm:text-5xl lg:text-[56px] font-black tracking-tight leading-[1.12] text-brand-dark dark:text-white max-w-2xl">
                 {service.hero.titleIntro}
                 <span className="relative inline-block text-brand-blue dark:text-brand-yellow pb-1 ml-1 font-black">
@@ -1287,11 +1335,11 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
               </div>
 
               {/* 3 Circular Stat Rings */}
-              <div className="grid grid-cols-3 gap-1 pt-6 w-full select-none">
+              <div className="flex items-center justify-between gap-2 pt-6 w-full select-none">
                 <AnimatedStat value="100%" label="PERFORMANCE" sublabel="Next.js Headless\nSpeed Optimization" percentage={1.0} />
-                <div className="w-px h-12 bg-brand-zinc-200 dark:bg-white/10 self-center hidden sm:block" />
+                <div className="w-px h-12 bg-brand-zinc-200 dark:bg-white/10 shrink-0" />
                 <AnimatedStat value="4.5x" label="AVERAGE ROI" sublabel="Attributed Leads\nGrowth Scaling" percentage={0.9} />
-                <div className="w-px h-12 bg-brand-zinc-200 dark:bg-white/10 self-center hidden sm:block" />
+                <div className="w-px h-12 bg-brand-zinc-200 dark:bg-white/10 shrink-0" />
                 <AnimatedStat value="24/7" label="DATA SYNC" sublabel="Live Tracking\nReal-time Reports" percentage={0.85} />
               </div>
             </div>
@@ -1340,49 +1388,202 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
         </div>
       </section>
 
+      {/* ── 10.5 PRICING PLANS ── */}
+      {service.pricing && (
+        <section className="relative overflow-hidden py-20 md:py-24 bg-zinc-50/5 dark:bg-[#0c0b18]/5 border-b border-brand-zinc-200 dark:border-white/10">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-14 space-y-4"
+            >
+              <div className="flex justify-center">
+                <span className="eyebrow-pill">{service.pricing.eyebrow}</span>
+              </div>
+              <h2 className="font-heading text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.12]">
+                {service.pricing.titleIntro}
+                <span className="relative inline-block text-brand-blue dark:text-brand-yellow pb-1 ml-1 font-black">
+                  {service.pricing.titleHighlight}
+                  <svg className="absolute -bottom-1.5 left-0 w-full h-3.5 pointer-events-none text-brand-yellow opacity-90" viewBox="0 0 100 10" preserveAspectRatio="none">
+                    <motion.path
+                      d="M 2 5 Q 50 1.5, 98 3.5 C 99 3.5, 99 4.5, 98 5 Q 50 7, 2 5.5 Z"
+                      fill="currentColor"
+                      custom={{ delay: 0.3, duration: 0.65 }}
+                      variants={drawVariants}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                    />
+                  </svg>
+                </span>
+              </h2>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+              {service.pricing.plans.map((plan: any, idx: number) => {
+                const isPopular = plan.isPopular;
+                const isCustom = plan.isCustom;
+
+                return (
+                  <SpotlightCard
+                    key={idx}
+                    className={`bg-white/45 dark:bg-[#0c0b18]/45 backdrop-blur-xl border transition-all duration-500 flex flex-col justify-between h-full p-6 xs:p-7 sm:p-8 rounded-[28px] group relative overflow-hidden ${
+                      isPopular
+                        ? "border-brand-blue/70 dark:border-brand-yellow/70 shadow-[0_20px_50px_rgba(3,6,172,0.08)] dark:shadow-[0_20px_50px_rgba(233,189,54,0.06)] scale-[1.01] lg:scale-[1.03] z-20"
+                        : "border-brand-zinc-200/90 dark:border-white/5 shadow-md hover:border-brand-blue/30 dark:hover:border-brand-yellow/30"
+                    }`}
+                  >
+                    {isPopular && (
+                      <div className="absolute top-0 right-0 bg-brand-blue dark:bg-brand-yellow text-white dark:text-brand-dark font-mono text-[8px] font-black uppercase tracking-widest px-3 py-1.5 rounded-bl-2xl shadow-sm z-20">
+                        Most Popular
+                      </div>
+                    )}
+                    {isCustom && (
+                      <div className="absolute top-0 right-0 bg-emerald-500 text-white font-mono text-[8px] font-black uppercase tracking-widest px-3 py-1.5 rounded-bl-2xl shadow-sm z-20">
+                        Custom Scoped
+                      </div>
+                    )}
+
+                    {/* Dynamic Ambient Glow inside the card */}
+                    <div className={`absolute -bottom-16 -right-16 w-32 h-32 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none -z-10 ${
+                      isPopular ? "bg-brand-blue dark:bg-brand-yellow" : "bg-blue-400 dark:bg-amber-400"
+                    }`} />
+
+                    <div className="space-y-6 text-left relative z-10">
+                      <div className="space-y-2">
+                        <span className="font-mono text-[9px] font-black text-brand-zinc-400 dark:text-zinc-550 uppercase tracking-widest block">
+                          PLAN 0{idx + 1}
+                        </span>
+                        <h3 className="font-heading text-2xl font-black tracking-tight text-brand-dark dark:text-white group-hover:text-brand-blue dark:group-hover:text-brand-yellow transition-colors duration-300">
+                          {plan.name}
+                        </h3>
+                        <p className="text-[12.5px] font-sans text-brand-zinc-555 dark:text-zinc-400 leading-relaxed font-normal min-h-[50px]">
+                          {plan.desc}
+                        </p>
+                      </div>
+
+                      <div className="py-4.5 border-t border-b border-brand-zinc-200/80 dark:border-white/5 flex items-baseline gap-1 bg-zinc-50/30 dark:bg-white/[0.005] px-2 rounded-xl">
+                        <span className="font-heading font-black text-4xl sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-brand-blue to-blue-500 dark:from-brand-yellow dark:to-amber-400 leading-none">
+                          {plan.price}
+                        </span>
+                        <span className="font-mono text-[9px] text-brand-zinc-400 dark:text-zinc-550 uppercase tracking-wider pl-1 whitespace-nowrap shrink-0">
+                          / {plan.period}
+                        </span>
+                      </div>
+
+                      <ul className="space-y-4 pt-1">
+                        {plan.features.map((feature: string, fIdx: number) => (
+                          <li key={fIdx} className="flex items-start gap-3 text-xs text-brand-zinc-655 dark:text-zinc-300 font-semibold group/item hover:translate-x-0.5 transition-transform duration-200">
+                            <span className="h-5 w-5 rounded-full bg-brand-blue/10 dark:bg-brand-yellow/10 text-brand-blue dark:text-brand-yellow flex items-center justify-center shrink-0 mt-0.5 border border-brand-blue/15 dark:border-brand-yellow/15 group-hover:scale-110 group-hover:bg-brand-blue group-hover:text-white dark:group-hover:bg-brand-yellow dark:group-hover:text-brand-dark transition-all duration-300">
+                              <Check className="w-2.5 h-2.5 stroke-[3]" />
+                            </span>
+                            <span className="leading-snug pt-0.5">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="pt-6 mt-8 border-t border-brand-zinc-200/80 dark:border-white/5 w-full relative z-10">
+                      <Link
+                        href={`/contact?service=${slug}&plan=${plan.name}`}
+                        className={`w-full py-3.5 px-4 rounded-2xl font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all duration-300 shadow-sm ${
+                          isPopular
+                            ? "bg-brand-blue dark:bg-brand-yellow text-white dark:text-brand-dark hover:shadow-[0_8px_25px_rgba(3,6,172,0.25)] dark:hover:shadow-[0_8px_25px_rgba(233,189,54,0.3)] hover:-translate-y-0.5"
+                            : "bg-brand-zinc-100 hover:bg-brand-blue dark:bg-white/5 dark:hover:bg-brand-yellow text-brand-dark dark:text-white hover:text-white dark:hover:text-brand-dark hover:-translate-y-0.5 hover:shadow-md"
+                        }`}
+                      >
+                        <span>{plan.ctaText}</span>
+                        <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                      </Link>
+                    </div>
+
+                  </SpotlightCard>
+                );
+              })}
+            </div>
+
+          </div>
+        </section>
+      )}
+
       {/* ── 11. RECOMMENDED SERVICES ── */}
       <section className="relative overflow-hidden py-20 md:py-24 bg-zinc-50/10 dark:bg-[#0c0b18]/15 border-b border-brand-zinc-200 dark:border-white/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-14 space-y-4"
-          >
-            <div className="flex justify-center">
-              <span className="eyebrow-pill">11 // RECOMMENDATION</span>
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14 text-left">
+            <div className="space-y-4">
+              <div className="flex">
+                <span className="eyebrow-pill">11 // RECOMMENDATION</span>
+              </div>
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.12]">
+                Services That Pair
+                <span className="relative inline-block text-brand-blue dark:text-brand-yellow pb-1 ml-2 font-black font-serif italic font-normal">
+                  Perfect Together
+                </span>
+              </h2>
+              <p className="text-xs sm:text-sm text-brand-zinc-555 dark:text-zinc-400 max-w-xl leading-relaxed">
+                Scale faster by pairing multi-channel growth campaigns and high-performance visual coding solutions.
+              </p>
             </div>
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark dark:text-white tracking-tight leading-[1.12]">
-              Services That Pair
-              <span className="relative inline-block text-brand-blue dark:text-brand-yellow pb-1 ml-2 font-black font-serif italic font-normal">
-                Perfect Together
-              </span>
-            </h2>
-            <p className="text-xs sm:text-sm text-brand-zinc-550 dark:text-zinc-400 max-w-xl mx-auto leading-relaxed">
-              Scale faster by pairing multi-channel growth campaigns and high-performance visual coding solutions.
-            </p>
-          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            {/* Slider Control Buttons */}
+            <div className="flex items-center gap-3 shrink-0 self-start sm:self-end select-none">
+              <button
+                onClick={scrollLeft}
+                className="w-11 h-11 rounded-full border border-brand-zinc-200 dark:border-white/10 hover:border-brand-blue dark:hover:border-brand-yellow text-brand-dark dark:text-white hover:text-brand-blue dark:hover:text-brand-yellow flex items-center justify-center transition-all duration-300 cursor-pointer shadow-sm hover:scale-105 active:scale-95"
+                aria-label="Scroll left"
+              >
+                <ArrowRight className="w-4 h-4 rotate-180" />
+              </button>
+              <button
+                onClick={scrollRight}
+                className="w-11 h-11 rounded-full border border-brand-zinc-200 dark:border-white/10 hover:border-brand-blue dark:hover:border-brand-yellow text-brand-dark dark:text-white hover:text-brand-blue dark:hover:text-brand-yellow flex items-center justify-center transition-all duration-300 cursor-pointer shadow-sm hover:scale-105 active:scale-95"
+                aria-label="Scroll right"
+              >
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+
+          <div
+            ref={sliderRef}
+            className="flex gap-6 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] snap-x snap-mandatory pt-6 pb-6 px-3 scroll-smooth"
+            style={{ WebkitOverflowScrolling: "touch" }}
+          >
             {recommendedServices.map((recSrv, idx) => (
-              <Link key={idx} href={`/services/${recSrv.slug}`} className="w-full flex flex-col group/rec cursor-pointer">
-                <SpotlightCard className="bg-zinc-50/80 dark:bg-[#0c0b18] border border-brand-zinc-200/90 dark:border-white/10 p-5 xs:p-7 rounded-[20px] xs:rounded-[30px] hover:shadow-2xl group-hover/rec:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between h-full min-h-[220px]">
-                  <div className="space-y-4 text-left">
-                    <span className="font-mono text-[10px] font-black text-brand-blue/60 dark:text-brand-yellow/60 uppercase tracking-widest block">
-                      Recommended 0{idx + 1}
+              <Link
+                key={idx}
+                href={`/services/${recSrv.slug}`}
+                className="snap-start shrink-0 w-[290px] xs:w-[325px] sm:w-[360px] flex flex-col group/rec cursor-pointer no-underline"
+              >
+                <SpotlightCard className="bg-white/45 dark:bg-[#0c0b18]/45 border border-brand-zinc-200/90 dark:border-white/5 p-6 xs:p-7 rounded-[28px] hover:shadow-[0_20px_40px_-15px_rgba(3,6,172,0.06)] dark:hover:shadow-[0_20px_40px_-15px_rgba(233,189,54,0.04)] group-hover/rec:-translate-y-1.5 transition-all duration-500 flex flex-col justify-between h-full min-h-[220px] relative overflow-hidden">
+                  
+                  {/* Decorative background grid and glowing accent dot */}
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(circle_at_center,rgba(3,6,172,0.02),transparent_70%)] dark:bg-[radial-gradient(circle_at_center,rgba(233,189,54,0.015),transparent_70%)] pointer-events-none -z-10" />
+
+                  <div className="flex items-center justify-between w-full relative z-10">
+                    <div className="shrink-0 flex h-10 w-10 items-center justify-center rounded-xl bg-brand-blue/5 border border-brand-blue/10 text-brand-blue dark:text-brand-yellow dark:bg-brand-yellow/5 dark:border-brand-yellow/10 group-hover/rec:bg-brand-blue group-hover/rec:text-white dark:group-hover/rec:bg-brand-yellow dark:group-hover/rec:text-brand-dark group-hover/rec:border-transparent transition-all duration-300">
+                      {getServiceIcon(recSrv.slug)}
+                    </div>
+                    <span className="font-mono text-[9px] font-black text-brand-zinc-400 dark:text-zinc-550 uppercase tracking-widest">
+                      Rec. 0{idx + 1}
                     </span>
-                    <h3 className="font-heading text-lg font-black text-brand-dark dark:text-white group-hover/rec:text-brand-blue dark:group-hover/rec:text-brand-yellow transition-colors duration-300 leading-snug">
+                  </div>
+
+                  <div className="space-y-3 text-left relative z-10 mt-5 flex-1">
+                    <h3 className="font-heading text-lg sm:text-xl font-black text-brand-dark dark:text-white group-hover/rec:text-brand-blue dark:group-hover/rec:text-brand-yellow transition-colors duration-300 leading-snug">
                       {recSrv.title}
                     </h3>
-                    <p className="text-xs font-sans text-brand-zinc-600 dark:text-zinc-400 leading-relaxed font-normal">
+                    <p className="text-[12.5px] font-sans text-brand-zinc-555 dark:text-zinc-400 leading-relaxed font-normal">
                       {recSrv.desc}
                     </p>
                   </div>
 
-                  <div className="relative z-10 flex items-center justify-between pt-5 border-t border-brand-zinc-150 dark:border-white/5 transition-colors duration-300 mt-6">
+                  <div className="relative z-10 flex items-center justify-between pt-4 mt-6">
                     <span className="text-[10px] font-mono font-black uppercase tracking-wider flex items-center gap-1.5 transition-all duration-300 text-brand-zinc-600 dark:text-zinc-455 group-hover/rec:text-brand-blue dark:group-hover/rec:text-brand-yellow">
-                      View Service
+                      Explore Service
                       <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/rec:translate-x-1" />
                     </span>
                   </div>
@@ -1397,77 +1598,8 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
       {/* ── 12. LATEST ARTICLES ── */}
       <Blog />
 
-      {/* ── 13. MAP SECTION ── */}
-      <section className="relative overflow-hidden py-16 sm:py-20 border-b border-brand-zinc-200 dark:border-white/10">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-
-            <div className="lg:col-span-8 bg-white dark:bg-[#12121e] border border-brand-zinc-200/90 dark:border-white/10 rounded-[28px] overflow-hidden shadow-lg min-h-[380px] relative group">
-              <iframe
-                title="Office Map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.217709322237!2d-73.98785312342557!3d40.75797477138596!2m3!1f0!f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
-                width="100%"
-                height="100%"
-                style={{ border: 0, minHeight: "380px" }}
-                allowFullScreen={false}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-full filter contrast-[1.05] grayscale-[0.2] dark:invert-[0.9] dark:hue-rotate-180"
-              />
-              <div className="absolute top-4 left-4 bg-brand-dark/95 dark:bg-black/95 backdrop-blur-md text-white px-4 py-2 rounded-full text-xs font-mono font-bold flex items-center gap-2 border border-white/20 shadow-xl">
-                <MapPin className="w-4 h-4 text-brand-yellow" />
-                <span>New York HQ</span>
-              </div>
-            </div>
-
-            <div className="lg:col-span-4 bg-zinc-50/90 dark:bg-[#0c0b18]/95 border border-brand-zinc-200/90 dark:border-white/10 p-5 xs:p-8 rounded-[20px] xs:rounded-[28px] shadow-lg flex flex-col justify-between space-y-6">
-              <div className="space-y-3 text-left">
-                <div className="flex items-center gap-2 text-brand-blue dark:text-brand-yellow font-mono text-xs font-black uppercase tracking-widest">
-                  <MapPin className="w-4 h-4" />
-                  <span>13 // OFFICE NODE</span>
-                </div>
-                <h3 className="font-heading text-2xl font-extrabold text-brand-dark dark:text-white leading-tight">
-                  Times Square Node
-                </h3>
-                <p className="text-xs sm:text-sm font-sans text-brand-zinc-655 dark:text-zinc-355 leading-relaxed font-normal">
-                  123 Business St, Suite 100 <br /> New York, NY 10001, USA
-                </p>
-              </div>
-
-              <div className="space-y-3.5 pt-4 border-t border-brand-zinc-200/80 dark:border-white/10 text-xs font-sans text-left">
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-brand-blue/10 dark:bg-brand-yellow/10 flex items-center justify-center shrink-0">
-                    <Clock className="w-4 h-4 text-brand-blue dark:text-brand-yellow" />
-                  </div>
-                  <div>
-                    <p className="font-bold text-brand-dark dark:text-white">Mon - Fri: 9:00 AM - 6:00 PM</p>
-                    <p className="text-[10px] text-brand-zinc-500">Sat - Sun: Closed</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-brand-blue/10 dark:bg-brand-yellow/10 flex items-center justify-center shrink-0">
-                    <Phone className="w-4 h-4 text-brand-blue dark:text-brand-yellow" />
-                  </div>
-                  <a href="tel:+11234567890" className="font-bold text-brand-dark dark:text-white hover:text-brand-blue dark:hover:text-brand-yellow transition-colors">
-                    +1 (123) 456-7890
-                  </a>
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-brand-blue/10 dark:bg-brand-yellow/10 flex items-center justify-center shrink-0">
-                    <Mail className="w-4 h-4 text-brand-blue dark:text-brand-yellow" />
-                  </div>
-                  <a href="mailto:hello@mohsingdesigns.com" className="font-bold text-brand-dark dark:text-white hover:text-brand-blue dark:hover:text-brand-yellow transition-colors">
-                    hello@mohsingdesigns.com
-                  </a>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
+      {/* ── 13. SERVICE AREA SECTION ── */}
+      <ServiceArea data={service.serviceArea} />
 
       {/* ── 14. FAQ SECTION ── */}
       <FAQ

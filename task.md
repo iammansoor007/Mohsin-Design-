@@ -2,8 +2,10 @@
 - [x] Modify Blog.tsx to make Recent Articles list cards stack vertically on mobile (flex-col sm:flex-row)
 - [x] Redesign FAQ.tsx into an Awwwards-level card-based accordion layout
 - [x] Stabilize layout height and completely remove dynamic category filtering pills to prevent content shifting
-- [x] Set FAQ section background to `bg-white` to create clean visual separation from the adjacent Blog section
-- [x] Configure FAQ cards to transition from transparent border shapes to white backgrounds on hover and open, preventing layout jiggle
+- [x] Modify `src/app/services/[slug]/page.tsx`
+  - [x] Replace Hero badge with Breadcrumbs navigation
+  - [x] Inject Pricing Bundles section (4-plan dynamic grid) using services.json pricing data
+  - [x] Import and render `ServiceArea` component in place of Section 13 (Times Square Map / Office Node)
 - [x] Integrate structured sub-components (tags, steps, milestones, profiles, inclusions, stack) inside expanded FAQ answers
 - [x] Add premium sticky sidebar with a premium dark-blue Strategy Audit box
 - [x] Upgrade expanded answers with clean milestones, chevrons, profiles, and PageSpeed score indicators

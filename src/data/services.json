@@ -20,11 +20,26 @@
     "clientTrust": {
       "heading": "We grow organic rankings & search presence on",
       "logos": [
-        { "name": "Google Search", "iconName": "Search" },
-        { "name": "Google Maps", "iconName": "MapPin" },
-        { "name": "Google Business", "iconName": "Star" },
-        { "name": "Bing Search", "iconName": "Globe" },
-        { "name": "Yahoo Search", "iconName": "TrendingUp" }
+        {
+          "name": "Google Search",
+          "iconName": "Search"
+        },
+        {
+          "name": "Google Maps",
+          "iconName": "MapPin"
+        },
+        {
+          "name": "Google Business",
+          "iconName": "Star"
+        },
+        {
+          "name": "Bing Search",
+          "iconName": "Globe"
+        },
+        {
+          "name": "Yahoo Search",
+          "iconName": "TrendingUp"
+        }
       ],
       "testimonials": [
         {
@@ -49,17 +64,32 @@
         {
           "title": "Technical SEO & Codebase Engineering",
           "desc": "We optimize your website's crawlability, crawl budget efficiency, schema markup, XML indexation sitemaps, and Core Web Vitals at the codebase level. We resolve layout shifts, cache policies, script weights, and render-blocking resources to ensure search crawlers index your pages in under 1.2 seconds.",
-          "features": ["Schema Markup & Rich Snippets Setup", "Crawl Budget & Server Log Audits", "Core Web Vitals Speed Refinements", "Canonical Tags & Redirect Optimizations"]
+          "features": [
+            "Schema Markup & Rich Snippets Setup",
+            "Crawl Budget & Server Log Audits",
+            "Core Web Vitals Speed Refinements",
+            "Canonical Tags & Redirect Optimizations"
+          ]
         },
         {
           "title": "Commercial Intent Content Architecture",
           "desc": "We build comprehensive keyword mapping and topic clusters targeting exact terms your prospective clients use. We author premium, informative landing pages and pillar articles that solve buyer pain points, build immediate brand authority, and naturally capture transactional search traffic.",
-          "features": ["Topic Cluster & Pillar Page Strategy", "Search Intent Optimization & Analysis", "In-Depth Competitor Content Mapping", "High-Converting Call-To-Action Copy"]
+          "features": [
+            "Topic Cluster & Pillar Page Strategy",
+            "Search Intent Optimization & Analysis",
+            "In-Depth Competitor Content Mapping",
+            "High-Converting Call-To-Action Copy"
+          ]
         },
         {
           "title": "Niche Authority & Strategic Link Acquisition",
           "desc": "We scale your domain authority through manual PR outreach, acquiring contextual backlinks from high-authority blogs, news sites, and local business directories. We do not use private blog networks (PBNs) or spam links. We secure clean, relevant references that protect your site and compounding rankings.",
-          "features": ["Manual PR Outreach Campaigns", "Digital PR & Brand Placement", "Local Citation & Mapping Setup", "Toxic Backlink Removal & Audits"]
+          "features": [
+            "Manual PR Outreach Campaigns",
+            "Digital PR & Brand Placement",
+            "Local Citation & Mapping Setup",
+            "Toxic Backlink Removal & Audits"
+          ]
         }
       ]
     },
@@ -68,12 +98,36 @@
       "titleIntro": "Our Multi-Phase SEO ",
       "titleHighlight": "Blueprints",
       "components": [
-        { "num": "01", "title": "Comprehensive Technical & Indexation Audit", "desc": "We analyze indexation bottlenecks, crawl loops, and layout shifts using advanced crawlers, setting a baseline for code adjustments." },
-        { "num": "02", "title": "Competitor Keyword Intelligence Mapping", "desc": "We map competitor link profiles and identify keyword gaps, highlighting quick-win outreach and search ranking opportunities." },
-        { "num": "03", "title": "Local Map Pack & GBP Optimization", "desc": "We optimize Google Business Profiles with geo-targeted descriptions, category calibrations, review generation, and local listings." },
-        { "num": "04", "title": "Semantic Topic Pillars Authoring", "desc": "We develop in-depth educational posts, product collection copy, and service landing pages optimized for semantic keywords." },
-        { "num": "05", "title": "Contextual Backlink Acquisition", "desc": "Our team pitches authoritative industry publications, local blogs, and news sites to earn contextual backlinks and brand mentions." },
-        { "num": "06", "title": "Custom GA4 Attribution Dashboard Setup", "desc": "We configure custom event trackings, phone calls recording, and Looker Studio reports to measure actual organic search leads." }
+        {
+          "num": "01",
+          "title": "Comprehensive Technical & Indexation Audit",
+          "desc": "We analyze indexation bottlenecks, crawl loops, and layout shifts using advanced crawlers, setting a baseline for code adjustments."
+        },
+        {
+          "num": "02",
+          "title": "Competitor Keyword Intelligence Mapping",
+          "desc": "We map competitor link profiles and identify keyword gaps, highlighting quick-win outreach and search ranking opportunities."
+        },
+        {
+          "num": "03",
+          "title": "Local Map Pack & GBP Optimization",
+          "desc": "We optimize Google Business Profiles with geo-targeted descriptions, category calibrations, review generation, and local listings."
+        },
+        {
+          "num": "04",
+          "title": "Semantic Topic Pillars Authoring",
+          "desc": "We develop in-depth educational posts, product collection copy, and service landing pages optimized for semantic keywords."
+        },
+        {
+          "num": "05",
+          "title": "Contextual Backlink Acquisition",
+          "desc": "Our team pitches authoritative industry publications, local blogs, and news sites to earn contextual backlinks and brand mentions."
+        },
+        {
+          "num": "06",
+          "title": "Custom GA4 Attribution Dashboard Setup",
+          "desc": "We configure custom event trackings, phone calls recording, and Looker Studio reports to measure actual organic search leads."
+        }
       ]
     },
     "benefits": {
@@ -81,10 +135,26 @@
       "titleIntro": "The Real Value of Organic ",
       "titleHighlight": "Growth",
       "list": [
-        { "title": "Zero Ad Cost Traffic", "desc": "Secure thousands of monthly clicks from prospects without paying search ad networks for every click. This reduces ad budget bleed and lowers client acquisition costs.", "metric": "0% CPC" },
-        { "title": "compounding Asset Growth", "desc": "Paid ads stop when the budget halts. SEO builds permanent search rankings that generate organic clicks and bookings for years after the work is completed.", "metric": "10x ROI" },
-        { "title": "Market Leadership & Authority", "desc": "Users trust organic search results over paid ads. Ranking in top spots builds brand trust, establishes domain authority, and positions your business as the market leader.", "metric": "Top 1" },
-        { "title": "Decreased Customer CAC", "desc": "Scale your lead volume while lowering client acquisition costs. Organic leads convert better and lower overall marketing customer acquisition costs.", "metric": "-65% CAC" }
+        {
+          "title": "Zero Ad Cost Traffic",
+          "desc": "Secure thousands of monthly clicks from prospects without paying search ad networks for every click. This reduces ad budget bleed and lowers client acquisition costs.",
+          "metric": "0% CPC"
+        },
+        {
+          "title": "compounding Asset Growth",
+          "desc": "Paid ads stop when the budget halts. SEO builds permanent search rankings that generate organic clicks and bookings for years after the work is completed.",
+          "metric": "10x ROI"
+        },
+        {
+          "title": "Market Leadership & Authority",
+          "desc": "Users trust organic search results over paid ads. Ranking in top spots builds brand trust, establishes domain authority, and positions your business as the market leader.",
+          "metric": "Top 1"
+        },
+        {
+          "title": "Decreased Customer CAC",
+          "desc": "Scale your lead volume while lowering client acquisition costs. Organic leads convert better and lower overall marketing customer acquisition costs.",
+          "metric": "-65% CAC"
+        }
       ]
     },
     "process": {
@@ -92,12 +162,36 @@
       "titleIntro": "Our Battle-Tested 6-Step ",
       "titleHighlight": "Process",
       "steps": [
-        { "num": "01", "title": "Deep Audit & Discovery", "desc": "We inspect your indexation history, current search console profiles, link logs, and identify core indexing bugs." },
-        { "num": "02", "title": "Keyword & Intent Architecture", "desc": "We map buyer search intent, selecting commercial queries your buyers use when ready to pay for services." },
-        { "num": "03", "title": "On-Page Semantic Optimization", "desc": "We restructure headings, titles, meta tags, schema markup, and inject high-performing semantic keyword targets." },
-        { "num": "04", "title": "Speed & Performance Fixes", "desc": "Our Next.js developers optimize scripts, cache systems, image formats, and code-splitting to ensure near-instant speeds." },
-        { "num": "05", "title": "Authority & Link Building", "desc": "We conduct targeted email outreach to trusted publishers to acquire backlinks, driving up domain authority." },
-        { "num": "06", "title": "Attribution & Optimization", "desc": "We audit conversions weekly, update page copy, review competitor shifts, and compile Looker Studio reports." }
+        {
+          "num": "01",
+          "title": "Deep Audit & Discovery",
+          "desc": "We inspect your indexation history, current search console profiles, link logs, and identify core indexing bugs."
+        },
+        {
+          "num": "02",
+          "title": "Keyword & Intent Architecture",
+          "desc": "We map buyer search intent, selecting commercial queries your buyers use when ready to pay for services."
+        },
+        {
+          "num": "03",
+          "title": "On-Page Semantic Optimization",
+          "desc": "We restructure headings, titles, meta tags, schema markup, and inject high-performing semantic keyword targets."
+        },
+        {
+          "num": "04",
+          "title": "Speed & Performance Fixes",
+          "desc": "Our Next.js developers optimize scripts, cache systems, image formats, and code-splitting to ensure near-instant speeds."
+        },
+        {
+          "num": "05",
+          "title": "Authority & Link Building",
+          "desc": "We conduct targeted email outreach to trusted publishers to acquire backlinks, driving up domain authority."
+        },
+        {
+          "num": "06",
+          "title": "Attribution & Optimization",
+          "desc": "We audit conversions weekly, update page copy, review competitor shifts, and compile Looker Studio reports."
+        }
       ]
     },
     "results": {
@@ -105,10 +199,26 @@
       "titleIntro": "Proven Numbers, Compounding ",
       "titleHighlight": "Outcomes",
       "metrics": [
-        { "value": "+245%", "label": "Organic Traffic Growth", "desc": "Average increases in non-branded organic traffic sessions achieved for clients within 6 months of campaign launch." },
-        { "value": "3.8x", "label": "Conversion Rate Multiplier", "desc": "Growth in inbound lead conversions by optimizing page copy, layouts, and targeting transactional search queries." },
-        { "value": "#1", "label": "Google Map Pack Dominance", "desc": "Top positions secured in competitive local map packs, driving phone calls and local customer bookings." },
-        { "value": "-55%", "label": "Customer Acquisition Cost", "desc": "Decrease in average CAC by building a sustainable organic traffic channel, bypassing expensive search ad bids." }
+        {
+          "value": "+245%",
+          "label": "Organic Traffic Growth",
+          "desc": "Average increases in non-branded organic traffic sessions achieved for clients within 6 months of campaign launch."
+        },
+        {
+          "value": "3.8x",
+          "label": "Conversion Rate Multiplier",
+          "desc": "Growth in inbound lead conversions by optimizing page copy, layouts, and targeting transactional search queries."
+        },
+        {
+          "value": "#1",
+          "label": "Google Map Pack Dominance",
+          "desc": "Top positions secured in competitive local map packs, driving phone calls and local customer bookings."
+        },
+        {
+          "value": "-55%",
+          "label": "Customer Acquisition Cost",
+          "desc": "Decrease in average CAC by building a sustainable organic traffic channel, bypassing expensive search ad bids."
+        }
       ],
       "caseStudies": [
         {
@@ -130,12 +240,30 @@
       "titleIntro": "Tailored Optimization for Your ",
       "titleHighlight": "Market Niche",
       "list": [
-        { "title": "Home Service Contractors", "desc": "HVAC, plumbing, electrical, and roofing companies looking to dominate local search terms and emergency customer queries." },
-        { "title": "Healthcare & Dental Clinics", "desc": "Attracting local patients searching for cosmetic dentistry, orthodontics, dermatology, and medical treatments." },
-        { "title": "Real Estate Agencies", "desc": "Ranking local brokerages for neighborhood search terms, home value audits, and property listings." },
-        { "title": "E-Commerce Brands", "desc": "Optimizing search listings, category pages, product tags, and organic shopping feeds for transactional clicks." },
-        { "title": "SaaS & B2B Companies", "desc": "Generating high-intent software trial signups, whitepaper downloads, and corporate demo bookings." },
-        { "title": "Professional Services", "desc": "Lawyers, accountants, consultants, and agencies seeking high-value corporate accounts and client contracts." }
+        {
+          "title": "Home Service Contractors",
+          "desc": "HVAC, plumbing, electrical, and roofing companies looking to dominate local search terms and emergency customer queries."
+        },
+        {
+          "title": "Healthcare & Dental Clinics",
+          "desc": "Attracting local patients searching for cosmetic dentistry, orthodontics, dermatology, and medical treatments."
+        },
+        {
+          "title": "Real Estate Agencies",
+          "desc": "Ranking local brokerages for neighborhood search terms, home value audits, and property listings."
+        },
+        {
+          "title": "E-Commerce Brands",
+          "desc": "Optimizing search listings, category pages, product tags, and organic shopping feeds for transactional clicks."
+        },
+        {
+          "title": "SaaS & B2B Companies",
+          "desc": "Generating high-intent software trial signups, whitepaper downloads, and corporate demo bookings."
+        },
+        {
+          "title": "Professional Services",
+          "desc": "Lawyers, accountants, consultants, and agencies seeking high-value corporate accounts and client contracts."
+        }
       ]
     },
     "tools": {
@@ -143,11 +271,26 @@
       "titleIntro": "Our Advanced SEO ",
       "titleHighlight": "Stack",
       "list": [
-        { "name": "SEMrush", "iconName": "Search" },
-        { "name": "Ahrefs", "iconName": "Star" },
-        { "name": "Google Search Console", "iconName": "Monitor" },
-        { "name": "Screaming Frog", "iconName": "BarChart2" },
-        { "name": "Google Analytics 4", "iconName": "CheckCircle2" }
+        {
+          "name": "SEMrush",
+          "iconName": "Search"
+        },
+        {
+          "name": "Ahrefs",
+          "iconName": "Star"
+        },
+        {
+          "name": "Google Search Console",
+          "iconName": "Monitor"
+        },
+        {
+          "name": "Screaming Frog",
+          "iconName": "BarChart2"
+        },
+        {
+          "name": "Google Analytics 4",
+          "iconName": "CheckCircle2"
+        }
       ]
     },
     "whyChooseUs": {
@@ -155,16 +298,37 @@
       "titleIntro": "Why Choose Mohsin Designs for ",
       "titleHighlight": "SEO",
       "list": [
-        { "title": "100% Transparent Lead Tracking", "desc": "No fake stats. We trace rankings directly to inbound phone calls, form completions, and actual revenue." },
-        { "title": "White-Hat Links Only", "desc": "We build real, contextual links from authoritative resources to protect your domain and future-proof rankings." },
-        { "title": "Codebase Optimization", "desc": "Our team optimizes page speeds at the code level, avoiding bloated WordPress themes and heavy plugins." },
-        { "title": "Certified Specialists", "desc": "Your campaign is handled by senior SEO engineers with over 10 years of verified search growth experience." }
+        {
+          "title": "100% Transparent Lead Tracking",
+          "desc": "No fake stats. We trace rankings directly to inbound phone calls, form completions, and actual revenue."
+        },
+        {
+          "title": "White-Hat Links Only",
+          "desc": "We build real, contextual links from authoritative resources to protect your domain and future-proof rankings."
+        },
+        {
+          "title": "Codebase Optimization",
+          "desc": "Our team optimizes page speeds at the code level, avoiding bloated WordPress themes and heavy plugins."
+        },
+        {
+          "title": "Certified Specialists",
+          "desc": "Your campaign is handled by senior SEO engineers with over 10 years of verified search growth experience."
+        }
       ]
     },
     "faqs": [
-      { "q": "How long does it take to see results from SEO?", "a": "Initial rank improvements and organic search impression gains show within 60 to 90 days of campaign launch. Compounding traffic growth and substantial lead generation usually scale between months 4 and 6 of a targeted campaign." },
-      { "q": "Do you guarantee #1 rankings?", "a": "No legitimate agency can guarantee exact top spots due to search algorithm updates and competing bids. We guarantee high-intent organic traffic growth, significant local map visibility, and a positive ROI." },
-      { "q": "What is the difference between SEO and PPC?", "a": "PPC provides immediate traffic but stops the moment you stop paying for clicks. SEO requires upfront investment but builds permanent organic search rankings that drive free, compounding traffic long-term." }
+      {
+        "q": "How long does it take to see results from SEO?",
+        "a": "Initial rank improvements and organic search impression gains show within 60 to 90 days of campaign launch. Compounding traffic growth and substantial lead generation usually scale between months 4 and 6 of a targeted campaign."
+      },
+      {
+        "q": "Do you guarantee #1 rankings?",
+        "a": "No legitimate agency can guarantee exact top spots due to search algorithm updates and competing bids. We guarantee high-intent organic traffic growth, significant local map visibility, and a positive ROI."
+      },
+      {
+        "q": "What is the difference between SEO and PPC?",
+        "a": "PPC provides immediate traffic but stops the moment you stop paying for clicks. SEO requires upfront investment but builds permanent organic search rankings that drive free, compounding traffic long-term."
+      }
     ],
     "finalCta": {
       "eyebrow": "READY TO DOMINATE SEARCH?",
@@ -172,6 +336,79 @@
       "titleHighlight": "Market Share?",
       "titleLine2": "Let's Audit Your Site Today.",
       "description": "Get a free 1-on-1 technical SEO audit and ranking report to identify search blocks, competitor keyword gaps, and quick-win traffic opportunities."
+    },
+    "pricing": {
+      "eyebrow": "12 // PRICING PLANS",
+      "titleIntro": "Flexible SEO Packages for ",
+      "titleHighlight": "Your Business",
+      "plans": [
+        {
+          "name": "Starter",
+          "price": "$999",
+          "period": "per month",
+          "desc": "Perfect for local businesses seeking to build initial search authority.",
+          "features": [
+            "On-page optimization for 10 pages",
+            "Keyword mapping & competitor tracking",
+            "Google Business Profile setup",
+            "Monthly organic traffic reporting"
+          ],
+          "ctaText": "Get Starter Plan",
+          "isPopular": false,
+          "isCustom": false
+        },
+        {
+          "name": "Professional",
+          "price": "$1,999",
+          "period": "per month",
+          "desc": "Comprehensive strategy for businesses ready to dominate local searches.",
+          "features": [
+            "On-page optimization for 25 pages",
+            "Local map pack optimization strategy",
+            "Competitor backlink gap analysis",
+            "Bi-weekly rank tracking & reports"
+          ],
+          "ctaText": "Get Professional",
+          "isPopular": true,
+          "isCustom": false
+        },
+        {
+          "name": "Premium",
+          "price": "$3,499",
+          "period": "per month",
+          "desc": "Aggressive organic growth targeting high-difficulty commercial terms.",
+          "features": [
+            "Full technical codebase audits",
+            "Manual PR link acquisition campaigns",
+            "Custom semantic topic clusters",
+            "Looker Studio attribution dashboards"
+          ],
+          "ctaText": "Get Premium Plan",
+          "isPopular": false,
+          "isCustom": false
+        },
+        {
+          "name": "Enterprise",
+          "price": "Custom",
+          "period": "tailored terms",
+          "desc": "Bespoke optimization strategies for multi-location groups and large brands.",
+          "features": [
+            "Dedicated SEO account architect",
+            "Continuous codebase speed updates",
+            "High-authority editorial mentions",
+            "Custom conversion funnel tracking"
+          ],
+          "ctaText": "Contact for Details",
+          "isPopular": false,
+          "isCustom": true
+        }
+      ]
+    },
+    "serviceArea": {
+      "sectionTag": "SEO WORLDWIDE",
+      "titleIntro": "SEO Campaigns Optimized for ",
+      "titleHighlight": "Global Search Dominance",
+      "description": "We optimize search engine footprint across global territories, helping brands rank in local map packs and organic search indices internationally."
     }
   },
   "web-design": {
@@ -195,11 +432,26 @@
     "clientTrust": {
       "heading": "We build fast, scalable, modern applications on",
       "logos": [
-        { "name": "React.js", "iconName": "Monitor" },
-        { "name": "Next.js", "iconName": "CheckCircle2" },
-        { "name": "Tailwind CSS", "iconName": "Palette" },
-        { "name": "Vercel", "iconName": "Globe" },
-        { "name": "Framer Motion", "iconName": "TrendingUp" }
+        {
+          "name": "React.js",
+          "iconName": "Monitor"
+        },
+        {
+          "name": "Next.js",
+          "iconName": "CheckCircle2"
+        },
+        {
+          "name": "Tailwind CSS",
+          "iconName": "Palette"
+        },
+        {
+          "name": "Vercel",
+          "iconName": "Globe"
+        },
+        {
+          "name": "Framer Motion",
+          "iconName": "TrendingUp"
+        }
       ],
       "testimonials": [
         {
@@ -224,17 +476,32 @@
         {
           "title": "Bespoke UI/UX Design System",
           "desc": "We sketch custom designs, interactive prototypes, and design systems in Figma. We focus on clean spacing, bold typography, and visual assets built to capture your brand value.",
-          "features": ["Figma Visual Interface Mockups", "Interactive Prototype Testing", "Responsive Grid Layouts", "Bespoke Brand Color Palettes"]
+          "features": [
+            "Figma Visual Interface Mockups",
+            "Interactive Prototype Testing",
+            "Responsive Grid Layouts",
+            "Bespoke Brand Color Palettes"
+          ]
         },
         {
           "title": "Next.js & React Codebase Engineering",
           "desc": "We develop future-proof sites using React, Next.js App Router, Tailwind CSS, and headless architectures. This removes heavy visual builders and speeds up page load times.",
-          "features": ["Next.js App Router Setup", "Tailwind Component Design", "TypeScript Static Safety", "Headless CMS Integrations"]
+          "features": [
+            "Next.js App Router Setup",
+            "Tailwind Component Design",
+            "TypeScript Static Safety",
+            "Headless CMS Integrations"
+          ]
         },
         {
           "title": "Blazing Speed & Performance Optimization",
           "desc": "We optimize load times using modern static generation (SSG), dynamic image rendering (WebP/AVIF), asset code-splitting, and edge network hosting to hit perfect PageSpeed scores.",
-          "features": ["100/100 PageSpeed Targets", "Static Site Generation (SSG)", "WebP & AVIF Image Optimization", "Global Edge Network Deployments"]
+          "features": [
+            "100/100 PageSpeed Targets",
+            "Static Site Generation (SSG)",
+            "WebP & AVIF Image Optimization",
+            "Global Edge Network Deployments"
+          ]
         }
       ]
     },
@@ -243,12 +510,36 @@
       "titleIntro": "Our Development ",
       "titleHighlight": "Blueprint",
       "components": [
-        { "num": "01", "title": "Discovery & Sitemap Map", "desc": "Mapping page structure, user journeys, target actions, and API requirements." },
-        { "num": "02", "title": "Figma Visual Mockups", "desc": "Designing detailed layout designs for desktop, mobile, and tablet views." },
-        { "num": "03", "title": "Micro-Animations & Prototypes", "desc": "Refining hover states, scroll events, and layout transitions." },
-        { "num": "04", "title": "Next.js & Tailwind Coding", "desc": "Building custom CSS style systems, components, and sitemap paths." },
-        { "num": "05", "title": "Headless CMS & API Integration", "desc": "Connecting CRM software, contact forms, booking links, and payment systems." },
-        { "num": "06", "title": "Speed Audits & Live Launch", "desc": "Testing Core Web Vitals, configuring domains, and deploying to edge hosting." }
+        {
+          "num": "01",
+          "title": "Discovery & Sitemap Map",
+          "desc": "Mapping page structure, user journeys, target actions, and API requirements."
+        },
+        {
+          "num": "02",
+          "title": "Figma Visual Mockups",
+          "desc": "Designing detailed layout designs for desktop, mobile, and tablet views."
+        },
+        {
+          "num": "03",
+          "title": "Micro-Animations & Prototypes",
+          "desc": "Refining hover states, scroll events, and layout transitions."
+        },
+        {
+          "num": "04",
+          "title": "Next.js & Tailwind Coding",
+          "desc": "Building custom CSS style systems, components, and sitemap paths."
+        },
+        {
+          "num": "05",
+          "title": "Headless CMS & API Integration",
+          "desc": "Connecting CRM software, contact forms, booking links, and payment systems."
+        },
+        {
+          "num": "06",
+          "title": "Speed Audits & Live Launch",
+          "desc": "Testing Core Web Vitals, configuring domains, and deploying to edge hosting."
+        }
       ]
     },
     "benefits": {
@@ -256,10 +547,26 @@
       "titleIntro": "Why Invest in a Custom ",
       "titleHighlight": "Website?",
       "list": [
-        { "title": "Higher Conversion Rates", "desc": "We structure your copy and calls-to-action to maximize inbound messages and sales.", "metric": "+65% CR" },
-        { "title": "Elite Brand Image", "desc": "A custom web design elevates your brand credibility and makes you look like a market leader.", "metric": "Premium" },
-        { "title": "Flawless Mobile Display", "desc": "Over 60% of search traffic is mobile. We build layouts optimized for any handheld viewport.", "metric": "100%" },
-        { "title": "SEO Coding Foundation", "desc": "Clean code structure allows search engines to index your pages faster and rank them higher.", "metric": "SEO Ready" }
+        {
+          "title": "Higher Conversion Rates",
+          "desc": "We structure your copy and calls-to-action to maximize inbound messages and sales.",
+          "metric": "+65% CR"
+        },
+        {
+          "title": "Elite Brand Image",
+          "desc": "A custom web design elevates your brand credibility and makes you look like a market leader.",
+          "metric": "Premium"
+        },
+        {
+          "title": "Flawless Mobile Display",
+          "desc": "Over 60% of search traffic is mobile. We build layouts optimized for any handheld viewport.",
+          "metric": "100%"
+        },
+        {
+          "title": "SEO Coding Foundation",
+          "desc": "Clean code structure allows search engines to index your pages faster and rank them higher.",
+          "metric": "SEO Ready"
+        }
       ]
     },
     "process": {
@@ -267,12 +574,36 @@
       "titleIntro": "From Sketch to Launch in 6 ",
       "titleHighlight": "Steps",
       "steps": [
-        { "num": "01", "title": "Discovery Call & Plan", "desc": "We map out layout preferences, user journeys, and target actions." },
-        { "num": "02", "title": "Sitemap wireframing", "desc": "We build layout wireframes mapping content areas and conversion buttons." },
-        { "num": "03", "title": "Custom Figma Design", "desc": "We create full-color interface designs incorporating your brand identity." },
-        { "num": "04", "title": "Codebase Development", "desc": "Our team codes your design into semantic, blazing fast Next.js components." },
-        { "num": "05", "title": "API & Form Integration", "desc": "We connect your forms, CRMs, booking links, and GA4 trackers." },
-        { "num": "06", "title": "Deployment & Go-Live", "desc": "We configure DNS settings and launch your site on Vercel edge servers." }
+        {
+          "num": "01",
+          "title": "Discovery Call & Plan",
+          "desc": "We map out layout preferences, user journeys, and target actions."
+        },
+        {
+          "num": "02",
+          "title": "Sitemap wireframing",
+          "desc": "We build layout wireframes mapping content areas and conversion buttons."
+        },
+        {
+          "num": "03",
+          "title": "Custom Figma Design",
+          "desc": "We create full-color interface designs incorporating your brand identity."
+        },
+        {
+          "num": "04",
+          "title": "Codebase Development",
+          "desc": "Our team codes your design into semantic, blazing fast Next.js components."
+        },
+        {
+          "num": "05",
+          "title": "API & Form Integration",
+          "desc": "We connect your forms, CRMs, booking links, and GA4 trackers."
+        },
+        {
+          "num": "06",
+          "title": "Deployment & Go-Live",
+          "desc": "We configure DNS settings and launch your site on Vercel edge servers."
+        }
       ]
     },
     "results": {
@@ -280,10 +611,26 @@
       "titleIntro": "Unmatched Speed, Scaled ",
       "titleHighlight": "Conversions",
       "metrics": [
-        { "value": "< 1.2s", "label": "Average Load Time", "desc": "Ensuring visitors never bounce due to slow loading speeds or layout lag." },
-        { "value": "100/100", "label": "Google PageSpeed Score", "desc": "Perfect performance marks achieved across mobile and desktop audits." },
-        { "value": "+75%", "label": "Inbound Lead Increase", "desc": "Improvement in average conversion actions after upgrading from old platforms." },
-        { "value": "100%", "label": "Custom Code Reliability", "desc": "Bypassing heavy page builder frameworks to guarantee clean, zero-bloat sites." }
+        {
+          "value": "< 1.2s",
+          "label": "Average Load Time",
+          "desc": "Ensuring visitors never bounce due to slow loading speeds or layout lag."
+        },
+        {
+          "value": "100/100",
+          "label": "Google PageSpeed Score",
+          "desc": "Perfect performance marks achieved across mobile and desktop audits."
+        },
+        {
+          "value": "+75%",
+          "label": "Inbound Lead Increase",
+          "desc": "Improvement in average conversion actions after upgrading from old platforms."
+        },
+        {
+          "value": "100%",
+          "label": "Custom Code Reliability",
+          "desc": "Bypassing heavy page builder frameworks to guarantee clean, zero-bloat sites."
+        }
       ],
       "caseStudies": [
         {
@@ -305,12 +652,30 @@
       "titleIntro": "Crafted Solutions for Diverse ",
       "titleHighlight": "Industries",
       "list": [
-        { "title": "Corporate & Enterprises", "desc": "High-end corporate websites showcasing capabilities and attracting enterprise partnerships." },
-        { "title": "Local Service Contractors", "desc": "Lead-focused websites for HVAC, Plumbers, and Builders seeking local bookings." },
-        { "title": "E-Commerce Ventures", "desc": "Bespoke online storefronts built with seamless checkouts and high conversion paths." },
-        { "title": "Medical & Dental Clinics", "desc": "Patient-centric booking layouts highlighting treatments, doctors, and locations." },
-        { "title": "Real Estate Brokerages", "desc": "Feature-rich listings pages with maps and dynamic search filters." },
-        { "title": "SaaS & Tech Companies", "desc": "Sleek software product landing pages featuring interactive charts and pricing matrices." }
+        {
+          "title": "Corporate & Enterprises",
+          "desc": "High-end corporate websites showcasing capabilities and attracting enterprise partnerships."
+        },
+        {
+          "title": "Local Service Contractors",
+          "desc": "Lead-focused websites for HVAC, Plumbers, and Builders seeking local bookings."
+        },
+        {
+          "title": "E-Commerce Ventures",
+          "desc": "Bespoke online storefronts built with seamless checkouts and high conversion paths."
+        },
+        {
+          "title": "Medical & Dental Clinics",
+          "desc": "Patient-centric booking layouts highlighting treatments, doctors, and locations."
+        },
+        {
+          "title": "Real Estate Brokerages",
+          "desc": "Feature-rich listings pages with maps and dynamic search filters."
+        },
+        {
+          "title": "SaaS & Tech Companies",
+          "desc": "Sleek software product landing pages featuring interactive charts and pricing matrices."
+        }
       ]
     },
     "tools": {
@@ -318,11 +683,26 @@
       "titleIntro": "Our Modern Creative ",
       "titleHighlight": "Stack",
       "list": [
-        { "name": "Next.js", "iconName": "Monitor" },
-        { "name": "Tailwind CSS", "iconName": "Palette" },
-        { "name": "Figma", "iconName": "PenTool" },
-        { "name": "Vercel", "iconName": "Globe" },
-        { "name": "Framer Motion", "iconName": "TrendingUp" }
+        {
+          "name": "Next.js",
+          "iconName": "Monitor"
+        },
+        {
+          "name": "Tailwind CSS",
+          "iconName": "Palette"
+        },
+        {
+          "name": "Figma",
+          "iconName": "PenTool"
+        },
+        {
+          "name": "Vercel",
+          "iconName": "Globe"
+        },
+        {
+          "name": "Framer Motion",
+          "iconName": "TrendingUp"
+        }
       ]
     },
     "whyChooseUs": {
@@ -330,16 +710,37 @@
       "titleIntro": "Custom Code Built to ",
       "titleHighlight": "Convert",
       "list": [
-        { "title": "No Bloated Templates", "desc": "We build from scratch. No heavy WordPress themes or visual builders that slow your site down." },
-        { "title": "Award-Level Aesthetics", "desc": "We balance clean spacing, striking typography, and custom micro-interactions." },
-        { "title": "SEO-First Architecture", "desc": "Semantic headers, fast loading structures, and schema integrations come built-in." },
-        { "title": "Headless CMS Options", "desc": "We build easy-to-use admin panels so you can add blogs and edits without touching code." }
+        {
+          "title": "No Bloated Templates",
+          "desc": "We build from scratch. No heavy WordPress themes or visual builders that slow your site down."
+        },
+        {
+          "title": "Award-Level Aesthetics",
+          "desc": "We balance clean spacing, striking typography, and custom micro-interactions."
+        },
+        {
+          "title": "SEO-First Architecture",
+          "desc": "Semantic headers, fast loading structures, and schema integrations come built-in."
+        },
+        {
+          "title": "Headless CMS Options",
+          "desc": "We build easy-to-use admin panels so you can add blogs and edits without touching code."
+        }
       ]
     },
     "faqs": [
-      { "q": "Do you design websites in WordPress or custom code?", "a": "We specialize in custom Next.js and Tailwind CSS development for maximum speed, security, and design control. However, we can build custom WordPress sites or integrate headless WordPress CMS if requested." },
-      { "q": "Will my website be mobile-friendly?", "a": "Yes. Every site we build uses fluid grid systems and responsive styling, ensuring it looks stunning and operates flawlessly on smartphones, tablets, laptops, and large monitors." },
-      { "q": "Do you provide hosting and maintenance?", "a": "Yes, we host on secure global edge networks (like Vercel or Netlify) for near-instant load speeds. We also offer monthly maintenance, analytics monitoring, and backup services." }
+      {
+        "q": "Do you design websites in WordPress or custom code?",
+        "a": "We specialize in custom Next.js and Tailwind CSS development for maximum speed, security, and design control. However, we can build custom WordPress sites or integrate headless WordPress CMS if requested."
+      },
+      {
+        "q": "Will my website be mobile-friendly?",
+        "a": "Yes. Every site we build uses fluid grid systems and responsive styling, ensuring it looks stunning and operates flawlessly on smartphones, tablets, laptops, and large monitors."
+      },
+      {
+        "q": "Do you provide hosting and maintenance?",
+        "a": "Yes, we host on secure global edge networks (like Vercel or Netlify) for near-instant load speeds. We also offer monthly maintenance, analytics monitoring, and backup services."
+      }
     ],
     "finalCta": {
       "eyebrow": "READY TO LAUNCH YOUR NEW SITE?",
@@ -347,6 +748,79 @@
       "titleHighlight": "Stunning Website?",
       "titleLine2": "Let's Map Out Your Project.",
       "description": "Book a free design consultation call. We will review your current site layout, map out a custom UI wireframe, and outline a timeline for your launch."
+    },
+    "pricing": {
+      "eyebrow": "12 // PRICING PLANS",
+      "titleIntro": "Tailored Next.js Development ",
+      "titleHighlight": "Plans",
+      "plans": [
+        {
+          "name": "Starter",
+          "price": "$2,499",
+          "period": "one-time",
+          "desc": "Standard multi-page business website with premium layout styling.",
+          "features": [
+            "Custom responsive UI design mockups",
+            "5 high-converting landing pages",
+            "Basic contact form integrations",
+            "Speed optimized Next.js setup"
+          ],
+          "ctaText": "Choose Starter",
+          "isPopular": false,
+          "isCustom": false
+        },
+        {
+          "name": "Professional",
+          "price": "$4,999",
+          "period": "one-time",
+          "desc": "Custom design and codebase built to drive leads and load instantly.",
+          "features": [
+            "Up to 12 fully custom page layouts",
+            "Advanced interactive animations",
+            "Tailwind CSS styling refinements",
+            "On-page SEO semantic structure setup"
+          ],
+          "ctaText": "Choose Professional",
+          "isPopular": true,
+          "isCustom": false
+        },
+        {
+          "name": "Premium",
+          "price": "$8,999",
+          "period": "one-time",
+          "desc": "Luxury digital platforms integrated with headless CMS engines.",
+          "features": [
+            "Bespoke visual interaction mechanics",
+            "Sanity or Strapi CMS integration",
+            "Automatic Vercel CDN speed routing",
+            "HubSpot/Salesforce CRM pipeline sync"
+          ],
+          "ctaText": "Choose Premium",
+          "isPopular": false,
+          "isCustom": false
+        },
+        {
+          "name": "Enterprise",
+          "price": "Custom",
+          "period": "project based",
+          "desc": "Enterprise-grade web systems engineered to handle massive scale.",
+          "features": [
+            "Bespoke system architecture design",
+            "Custom API and database integrations",
+            "Awwwards-level creative styling",
+            "SLA uptime & post-launch support"
+          ],
+          "ctaText": "Contact for Details",
+          "isPopular": false,
+          "isCustom": true
+        }
+      ]
+    },
+    "serviceArea": {
+      "sectionTag": "HEADLESS EDGE",
+      "titleIntro": "Next.js Platforms Engineered for ",
+      "titleHighlight": "Global Interaction",
+      "description": "We build blazing-fast websites routed on global edge networks, ensuring under 1.2s loading speeds for visitors anywhere on Earth."
     }
   },
   "social-media": {
@@ -370,11 +844,26 @@
     "clientTrust": {
       "heading": "We build communities and distribute campaigns across",
       "logos": [
-        { "name": "Instagram", "iconName": "Palette" },
-        { "name": "TikTok", "iconName": "TrendingUp" },
-        { "name": "LinkedIn", "iconName": "Building2" },
-        { "name": "Facebook", "iconName": "Globe" },
-        { "name": "YouTube", "iconName": "Monitor" }
+        {
+          "name": "Instagram",
+          "iconName": "Palette"
+        },
+        {
+          "name": "TikTok",
+          "iconName": "TrendingUp"
+        },
+        {
+          "name": "LinkedIn",
+          "iconName": "Building2"
+        },
+        {
+          "name": "Facebook",
+          "iconName": "Globe"
+        },
+        {
+          "name": "YouTube",
+          "iconName": "Monitor"
+        }
       ],
       "testimonials": [
         {
@@ -399,17 +888,32 @@
         {
           "title": "Visual Grid & Branding Layouts",
           "desc": "We design visual brand grids, graphic templates, and story layouts custom tailored for your target audience, keeping your profiles looking premium and consistent.",
-          "features": ["Instagram Feed Design Systems", "Custom Carousel Layouts", "LinkedIn Storyboard Designs", "Branded Visual Highlights"]
+          "features": [
+            "Instagram Feed Design Systems",
+            "Custom Carousel Layouts",
+            "LinkedIn Storyboard Designs",
+            "Branded Visual Highlights"
+          ]
         },
         {
           "title": "High-Yield Short Video Reels",
           "desc": "We script, edit, and direct high-retention short videos designed to scale. We add kinetic captions, match trending audio clips, and optimize hook timing.",
-          "features": ["Short-Form Video Scripting", "Kinetic Captions & Subtitles", "Trending Sound & Audio Syncs", "Visual Transitions & Color Grading"]
+          "features": [
+            "Short-Form Video Scripting",
+            "Kinetic Captions & Subtitles",
+            "Trending Sound & Audio Syncs",
+            "Visual Transitions & Color Grading"
+          ]
         },
         {
           "title": "Active Community & Lead Management",
           "desc": "We handle incoming direct messages, reply to comments, engage with partners, and target niche communities to convert views into actual bookings.",
-          "features": ["Daily DM & Inbox Strategy", "Comment Response Management", "Community Partnership Outreach", "Daily Page Engagement Routines"]
+          "features": [
+            "Daily DM & Inbox Strategy",
+            "Comment Response Management",
+            "Community Partnership Outreach",
+            "Daily Page Engagement Routines"
+          ]
         }
       ]
     },
@@ -418,12 +922,36 @@
       "titleIntro": "Our Engagement ",
       "titleHighlight": "Framework",
       "components": [
-        { "num": "01", "title": "Social Profile & Grid Audit", "desc": "Auditing current visual styling, profile hooks, competitor feeds, and target audience data." },
-        { "num": "02", "title": "Content Pillars Definition", "desc": "Setting up distinct thematic topics (educational, culture, client reviews) to structure posting." },
-        { "num": "03", "title": "Calendar Design & Approval", "desc": "Drafting visual layouts, post captions, and hashtag grids for review." },
-        { "num": "04", "title": "Short-Form Video Shoots", "desc": "Scripting video hooks, editing clips, and adding captions." },
-        { "num": "05", "title": "Daily Community Inquiries", "desc": "Answering comments and forwarding client leads from DMs to dispatchers." },
-        { "num": "06", "title": "Follower & Click Analytics", "desc": "Measuring follower gains, profile links click-throughs, and goal outcomes." }
+        {
+          "num": "01",
+          "title": "Social Profile & Grid Audit",
+          "desc": "Auditing current visual styling, profile hooks, competitor feeds, and target audience data."
+        },
+        {
+          "num": "02",
+          "title": "Content Pillars Definition",
+          "desc": "Setting up distinct thematic topics (educational, culture, client reviews) to structure posting."
+        },
+        {
+          "num": "03",
+          "title": "Calendar Design & Approval",
+          "desc": "Drafting visual layouts, post captions, and hashtag grids for review."
+        },
+        {
+          "num": "04",
+          "title": "Short-Form Video Shoots",
+          "desc": "Scripting video hooks, editing clips, and adding captions."
+        },
+        {
+          "num": "05",
+          "title": "Daily Community Inquiries",
+          "desc": "Answering comments and forwarding client leads from DMs to dispatchers."
+        },
+        {
+          "num": "06",
+          "title": "Follower & Click Analytics",
+          "desc": "Measuring follower gains, profile links click-throughs, and goal outcomes."
+        }
       ]
     },
     "benefits": {
@@ -431,10 +959,26 @@
       "titleIntro": "Real Returns on Social ",
       "titleHighlight": "Presence",
       "list": [
-        { "title": "Builds Brand Authenticity", "desc": "Showcasing the team behind the business humanizes the brand and establishes trust.", "metric": "Authentic" },
-        { "title": "Direct Customer Feedback", "desc": "Interact with clients in real-time, handling inquiries and gathering product reviews.", "metric": "Direct Link" },
-        { "title": "Organic Lead Generation", "desc": "Generate high-quality leads directly through profile links and direct messaging.", "metric": "+45% Leads" },
-        { "title": "Top-of-Mind Awareness", "desc": "Consistent posting ensures your business is the first choice when customers are ready to buy.", "metric": "Top-of-Mind" }
+        {
+          "title": "Builds Brand Authenticity",
+          "desc": "Showcasing the team behind the business humanizes the brand and establishes trust.",
+          "metric": "Authentic"
+        },
+        {
+          "title": "Direct Customer Feedback",
+          "desc": "Interact with clients in real-time, handling inquiries and gathering product reviews.",
+          "metric": "Direct Link"
+        },
+        {
+          "title": "Organic Lead Generation",
+          "desc": "Generate high-quality leads directly through profile links and direct messaging.",
+          "metric": "+45% Leads"
+        },
+        {
+          "title": "Top-of-Mind Awareness",
+          "desc": "Consistent posting ensures your business is the first choice when customers are ready to buy.",
+          "metric": "Top-of-Mind"
+        }
       ]
     },
     "process": {
@@ -442,12 +986,36 @@
       "titleIntro": "Our Monthly Social ",
       "titleHighlight": "Routine",
       "steps": [
-        { "num": "01", "title": "Strategy & Setup", "desc": "We set up target personas, branding guides, and weekly goals." },
-        { "num": "02", "title": "Grid Concept Boards", "desc": "We build sample feed designs, layouts, and typography grids." },
-        { "num": "03", "title": "Monthly Content Plan", "desc": "We draft post designs, captions, and short video scripts." },
-        { "num": "04", "title": "Review & Revisions", "desc": "Clients review all templates using our calendar interface." },
-        { "num": "05", "title": "Scheduling & Launch", "desc": "We schedule posts at high-engagement periods for each platform." },
-        { "num": "06", "title": "Monthly Performance Reports", "desc": "We analyze link clicks, profile impressions, and engagement ratios." }
+        {
+          "num": "01",
+          "title": "Strategy & Setup",
+          "desc": "We set up target personas, branding guides, and weekly goals."
+        },
+        {
+          "num": "02",
+          "title": "Grid Concept Boards",
+          "desc": "We build sample feed designs, layouts, and typography grids."
+        },
+        {
+          "num": "03",
+          "title": "Monthly Content Plan",
+          "desc": "We draft post designs, captions, and short video scripts."
+        },
+        {
+          "num": "04",
+          "title": "Review & Revisions",
+          "desc": "Clients review all templates using our calendar interface."
+        },
+        {
+          "num": "05",
+          "title": "Scheduling & Launch",
+          "desc": "We schedule posts at high-engagement periods for each platform."
+        },
+        {
+          "num": "06",
+          "title": "Monthly Performance Reports",
+          "desc": "We analyze link clicks, profile impressions, and engagement ratios."
+        }
       ]
     },
     "results": {
@@ -455,10 +1023,26 @@
       "titleIntro": "Measurable Scale, High ",
       "titleHighlight": "Engagement",
       "metrics": [
-        { "value": "+180%", "label": "Average Impression Growth", "desc": "Increased brand impressions across Instagram and TikTok within 90 days." },
-        { "value": "+6.2%", "label": "Audience Engagement Rate", "desc": "Maintaining high comment-to-view ratios compared to industry standards." },
-        { "value": "15k+", "label": "Followers Acquired", "desc": "Targeted local and niche community members added to our client portfolios." },
-        { "value": "+85%", "label": "Direct Message Leads", "desc": "Inbound queries converted into bookings via profiles and DM systems." }
+        {
+          "value": "+180%",
+          "label": "Average Impression Growth",
+          "desc": "Increased brand impressions across Instagram and TikTok within 90 days."
+        },
+        {
+          "value": "+6.2%",
+          "label": "Audience Engagement Rate",
+          "desc": "Maintaining high comment-to-view ratios compared to industry standards."
+        },
+        {
+          "value": "15k+",
+          "label": "Followers Acquired",
+          "desc": "Targeted local and niche community members added to our client portfolios."
+        },
+        {
+          "value": "+85%",
+          "label": "Direct Message Leads",
+          "desc": "Inbound queries converted into bookings via profiles and DM systems."
+        }
       ],
       "caseStudies": [
         {
@@ -480,12 +1064,30 @@
       "titleIntro": "Custom Social Strategies for Your ",
       "titleHighlight": "Market",
       "list": [
-        { "title": "E-Commerce & Fashion Brands", "desc": "Visually arresting grids, lifestyle videos, and product collection links." },
-        { "title": "Medical Clinics & Med Spas", "desc": "Before/after video reels, patient journeys, and doctor Q&As." },
-        { "title": "B2C & Home Services", "desc": "Contractor project videos, client testimonials, and expert tips." },
-        { "title": "Real Estate Agents", "desc": "Walkthrough reels, home listing guides, and agent market insights." },
-        { "title": "Creative Agencies & SaaS", "desc": "Educational carousel cards, product walkthroughs, and industry reviews." },
-        { "title": "Food & Hospitality", "desc": "Eye-catching cuisine photos, dining reels, and promotional alerts." }
+        {
+          "title": "E-Commerce & Fashion Brands",
+          "desc": "Visually arresting grids, lifestyle videos, and product collection links."
+        },
+        {
+          "title": "Medical Clinics & Med Spas",
+          "desc": "Before/after video reels, patient journeys, and doctor Q&As."
+        },
+        {
+          "title": "B2C & Home Services",
+          "desc": "Contractor project videos, client testimonials, and expert tips."
+        },
+        {
+          "title": "Real Estate Agents",
+          "desc": "Walkthrough reels, home listing guides, and agent market insights."
+        },
+        {
+          "title": "Creative Agencies & SaaS",
+          "desc": "Educational carousel cards, product walkthroughs, and industry reviews."
+        },
+        {
+          "title": "Food & Hospitality",
+          "desc": "Eye-catching cuisine photos, dining reels, and promotional alerts."
+        }
       ]
     },
     "tools": {
@@ -493,11 +1095,26 @@
       "titleIntro": "Our Distribution & Creation ",
       "titleHighlight": "Stack",
       "list": [
-        { "name": "Figma", "iconName": "PenTool" },
-        { "name": "Adobe Premiere Pro", "iconName": "Monitor" },
-        { "name": "CapCut Pro", "iconName": "TrendingUp" },
-        { "name": "Later", "iconName": "CheckCircle2" },
-        { "name": "Buffer", "iconName": "Globe" }
+        {
+          "name": "Figma",
+          "iconName": "PenTool"
+        },
+        {
+          "name": "Adobe Premiere Pro",
+          "iconName": "Monitor"
+        },
+        {
+          "name": "CapCut Pro",
+          "iconName": "TrendingUp"
+        },
+        {
+          "name": "Later",
+          "iconName": "CheckCircle2"
+        },
+        {
+          "name": "Buffer",
+          "iconName": "Globe"
+        }
       ]
     },
     "whyChooseUs": {
@@ -505,16 +1122,37 @@
       "titleIntro": "Why We Are the Right Partner for ",
       "titleHighlight": "Social",
       "list": [
-        { "title": "No Generic Stock Posts", "desc": "We don't post boring templates. Every piece of content is tailor-made for your business." },
-        { "title": "Video First Production", "desc": "We focus on high-yield short videos (Reels/TikToks) because they generate the most organic reach." },
-        { "title": "Conversion Centric", "desc": "We don't just track likes. We set up trackable link structures to capture actual sales leads." },
-        { "title": "Dedicated Manager", "desc": "Your channel is managed by a dedicated content strategist who understands your brand." }
+        {
+          "title": "No Generic Stock Posts",
+          "desc": "We don't post boring templates. Every piece of content is tailor-made for your business."
+        },
+        {
+          "title": "Video First Production",
+          "desc": "We focus on high-yield short videos (Reels/TikToks) because they generate the most organic reach."
+        },
+        {
+          "title": "Conversion Centric",
+          "desc": "We don't just track likes. We set up trackable link structures to capture actual sales leads."
+        },
+        {
+          "title": "Dedicated Manager",
+          "desc": "Your channel is managed by a dedicated content strategist who understands your brand."
+        }
       ]
     },
     "faqs": [
-      { "q": "Do you create all the video content yourself?", "a": "Yes. We write hooks, scripts, and editing parameters. If you are local, we can arrange content shoots. If remote, we guide your team on filming simple smartphone clips and handle all editing." },
-      { "q": "Which social channels do you recommend for my business?", "a": "For local services and retail, we prioritize Instagram and Facebook. For lifestyle and B2C brands, TikTok and Reels are crucial. For corporate B2B and SaaS, we focus heavily on LinkedIn." },
-      { "q": "How often will you post on our accounts?", "a": "Depending on the package, we typically publish 3 to 5 times per week across target platforms, ensuring a consistent presence without compromising content quality." }
+      {
+        "q": "Do you create all the video content yourself?",
+        "a": "Yes. We write hooks, scripts, and editing parameters. If you are local, we can arrange content shoots. If remote, we guide your team on filming simple smartphone clips and handle all editing."
+      },
+      {
+        "q": "Which social channels do you recommend for my business?",
+        "a": "For local services and retail, we prioritize Instagram and Facebook. For lifestyle and B2C brands, TikTok and Reels are crucial. For corporate B2B and SaaS, we focus heavily on LinkedIn."
+      },
+      {
+        "q": "How often will you post on our accounts?",
+        "a": "Depending on the package, we typically publish 3 to 5 times per week across target platforms, ensuring a consistent presence without compromising content quality."
+      }
     ],
     "finalCta": {
       "eyebrow": "READY TO SCALE YOUR COMMUNITY?",
@@ -522,6 +1160,79 @@
       "titleHighlight": "Social Media?",
       "titleLine2": "Let's Plan Your Content Grid.",
       "description": "Book a free social audit. We will analyze your competitors' grids, highlight layout flaws, and script 3 viral hook ideas for your next 3 short videos."
+    },
+    "pricing": {
+      "eyebrow": "12 // PRICING PLANS",
+      "titleIntro": "Scalable Social Media Campaign ",
+      "titleHighlight": "Packages",
+      "plans": [
+        {
+          "name": "Starter",
+          "price": "$799",
+          "period": "per month",
+          "desc": "Establish a consistent brand presence on top channels.",
+          "features": [
+            "Management of 2 social platforms",
+            "3 styled graphic posts per week",
+            "Professional hashtag & caption setups",
+            "Monthly engagement review logs"
+          ],
+          "ctaText": "Choose Starter",
+          "isPopular": false,
+          "isCustom": false
+        },
+        {
+          "name": "Professional",
+          "price": "$1,499",
+          "period": "per month",
+          "desc": "Grow engaged communities and capture customer inquiries.",
+          "features": [
+            "Management of 3 social platforms",
+            "5 post schedules per week (includes Reels)",
+            "Active community message monitoring",
+            "Creative asset design & copywriting"
+          ],
+          "ctaText": "Choose Professional",
+          "isPopular": true,
+          "isCustom": false
+        },
+        {
+          "name": "Premium",
+          "price": "$2,999",
+          "period": "per month",
+          "desc": "Dominate digital channels with custom video and asset assets.",
+          "features": [
+            "Daily post schedules across 4 platforms",
+            "Custom on-site video shooting schedules",
+            "Viral hook timing & trend sync",
+            "Bi-weekly influencer outreach runs"
+          ],
+          "ctaText": "Choose Premium",
+          "isPopular": false,
+          "isCustom": false
+        },
+        {
+          "name": "Enterprise",
+          "price": "Custom",
+          "period": "tailored terms",
+          "desc": "Bespoke social management campaigns for large organizations.",
+          "features": [
+            "Dedicated brand content manager",
+            "24/7 incoming message moderation",
+            "Paid social campaign optimization",
+            "Custom quarterly campaign reports"
+          ],
+          "ctaText": "Contact for Details",
+          "isPopular": false,
+          "isCustom": true
+        }
+      ]
+    },
+    "serviceArea": {
+      "sectionTag": "SOCIAL OUTREACH",
+      "titleIntro": "Social Media Audiences Built for ",
+      "titleHighlight": "Global Engagement",
+      "description": "We scale social media campaigns and template systems across timezones, growing active communities on Instagram, TikTok, and LinkedIn."
     }
   },
   "paid-ads": {
@@ -545,11 +1256,26 @@
     "clientTrust": {
       "heading": "We build and scale high-performing ad campaigns on",
       "logos": [
-        { "name": "Google Ads", "iconName": "Search" },
-        { "name": "Meta Ads", "iconName": "Globe" },
-        { "name": "Amazon Ads", "iconName": "ShoppingCart" },
-        { "name": "Bing Ads", "iconName": "Search" },
-        { "name": "YouTube Ads", "iconName": "Monitor" }
+        {
+          "name": "Google Ads",
+          "iconName": "Search"
+        },
+        {
+          "name": "Meta Ads",
+          "iconName": "Globe"
+        },
+        {
+          "name": "Amazon Ads",
+          "iconName": "ShoppingCart"
+        },
+        {
+          "name": "Bing Ads",
+          "iconName": "Search"
+        },
+        {
+          "name": "YouTube Ads",
+          "iconName": "Monitor"
+        }
       ],
       "testimonials": [
         {
@@ -574,17 +1300,32 @@
         {
           "title": "Google Ads Search & Display Campaigns",
           "desc": "We design search ads targeting commercial transactional keywords to place your brand at the top of Google the moment buyers search for your services.",
-          "features": ["Intent-Based Keyword Research", "Premium Ad Copywriting", "Granular Negative Keyword Grids", "Smart Bidding Adjustments"]
+          "features": [
+            "Intent-Based Keyword Research",
+            "Premium Ad Copywriting",
+            "Granular Negative Keyword Grids",
+            "Smart Bidding Adjustments"
+          ]
         },
         {
           "title": "Meta (Facebook & Instagram) Video Ads",
           "desc": "We build high-retention video ads, model graphics, and retargeting ads targeting specific client categories, behaviors, and lookalike lists.",
-          "features": ["Video Hook Copywriting", "Custom Audience Targeting", "A/B Image & Vector Tests", "Local Radius Campaigns"]
+          "features": [
+            "Video Hook Copywriting",
+            "Custom Audience Targeting",
+            "A/B Image & Vector Tests",
+            "Local Radius Campaigns"
+          ]
         },
         {
           "title": "Server-Side Tracking & Conversions API",
           "desc": "We set up Google Tag Manager conversion triggers, GA4 target events, and Meta Conversions API (CAPI) to track every lead actions correctly.",
-          "features": ["Conversions API (CAPI) Setup", "Google Tag Manager Audits", "GA4 custom event tracking", "Attribution Revenue Audits"]
+          "features": [
+            "Conversions API (CAPI) Setup",
+            "Google Tag Manager Audits",
+            "GA4 custom event tracking",
+            "Attribution Revenue Audits"
+          ]
         }
       ]
     },
@@ -593,12 +1334,36 @@
       "titleIntro": "Our Performance Ads ",
       "titleHighlight": "Framework",
       "components": [
-        { "num": "01", "title": "Audience & Competitor Intelligence Mapping", "desc": "Mapping target customer segments and tracking competitor search bids." },
-        { "num": "02", "title": "Keyword & Bidding Strategy Setup", "desc": "Selecting transactional keyword targets and structuring negative keyword filters." },
-        { "num": "03", "title": "Creative Ad Graphics Production", "desc": "Writing copy variations, designing banners, and outlining short video scripts." },
-        { "num": "04", "title": "Pixel & Tag Container Deployment", "desc": "Setting up conversion tracking, custom events, and tag containers." },
-        { "num": "05", "title": "Campaign Launch & A/B Splits", "desc": "Testing copy hooks, landing pages, and audience variations." },
-        { "num": "06", "title": "Scale & Bid Optimization", "desc": "Allocating budget to winning creatives and refining bid modifiers." }
+        {
+          "num": "01",
+          "title": "Audience & Competitor Intelligence Mapping",
+          "desc": "Mapping target customer segments and tracking competitor search bids."
+        },
+        {
+          "num": "02",
+          "title": "Keyword & Bidding Strategy Setup",
+          "desc": "Selecting transactional keyword targets and structuring negative keyword filters."
+        },
+        {
+          "num": "03",
+          "title": "Creative Ad Graphics Production",
+          "desc": "Writing copy variations, designing banners, and outlining short video scripts."
+        },
+        {
+          "num": "04",
+          "title": "Pixel & Tag Container Deployment",
+          "desc": "Setting up conversion tracking, custom events, and tag containers."
+        },
+        {
+          "num": "05",
+          "title": "Campaign Launch & A/B Splits",
+          "desc": "Testing copy hooks, landing pages, and audience variations."
+        },
+        {
+          "num": "06",
+          "title": "Scale & Bid Optimization",
+          "desc": "Allocating budget to winning creatives and refining bid modifiers."
+        }
       ]
     },
     "benefits": {
@@ -606,10 +1371,26 @@
       "titleIntro": "The Economics of Paid Media ",
       "titleHighlight": "Scaling",
       "list": [
-        { "title": "Instant Lead Stream", "desc": "Unlike SEO, paid ads generate high-quality clicks and sales inquiries within hours of launch.", "metric": "Instant" },
-        { "title": "Highly Targeted Audiences", "desc": "Target customers by exact location, age, search term, and shopping habits.", "metric": "Laser Focus" },
-        { "title": "Predictable Scale", "desc": "Know exactly what it costs to acquire a lead, allowing you to scale budgets predictably.", "metric": "Predictable" },
-        { "title": "Recapture Lost Traffic", "desc": "Retarget visitors who left your site without booking to close more deals.", "metric": "+35% Retarget" }
+        {
+          "title": "Instant Lead Stream",
+          "desc": "Unlike SEO, paid ads generate high-quality clicks and sales inquiries within hours of launch.",
+          "metric": "Instant"
+        },
+        {
+          "title": "Highly Targeted Audiences",
+          "desc": "Target customers by exact location, age, search term, and shopping habits.",
+          "metric": "Laser Focus"
+        },
+        {
+          "title": "Predictable Scale",
+          "desc": "Know exactly what it costs to acquire a lead, allowing you to scale budgets predictably.",
+          "metric": "Predictable"
+        },
+        {
+          "title": "Recapture Lost Traffic",
+          "desc": "Retarget visitors who left your site without booking to close more deals.",
+          "metric": "+35% Retarget"
+        }
       ]
     },
     "process": {
@@ -617,12 +1398,36 @@
       "titleIntro": "Our Performance Roadmap in 6 ",
       "titleHighlight": "Steps",
       "steps": [
-        { "num": "01", "title": "Goal Setup & Target Audit", "desc": "We establish target CPA limits, target ROAS rules, and ad budgets." },
-        { "num": "02", "title": "Pixel Diagnostics Setup", "desc": "We inspect ad structures, tracking tags, and fix broken pixels." },
-        { "num": "03", "title": "Ad Copy & Graphic Design", "desc": "We write copy hooks, design layout banners, and script video ads." },
-        { "num": "04", "title": "API & Conversion Tracking", "desc": "We set up Tag containers, GA4 purchase trackers, and CAPI links." },
-        { "num": "05", "title": "Ad Delivery & Go-Live", "desc": "We launch Google and Meta ad sets, monitoring budget delivery." },
-        { "num": "06", "title": "Scaling & ROI Optimization", "desc": "We pause underperforming ads, scale winning ad copy, and adjust bids." }
+        {
+          "num": "01",
+          "title": "Goal Setup & Target Audit",
+          "desc": "We establish target CPA limits, target ROAS rules, and ad budgets."
+        },
+        {
+          "num": "02",
+          "title": "Pixel Diagnostics Setup",
+          "desc": "We inspect ad structures, tracking tags, and fix broken pixels."
+        },
+        {
+          "num": "03",
+          "title": "Ad Copy & Graphic Design",
+          "desc": "We write copy hooks, design layout banners, and script video ads."
+        },
+        {
+          "num": "04",
+          "title": "API & Conversion Tracking",
+          "desc": "We set up Tag containers, GA4 purchase trackers, and CAPI links."
+        },
+        {
+          "num": "05",
+          "title": "Ad Delivery & Go-Live",
+          "desc": "We launch Google and Meta ad sets, monitoring budget delivery."
+        },
+        {
+          "num": "06",
+          "title": "Scaling & ROI Optimization",
+          "desc": "We pause underperforming ads, scale winning ad copy, and adjust bids."
+        }
       ]
     },
     "results": {
@@ -630,10 +1435,26 @@
       "titleIntro": "Verified Scale, Compounding ",
       "titleHighlight": "ROAS",
       "metrics": [
-        { "value": "4.5x", "label": "Average Ad ROAS", "desc": "Return on ad spend achieved across search and social paid media campaigns." },
-        { "value": "-40%", "label": "Cost Per Acquisition", "desc": "Reduction in cost-per-lead (CPL) through negative keyword filters." },
-        { "value": "120+", "label": "Client Accounts Scaled", "desc": "Campaign budgets scaled from startup baselines to large budgets." },
-        { "value": "+110%", "label": "Conversion Action Spike", "desc": "Increase in monthly conversion goals within 60 days of launch." }
+        {
+          "value": "4.5x",
+          "label": "Average Ad ROAS",
+          "desc": "Return on ad spend achieved across search and social paid media campaigns."
+        },
+        {
+          "value": "-40%",
+          "label": "Cost Per Acquisition",
+          "desc": "Reduction in cost-per-lead (CPL) through negative keyword filters."
+        },
+        {
+          "value": "120+",
+          "label": "Client Accounts Scaled",
+          "desc": "Campaign budgets scaled from startup baselines to large budgets."
+        },
+        {
+          "value": "+110%",
+          "label": "Conversion Action Spike",
+          "desc": "Increase in monthly conversion goals within 60 days of launch."
+        }
       ],
       "caseStudies": [
         {
@@ -655,12 +1476,30 @@
       "titleIntro": "Bespoke Campaigns for Every ",
       "titleHighlight": "Niche",
       "list": [
-        { "title": "Home Service Contractors", "desc": "Google Local Services Ads capturing HVAC, plumbing, and roof queries." },
-        { "title": "Medical Practices & Med Spas", "desc": "Meta ad funnels booking facial treatments, dental procedures, and spa stays." },
-        { "title": "E-Commerce Stores", "desc": "Google Shopping campaigns and retargeting ads scaling order volume." },
-        { "title": "Real Estate Brokerages", "desc": "Local search campaigns capturing prospective home buyers and sellers." },
-        { "title": "SaaS & Enterprise B2B", "desc": "LinkedIn and Search ads targeting company managers and founders." },
-        { "title": "Legal & Corporate Services", "desc": "High-value search ads capturing immediate accident or business inquiries." }
+        {
+          "title": "Home Service Contractors",
+          "desc": "Google Local Services Ads capturing HVAC, plumbing, and roof queries."
+        },
+        {
+          "title": "Medical Practices & Med Spas",
+          "desc": "Meta ad funnels booking facial treatments, dental procedures, and spa stays."
+        },
+        {
+          "title": "E-Commerce Stores",
+          "desc": "Google Shopping campaigns and retargeting ads scaling order volume."
+        },
+        {
+          "title": "Real Estate Brokerages",
+          "desc": "Local search campaigns capturing prospective home buyers and sellers."
+        },
+        {
+          "title": "SaaS & Enterprise B2B",
+          "desc": "LinkedIn and Search ads targeting company managers and founders."
+        },
+        {
+          "title": "Legal & Corporate Services",
+          "desc": "High-value search ads capturing immediate accident or business inquiries."
+        }
       ]
     },
     "tools": {
@@ -668,11 +1507,26 @@
       "titleIntro": "Our Advanced Ad Tech ",
       "titleHighlight": "Stack",
       "list": [
-        { "name": "Google Ads Editor", "iconName": "Search" },
-        { "name": "Meta Ads Manager", "iconName": "Globe" },
-        { "name": "Google Tag Manager", "iconName": "Monitor" },
-        { "name": "Google Analytics 4", "iconName": "BarChart2" },
-        { "name": "Conversions API", "iconName": "CheckCircle2" }
+        {
+          "name": "Google Ads Editor",
+          "iconName": "Search"
+        },
+        {
+          "name": "Meta Ads Manager",
+          "iconName": "Globe"
+        },
+        {
+          "name": "Google Tag Manager",
+          "iconName": "Monitor"
+        },
+        {
+          "name": "Google Analytics 4",
+          "iconName": "BarChart2"
+        },
+        {
+          "name": "Conversions API",
+          "iconName": "CheckCircle2"
+        }
       ]
     },
     "whyChooseUs": {
@@ -680,16 +1534,37 @@
       "titleIntro": "Performance Marketing Built around ",
       "titleHighlight": "ROI",
       "list": [
-        { "title": "No Hidden Markups", "desc": "We charge a transparent management fee. 100% of the ad budget goes directly to ad networks." },
-        { "title": "Daily Bid Adjustments", "desc": "We actively monitor campaigns, pausing underperforming ads daily." },
-        { "title": "Custom Landing Pages", "desc": "We build fast, responsive landing pages to convert clicks into leads." },
-        { "title": "Founder Direct Reporting", "desc": "You discuss campaign performance directly with founders, not junior account reps." }
+        {
+          "title": "No Hidden Markups",
+          "desc": "We charge a transparent management fee. 100% of the ad budget goes directly to ad networks."
+        },
+        {
+          "title": "Daily Bid Adjustments",
+          "desc": "We actively monitor campaigns, pausing underperforming ads daily."
+        },
+        {
+          "title": "Custom Landing Pages",
+          "desc": "We build fast, responsive landing pages to convert clicks into leads."
+        },
+        {
+          "title": "Founder Direct Reporting",
+          "desc": "You discuss campaign performance directly with founders, not junior account reps."
+        }
       ]
     },
     "faqs": [
-      { "q": "What is the minimum ad budget you work with?", "a": "We recommend a minimum ad spend of $1,500/month for local search campaigns, and $3,000/month for e-commerce campaigns, ensuring sufficient data to test and scale." },
-      { "q": "How quickly will we get leads?", "a": "Search campaigns generate clicks and inquiries the very first day they go live. Social campaigns require 3 to 5 days of learning to find the best audiences." },
-      { "q": "Do you write all the ad copy and design the graphics?", "a": "Yes. Our team handles copy drafting, banner graphics, conversion landing pages, and compiles short video ad variations." }
+      {
+        "q": "What is the minimum ad budget you work with?",
+        "a": "We recommend a minimum ad spend of $1,500/month for local search campaigns, and $3,000/month for e-commerce campaigns, ensuring sufficient data to test and scale."
+      },
+      {
+        "q": "How quickly will we get leads?",
+        "a": "Search campaigns generate clicks and inquiries the very first day they go live. Social campaigns require 3 to 5 days of learning to find the best audiences."
+      },
+      {
+        "q": "Do you write all the ad copy and design the graphics?",
+        "a": "Yes. Our team handles copy drafting, banner graphics, conversion landing pages, and compiles short video ad variations."
+      }
     ],
     "finalCta": {
       "eyebrow": "READY TO GROW YOUR REVENUE?",
@@ -697,6 +1572,79 @@
       "titleHighlight": "Ad Campaign?",
       "titleLine2": "Let's Audit Your Ads Today.",
       "description": "Book a free ad audit. We will review your current ad setup, locate wasted spend, and draft 3 high-impact copy variations for your campaigns."
+    },
+    "pricing": {
+      "eyebrow": "12 // PRICING PLANS",
+      "titleIntro": "High-ROAS Pay-Per-Click ",
+      "titleHighlight": "Plans",
+      "plans": [
+        {
+          "name": "Starter",
+          "price": "$899",
+          "period": "per month",
+          "desc": "Deploy high-intent search campaigns targeting quick buyer wins.",
+          "features": [
+            "Google Ads or Meta Ads setup",
+            "Negative keywords list filtering",
+            "Basic conversion pixel calibration",
+            "Up to $3,000 monthly ad spend management"
+          ],
+          "ctaText": "Choose Starter",
+          "isPopular": false,
+          "isCustom": false
+        },
+        {
+          "name": "Professional",
+          "price": "$1,799",
+          "period": "per month",
+          "desc": "Scale leads and sales across multiple advertising channels.",
+          "features": [
+            "Multi-channel Google & Meta campaigns",
+            "Ad creative variations A/B testing",
+            "Lookalike audience mapping triggers",
+            "Up to $10,000 monthly spend management"
+          ],
+          "ctaText": "Choose Professional",
+          "isPopular": true,
+          "isCustom": false
+        },
+        {
+          "name": "Premium",
+          "price": "$3,499",
+          "period": "per month",
+          "desc": "Full-funnel media buying and attribution management.",
+          "features": [
+            "Omnichannel media buying strategy",
+            "High-converting landing page edits",
+            "Dynamic retargeting funnel setups",
+            "Up to $30,000 monthly spend management"
+          ],
+          "ctaText": "Choose Premium",
+          "isPopular": false,
+          "isCustom": false
+        },
+        {
+          "name": "Enterprise",
+          "price": "Custom",
+          "period": "tailored terms",
+          "desc": "Bespoke paid search and social campaigns for corporate scaling.",
+          "features": [
+            "Dedicated advertising strategist",
+            "Server-side custom tracking tag setups",
+            "Weekly bid optimization adjustments",
+            "Unlimited ad budget management"
+          ],
+          "ctaText": "Contact for Details",
+          "isPopular": false,
+          "isCustom": true
+        }
+      ]
+    },
+    "serviceArea": {
+      "sectionTag": "PPC WORLDWIDE",
+      "titleIntro": "PPC Bidding Algorithms Calibrated for ",
+      "titleHighlight": "Global Lead Generation",
+      "description": "Laser-focused Google & Meta ad campaigns targeted across geographic radii, delivering high ROAS conversion rates for international leads."
     }
   },
   "branding": {
@@ -720,11 +1668,26 @@
     "clientTrust": {
       "heading": "We design brand identities and styling systems built for",
       "logos": [
-        { "name": "Visual Identity", "iconName": "Palette" },
-        { "name": "Packaging Design", "iconName": "ShoppingCart" },
-        { "name": "Digital Collateral", "iconName": "Monitor" },
-        { "name": "Brand Guidelines", "iconName": "CheckCircle2" },
-        { "name": "Corporate Design", "iconName": "Building2" }
+        {
+          "name": "Visual Identity",
+          "iconName": "Palette"
+        },
+        {
+          "name": "Packaging Design",
+          "iconName": "ShoppingCart"
+        },
+        {
+          "name": "Digital Collateral",
+          "iconName": "Monitor"
+        },
+        {
+          "name": "Brand Guidelines",
+          "iconName": "CheckCircle2"
+        },
+        {
+          "name": "Corporate Design",
+          "iconName": "Building2"
+        }
       ],
       "testimonials": [
         {
@@ -749,17 +1712,29 @@
         {
           "title": "Visual Identity & Logo Systems",
           "desc": "We build logo designs, icon variations, and responsive assets designed to look stunning across print, mobile, and web layouts.",
-          "features": ["Main & Secondary Logo Design", "Custom Vector Iconography", "Visual Design Guidelines"]
+          "features": [
+            "Main & Secondary Logo Design",
+            "Custom Vector Iconography",
+            "Visual Design Guidelines"
+          ]
         },
         {
           "title": "Color & Typography Strategy",
           "desc": "We select harmonious color palettes and premium typography pairs built to convey quality and look consistent on any channel.",
-          "features": ["Curated HSL Color Palettes", "Premium Typography Pairs", "Hierarchy Scaling Systems"]
+          "features": [
+            "Curated HSL Color Palettes",
+            "Premium Typography Pairs",
+            "Hierarchy Scaling Systems"
+          ]
         },
         {
           "title": "Brand Guidelines & Asset Packs",
           "desc": "We deliver a comprehensive brand book documenting logo usage rules, spacing limits, image styles, and packaging templates.",
-          "features": ["Logo Spacing & Sizing Rules", "Imagery Mood Boards", "Print-Ready Vector Deliverables"]
+          "features": [
+            "Logo Spacing & Sizing Rules",
+            "Imagery Mood Boards",
+            "Print-Ready Vector Deliverables"
+          ]
         }
       ]
     },
@@ -768,12 +1743,36 @@
       "titleIntro": "Our Brand Creation ",
       "titleHighlight": "Process",
       "components": [
-        { "num": "01", "title": "Market Discovery Session", "desc": "Analyzing your values, target audience, and competitor visuals." },
-        { "num": "02", "title": "Visual Concept Boarding", "desc": "Setting up visual directions to establish style preferences." },
-        { "num": "03", "title": "Logo Concept Design", "desc": "Sketching and vectorizing original logo directions." },
-        { "num": "04", "title": "Color & Type Definition", "desc": "Testing and selecting HSL colors and typeface hierarchy." },
-        { "num": "05", "title": "Creative Collateral Layouts", "desc": "Designing stationery, envelopes, business cards, and social headers." },
-        { "num": "06", "title": "Brand Book Delivery", "desc": "Assembling the final style guide and publishing all vector files." }
+        {
+          "num": "01",
+          "title": "Market Discovery Session",
+          "desc": "Analyzing your values, target audience, and competitor visuals."
+        },
+        {
+          "num": "02",
+          "title": "Visual Concept Boarding",
+          "desc": "Setting up visual directions to establish style preferences."
+        },
+        {
+          "num": "03",
+          "title": "Logo Concept Design",
+          "desc": "Sketching and vectorizing original logo directions."
+        },
+        {
+          "num": "04",
+          "title": "Color & Type Definition",
+          "desc": "Testing and selecting HSL colors and typeface hierarchy."
+        },
+        {
+          "num": "05",
+          "title": "Creative Collateral Layouts",
+          "desc": "Designing stationery, envelopes, business cards, and social headers."
+        },
+        {
+          "num": "06",
+          "title": "Brand Book Delivery",
+          "desc": "Assembling the final style guide and publishing all vector files."
+        }
       ]
     },
     "benefits": {
@@ -781,10 +1780,26 @@
       "titleIntro": "The Power of a Unified ",
       "titleHighlight": "Identity",
       "list": [
-        { "title": "Commands Higher Pricing", "desc": "A premium visual identity lets you position your business as a high-end service.", "metric": "Premium Status" },
-        { "title": "Builds Customer Loyalty", "desc": "Consistent brand design builds customer trust and increases lifetime value.", "metric": "Trust Asset" },
-        { "title": "Sets You Apart", "desc": "Original, customized styling separates your business from template-using competitors.", "metric": "Unique" },
-        { "title": "Seamless Team Alignment", "desc": "Brand guides ensure your designers and marketing teams produce unified visuals.", "metric": "Aligned" }
+        {
+          "title": "Commands Higher Pricing",
+          "desc": "A premium visual identity lets you position your business as a high-end service.",
+          "metric": "Premium Status"
+        },
+        {
+          "title": "Builds Customer Loyalty",
+          "desc": "Consistent brand design builds customer trust and increases lifetime value.",
+          "metric": "Trust Asset"
+        },
+        {
+          "title": "Sets You Apart",
+          "desc": "Original, customized styling separates your business from template-using competitors.",
+          "metric": "Unique"
+        },
+        {
+          "title": "Seamless Team Alignment",
+          "desc": "Brand guides ensure your designers and marketing teams produce unified visuals.",
+          "metric": "Aligned"
+        }
       ]
     },
     "process": {
@@ -792,12 +1807,36 @@
       "titleIntro": "6 Steps to a Memorable ",
       "titleHighlight": "Brand",
       "steps": [
-        { "num": "01", "title": "Initial Brand Discovery", "desc": "We align on target markets, brand voice, and visual goals." },
-        { "num": "02", "title": "Mood Board Development", "desc": "We establish typography palettes and visual mood references." },
-        { "num": "03", "title": "Vector Logo Concepts", "desc": "We design multiple custom vector logo configurations." },
-        { "num": "04", "title": "Review & Revisions", "desc": "We collaborate to refine the chosen visual path." },
-        { "num": "05", "title": "Collateral Design", "desc": "We expand the branding to print, cards, and social profiles." },
-        { "num": "06", "title": "Delivery & Asset Guide", "desc": "We ship vector templates, font files, and the style manual." }
+        {
+          "num": "01",
+          "title": "Initial Brand Discovery",
+          "desc": "We align on target markets, brand voice, and visual goals."
+        },
+        {
+          "num": "02",
+          "title": "Mood Board Development",
+          "desc": "We establish typography palettes and visual mood references."
+        },
+        {
+          "num": "03",
+          "title": "Vector Logo Concepts",
+          "desc": "We design multiple custom vector logo configurations."
+        },
+        {
+          "num": "04",
+          "title": "Review & Revisions",
+          "desc": "We collaborate to refine the chosen visual path."
+        },
+        {
+          "num": "05",
+          "title": "Collateral Design",
+          "desc": "We expand the branding to print, cards, and social profiles."
+        },
+        {
+          "num": "06",
+          "title": "Delivery & Asset Guide",
+          "desc": "We ship vector templates, font files, and the style manual."
+        }
       ]
     },
     "results": {
@@ -805,10 +1844,26 @@
       "titleIntro": "Distinct Branding, Unmatched ",
       "titleHighlight": "Authority",
       "metrics": [
-        { "value": "100%", "label": "Custom Vector Work", "desc": "Every visual asset is crafted from scratch, avoiding stock clip art." },
-        { "value": "120+", "label": "Brands Built Worldwide", "desc": "Visual identities shaped for clients across North America and Australasia." },
-        { "value": "+45%", "label": "Brand Recall Increase", "desc": "Average increases in brand identification scores across customer surveys." },
-        { "value": "50+ Page", "label": "Comprehensive Brand Books", "desc": "Detailed corporate manuals provided to manage future marketing visual standards." }
+        {
+          "value": "100%",
+          "label": "Custom Vector Work",
+          "desc": "Every visual asset is crafted from scratch, avoiding stock clip art."
+        },
+        {
+          "value": "120+",
+          "label": "Brands Built Worldwide",
+          "desc": "Visual identities shaped for clients across North America and Australasia."
+        },
+        {
+          "value": "+45%",
+          "label": "Brand Recall Increase",
+          "desc": "Average increases in brand identification scores across customer surveys."
+        },
+        {
+          "value": "50+ Page",
+          "label": "Comprehensive Brand Books",
+          "desc": "Detailed corporate manuals provided to manage future marketing visual standards."
+        }
       ],
       "caseStudies": [
         {
@@ -830,12 +1885,30 @@
       "titleIntro": "Branding Crafted for Your ",
       "titleHighlight": "Industry",
       "list": [
-        { "title": "Luxury & Retail Brands", "desc": "Sleek logo layouts, premium packaging, and refined retail colors." },
-        { "title": "Corporate & Professional", "desc": "Clean layouts conveying expertise, security, and institutional trust." },
-        { "title": "E-Commerce Storefronts", "desc": "Cohesive digital icons, product packaging, and social badges." },
-        { "title": "Hospitality & Med Spas", "desc": "Calming, elegant visual themes creating premium retail feelings." },
-        { "title": "SaaS & Tech Startups", "desc": "Modern graphic accents, custom vectors, and vibrant color systems." },
-        { "title": "Local Service Builders", "desc": "Memorable contractor logos built to stand out on trucks and signs." }
+        {
+          "title": "Luxury & Retail Brands",
+          "desc": "Sleek logo layouts, premium packaging, and refined retail colors."
+        },
+        {
+          "title": "Corporate & Professional",
+          "desc": "Clean layouts conveying expertise, security, and institutional trust."
+        },
+        {
+          "title": "E-Commerce Storefronts",
+          "desc": "Cohesive digital icons, product packaging, and social badges."
+        },
+        {
+          "title": "Hospitality & Med Spas",
+          "desc": "Calming, elegant visual themes creating premium retail feelings."
+        },
+        {
+          "title": "SaaS & Tech Startups",
+          "desc": "Modern graphic accents, custom vectors, and vibrant color systems."
+        },
+        {
+          "title": "Local Service Builders",
+          "desc": "Memorable contractor logos built to stand out on trucks and signs."
+        }
       ]
     },
     "tools": {
@@ -843,11 +1916,26 @@
       "titleIntro": "Our Creative Tool ",
       "titleHighlight": "Stack",
       "list": [
-        { "name": "Adobe Illustrator", "iconName": "Palette" },
-        { "name": "Figma", "iconName": "PenTool" },
-        { "name": "Adobe Photoshop", "iconName": "Monitor" },
-        { "name": "InDesign", "iconName": "CheckCircle2" },
-        { "name": "Lightroom", "iconName": "Globe" }
+        {
+          "name": "Adobe Illustrator",
+          "iconName": "Palette"
+        },
+        {
+          "name": "Figma",
+          "iconName": "PenTool"
+        },
+        {
+          "name": "Adobe Photoshop",
+          "iconName": "Monitor"
+        },
+        {
+          "name": "InDesign",
+          "iconName": "CheckCircle2"
+        },
+        {
+          "name": "Lightroom",
+          "iconName": "Globe"
+        }
       ]
     },
     "whyChooseUs": {
@@ -855,16 +1943,37 @@
       "titleIntro": "Bespoke Design Engineered to ",
       "titleHighlight": "Perform",
       "list": [
-        { "title": "Custom Typography", "desc": "We source and customize typefaces to give your brand a unique appearance." },
-        { "title": "Versatile Formats", "desc": "Every design is delivered in print-ready, digital, and mobile vector formats." },
-        { "title": "Strategic Color Science", "desc": "We select color palettes based on market psychology and readability." },
-        { "title": "Scalable Vector Assets", "desc": "Logos scale from smartphone favicon sizes to large billboards without pixelation." }
+        {
+          "title": "Custom Typography",
+          "desc": "We source and customize typefaces to give your brand a unique appearance."
+        },
+        {
+          "title": "Versatile Formats",
+          "desc": "Every design is delivered in print-ready, digital, and mobile vector formats."
+        },
+        {
+          "title": "Strategic Color Science",
+          "desc": "We select color palettes based on market psychology and readability."
+        },
+        {
+          "title": "Scalable Vector Assets",
+          "desc": "Logos scale from smartphone favicon sizes to large billboards without pixelation."
+        }
       ]
     },
     "faqs": [
-      { "q": "Do I own 100% of the brand designs?", "a": "Yes. Once final payments are processed, 100% intellectual property ownership and commercial rights transfer to you. We provide all master vector files." },
-      { "q": "What assets do we get in a branding package?", "a": "You receive logo files (primary, secondary, favicon), custom typography packages, HSL color tokens, corporate stationery files, and a comprehensive style guide." },
-      { "q": "How long does a branding project take?", "a": "A complete branding project, from market discovery to visual identity delivery and style documentation, takes approximately 3 to 5 weeks." }
+      {
+        "q": "Do I own 100% of the brand designs?",
+        "a": "Yes. Once final payments are processed, 100% intellectual property ownership and commercial rights transfer to you. We provide all master vector files."
+      },
+      {
+        "q": "What assets do we get in a branding package?",
+        "a": "You receive logo files (primary, secondary, favicon), custom typography packages, HSL color tokens, corporate stationery files, and a comprehensive style guide."
+      },
+      {
+        "q": "How long does a branding project take?",
+        "a": "A complete branding project, from market discovery to visual identity delivery and style documentation, takes approximately 3 to 5 weeks."
+      }
     ],
     "finalCta": {
       "eyebrow": "READY TO DEFINE YOUR IDENTITY?",
@@ -872,6 +1981,79 @@
       "titleHighlight": "Iconic Brand?",
       "titleLine2": "Let's Shape Your Visual Guide.",
       "description": "Book a free branding session. We will evaluate your competitors' visual positioning, suggest 3 color themes, and outline layout directions."
+    },
+    "pricing": {
+      "eyebrow": "12 // PRICING PLANS",
+      "titleIntro": "Corporate Identity and Brand ",
+      "titleHighlight": "Packages",
+      "plans": [
+        {
+          "name": "Starter",
+          "price": "$1,499",
+          "period": "one-time",
+          "desc": "Establish a clean and memorable logo identity system.",
+          "features": [
+            "3 premium custom logo concepts",
+            "Cohesive brand color palette mapping",
+            "Modern typography combinations setup",
+            "High-res source file deliverables"
+          ],
+          "ctaText": "Choose Starter",
+          "isPopular": false,
+          "isCustom": false
+        },
+        {
+          "name": "Professional",
+          "price": "$2,999",
+          "period": "one-time",
+          "desc": "A complete design kit built to position your business as a leader.",
+          "features": [
+            "Full corporate brand style guidelines",
+            "Stationery & print media templates",
+            "Custom social media graphic templates",
+            "Trademark-ready logo design finals"
+          ],
+          "ctaText": "Choose Professional",
+          "isPopular": true,
+          "isCustom": false
+        },
+        {
+          "name": "Premium",
+          "price": "$5,999",
+          "period": "one-time",
+          "desc": "Full luxury rebranding covering packaging and product styling.",
+          "features": [
+            "Premium custom product packaging designs",
+            "3D brand assets presentation files",
+            "Interactive digital brand guidelines book",
+            "Corporate signage design planning"
+          ],
+          "ctaText": "Choose Premium",
+          "isPopular": false,
+          "isCustom": false
+        },
+        {
+          "name": "Enterprise",
+          "price": "Custom",
+          "period": "project based",
+          "desc": "Global brand positioning strategies and asset libraries.",
+          "features": [
+            "Comprehensive global brand auditing",
+            "Multi-product packaging strategy guides",
+            "Corporate presentation template systems",
+            "Ongoing creative design advisory"
+          ],
+          "ctaText": "Contact for Details",
+          "isPopular": false,
+          "isCustom": true
+        }
+      ]
+    },
+    "serviceArea": {
+      "sectionTag": "IDENTITY SCALE",
+      "titleIntro": "Luxury Identity Guidelines Designed for ",
+      "titleHighlight": "Universal Recognition",
+      "description": "We develop stunning corporate identity style guides and premium product packages that scale seamlessly across international markets."
     }
   },
   "content-marketing": {
@@ -895,11 +2077,26 @@
     "clientTrust": {
       "heading": "We author and distribute high-conversion copy across",
       "logos": [
-        { "name": "Corporate Blogs", "iconName": "PenTool" },
-        { "name": "Email Campaigns", "iconName": "CheckCircle2" },
-        { "name": "Landing Pages", "iconName": "Monitor" },
-        { "name": "Case Studies", "iconName": "BarChart2" },
-        { "name": "Social Copy", "iconName": "Globe" }
+        {
+          "name": "Corporate Blogs",
+          "iconName": "PenTool"
+        },
+        {
+          "name": "Email Campaigns",
+          "iconName": "CheckCircle2"
+        },
+        {
+          "name": "Landing Pages",
+          "iconName": "Monitor"
+        },
+        {
+          "name": "Case Studies",
+          "iconName": "BarChart2"
+        },
+        {
+          "name": "Social Copy",
+          "iconName": "Globe"
+        }
       ],
       "testimonials": [
         {
@@ -924,17 +2121,29 @@
         {
           "title": "SEO Blog & Pillar Articles",
           "desc": "We research, write, and optimize in-depth blog articles designed to rank for search queries and educate your prospects.",
-          "features": ["In-Depth Content Research", "SEO Optimization & Formatting", "Catchy Header Structures"]
+          "features": [
+            "In-Depth Content Research",
+            "SEO Optimization & Formatting",
+            "Catchy Header Structures"
+          ]
         },
         {
           "title": "Conversion Website Copy",
           "desc": "We write clear copy for your home, service, and landing pages designed to address client pain points and encourage actions.",
-          "features": ["Landing Page Sales Copy", "Brand Voice Calibration", "Clear Call-to-Action Layouts"]
+          "features": [
+            "Landing Page Sales Copy",
+            "Brand Voice Calibration",
+            "Clear Call-to-Action Layouts"
+          ]
         },
         {
           "title": "Email Newsletter Campaigns",
           "desc": "We design and draft engaging newsletter sequences and automated nurture campaigns to keep your prospects interested.",
-          "features": ["Email Sequence Scripting", "Subject Line A/B Testing", "Automated Nurture Flows"]
+          "features": [
+            "Email Sequence Scripting",
+            "Subject Line A/B Testing",
+            "Automated Nurture Flows"
+          ]
         }
       ]
     },
@@ -943,12 +2152,36 @@
       "titleIntro": "Our Editorial ",
       "titleHighlight": "Blueprint",
       "components": [
-        { "num": "01", "title": "Audience Pain Point Research", "desc": "Identifying search habits and the exact questions your customers ask." },
-        { "num": "02", "title": "Content Calendar Setup", "desc": "Mapping topics, keywords, and publication dates for calendar approval." },
-        { "num": "03", "title": "Copy Drafting & Tone Tuning", "desc": "Writing copy aligned with your brand's unique corporate voice." },
-        { "num": "04", "title": "SEO Keyword Optimization", "desc": "Integrating semantic keywords, heading structures, and links." },
-        { "num": "05", "title": "Email Campaign Automations", "desc": "Configuring CRM templates, landing pages, and lead captures." },
-        { "num": "06", "title": "Content Refinements & Audits", "desc": "Updating old posts, testing email conversions, and tracking clicks." }
+        {
+          "num": "01",
+          "title": "Audience Pain Point Research",
+          "desc": "Identifying search habits and the exact questions your customers ask."
+        },
+        {
+          "num": "02",
+          "title": "Content Calendar Setup",
+          "desc": "Mapping topics, keywords, and publication dates for calendar approval."
+        },
+        {
+          "num": "03",
+          "title": "Copy Drafting & Tone Tuning",
+          "desc": "Writing copy aligned with your brand's unique corporate voice."
+        },
+        {
+          "num": "04",
+          "title": "SEO Keyword Optimization",
+          "desc": "Integrating semantic keywords, heading structures, and links."
+        },
+        {
+          "num": "05",
+          "title": "Email Campaign Automations",
+          "desc": "Configuring CRM templates, landing pages, and lead captures."
+        },
+        {
+          "num": "06",
+          "title": "Content Refinements & Audits",
+          "desc": "Updating old posts, testing email conversions, and tracking clicks."
+        }
       ]
     },
     "benefits": {
@@ -956,10 +2189,26 @@
       "titleIntro": "Why Words Matter for ",
       "titleHighlight": "Growth",
       "list": [
-        { "title": "Higher Sales Conversions", "desc": "Clear, persuasive copy guides visitors to fill out forms and book calls.", "metric": "+40% Lead CR" },
-        { "title": "compounding Organic Leads", "desc": "Educational blog posts attract search traffic for years after they are written.", "metric": "compounding" },
-        { "title": "Establishes Expertise", "desc": "Publishing original, deep guides positions your brand as an industry authority.", "metric": "Authority" },
-        { "title": "Improves Email Returns", "desc": "Persuasive email sequences turn cold prospects into repeat customers.", "metric": "38x ROI" }
+        {
+          "title": "Higher Sales Conversions",
+          "desc": "Clear, persuasive copy guides visitors to fill out forms and book calls.",
+          "metric": "+40% Lead CR"
+        },
+        {
+          "title": "compounding Organic Leads",
+          "desc": "Educational blog posts attract search traffic for years after they are written.",
+          "metric": "compounding"
+        },
+        {
+          "title": "Establishes Expertise",
+          "desc": "Publishing original, deep guides positions your brand as an industry authority.",
+          "metric": "Authority"
+        },
+        {
+          "title": "Improves Email Returns",
+          "desc": "Persuasive email sequences turn cold prospects into repeat customers.",
+          "metric": "38x ROI"
+        }
       ]
     },
     "process": {
@@ -967,12 +2216,36 @@
       "titleIntro": "Our Copywriting Steps in 6 ",
       "titleHighlight": "Phases",
       "steps": [
-        { "num": "01", "title": "Discovery Call & Setup", "desc": "We establish target audiences, tone of voice, and content goals." },
-        { "num": "02", "title": "Topic & Keyword Map", "desc": "We build a list of proposed topics matching search intents." },
-        { "num": "03", "title": "Outline Development", "desc": "We draft headings and core arguments for review." },
-        { "num": "04", "title": "Drafting & Optimization", "desc": "We write high-quality copy and optimize it for SEO targets." },
-        { "num": "05", "title": "Review & Editing", "desc": "We refine drafts based on your feedback." },
-        { "num": "06", "title": "Launch & Analytics", "desc": "We publish posts, send emails, and track conversion rates." }
+        {
+          "num": "01",
+          "title": "Discovery Call & Setup",
+          "desc": "We establish target audiences, tone of voice, and content goals."
+        },
+        {
+          "num": "02",
+          "title": "Topic & Keyword Map",
+          "desc": "We build a list of proposed topics matching search intents."
+        },
+        {
+          "num": "03",
+          "title": "Outline Development",
+          "desc": "We draft headings and core arguments for review."
+        },
+        {
+          "num": "04",
+          "title": "Drafting & Optimization",
+          "desc": "We write high-quality copy and optimize it for SEO targets."
+        },
+        {
+          "num": "05",
+          "title": "Review & Editing",
+          "desc": "We refine drafts based on your feedback."
+        },
+        {
+          "num": "06",
+          "title": "Launch & Analytics",
+          "desc": "We publish posts, send emails, and track conversion rates."
+        }
       ]
     },
     "results": {
@@ -980,10 +2253,26 @@
       "titleIntro": "High Reach, Measurable ",
       "titleHighlight": "Action",
       "metrics": [
-        { "value": "35%", "label": "Average Email Open Rate", "desc": "Outperforming industry standards through personalized subject lines." },
-        { "value": "+155%", "label": "Blog Organic Impressions", "desc": "Search impression growth driven by in-depth topic cluster articles." },
-        { "value": "+48%", "label": "Form Completion Rate", "desc": "Conversion improvements achieved by rewriting landing page copy." },
-        { "value": "100%", "label": "Original Copy Guarantee", "desc": "Plagiarism-free, custom copy written by native specialists." }
+        {
+          "value": "35%",
+          "label": "Average Email Open Rate",
+          "desc": "Outperforming industry standards through personalized subject lines."
+        },
+        {
+          "value": "+155%",
+          "label": "Blog Organic Impressions",
+          "desc": "Search impression growth driven by in-depth topic cluster articles."
+        },
+        {
+          "value": "+48%",
+          "label": "Form Completion Rate",
+          "desc": "Conversion improvements achieved by rewriting landing page copy."
+        },
+        {
+          "value": "100%",
+          "label": "Original Copy Guarantee",
+          "desc": "Plagiarism-free, custom copy written by native specialists."
+        }
       ],
       "caseStudies": [
         {
@@ -1005,12 +2294,30 @@
       "titleIntro": "Tailored Content for Every ",
       "titleHighlight": "Sector",
       "list": [
-        { "title": "SaaS & Tech Startups", "desc": "Clear explanations of features, technical use cases, and product blogs." },
-        { "title": "Healthcare & Med Spas", "desc": "Informative treatment articles explaining procedures, benefits, and FAQ." },
-        { "title": "Professional Services", "desc": "Deep articles for law, finance, and consulting firms to build authority." },
-        { "title": "E-Commerce Brands", "desc": "Product descriptions, brand stories, and seasonal email campaigns." },
-        { "title": "Home Service Contractors", "desc": "Local contractor tips, service area explanations, and FAQs." },
-        { "title": "Builders & Real Estate", "desc": "Property walk-through copy, project details, and local guides." }
+        {
+          "title": "SaaS & Tech Startups",
+          "desc": "Clear explanations of features, technical use cases, and product blogs."
+        },
+        {
+          "title": "Healthcare & Med Spas",
+          "desc": "Informative treatment articles explaining procedures, benefits, and FAQ."
+        },
+        {
+          "title": "Professional Services",
+          "desc": "Deep articles for law, finance, and consulting firms to build authority."
+        },
+        {
+          "title": "E-Commerce Brands",
+          "desc": "Product descriptions, brand stories, and seasonal email campaigns."
+        },
+        {
+          "title": "Home Service Contractors",
+          "desc": "Local contractor tips, service area explanations, and FAQs."
+        },
+        {
+          "title": "Builders & Real Estate",
+          "desc": "Property walk-through copy, project details, and local guides."
+        }
       ]
     },
     "tools": {
@@ -1018,11 +2325,26 @@
       "titleIntro": "Our Content Creation ",
       "titleHighlight": "Stack",
       "list": [
-        { "name": "Google Docs", "iconName": "PenTool" },
-        { "name": "Surfer SEO", "iconName": "Search" },
-        { "name": "Grammarly Premium", "iconName": "CheckCircle2" },
-        { "name": "Klaviyo", "iconName": "ShoppingCart" },
-        { "name": "Mailchimp", "iconName": "Globe" }
+        {
+          "name": "Google Docs",
+          "iconName": "PenTool"
+        },
+        {
+          "name": "Surfer SEO",
+          "iconName": "Search"
+        },
+        {
+          "name": "Grammarly Premium",
+          "iconName": "CheckCircle2"
+        },
+        {
+          "name": "Klaviyo",
+          "iconName": "ShoppingCart"
+        },
+        {
+          "name": "Mailchimp",
+          "iconName": "Globe"
+        }
       ]
     },
     "whyChooseUs": {
@@ -1030,16 +2352,37 @@
       "titleIntro": "Copywriting Crafted to Drive ",
       "titleHighlight": "Action",
       "list": [
-        { "title": "Native English Copywriters", "desc": "All copy is written by experienced, native English specialists." },
-        { "title": "SEO Optimized Headers", "desc": "We structure posts with correct header tags to rank easily on Google." },
-        { "title": "Zero AI Bloat", "desc": "We don't publish generic AI-generated copy. Every draft is researched and written manually." },
-        { "title": "conversion Optimized", "desc": "We align every paragraph with target actions, encouraging click-throughs." }
+        {
+          "title": "Native English Copywriters",
+          "desc": "All copy is written by experienced, native English specialists."
+        },
+        {
+          "title": "SEO Optimized Headers",
+          "desc": "We structure posts with correct header tags to rank easily on Google."
+        },
+        {
+          "title": "Zero AI Bloat",
+          "desc": "We don't publish generic AI-generated copy. Every draft is researched and written manually."
+        },
+        {
+          "title": "conversion Optimized",
+          "desc": "We align every paragraph with target actions, encouraging click-throughs."
+        }
       ]
     },
     "faqs": [
-      { "q": "Do you research the topics yourself?", "a": "Yes. Our team conducts in-depth competitor research, sources authority data, and drafts outline briefs before writing any copy." },
-      { "q": "Can you match our brand's unique voice?", "a": "Yes. We begin with a tone analysis call to establish whether your brand voice is formal, educational, friendly, or authoritative." },
-      { "q": "Who owns the rights to the written content?", "a": "You own 100% of the copyright for all published blog posts, email copies, and website layouts we deliver." }
+      {
+        "q": "Do you research the topics yourself?",
+        "a": "Yes. Our team conducts in-depth competitor research, sources authority data, and drafts outline briefs before writing any copy."
+      },
+      {
+        "q": "Can you match our brand's unique voice?",
+        "a": "Yes. We begin with a tone analysis call to establish whether your brand voice is formal, educational, friendly, or authoritative."
+      },
+      {
+        "q": "Who owns the rights to the written content?",
+        "a": "You own 100% of the copyright for all published blog posts, email copies, and website layouts we deliver."
+      }
     ],
     "finalCta": {
       "eyebrow": "READY FOR HIGH-CONVERTING COPY?",
@@ -1047,6 +2390,79 @@
       "titleHighlight": "Website Copy?",
       "titleLine2": "Let's Audit Your Content Today.",
       "description": "Book a free content audit. We will review 3 of your website pages, identify conversion bottlenecks, and suggest 3 new blog topics."
+    },
+    "pricing": {
+      "eyebrow": "12 // PRICING PLANS",
+      "titleIntro": "Strategic Content Production ",
+      "titleHighlight": "Packages",
+      "plans": [
+        {
+          "name": "Starter",
+          "price": "$699",
+          "period": "per month",
+          "desc": "Build consistent educational resources on your website.",
+          "features": [
+            "4 optimized website articles/month",
+            "Semantic keyword search mapping",
+            "Basic formatting & stock graphics",
+            "Monthly traffic performance checks"
+          ],
+          "ctaText": "Choose Starter",
+          "isPopular": false,
+          "isCustom": false
+        },
+        {
+          "name": "Professional",
+          "price": "$1,299",
+          "period": "per month",
+          "desc": "Establish brand authority with clusters and email newsletters.",
+          "features": [
+            "8 optimized website articles/month",
+            "Comprehensive topic cluster layout strategy",
+            "2 email copy newsletter templates",
+            "Custom meta tags and schema markup"
+          ],
+          "ctaText": "Choose Professional",
+          "isPopular": true,
+          "isCustom": false
+        },
+        {
+          "name": "Premium",
+          "price": "$2,499",
+          "period": "per month",
+          "desc": "Aggressive keyword ranking via comprehensive topic pillars.",
+          "features": [
+            "12 optimized website articles/month",
+            "In-depth research whitepaper design",
+            "4 email copy newsletter templates",
+            "Competitor keyword gap analysis"
+          ],
+          "ctaText": "Choose Premium",
+          "isPopular": false,
+          "isCustom": false
+        },
+        {
+          "name": "Enterprise",
+          "price": "Custom",
+          "period": "tailored terms",
+          "desc": "Bespoke copywriting and digital PR writing campaigns.",
+          "features": [
+            "Dedicated content lead architect",
+            "Bespoke brand tone guidelines",
+            "High-authority PR article placements",
+            "Custom SEO keyword performance reviews"
+          ],
+          "ctaText": "Contact for Details",
+          "isPopular": false,
+          "isCustom": true
+        }
+      ]
+    },
+    "serviceArea": {
+      "sectionTag": "CONTENT GLOBAL",
+      "titleIntro": "Intent-Based Content Strategies Built for ",
+      "titleHighlight": "Global Readership",
+      "description": "We author semantic topic clusters and persuasive copywriting targeted to capture ready-to-buy customer queries across global indices."
     }
   },
   "e-commerce": {
@@ -1070,11 +2486,26 @@
     "clientTrust": {
       "heading": "We build and optimize online stores using",
       "logos": [
-        { "name": "Shopify", "iconName": "ShoppingCart" },
-        { "name": "Next.js", "iconName": "Monitor" },
-        { "name": "Stripe", "iconName": "CheckCircle2" },
-        { "name": "WooCommerce", "iconName": "Globe" },
-        { "name": "Klaviyo", "iconName": "PenTool" }
+        {
+          "name": "Shopify",
+          "iconName": "ShoppingCart"
+        },
+        {
+          "name": "Next.js",
+          "iconName": "Monitor"
+        },
+        {
+          "name": "Stripe",
+          "iconName": "CheckCircle2"
+        },
+        {
+          "name": "WooCommerce",
+          "iconName": "Globe"
+        },
+        {
+          "name": "Klaviyo",
+          "iconName": "PenTool"
+        }
       ],
       "testimonials": [
         {
@@ -1099,17 +2530,29 @@
         {
           "title": "Shopify & Custom Storefronts",
           "desc": "We build fast, secure Shopify setups or headless Next.js online stores designed to showcase your catalog and load instantly.",
-          "features": ["Shopify Setup & Design", "headless Next.js Cart Layouts", "Responsive Product Grids"]
+          "features": [
+            "Shopify Setup & Design",
+            "headless Next.js Cart Layouts",
+            "Responsive Product Grids"
+          ]
         },
         {
           "title": "Checkout & Payment Integrations",
           "desc": "We integrate secure payment processors, single-click checkouts, local currencies, and tax automations to simplify purchases.",
-          "features": ["Single-Click Checkout Setup", "Stripe & PayPal Integration", "Automatic Tax & Shipping Rules"]
+          "features": [
+            "Single-Click Checkout Setup",
+            "Stripe & PayPal Integration",
+            "Automatic Tax & Shipping Rules"
+          ]
         },
         {
           "title": "Conversion Rate Optimization (CRO)",
           "desc": "We analyze buyer journeys, remove checkout frictions, optimize call-to-actions, and set up abandoned cart emails to capture lost sales.",
-          "features": ["Cart Abandonment Email Flows", "Product Page A/B Testing", "Visual Search & Filter Setup"]
+          "features": [
+            "Cart Abandonment Email Flows",
+            "Product Page A/B Testing",
+            "Visual Search & Filter Setup"
+          ]
         }
       ]
     },
@@ -1118,12 +2561,36 @@
       "titleIntro": "Our E-Commerce ",
       "titleHighlight": "Framework",
       "components": [
-        { "num": "01", "title": "Catalog & Architecture Review", "desc": "Mapping categories, product variations, collections, and search logic." },
-        { "num": "02", "title": "High-Conversion Product Layouts", "desc": "Designing product pages featuring high-quality images, reviews, and clear CTA buttons." },
-        { "num": "03", "title": "Single-Click Checkout Path", "desc": "Simplifying buying paths to minimize cart drop-off rates." },
-        { "num": "04", "title": "API & Payment Integrations", "desc": "Connecting Stripe, inventory sync, shipment tracking, and accounting tools." },
-        { "num": "05", "title": "Responsive Speed Testing", "desc": "Optimizing image weights and script load orders for fast shopping speeds." },
-        { "num": "06", "title": "abandoned Cart Automation", "desc": "Deploying Klaviyo email flows to recapture users who abandon checkouts." }
+        {
+          "num": "01",
+          "title": "Catalog & Architecture Review",
+          "desc": "Mapping categories, product variations, collections, and search logic."
+        },
+        {
+          "num": "02",
+          "title": "High-Conversion Product Layouts",
+          "desc": "Designing product pages featuring high-quality images, reviews, and clear CTA buttons."
+        },
+        {
+          "num": "03",
+          "title": "Single-Click Checkout Path",
+          "desc": "Simplifying buying paths to minimize cart drop-off rates."
+        },
+        {
+          "num": "04",
+          "title": "API & Payment Integrations",
+          "desc": "Connecting Stripe, inventory sync, shipment tracking, and accounting tools."
+        },
+        {
+          "num": "05",
+          "title": "Responsive Speed Testing",
+          "desc": "Optimizing image weights and script load orders for fast shopping speeds."
+        },
+        {
+          "num": "06",
+          "title": "abandoned Cart Automation",
+          "desc": "Deploying Klaviyo email flows to recapture users who abandon checkouts."
+        }
       ]
     },
     "benefits": {
@@ -1131,10 +2598,26 @@
       "titleIntro": "Why Upgrade Your Online ",
       "titleHighlight": "Store?",
       "list": [
-        { "title": "Lower Cart Abandonment", "desc": "Optimized checkouts ensure more shoppers complete their purchases.", "metric": "-35% Abandon" },
-        { "title": "Blazing Page Speeds", "desc": "Fast stores retain visitors and generate higher sales volume than slow templates.", "metric": "< 1.5s Load" },
-        { "title": "Automated Operations", "desc": "Automated inventory updates, shipping labels, and accounting connections save you time.", "metric": "Automated" },
-        { "title": "Mobile-First Shopping", "desc": "A shopping interface designed to make mobile checkouts easy.", "metric": "100% Mobile" }
+        {
+          "title": "Lower Cart Abandonment",
+          "desc": "Optimized checkouts ensure more shoppers complete their purchases.",
+          "metric": "-35% Abandon"
+        },
+        {
+          "title": "Blazing Page Speeds",
+          "desc": "Fast stores retain visitors and generate higher sales volume than slow templates.",
+          "metric": "< 1.5s Load"
+        },
+        {
+          "title": "Automated Operations",
+          "desc": "Automated inventory updates, shipping labels, and accounting connections save you time.",
+          "metric": "Automated"
+        },
+        {
+          "title": "Mobile-First Shopping",
+          "desc": "A shopping interface designed to make mobile checkouts easy.",
+          "metric": "100% Mobile"
+        }
       ]
     },
     "process": {
@@ -1142,12 +2625,36 @@
       "titleIntro": "6 Steps to a Scalable Online ",
       "titleHighlight": "Store",
       "steps": [
-        { "num": "01", "title": "Discovery & Sitemap Map", "desc": "We outline collections, filter categories, and store requirements." },
-        { "num": "02", "title": "UX wireframing & Layouts", "desc": "We wireframe product grids, filter sidebars, and checkouts." },
-        { "num": "03", "title": "Custom Figma Design", "desc": "We draft custom design systems for product and cart templates." },
-        { "num": "04", "title": "Store Development", "desc": "We build clean Next.js/Tailwind code or customize Shopify systems." },
-        { "num": "05", "title": "integrations & Syncs", "desc": "We set up Stripe, payment methods, inventory tools, and shipping rules." },
-        { "num": "06", "title": "Launch & Tracking Setup", "desc": "We go live, test cart checkouts, and set up GA4 purchase tracking." }
+        {
+          "num": "01",
+          "title": "Discovery & Sitemap Map",
+          "desc": "We outline collections, filter categories, and store requirements."
+        },
+        {
+          "num": "02",
+          "title": "UX wireframing & Layouts",
+          "desc": "We wireframe product grids, filter sidebars, and checkouts."
+        },
+        {
+          "num": "03",
+          "title": "Custom Figma Design",
+          "desc": "We draft custom design systems for product and cart templates."
+        },
+        {
+          "num": "04",
+          "title": "Store Development",
+          "desc": "We build clean Next.js/Tailwind code or customize Shopify systems."
+        },
+        {
+          "num": "05",
+          "title": "integrations & Syncs",
+          "desc": "We set up Stripe, payment methods, inventory tools, and shipping rules."
+        },
+        {
+          "num": "06",
+          "title": "Launch & Tracking Setup",
+          "desc": "We go live, test cart checkouts, and set up GA4 purchase tracking."
+        }
       ]
     },
     "results": {
@@ -1155,10 +2662,26 @@
       "titleIntro": "Blazing Performance, Increased ",
       "titleHighlight": "Revenue",
       "metrics": [
-        { "value": "+58%", "label": "Sales Conversion Spike", "desc": "Average growth in completed checkouts within 90 days of redesign." },
-        { "value": "< 1.4s", "label": "Cart Loading Time", "desc": "Blazing fast product displays preventing shopping cart abandonment." },
-        { "value": "10k+", "label": "Orders Processed Daily", "desc": "Scalable checkout backends built to handle high promotional spikes." },
-        { "value": "4.2x", "label": "Average Return on ad Spend", "desc": "ROI achieved when pairing our custom storefront layouts with ads." }
+        {
+          "value": "+58%",
+          "label": "Sales Conversion Spike",
+          "desc": "Average growth in completed checkouts within 90 days of redesign."
+        },
+        {
+          "value": "< 1.4s",
+          "label": "Cart Loading Time",
+          "desc": "Blazing fast product displays preventing shopping cart abandonment."
+        },
+        {
+          "value": "10k+",
+          "label": "Orders Processed Daily",
+          "desc": "Scalable checkout backends built to handle high promotional spikes."
+        },
+        {
+          "value": "4.2x",
+          "label": "Average Return on ad Spend",
+          "desc": "ROI achieved when pairing our custom storefront layouts with ads."
+        }
       ],
       "caseStudies": [
         {
@@ -1180,12 +2703,30 @@
       "titleIntro": "Storefront Solutions for Every ",
       "titleHighlight": "Brand",
       "list": [
-        { "title": "Fashion & Lifestyle Retail", "desc": "Grid filters, model video showcases, and quick cart previews." },
-        { "title": "Beauty & Spas", "desc": "Product collection lists, recurring subscriptions, and reviews pages." },
-        { "title": "Electronics & Tech Tools", "desc": "Compare features layouts, specification grids, and manuals." },
-        { "title": "Food & Beverage Brands", "desc": "Subscription bundle options, fresh delivery rules, and custom boxes." },
-        { "title": "Home & furniture", "desc": "Large high-quality galleries, custom dimensions selectors, and shipping calcs." },
-        { "title": "Professional SaaS Add-Ons", "desc": "Single-page payment checkouts and automatic invoice generation." }
+        {
+          "title": "Fashion & Lifestyle Retail",
+          "desc": "Grid filters, model video showcases, and quick cart previews."
+        },
+        {
+          "title": "Beauty & Spas",
+          "desc": "Product collection lists, recurring subscriptions, and reviews pages."
+        },
+        {
+          "title": "Electronics & Tech Tools",
+          "desc": "Compare features layouts, specification grids, and manuals."
+        },
+        {
+          "title": "Food & Beverage Brands",
+          "desc": "Subscription bundle options, fresh delivery rules, and custom boxes."
+        },
+        {
+          "title": "Home & furniture",
+          "desc": "Large high-quality galleries, custom dimensions selectors, and shipping calcs."
+        },
+        {
+          "title": "Professional SaaS Add-Ons",
+          "desc": "Single-page payment checkouts and automatic invoice generation."
+        }
       ]
     },
     "tools": {
@@ -1193,11 +2734,26 @@
       "titleIntro": "Our Modern Storefront ",
       "titleHighlight": "Stack",
       "list": [
-        { "name": "Shopify API", "iconName": "ShoppingCart" },
-        { "name": "Next.js", "iconName": "Monitor" },
-        { "name": "Stripe", "iconName": "CheckCircle2" },
-        { "name": "Tailwind CSS", "iconName": "Palette" },
-        { "name": "Klaviyo", "iconName": "PenTool" }
+        {
+          "name": "Shopify API",
+          "iconName": "ShoppingCart"
+        },
+        {
+          "name": "Next.js",
+          "iconName": "Monitor"
+        },
+        {
+          "name": "Stripe",
+          "iconName": "CheckCircle2"
+        },
+        {
+          "name": "Tailwind CSS",
+          "iconName": "Palette"
+        },
+        {
+          "name": "Klaviyo",
+          "iconName": "PenTool"
+        }
       ]
     },
     "whyChooseUs": {
@@ -1205,16 +2761,37 @@
       "titleIntro": "Online Stores Engineered to ",
       "titleHighlight": "Sell",
       "list": [
-        { "title": "No Bloated Templates", "desc": "We build fast, secure store layouts. No heavy apps that slow your site down." },
-        { "title": "Conversion First Layouts", "desc": "We position add-to-cart buttons and payment badges strategically." },
-        { "title": "headless Options", "desc": "We offer custom React/Next.js checkout setups for enterprise performance." },
-        { "title": "GA4 Purchase Attribution", "desc": "We set up tracking to measure revenue generated by every marketing channel." }
+        {
+          "title": "No Bloated Templates",
+          "desc": "We build fast, secure store layouts. No heavy apps that slow your site down."
+        },
+        {
+          "title": "Conversion First Layouts",
+          "desc": "We position add-to-cart buttons and payment badges strategically."
+        },
+        {
+          "title": "headless Options",
+          "desc": "We offer custom React/Next.js checkout setups for enterprise performance."
+        },
+        {
+          "title": "GA4 Purchase Attribution",
+          "desc": "We set up tracking to measure revenue generated by every marketing channel."
+        }
       ]
     },
     "faqs": [
-      { "q": "Do you work with Shopify or WooCommerce?", "a": "We build custom themes on Shopify for ease of admin use. For enterprise clients seeking extreme performance, we build headless Next.js sites connected to Shopify backends." },
-      { "q": "Can you migrate my existing store to Shopify?", "a": "Yes. We handle database migrations, transferring products, client customer accounts, and order histories from WooCommerce, Magento, or Squarespace." },
-      { "q": "Do you integrate shipping tools and CRM platforms?", "a": "Yes, we integrate ShipStation, Starshipit, DHL, tax compliance tools, accounting platforms (Xero/QuickBooks), and email tools (Klaviyo)." }
+      {
+        "q": "Do you work with Shopify or WooCommerce?",
+        "a": "We build custom themes on Shopify for ease of admin use. For enterprise clients seeking extreme performance, we build headless Next.js sites connected to Shopify backends."
+      },
+      {
+        "q": "Can you migrate my existing store to Shopify?",
+        "a": "Yes. We handle database migrations, transferring products, client customer accounts, and order histories from WooCommerce, Magento, or Squarespace."
+      },
+      {
+        "q": "Do you integrate shipping tools and CRM platforms?",
+        "a": "Yes, we integrate ShipStation, Starshipit, DHL, tax compliance tools, accounting platforms (Xero/QuickBooks), and email tools (Klaviyo)."
+      }
     ],
     "finalCta": {
       "eyebrow": "READY TO GROW ONLINE SALES?",
@@ -1222,6 +2799,79 @@
       "titleHighlight": "Scalable Store?",
       "titleLine2": "Let's Layout Your Catalog.",
       "description": "Book a free storefront consultation. We will audit your current checkout funnel, locate cart bottlenecks, and suggest 3 landing page optimizations."
+    },
+    "pricing": {
+      "eyebrow": "12 // PRICING PLANS",
+      "titleIntro": "High-Converting Storefront ",
+      "titleHighlight": "Plans",
+      "plans": [
+        {
+          "name": "Starter",
+          "price": "$3,499",
+          "period": "one-time",
+          "desc": "Launch a clean Shopify store built using standard styling frameworks.",
+          "features": [
+            "Shopify theme setups & configuration",
+            "Up to 50 catalog products configured",
+            "Stripe & credit cards gateways setup",
+            "Standard responsive checkout flow"
+          ],
+          "ctaText": "Choose Starter",
+          "isPopular": false,
+          "isCustom": false
+        },
+        {
+          "name": "Professional",
+          "price": "$6,999",
+          "period": "one-time",
+          "desc": "Fast headless storefront built to optimize conversion metrics.",
+          "features": [
+            "Next.js headless Shopify storefront",
+            "Unlimited product catalogs capability",
+            "Custom checkout webhooks integration",
+            "Blazing fast performance loading"
+          ],
+          "ctaText": "Choose Professional",
+          "isPopular": true,
+          "isCustom": false
+        },
+        {
+          "name": "Premium",
+          "price": "$12,999",
+          "period": "one-time",
+          "desc": "Enterprise headless system with customized search filters.",
+          "features": [
+            "Custom visual search filters routing",
+            "Multi-currency & localization setups",
+            "Automated behavioral abandon cart emails",
+            "Vercel global edge CDN speed setup"
+          ],
+          "ctaText": "Choose Premium",
+          "isPopular": false,
+          "isCustom": false
+        },
+        {
+          "name": "Enterprise",
+          "price": "Custom",
+          "period": "project based",
+          "desc": "Global multi-vendor marketplaces and complex commerce portals.",
+          "features": [
+            "Multi-vendor marketplace setups",
+            "Custom ERP database synchronization",
+            "Omnichannel POS terminal integration",
+            "Ongoing monthly support SLAs"
+          ],
+          "ctaText": "Contact for Details",
+          "isPopular": false,
+          "isCustom": true
+        }
+      ]
+    },
+    "serviceArea": {
+      "sectionTag": "GLOBAL CART",
+      "titleIntro": "Headless Storefronts Scaled for ",
+      "titleHighlight": "Global Transactions",
+      "description": "We develop headless Shopify storefronts integrated with Stripe multi-currency checkout gateways to process payments anywhere instantly."
     }
   },
   "analytics": {
@@ -1245,11 +2895,26 @@
     "clientTrust": {
       "heading": "We track performance and optimize conversions using",
       "logos": [
-        { "name": "Google Analytics 4", "iconName": "BarChart2" },
-        { "name": "Google Tag Manager", "iconName": "Monitor" },
-        { "name": "Hotjar", "iconName": "Search" },
-        { "name": "Looker Studio", "iconName": "Globe" },
-        { "name": "Optimizely", "iconName": "CheckCircle2" }
+        {
+          "name": "Google Analytics 4",
+          "iconName": "BarChart2"
+        },
+        {
+          "name": "Google Tag Manager",
+          "iconName": "Monitor"
+        },
+        {
+          "name": "Hotjar",
+          "iconName": "Search"
+        },
+        {
+          "name": "Looker Studio",
+          "iconName": "Globe"
+        },
+        {
+          "name": "Optimizely",
+          "iconName": "CheckCircle2"
+        }
       ],
       "testimonials": [
         {
@@ -1274,17 +2939,29 @@
         {
           "title": "GA4 & Tag Container Configurations",
           "desc": "We audit and configure Google Analytics 4, Tag Manager variables, and custom events to capture every form submission and click.",
-          "features": ["Custom GA4 Event Setup", "Google Tag Manager Audits", "Custom Conversion Goals Mapping"]
+          "features": [
+            "Custom GA4 Event Setup",
+            "Google Tag Manager Audits",
+            "Custom Conversion Goals Mapping"
+          ]
         },
         {
           "title": "User Behavior & Heatmap Audits",
           "desc": "We deploy heatmaps and review scroll recordings to find checkout barriers, visual blocks, and unused sections on your pages.",
-          "features": ["Scroll & Click Map Setup", "Visitor Recording Reviews", "UX Friction Analysis"]
+          "features": [
+            "Scroll & Click Map Setup",
+            "Visitor Recording Reviews",
+            "UX Friction Analysis"
+          ]
         },
         {
           "title": "A/B Testing & Funnel Adjustments",
           "desc": "We design and run A/B tests to optimize headline copy, layout styles, and button alignments to increase conversion rates.",
-          "features": ["Headline & Copy Split Tests", "Call-to-Action Placements", "Checkout Funnel Optimizations"]
+          "features": [
+            "Headline & Copy Split Tests",
+            "Call-to-Action Placements",
+            "Checkout Funnel Optimizations"
+          ]
         }
       ]
     },
@@ -1293,12 +2970,36 @@
       "titleIntro": "Our Optimization ",
       "titleHighlight": "Blueprint",
       "components": [
-        { "num": "01", "title": "Analytics Integrity Audit", "desc": "Checking existing tracking codes and removing double-counting errors." },
-        { "num": "02", "title": "Conversion Funnel Mapping", "desc": "Mapping entry points, landing page scrolls, cart views, and form checks." },
-        { "num": "03", "title": "Heatmap & Recording Deployment", "desc": "Deploying heatmaps to track user scrolls and button clicks." },
-        { "num": "04", "title": "Friction Point Diagnostics", "desc": "Identifying sections where prospects leave checkout steps or form fields." },
-        { "num": "05", "title": "A/B Split Test Design", "desc": "Drafting page variations, button colors, and copywriting hooks to test." },
-        { "num": "06", "title": "Looker Studio Dashboard Setup", "desc": "Building easy-to-use visual reports to track monthly campaign ROI." }
+        {
+          "num": "01",
+          "title": "Analytics Integrity Audit",
+          "desc": "Checking existing tracking codes and removing double-counting errors."
+        },
+        {
+          "num": "02",
+          "title": "Conversion Funnel Mapping",
+          "desc": "Mapping entry points, landing page scrolls, cart views, and form checks."
+        },
+        {
+          "num": "03",
+          "title": "Heatmap & Recording Deployment",
+          "desc": "Deploying heatmaps to track user scrolls and button clicks."
+        },
+        {
+          "num": "04",
+          "title": "Friction Point Diagnostics",
+          "desc": "Identifying sections where prospects leave checkout steps or form fields."
+        },
+        {
+          "num": "05",
+          "title": "A/B Split Test Design",
+          "desc": "Drafting page variations, button colors, and copywriting hooks to test."
+        },
+        {
+          "num": "06",
+          "title": "Looker Studio Dashboard Setup",
+          "desc": "Building easy-to-use visual reports to track monthly campaign ROI."
+        }
       ]
     },
     "benefits": {
@@ -1306,10 +3007,26 @@
       "titleIntro": "The Power of Data-Backed ",
       "titleHighlight": "Optimizations",
       "list": [
-        { "title": "Clear Marketing Attribution", "desc": "Know exactly which channels (SEO, PPC, Social) generate your sales leads.", "metric": "Attribution" },
-        { "title": "Increased Conversion Action", "desc": "Convert a higher percentage of site visitors into inbound bookings.", "metric": "+45% CR" },
-        { "title": "Maximizes Marketing Spend", "desc": "Lower your average CPA by making your existing traffic convert better.", "metric": "-30% CAC" },
-        { "title": "Stops Guesswork Decisions", "desc": "Make website adjustments based on real user behaviors, not opinions.", "metric": "Data Backed" }
+        {
+          "title": "Clear Marketing Attribution",
+          "desc": "Know exactly which channels (SEO, PPC, Social) generate your sales leads.",
+          "metric": "Attribution"
+        },
+        {
+          "title": "Increased Conversion Action",
+          "desc": "Convert a higher percentage of site visitors into inbound bookings.",
+          "metric": "+45% CR"
+        },
+        {
+          "title": "Maximizes Marketing Spend",
+          "desc": "Lower your average CPA by making your existing traffic convert better.",
+          "metric": "-30% CAC"
+        },
+        {
+          "title": "Stops Guesswork Decisions",
+          "desc": "Make website adjustments based on real user behaviors, not opinions.",
+          "metric": "Data Backed"
+        }
       ]
     },
     "process": {
@@ -1317,12 +3034,36 @@
       "titleIntro": "Our CRO Steps in 6 ",
       "titleHighlight": "Phases",
       "steps": [
-        { "num": "01", "title": "Tracking Audit & Plan", "desc": "We analyze current analytics tracking codes and tag variables." },
-        { "num": "02", "title": "Custom Goal Configuration", "desc": "We set up tracking for calls, form submits, and transactions." },
-        { "num": "03", "title": "Heatmap & Recording Setup", "desc": "We deploy scripts to record anonymous user navigation paths." },
-        { "num": "04", "title": "Data Gathering (30 Days)", "desc": "We gather visual data on clicks, scrolls, and drop-offs." },
-        { "num": "05", "title": "A/B Split Testing", "desc": "We draft layout variations and test them to increase conversions." },
-        { "num": "06", "title": "Reporting & Dashboard Setup", "desc": "We deliver custom Looker Studio dashboards tracking revenue." }
+        {
+          "num": "01",
+          "title": "Tracking Audit & Plan",
+          "desc": "We analyze current analytics tracking codes and tag variables."
+        },
+        {
+          "num": "02",
+          "title": "Custom Goal Configuration",
+          "desc": "We set up tracking for calls, form submits, and transactions."
+        },
+        {
+          "num": "03",
+          "title": "Heatmap & Recording Setup",
+          "desc": "We deploy scripts to record anonymous user navigation paths."
+        },
+        {
+          "num": "04",
+          "title": "Data Gathering (30 Days)",
+          "desc": "We gather visual data on clicks, scrolls, and drop-offs."
+        },
+        {
+          "num": "05",
+          "title": "A/B Split Testing",
+          "desc": "We draft layout variations and test them to increase conversions."
+        },
+        {
+          "num": "06",
+          "title": "Reporting & Dashboard Setup",
+          "desc": "We deliver custom Looker Studio dashboards tracking revenue."
+        }
       ]
     },
     "results": {
@@ -1330,10 +3071,26 @@
       "titleIntro": "Validated Growth, Refined ",
       "titleHighlight": "Conversions",
       "metrics": [
-        { "value": "+62%", "label": "Inbound Lead Increase", "desc": "Average increases in form completions after optimizing page layouts." },
-        { "value": "100%", "label": "Accurate Conversion Tracking", "desc": "Eliminating double-counting errors and fixing broken pixel links." },
-        { "value": "-35%", "label": "Cost Per Lead Drop", "desc": "Reduction in customer acquisition cost through A/B test gains." },
-        { "value": "150+", "label": "Looker Dashboards Built", "desc": "Custom visual reports configured to track business ROI in real-time." }
+        {
+          "value": "+62%",
+          "label": "Inbound Lead Increase",
+          "desc": "Average increases in form completions after optimizing page layouts."
+        },
+        {
+          "value": "100%",
+          "label": "Accurate Conversion Tracking",
+          "desc": "Eliminating double-counting errors and fixing broken pixel links."
+        },
+        {
+          "value": "-35%",
+          "label": "Cost Per Lead Drop",
+          "desc": "Reduction in customer acquisition cost through A/B test gains."
+        },
+        {
+          "value": "150+",
+          "label": "Looker Dashboards Built",
+          "desc": "Custom visual reports configured to track business ROI in real-time."
+        }
       ],
       "caseStudies": [
         {
@@ -1355,12 +3112,30 @@
       "titleIntro": "CRO Solutions for Diverse ",
       "titleHighlight": "Niches",
       "list": [
-        { "title": "E-Commerce Stores", "desc": "Tracking product clicks, shopping cart funnels, and checkout transactions." },
-        { "title": "Local Contractor Services", "desc": "Optimizing mobile contact forms, phone dials, and quote forms." },
-        { "title": "SaaS & Software Products", "desc": "Tracking trial sign-ups, pricing plan clicks, and app setup progress." },
-        { "title": "Medical & Dental Clinics", "desc": "Optimizing online calendar bookings and appointment requests." },
-        { "title": "Real Estate Agencies", "desc": "Tracking listing queries, property search filters, and maps clicks." },
-        { "title": "Corporate Enterprises", "desc": "Tracking downloads, whitepaper views, and corporate partnership forms." }
+        {
+          "title": "E-Commerce Stores",
+          "desc": "Tracking product clicks, shopping cart funnels, and checkout transactions."
+        },
+        {
+          "title": "Local Contractor Services",
+          "desc": "Optimizing mobile contact forms, phone dials, and quote forms."
+        },
+        {
+          "title": "SaaS & Software Products",
+          "desc": "Tracking trial sign-ups, pricing plan clicks, and app setup progress."
+        },
+        {
+          "title": "Medical & Dental Clinics",
+          "desc": "Optimizing online calendar bookings and appointment requests."
+        },
+        {
+          "title": "Real Estate Agencies",
+          "desc": "Tracking listing queries, property search filters, and maps clicks."
+        },
+        {
+          "title": "Corporate Enterprises",
+          "desc": "Tracking downloads, whitepaper views, and corporate partnership forms."
+        }
       ]
     },
     "tools": {
@@ -1368,11 +3143,26 @@
       "titleIntro": "Our Advanced Analytics ",
       "titleHighlight": "Stack",
       "list": [
-        { "name": "Google Analytics 4", "iconName": "BarChart2" },
-        { "name": "Google Tag Manager", "iconName": "Monitor" },
-        { "name": "Hotjar", "iconName": "Search" },
-        { "name": "Looker Studio", "iconName": "Globe" },
-        { "name": "Google Optimize", "iconName": "CheckCircle2" }
+        {
+          "name": "Google Analytics 4",
+          "iconName": "BarChart2"
+        },
+        {
+          "name": "Google Tag Manager",
+          "iconName": "Monitor"
+        },
+        {
+          "name": "Hotjar",
+          "iconName": "Search"
+        },
+        {
+          "name": "Looker Studio",
+          "iconName": "Globe"
+        },
+        {
+          "name": "Google Optimize",
+          "iconName": "CheckCircle2"
+        }
       ]
     },
     "whyChooseUs": {
@@ -1380,16 +3170,37 @@
       "titleIntro": "Conversion Optimization Built around ",
       "titleHighlight": "Analytics",
       "list": [
-        { "title": "Server-Side Tagging Options", "desc": "We set up server-side tracking to prevent data loss from ad blockers." },
-        { "title": "Visual Heatmaps Auditing", "desc": "We review actual user recordings to spot design flaws." },
-        { "title": "Looker Studio Reports", "desc": "We build clear, visual reports that track your bottom-line leads." },
-        { "title": "Rigorous A/B Testing", "desc": "We verify all design modifications with split testing data." }
+        {
+          "title": "Server-Side Tagging Options",
+          "desc": "We set up server-side tracking to prevent data loss from ad blockers."
+        },
+        {
+          "title": "Visual Heatmaps Auditing",
+          "desc": "We review actual user recordings to spot design flaws."
+        },
+        {
+          "title": "Looker Studio Reports",
+          "desc": "We build clear, visual reports that track your bottom-line leads."
+        },
+        {
+          "title": "Rigorous A/B Testing",
+          "desc": "We verify all design modifications with split testing data."
+        }
       ]
     },
     "faqs": [
-      { "q": "What is Conversion Rate Optimization (CRO)?", "a": "CRO is the process of improving your website design, copywriting, and layout to increase the percentage of site visitors who complete a target action (like buying or submitting a form)." },
-      { "q": "How does GA4 server-side tagging help my business?", "a": "Server-side tagging routes data directly to GA4 through your custom subdomain, preventing data loss from browser ad-blockers and improving page speeds." },
-      { "q": "Do you need a lot of traffic to run A/B tests?", "a": "For statistically significant A/B tests, we recommend at least 3,000 monthly visitors. For lower traffic sites, we run user behavior diagnostics and heuristic usability audits." }
+      {
+        "q": "What is Conversion Rate Optimization (CRO)?",
+        "a": "CRO is the process of improving your website design, copywriting, and layout to increase the percentage of site visitors who complete a target action (like buying or submitting a form)."
+      },
+      {
+        "q": "How does GA4 server-side tagging help my business?",
+        "a": "Server-side tagging routes data directly to GA4 through your custom subdomain, preventing data loss from browser ad-blockers and improving page speeds."
+      },
+      {
+        "q": "Do you need a lot of traffic to run A/B tests?",
+        "a": "For statistically significant A/B tests, we recommend at least 3,000 monthly visitors. For lower traffic sites, we run user behavior diagnostics and heuristic usability audits."
+      }
     ],
     "finalCta": {
       "eyebrow": "READY TO OPTIMIZE YOUR FUNNEL?",
@@ -1397,6 +3208,79 @@
       "titleHighlight": "Website Conversion?",
       "titleLine2": "Let's Audit Your Analytics Setup.",
       "description": "Book a free analytics audit. We will review your current GA4 setups, identify conversion tracking errors, and suggest 3 UX optimizations."
+    },
+    "pricing": {
+      "eyebrow": "12 // PRICING PLANS",
+      "titleIntro": "Data Analytics & Tag ",
+      "titleHighlight": "Plans",
+      "plans": [
+        {
+          "name": "Starter",
+          "price": "$499",
+          "period": "one-time",
+          "desc": "Implement basic GA4 analytics tracking for your site.",
+          "features": [
+            "Standard Google Analytics 4 setup",
+            "Basic contact form conversion tracking",
+            "1 custom Looker Studio report page",
+            "Monthly metric reporting alerts"
+          ],
+          "ctaText": "Choose Starter",
+          "isPopular": false,
+          "isCustom": false
+        },
+        {
+          "name": "Professional",
+          "price": "$1,199",
+          "period": "one-time",
+          "desc": "Comprehensive container tagging built to audit marketing spends.",
+          "features": [
+            "GA4 & GTM container deployment",
+            "Advanced e-commerce purchase tracking",
+            "Server-side tracking pixel configuration",
+            "Looker Studio multi-channel dashboard"
+          ],
+          "ctaText": "Choose Professional",
+          "isPopular": true,
+          "isCustom": false
+        },
+        {
+          "name": "Premium",
+          "price": "$2,499",
+          "period": "one-time",
+          "desc": "Attribution mapping and conversion rate testing pipelines.",
+          "features": [
+            "Server-side attribution configurations",
+            "Heatmap and user session records setup",
+            "HubSpot or Salesforce CRM sync tests",
+            "Detailed conversion audit reports"
+          ],
+          "ctaText": "Choose Premium",
+          "isPopular": false,
+          "isCustom": false
+        },
+        {
+          "name": "Enterprise",
+          "price": "Custom",
+          "period": "project based",
+          "desc": "Enterprise data warehouse pipelines and analytics engines.",
+          "features": [
+            "BigQuery database piping setups",
+            "Custom machine learning attribution",
+            "Real-time analytics console dashboards",
+            "Ongoing corporate reporting updates"
+          ],
+          "ctaText": "Contact for Details",
+          "isPopular": false,
+          "isCustom": true
+        }
+      ]
+    },
+    "serviceArea": {
+      "sectionTag": "DATA COMPLIANCE",
+      "titleIntro": "Server-Side Tagging Containers Built for ",
+      "titleHighlight": "Global Data Compliance",
+      "description": "We deploy Google Tag Manager server-side containers to capture 100% of marketing pixel conversions across GDPR and international zones."
     }
   }
 }
